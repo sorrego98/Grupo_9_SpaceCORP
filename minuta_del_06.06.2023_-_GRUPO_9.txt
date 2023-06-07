@@ -1,0 +1,33 @@
+Participantes: Sebastián Orrego, Florencia Guede, Andrés Amortegui, Julián Díaz, Carlos Echegaray
+
+Estimados,
+
+Conforme a la sesión sostenida el martes 06.06.2023, adjunto los comentarios de la sesión:
+
+1. Nos definimos por trabajar en un sitio de e-commerce orientado a un estudio de grabación. El objetivo de este e-commerce es la prestación de servicios para producción de sonido, masterización, arriendo de equipos y salas de grabación entre otros.
+2. Respecto al sprint 1:
+	1. se completaron las siguientes tareas:
+		a. Se creó el repositorio GitHub para este proyecto integrador, el cual podrán acceder a través del vínculo: https://github.com/sorrego98/Grupo_9_SpaceCORP
+		b. Se creó el tablero de actividades en Trello para establecer el avance del proyecto y sprints, el vínculo es el siguiente: https://trello.com/b/79L6tN9m/proyecto-integrador
+		c. Se establecieron las actividades y sus responsables para completar durante el sprint.
+	2. en proceso, están las actividades:
+		a. Definición del e-commerce: Sebastián fungirá como PO (Product Owner) ya que tiene a la mano un contacto directo para toda la dinámica de negocio del estudio de grabación. De igual manera, Carlos Echegaray apoyará como LT para recabar la descripción del producto para añadir al readme.MD
+		b. Definición del readme.MD: Completada la actividad  2.2.a, se añadirá esto en la base del readme; es importante destacar que el equipo también debe aportar en el documento, una breve descripción de sí mismos para que la tarea cuente como completada.
+	3. se listan las "próximas actividades":
+		a. Creación de WF (WorkFrames):
+			1. HomePage: Sebastián Orrego trabajará en este WF.
+			2. Detalle del Producto: Carlos Echegaray trabajará en este WF.
+			3. Carrito de Compras: Florencia Guede trabajará en este WF.
+			4. Formulario de Registro: Andrés Amortegui trabajará en este WF.
+			5. Formulario de Login: Julián Díaz trabajará en este WF.
+		b. DESEABLE - Esquema de diseño: Sebastián Orrego y Carlos Echegaray estarán buscando la posibilidad de incluir esquemas de colores, logos y tipografía para este proyecto.
+3. Respecto al seguimiento de las actividades:
+	1. Se plantean 2 sesiones semanales en las cuales:
+		a. Los martes en horario de la cursada, durante 1hr, estaremos trabajando en la revisión de nuestro tablero de trabajo, para marcar los hitos y asignar las responsabilidades.
+		b. Los sabados, a las 11hrs Chile/ 10hrs Colombia, se hará nuestra "weekly meeting" que servirá para verificar los avances, limitantes o situaciones que tengamos durante la semana con nuestras asignaciones. Se compondrá de 5min para cada integrante para que exponga sus comentarios respecto a su progreso y 5min extra para cerrar con algunas conclusiones.
+	2. Se plantea como canal de comunicación el discord del grupo (Grupo 9), así como el canal de telegram https://t.me/+Y_3aYkzF08czYTEx para poder comunicarnos directamente, en caso de no lograrlo por el discord.
+	
+Sin algún otro particular al cual referirme, quedamos con esta minuta de la sesión.
+
+Saludos,
+Carlos Echegaray
