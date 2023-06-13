@@ -1,0 +1,45 @@
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container {
+    position: relative;
+    width: 70%;
+    height: 70%;
+    max-width: 100%;
+    max-height: 100%;
+    text-align: center;
+    padding: 20px;
+    border: 1px solid #000;
+    border-radius: 10px;
+    box-sizing: border-box ;
+    transform: translate(-50%, -50%);
+    top: 50%;
+    left: 50%;
+    box-shadow: #000 ;
+}
+
+
+.input{
+    font-size: 10px;
+    width: 90%;
+}
+
+.logo {
+    display: block;
+    width: 3%; /* Esto hará que el ancho del logo sea del 20% del ancho de su contenedor */
+    height: auto; /* Esto mantendrá la relación de aspecto de la imagen mientras cambia el tamaño */
+    margin-top: 5.5%;
+}
+
+#logo-header {
+    position: absolute; /* Esto permite posicionar el logo en relación con el contenedor */
+    top: -50px; /* Esto moverá el logo hacia arriba en relación con el contenedor. Ajusta este valor según sea necesario */
+    left: 50%; /* Esto alineará el centro del logo con el centro del contenedor */
+    transform: translateX(-50%); /* Esto moverá el logo a la izquierda por la mitad de su anchura, centrándolo en el contenedor */
+}
