@@ -47,3 +47,5 @@ https://studio.sonymusic.com.mx/
 https://oigoestudios.com/
 https://estudio.audiomusica.com/
 https://deltarecords.net/
+
+Link Trello: https://trello.com/b/79L6tN9m/proyecto-integrador
