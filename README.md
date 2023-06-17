@@ -36,7 +36,7 @@ Carlos Echegaray funge como nuestro Líder Técnico, estando a cargo de cumplir 
 
 Florencia Guede tiene el rol de Scrum Master, la cual buscará que durante el proyecto se integren las mejores prácticas de la metodología ágil, guiando los weekly destinados a instrospectar los aprendizajes y potenciar al equipo conociendo las fortalezas individuales para alcanzar los objetivos planteados. Florencia trabaja en el área de Riesgos de Chubb Chile, le encantan los desafios y aprender cosas nuevas. Es fanática de Messi y campeona del mundo.
 
-Andrés Amortegui, tiene el rol de Fullstack Developer, siendo su principal objetivo apoyar tanto a nivel de back-end como front-end. DETALLES PERSONALES.
+Andrés Amortegui, tiene el rol de Fullstack Developer, siendo su principal objetivo apoyar tanto a nivel de back-end como front-end. Trabajs en colombia como ingeniero de alimentos lo que mas me gusta es  desarrollar soluciones a sistemas complejos.
 
 Julián Díaz, tiene el rol de Fullstack Developer, siendo su principal objetivo apoyar tanto a nivel de back-end como front-end. DETALLES PERSONALES.
 
