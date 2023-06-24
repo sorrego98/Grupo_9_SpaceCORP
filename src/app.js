@@ -7,12 +7,12 @@ app.get('/', (req, res) => res.send('Prueba'));
 
 
 app.get('/registration', (req, res) => {
-    let htmlPath = path.resolve(__dirname, '../views/registration.html');
+    let htmlPath = path.resolve(__dirname, './views/registration.html');
     res.sendFile(htmlPath);
 });
 
 app.get('/productCart', (req, res) => {
-    let htmlPath = path.resolve(__dirname, '../views/productCart.html');
+    let htmlPath = path.resolve(__dirname, './views/productCart.html');
     res.sendFile(htmlPath);
 });
 
