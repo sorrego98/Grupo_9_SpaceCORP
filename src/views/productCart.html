@@ -3,24 +3,78 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../public/css/cartstyles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="css/cartstyles.css">
     <title>Carrito</title>
 </head>
 <body>
     <header>
-        <img id="logo-header" class="logo" src="/public/img/logo.png">
-    </header>
-    <nav></nav>
-    <main>
-        <section>
-            <ul>
-                <li><a href="#">Producto</a></li>
-                <li><a href="#">Precio</a></li>
-                <li><a href="#">Cantidad</a></li>
-                <li><a href="#">Total</a></li>
+        <div>
+            <img class="logo" src="img/logo.png" alt="Logo AS Studio">
+        </div>
+        <nav>
+            <ul class="nav">
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Productos</a></li>
+                <li><a href="#">Login</a></li>
+                <li><a href="#">Registro</a></li>
+                <li><a href="#">Carrito</a></li>
+                <li><a href="#">Contacto</a></li>
             </ul>
+        </nav>
+    </header>
+    <main>
+        <h1>Tu Carrito</h1>
+        <section class="container">
+            <table width="100%" class="tabla">
+                <thead>
+                    <tr>
+                        <td>Producto</td>
+                        <td>Precio</td>
+                        <td>Cantidad</td>
+                        <td>Tipo unidad</td>
+                        <td>Total</td>
+                        <td>Borrar</td>
+                        <td>Favoritos</td>
+                    </tr>   
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><h2>Producto1</h2></td>
+                        <td><h2>$00.00</h2></td>
+                        <td><input class="q" value="1" type="number"></td>
+                        <td><h2>Tipo unidad1</h2></td>
+                        <td><h2>$00.00</h2></td>
+                        <td><a href="#"><i class="fa-solid fa-trash"></i></a></td>
+                        <td><a href="#"><i class="fa-solid fa-heart"></i></a></td>
+                    </tr>
+                    <tr>
+                        <td><h2>Producto2</h2></td>
+                        <td><h2>$00.00</h2></td>
+                        <td><input class="q" value="1" type="number"></td>
+                        <td><h2>Tipo unidad2</h2></td>
+                        <td><h2>$00.00</h2></td>
+                        <td><a href="#"><i class="fa-solid fa-trash"></i></a></td>
+                        <td><a href="#"><i class="fa-solid fa-heart"></i></a></td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+        <section class="totales">
+            <div class="total">Total:</div>
+            <div class="suma-total">$00.00</div>
+            <button type="submit" name="pagar" class="boton-pagar">Ir a pagar</button>
+        </section>
+        <section>
+            <div class="seguir">Seguir comprando</div>
         </section>
     </main>
-    <footer></footer>
+    <footer>
+        <ul>
+            <li><a href="#">Información de Contacto</a></li>
+            <li><a href="#">Formulario de Contacto</a></li>
+            <li><a href="#">Redes Sociales</a></li>
+        </ul>
+    </footer>
 </body>
 </html>

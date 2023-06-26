@@ -1,0 +1,141 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+
+
+/*------HEADER------*/
+
+header{
+    background-color: rgb(0, 238, 255);
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.logo{
+    width: 30%;
+    padding: 10px;
+}
+
+.nav{
+    display: flex;
+    font-size: 12px;
+    padding: 10px;
+    list-style-type: none;
+    justify-content: space-between;
+    align-items:  center;
+    text-decoration: none;
+}
+
+header nav ul li {
+    padding: 10px;
+}
+header nav ul li a{
+    text-decoration: none;
+}
+
+
+/*------MAIN------*/
+
+h1{
+    padding:10px;
+    font-size: 16px;
+}
+
+.container{
+    padding:10px;
+}
+
+main section table{
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: fixed;
+}
+
+main section table thead{
+    font-weight: bold;
+}
+
+main section table thead tr{
+    background-color: aliceblue;
+    border: none;
+    padding: 5px;
+    text-align: center;
+}
+
+.q{
+    width: 25px;
+    padding: 1px;
+}
+
+main section table tbody{
+    border: 1px solid lightgrey;
+    border-radius: 1px;
+
+}
+
+main section table tbody tr{
+    border: none;
+    padding: 5px;
+    text-align: center;
+}
+
+h2{
+    font-size: 16px;
+    font-weight: lighter;
+}
+
+.totales{
+    display: flex;
+    padding: 10px;
+    justify-content: right;
+}
+
+.total{
+    padding: 5px;
+}
+
+.suma-total{
+    padding: 5px;
+}
+
+
+.boton-pagar{
+    display:flex;
+    padding: 2px;
+    border: 1px solid grey;
+    border-radius: 5px;
+    background-color: lightblue;
+    align-items: center;
+}
+
+.seguir{
+    text-align: right;
+    padding: 5px;
+    font-size: 10px;
+    color:blue
+}
+
+
+
+
+/*------FOOTER------*/
+
+footer{
+    position: relative;
+    width: 100%;
+    background-color: black;
+}
+
+footer ul {
+    display: flex;
+    padding: 10px;
+    list-style-type: none;
+    position: absolute;
+    bottom: -200px;
+}
+
+footer ul li a{
+    text-decoration: none;
+}
