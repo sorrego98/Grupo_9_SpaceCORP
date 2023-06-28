@@ -1,0 +1,77 @@
+* {
+  margin: 0px;
+  padding: 0px;
+}
+
+body{
+    width: 95vw;
+    height: 100%;
+}
+body{
+    font-family: 'Roboto', sans-serif;
+    color: black;
+    background-color: #e9f6fa;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  flex-grow: 1;
+  margin: 8px;
+}
+
+.main-team{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/*------FOOTER------*/
+
+footer {
+    align-content: flex-end;
+}
+  
+footer div {
+    display: flexbox;
+    flex-direction: column;
+    align-items: flex-end;
+    padding: 10px;
+    background-color: #e9f6fa;
+}
+  
+section div p {
+    text-align: center;
+    margin: 5px 0px;
+}
+  
+section div h4 {
+    text-align: center;
+}
+  
+section div {
+    box-sizing: border-box;
+    margin: 8px;
+    box-shadow: 3px 3px 3px #92d2e9;
+    border-radius: 5px;
+}
+
+.nolink {
+    text-decoration: none;
+    color: black;
+}
+  
+.nolink-yt:hover {
+    background-color: #bc5e6a;
+    color: #ffffff;
+    box-shadow: 3px 3px 3px #c02539;
+    border-radius: 5px;
+}
+  
+.nolink-ig:hover {
+    background-color: #f69045;
+    color: #ffffff;
+    box-shadow: 3px 3px 3px #f69045;
+    border-radius: 5px;
+}
