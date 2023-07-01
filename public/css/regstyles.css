@@ -1,3 +1,21 @@
+* {
+    margin: 0px;
+    padding: 0px;
+  }
+  
+  html,
+  body {
+    height: 100%;
+  }
+  
+  body {
+    font-family: 'Roboto', sans-serif;
+    color: black;
+    display: flex;
+    flex-direction: column;
+    background-color: #e9f6fa;
+  }
+
 html, body {
     height: 100%;
     margin: 0;
@@ -43,3 +61,4 @@ html, body {
     left: 50%; /* Esto alineará el centro del logo con el centro del contenedor */
     transform: translateX(-50%); /* Esto moverá el logo a la izquierda por la mitad de su anchura, centrándolo en el contenedor */
 }
+

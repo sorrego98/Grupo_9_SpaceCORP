@@ -4,27 +4,36 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
     <link rel="stylesheet" href="css/cartstyles.css">
     <title>Carrito</title>
 </head>
 <body>
     <header>
-        <div>
-            <img class="logo" src="img/logo.png" alt="Logo AS Studio">
-        </div>
+        <div class="logo-container">
+            <img
+              class="logo"
+              src="https://github.com/sorrego98/Grupo_9_SpaceCORP/blob/master/documentacion/logo.png?raw=true"
+              alt="Logo AS Studio"
+            />
+          </div>
         <nav>
             <ul class="nav">
-                <li><a href="#">Home</a></li>
-                <li><a href="#">Productos</a></li>
-                <li><a href="#">Login</a></li>
-                <li><a href="#">Registro</a></li>
-                <li><a href="#">Carrito</a></li>
-                <li><a href="#">Contacto</a></li>
+                <li><a href="/">Home</a></li>
+                <li><a href="/products">Productos</a></li>
+                <li><a href="/contacts">Contacto</a></li>
+                <li><a href="/registration">Registro <i class="far fa-id-card"></i></a></li>
+                <li><a href="/login">Login <i class="fas fa-sign-in-alt"></i></a></li>
+                <li><a href="/productCart">Mi Carrito <i class="fas fa-shopping-basket"></i></a></li>
+                
             </ul>
         </nav>
+        <div class="burguer-menu">
+            <i class="fa-solid fa-bars"></i>    
+          </div>
     </header>
     <main>
-        <h1>Tu Carrito</h1>
+        <h1>Mi Carrito</h1>
         <section class="container">
             <table width="100%" class="tabla">
                 <thead>
@@ -42,7 +51,7 @@
                     <tr>
                         <td><h2>Producto1</h2></td>
                         <td><h2>$00.00</h2></td>
-                        <td><input class="q" value="1" type="number"></td>
+                        <td><input class="q" value="1" type="number" name="cantidad" min="1"></td>
                         <td><h2>Tipo unidad1</h2></td>
                         <td><h2>$00.00</h2></td>
                         <td><a href="#"><i class="fa-solid fa-trash"></i></a></td>
@@ -51,7 +60,7 @@
                     <tr>
                         <td><h2>Producto2</h2></td>
                         <td><h2>$00.00</h2></td>
-                        <td><input class="q" value="1" type="number"></td>
+                        <td><input class="q" value="1" type="number" name="cantidad" min="1"></td>
                         <td><h2>Tipo unidad2</h2></td>
                         <td><h2>$00.00</h2></td>
                         <td><a href="#"><i class="fa-solid fa-trash"></i></a></td>
@@ -60,21 +69,43 @@
                 </tbody>
             </table>
         </section>
+        <section>
+            <a href="/products">
+                <button type="submit" name="pagar" class="boton-seguir">Continuar comprando</button>
+            </a> 
+        </section>
         <section class="totales">
+            <h2>Resumen del pedido</h2>
             <div class="total">Total:</div>
             <div class="suma-total">$00.00</div>
             <button type="submit" name="pagar" class="boton-pagar">Ir a pagar</button>
         </section>
-        <section>
-            <div class="seguir">Seguir comprando</div>
-        </section>
+       
     </main>
     <footer>
-        <ul>
-            <li><a href="#">Información de Contacto</a></li>
-            <li><a href="#">Formulario de Contacto</a></li>
-            <li><a href="#">Redes Sociales</a></li>
-        </ul>
+        <div>
+            <section>
+                <div>
+                    <h4><i class="fa-solid fa-location-dot"></i> AirSound Studio</h4>
+                    <p>Valle del Aburrá, La Estrella, Colombia</p>
+                </div>
+            </section>
+            <section>
+                <div>
+                    <h4></i> Nuestro Contacto</h4>
+                    <p><i class="fa-solid fa-phone"></i> Teléfono: (+57) 3193386594</p>
+                    <p><i class="fa-solid fa-envelope"></i> Email: airsoundmusica@gmail.com</p>
+                    <p></i><a href="/contacts" class="nolink"><i class="fa-solid fa-inbox"></i> Escríbenos</a></p>
+                </div>
+            </section>
+            <section>
+                <div>
+                    <h4>Nuestras redes</h4>
+                    <p><a href="https://www.instagram.com/airsoundstudio/?hl=es-la" class="nolink nolink-ig"><i class="fa-brands fa-instagram"></i> Instagram</a></p>
+                    <p><a href="https://www.youtube.com/@recfilmsmedellin" class="nolink nolink-yt"><i class="fa-brands fa-youtube"></i> YouTube</a></p>
+                </div>
+            </section>
+          </div>
     </footer>
 </body>
 </html>
