@@ -29,7 +29,7 @@
             </ul>
         </nav>
         <div class="burguer-menu">
-            <i class="fa-solid fa-bars"></i>    
+            <i class="fas fa-solid fa-bars"></i>    
           </div>
     </header>
     <main>
@@ -43,8 +43,8 @@
                         <td>Cantidad</td>
                         <td>Tipo unidad</td>
                         <td>Total</td>
-                        <td>Borrar</td>
-                        <td>Favoritos</td>
+                        <td>Eliminar</td>
+                        <td>Guardar</td>
                     </tr>   
                 </thead>
                 <tbody>
@@ -54,8 +54,8 @@
                         <td><input class="q" value="1" type="number" name="cantidad" min="1"></td>
                         <td><h2>Tipo unidad1</h2></td>
                         <td><h2>$00.00</h2></td>
-                        <td><a href="#"><i class="fa-solid fa-trash"></i></a></td>
-                        <td><a href="#"><i class="fa-solid fa-heart"></i></a></td>
+                        <td><a href="#"><i class="fas fa-solid fa-trash"></i></a></td>
+                        <td><a href="#"><i class="fas fa-solid fa-heart"></i></a></td>
                     </tr>
                     <tr>
                         <td><h2>Producto2</h2></td>
@@ -63,24 +63,36 @@
                         <td><input class="q" value="1" type="number" name="cantidad" min="1"></td>
                         <td><h2>Tipo unidad2</h2></td>
                         <td><h2>$00.00</h2></td>
-                        <td><a href="#"><i class="fa-solid fa-trash"></i></a></td>
-                        <td><a href="#"><i class="fa-solid fa-heart"></i></a></td>
+                        <td><a href="#"><i class="fas fa-solid fa-trash"></i></a></td>
+                        <td><a href="#"><i class="fas fa-solid fa-heart"></i></a></td>
+                    </tr>
+                    <tr>
+                        <td><h2>Producto3</h2></td>
+                        <td><h2>$00.00</h2></td>
+                        <td><input class="q" value="1" type="number" name="cantidad" min="1"></td>
+                        <td><h2>Tipo unidad3</h2></td>
+                        <td><h2>$00.00</h2></td>
+                        <td><a href="#"><i class="fas fa-solid fa-trash"></i></a></td>
+                        <td><a href="#"><i class="fas fa-solid fa-heart"></i></a></td>
                     </tr>
                 </tbody>
             </table>
         </section>
-        <section>
+        <section class="continuar">
             <a href="/products">
                 <button type="submit" name="pagar" class="boton-seguir">Continuar comprando</button>
             </a> 
         </section>
-        <section class="totales">
-            <h2>Resumen del pedido</h2>
-            <div class="total">Total:</div>
-            <div class="suma-total">$00.00</div>
-            <button type="submit" name="pagar" class="boton-pagar">Ir a pagar</button>
-        </section>
-       
+        <section class="resumen">
+            <h3>Resumen del pedido</h3>
+            <section class="totales">  
+                <div class="total">Total:</div>
+                <div class="suma-total">$00.00</div>
+            </section>
+            <div class="finalizar">
+                <button type="submit" name="pagar" class="boton-pagar">Finalizar compra</button>
+            </div>  
+        </section>             
     </main>
     <footer>
         <div>
@@ -93,14 +105,14 @@
             <section>
                 <div>
                     <h4></i> Nuestro Contacto</h4>
-                    <p><i class="fa-solid fa-phone"></i> Teléfono: (+57) 3193386594</p>
-                    <p><i class="fa-solid fa-envelope"></i> Email: airsoundmusica@gmail.com</p>
-                    <p></i><a href="/contacts" class="nolink"><i class="fa-solid fa-inbox"></i> Escríbenos</a></p>
+                    <p><i class="fas fa-solid fa-phone"></i> Teléfono: (+57) 3193386594</p>
+                    <p><i class="fas fa-solid fa-envelope"></i> Email: airsoundmusica@gmail.com</p>
+                    <p></i><a href="/contacts" class="nolink"><i class="fas fa-solid fa-inbox"></i> Escríbenos</a></p>
                 </div>
             </section>
             <section>
                 <div>
-                    <h4>Nuestras redes</h4>
+                    <h4>Nuestras Redes</h4>
                     <p><a href="https://www.instagram.com/airsoundstudio/?hl=es-la" class="nolink nolink-ig"><i class="fa-brands fa-instagram"></i> Instagram</a></p>
                     <p><a href="https://www.youtube.com/@recfilmsmedellin" class="nolink nolink-yt"><i class="fa-brands fa-youtube"></i> YouTube</a></p>
                 </div>

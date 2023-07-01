@@ -20,7 +20,7 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    height: 100px;
+    height: 50px;
     padding: 20px;
   }
   
@@ -56,6 +56,23 @@ header {
     width: 100%;
     height: 100%;
   }
+
+  header nav{
+    font-size: 12px;
+    padding: 10px;
+    display: none;
+    list-style-type: none;
+}
+
+header nav ul li {
+    padding: 10px;
+ 
+}
+header nav ul li a{
+    text-decoration: none;
+    color:black;
+    font-size: 14px;
+}
 
 /*---------Home--------*/
 
@@ -206,6 +223,9 @@ footer section div {
     border-radius: 5px;
 }
 
+/*----------*/
+
+
 @media (min-width: 769px){
     div iframe{
         width: 48vw;
@@ -218,5 +238,19 @@ footer section div {
         flex-wrap: wrap;
         justify-content: space-around;
         width: auto;    
+    }
+
+    header nav, header nav ul {
+        display: flex;
+        font-size: 12px;
+        padding: 10px;
+        list-style-type: none;
+        justify-content: space-between;
+        align-items: center;
+        text-decoration: none;
+    }
+
+    .burguer-menu {
+         display: none;
     }
 }

@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/css/regstyles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <title>Registro</title>
 </head>
 <body>
@@ -16,9 +17,20 @@
               alt="Logo AS Studio"
             />
           </div>
-          <div class="burguer-menu">
-            <i class="fa-solid fa-bars"></i>    
+        <nav>
+            <ul class="nav">
+                <li><a href="/">Home</a></li>
+                <li><a href="/products">Productos</a></li>
+                <li><a href="/contacts">Contacto</a></li>
+                <li><a href="/registration">Registro <i class="far fa-id-card"></i></a></li>
+                <li><a href="/login">Login <i class="fas fa-sign-in-alt"></i></a></li>
+                <li><a href="/productCart">Mi Carrito <i class="fas fa-shopping-basket"></i></a></li>   
+            </ul>
+        </nav>
+        <div class="burguer-menu">
+            <i class="fas fa-solid fa-bars"></i>    
           </div>
+    </header>
     <main>
         <section id="reg-container" class="container">
             <form>
@@ -36,7 +48,7 @@
                 <label>Email</label>
                 <input type="email" id="input-email" class="input" required placeholder="Ingrese su email">
                 <br>
-                <button>Registrarse</button>
+                <button type="submit" name="registrar" class="boton-registro">Registrarse</button>
             </form>
         </section>
     </main>
@@ -51,14 +63,14 @@
             <section>
                 <div>
                     <h4></i> Nuestro Contacto</h4>
-                    <p><i class="fa-solid fa-phone"></i> Teléfono: (+57) 3193386594</p>
-                    <p><i class="fa-solid fa-envelope"></i> Email: airsoundmusica@gmail.com</p>
-                    <p></i><a href="contacts" class="nolink"><i class="fa-solid fa-inbox"></i> Escríbenos</a></p>
+                    <p><i class="fas fa-solid fa-phone"></i> Teléfono: (+57) 3193386594</p>
+                    <p><i class="fas fa-solid fa-envelope"></i> Email: airsoundmusica@gmail.com</p>
+                    <p></i><a href="/contacts" class="nolink"><i class="fas fa-solid fa-inbox"></i> Escríbenos</a></p>
                 </div>
             </section>
             <section>
                 <div>
-                    <h4>Nuestras redes</h4>
+                    <h4>Nuestras Redes</h4>
                     <p><a href="https://www.instagram.com/airsoundstudio/?hl=es-la" class="nolink nolink-ig"><i class="fa-brands fa-instagram"></i> Instagram</a></p>
                     <p><a href="https://www.youtube.com/@recfilmsmedellin" class="nolink nolink-yt"><i class="fa-brands fa-youtube"></i> YouTube</a></p>
                 </div>

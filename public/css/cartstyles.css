@@ -67,9 +67,12 @@ header {
 
 header nav ul li {
     padding: 10px;
+ 
 }
 header nav ul li a{
     text-decoration: none;
+    color:black;
+    font-size: 14px;
 }
 
 
@@ -83,15 +86,14 @@ main {
     flex-grow: 1;
     margin: 8px;
     box-sizing: border-box;
-    margin: 8px;
     box-shadow: 3px 3px 3px #92d2e9;
     border-radius: 5px;
-    
+    padding: 5px;
   }
 
 h1{
     padding:10px;
-    font-size: 16x;
+    font-size: 30px;
     border-bottom: 1px solid #222222;
 }
 
@@ -105,7 +107,7 @@ h1{
 main section table{
     width: 100%;
     border-collapse: collapse;
-    table-layout: fixed;
+    table-layout:auto;
 }
 
 main section table thead{
@@ -148,17 +150,8 @@ main section table tbody tr td{
     padding: 5px;
 }
 
-
-.boton-seguir{
-    display:flex;
-    padding: 2px;
-    border:none;
-    border-radius: 5px;
-    background-color: lightblue;
-    align-items: center;
-    text-decoration: none;
-    list-style-type: none;
-    justify-content: center;
+main section table tbody tr td a i{
+    color: black;
 }
 
 h2{
@@ -166,35 +159,73 @@ h2{
     font-weight: lighter;
 }
 
-.totales{
+main section.continuar{
     display: flex;
-    padding: 10px;
-    justify-content: right;
+    justify-content: center;
+    border-bottom: 1px solid black;
+    padding-bottom: 20px;
 }
 
-.total{
-    padding: 5px;
+main section a{
+    text-decoration: none;
 }
 
-.suma-total{
-    padding: 5px;
-}
-
-
-.boton-pagar{
+.boton-seguir{
     display:flex;
-    padding: 2px;
-    border: none;
+    padding: 10px;
+    border:none;
     border-radius: 5px;
     background-color: lightblue;
     align-items: center;
 }
 
-.seguir{
-    text-align: right;
+.boton-seguir:hover{
+    font-weight: bold;
+}
+
+h3{
+    font-size: 18px;
     padding: 5px;
-    font-size: 10px;
-    color:blue
+}
+
+.totales{
+    padding: 5px;
+    display: flex;
+    justify-content: left;
+    font-weight: bold;
+}
+
+main section div.total{
+    padding: 5px;
+    width: 10%;
+    text-align: left;
+}
+
+main section div.suma-total{
+    padding: 5px;
+    width: 90%;
+    text-align: left;
+}
+
+main div.finalizar{
+    width: 100%;
+    padding-bottom: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+div .boton-pagar{
+    display:flex;
+    border:none;
+    border-radius: 5px;
+    background-color: lightblue;
+    align-items: center;
+    text-align: center;
+    padding:10px;
+}
+
+.boton-pagar:hover{
+    font-weight: bold;
 }
 
 
@@ -249,7 +280,7 @@ footer {
     border-radius: 5px;
   }
   
-
+/*----------*/
   
 @media (min-width: 769px){
     div iframe{
