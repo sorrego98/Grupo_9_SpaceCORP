@@ -143,6 +143,7 @@ main form{
     justify-content: space-between;
     padding: 10px;
     background-color: #92d2e9;
+    border-radius: 10px;
 }
 
 main form div{
