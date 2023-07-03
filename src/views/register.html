@@ -3,9 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/css/regstyles.css">
+    <link rel="stylesheet" href="/css/registerstyles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
     <title>Registro</title>
 </head>
 <body>
@@ -22,7 +23,7 @@
                 <li><a href="/">Home</a></li>
                 <li><a href="/products">Productos</a></li>
                 <li><a href="/contacts">Contacto</a></li>
-                <li><a href="/registration">Registro <i class="far fa-id-card"></i></a></li>
+                <li><a href="/register">Registro <i class="far fa-id-card"></i></a></li>
                 <li><a href="/login">Login <i class="fas fa-sign-in-alt"></i></a></li>
                 <li><a href="/productCart">Mi Carrito <i class="fas fa-shopping-basket"></i></a></li>   
             </ul>
@@ -32,25 +33,20 @@
           </div>
     </header>
     <main>
-        <section id="reg-container" class="container">
-            <form>
-                <h2>Registro</h2>
-                <br>
-                <label>Nombre de Usuario</label>
-                <input type="text" id="input-user" class="input" required placeholder="Ingrese su nombre de usuario">
-                <br>
-                <label>Contraseña</label>
-                <input type="password" id="input-pass" class="input" required placeholder="Ingrese su contraseña">
-                <br>
-                <label>Confirmar contraseña</label>
-                <input type="password" id="input-pass" class="input" required placeholder="Ingrese su contraseña">
-                <br>
-                <label>Email</label>
-                <input type="email" id="input-email" class="input" required placeholder="Ingrese su email">
-                <br>
-                <button type="submit" name="registrar" class="boton-registro">Registrarse</button>
+        <section id="reg-container" class="container form-container">
+            <form class="form">
+                <h2 class="form-title">Registro <i class="fa-regular fa-user"></i></h2>
+                <label class="form-label">Nombre de Usuario</label>
+                <input type="text" id="input-user" class="form-input" required placeholder="Ingrese su nombre de usuario">
+                <label class="form-label">Contraseña</label>
+                <input type="password" id="input-pass" class="form-input" required placeholder="Ingrese su contraseña">
+                <label class="form-label">Confirmar contraseña</label>
+                <input type="password" id="input-pass-confirm" class="form-input" required placeholder="Ingrese su contraseña">
+                <label class="form-label">Email</label>
+                <input type="email" id="input-email" class="form-input" required placeholder="Ingrese su email">
+                <button type="submit" name="registrar" class="boton-registro form-button">Registrarse</button>
             </form>
-        </section>
+        </section>        
     </main>
     <footer>
         <div>
