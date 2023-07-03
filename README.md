@@ -40,3 +40,20 @@ A toda persona cuya pasión esté dirigida a la música en general, desde novato
 
 Sebastián Orrego funge como nuestro *Product Owner* dado a que conoce el producto de manos directa del cliente; es quien se encarga de velar por los intereses de este y de guiar con las ideas y retroalimentación. Sebastián posee intereses en las artes como la música, literatura y la danza, desarrollando su pasión por los bailes latinos. Es Ingeniero Físico con énfasis en física del estado sólido, y actualmente está desarrollando habilidades orientadas al mundo de la programación.
 
+Carlos Echegaray funge como nuestro Líder Técnico, estando a cargo de cumplir con las exigencias del product owner, estableciendo el seguimiento de las tareas, sesiones de equipo para verificar el avance de las mismas y administrar los recursos técnicos para cumplir los objetivos planteados. Carlos es Analista de IT en Chubb Chile, y tiene conocimiento en varios lenguajes de Programación; sus responsabilidades están centradas en la administración de equipos de trabajo, sesiones de comités de prioridades, seguimiento con equipos multidisciplinarios y control de proyectos.
+
+Florencia Guede tiene el rol de Scrum Master, la cual buscará que durante el proyecto se integren las mejores prácticas de la metodología ágil, guiando los weekly destinados a instrospectar los aprendizajes y potenciar al equipo conociendo las fortalezas individuales para alcanzar los objetivos planteados. Florencia trabaja en el área de Riesgos de Chubb Chile, le encantan los desafios y aprender cosas nuevas. Es fanática de Messi y campeona del mundo.
+
+Andrés Amortegui, tiene el rol de Fullstack Developer, siendo su principal objetivo apoyar tanto a nivel de backend como frontend. Trabaja en Colombia como ingeniero de alimentos, lo que más le gusta es desarrollar soluciones a sistemas complejos.
+
+Julián Díaz, tiene el rol de Fullstack Developer, siendo su principal objetivo apoyar tanto a nivel de backend como frontend.
+
+Webs que inspiran nuestra propuesta de desarrollo:
+
+Sanz Estudios
+El Alto Estudio
+Studio Sony Music
+Oigo Estudios
+Estudio Audio Música
+Delta Records
+Link Trello: 
