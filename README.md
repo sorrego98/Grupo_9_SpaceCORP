@@ -50,10 +50,12 @@ Julián Díaz, tiene el rol de Fullstack Developer, siendo su principal objetivo
 
 Webs que inspiran nuestra propuesta de desarrollo:
 
+
 Sanz Estudios
 El Alto Estudio
 Studio Sony Music
 Oigo Estudios
 Estudio Audio Música
 Delta Records
-Link Trello: 
+
+Link Trello: (https://trello.com/b/79L6tN9m/proyecto-integrador)
