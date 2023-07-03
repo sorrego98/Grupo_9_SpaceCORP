@@ -69,8 +69,8 @@ header nav{
 
 header nav ul li {
   padding: 10px;
-
 }
+
 header nav ul li a{
   text-decoration: none;
   color:black;
@@ -177,29 +177,29 @@ footer div {
 
 @media (min-width: 769px){
   div iframe{
-      width: 48vw;
-      height: 27vw;
+    width: 48vw;
+    height: 27vw;
   }
 
   .main-team{
-      display: flex;
-      flex-direction: row;
-      flex-wrap: wrap;
-      justify-content: space-around;
-      width: auto;    
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    width: auto;    
   }
 
   header nav, header nav ul {
-          display: flex;
-          font-size: 12px;
-          padding: 10px;
-          list-style-type: none;
-          justify-content: space-between;
-          align-items: center;
-          text-decoration: none;
+    display: flex;
+    font-size: 12px;
+    padding: 10px;
+    list-style-type: none;
+    justify-content: space-between;
+    align-items: center;
+    text-decoration: none;
   }
 
   .burguer-menu {
-      display: none;
-    }
+    display: none;
+  }
 }

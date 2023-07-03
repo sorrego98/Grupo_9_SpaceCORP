@@ -22,9 +22,9 @@ header {
     align-items: center;
     height: 50px;
     padding: 20px;
-  }
+}
   
-  .burguer-menu {
+.burguer-menu {
     color: black;
     box-shadow: 3px 3px 3px #222222;
     width: 35px;
@@ -32,32 +32,32 @@ header {
     padding: 10px;
     border: 1px solid black;
     text-align: center;
-  }
+}
   
   .burguer-menu:hover {
     background-color: #222222;
     box-shadow: 3px 3px 3px #ffffff;
     color: #ffffff;
-  }
+}
   
-  .fa-bars {
+.fa-bars {
     font-size: 30px;
-  }
+}
   
-  .logo-container {
+.logo-container {
     display: flex;
     align-items: center;
     width: 60px;
     height: 60px;
     padding: 40px;
-  }
+}
   
-  .logo {
+.logo {
     width: 100%;
     height: 100%;
-  }
+}
 
-  header nav{
+header nav{
     font-size: 12px;
     padding: 10px;
     display: none;
