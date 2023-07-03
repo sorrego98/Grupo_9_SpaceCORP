@@ -49,13 +49,12 @@ Andrés Amortegui, tiene el rol de Fullstack Developer, siendo su principal obje
 Julián Díaz, tiene el rol de Fullstack Developer, siendo su principal objetivo apoyar tanto a nivel de backend como frontend.
 
 Webs que inspiran nuestra propuesta de desarrollo:
+  1. Sanz Estudios (https://sanzestudios.com/)
+  2. Studio Sony Music (https://studio.sonymusic.com.mx/)
+  3. Delta Records (https://deltarecords.net/)
+  4. Oigo Estudios (https://www.oigoestudios.com/)
+  5. El Alto Estudio (https://www.elaltoestudio.co/)
+  6. Estudio AudioMúsica (https://estudio.audiomusica.com/)
 
-
-Sanz Estudios
-El Alto Estudio
-Studio Sony Music
-Oigo Estudios
-Estudio Audio Música
-Delta Records
 
 Link Trello: (https://trello.com/b/79L6tN9m/proyecto-integrador)
