@@ -1,0 +1,32 @@
+<%- include ('../partials/commons/head')%>
+    <link rel="stylesheet" href="./css/homestyles.css">
+    <title>Contacto</title>
+</head>
+<body>
+    <%- include ('../partials/commons/header')%>
+    <main>
+        <h3>Póngase en contacto con nosotros</h3>
+        <form action="/" method="get">
+            <div>
+                <label for="idname">Nombre*</label>
+                <input type="text" name="name" id="iname" required minlength="3">
+            </div>
+            <div>
+                <label for="idsubject">Asunto*</label>
+                <input type="text" name="subject" id="idsubject" required>
+            </div>
+            <div>
+                <label for="idemail">Correo*</label>
+                <input type="email" name="email" id="idemail" required>
+            </div>
+            <div>
+                <label for="idcomment">Mensaje*</label>
+                <textarea name="comment" id="idcomment" required rows="7" ></textarea>
+            </div>
+            <div>
+                <label for="idsend"></label>
+                <input type="submit" name="send" id="idsend">
+            </div>
+        </form>
+    </main>
+<%- include ('../partials/commons/footer')%>

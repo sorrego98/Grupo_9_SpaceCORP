@@ -3,23 +3,27 @@ const path = require('path');
 const app = express();
 const routeProducts = require("../routers/routesProducts");
 const routeUser = require("../routers/routesUser");
+const routeCart = require("../routers/routesCart");
 require('dotenv').config();
 const PORT = parseInt(process.env.PORT);
 
 app.use(express.static(path.resolve(__dirname, '../public')));
 
+app.set('view engine','ejs');
+app.set('views',path.resolve(__dirname, 'views'));
+
 app.get('/', (req, res) => {
-    let htmlPath = path.resolve(__dirname, './views/home.html');
-    res.sendFile(htmlPath);
+    res.render('home');
 });
 
-app.use('/',routeProducts)
+app.use('/products',routeProducts)
 
-app.use('/',routeUser)
+app.use('/profile',routeUser)
+
+app.use('/cart',routeCart)
 
 app.get('/contacts', (req, res) => {
-    let htmlPath = path.resolve(__dirname, './views/contacts.html');
-    res.sendFile(htmlPath);
+    res.render('./misc/contacts');
 });
 
 app.listen(PORT, () => console.log("Server Running on " + PORT));
