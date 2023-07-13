@@ -1,27 +1,3 @@
-* {
-    margin: 0px;
-    padding: 0px;
-}
-
-body {
-    width: 95vw;
-    height: 100%;
-}
-
-body {
-    font-family: 'Roboto', sans-serif;
-    color: black;
-    background-color: #e9f6fa;
-}
-
-main {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    flex-grow: 1;
-    margin: 8px;
-}
-
 .container {
     position: relative;
     width: 70%;
@@ -34,7 +10,7 @@ main {
     border-radius: 10px;
     box-sizing: border-box;
     box-shadow: #000;
-    margin: auto;
+    margin: 10px auto;
 }
 
 .input {
@@ -59,97 +35,6 @@ input[type="password"] {
   border-radius: 4px;
 }*/
 
-/*------HEADER------*/
-
-header {
-    background-image: url('https://github.com/sorrego98/Grupo_9_SpaceCORP/blob/master/documentacion/Background_AirSound.png?raw=true');
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    height: 50px;
-    padding: 20px;
-}
-
-.burguer-menu {
-    color: black;
-    box-shadow: 3px 3px 3px #222222;
-    width: 35px;
-    border-radius: 5px;
-    padding: 10px;
-    border: 1px solid black;
-    text-align: center;
-  }
-  
-.fa-bars {
-    font-size: 30px;
-}
-
-.logo-container {
-    display: flex;
-    align-items: center;
-    width: 60px;
-    height: 60px;
-    padding: 40px;
-}
-
-.logo {
-    width: 100%;
-    height: 100%;
-}
-
-header nav {
-    font-size: 12px;
-    padding: 10px;
-    display: none;
-    list-style-type: none;
-}
-
-header nav ul li {
-    padding: 10px;
-
-}
-
-header nav ul li a {
-    text-decoration: none;
-    color: black;
-    font-size: 14px;
-}
-
-/*------FOOTER------*/
-
-footer {
-    align-content: flex-end;
-    font-size: 16px;
-}
-
-footer div {
-    display: flexbox;
-    flex-direction: column;
-    align-items: flex-end;
-    padding: 10px;
-    background-color: #e9f6fa;
-}
-
-section div p {
-    text-align: center;
-    margin: 5px 0px;
-}
-
-section div h4 {
-    text-align: center;
-}
-
-footer div {
-    box-sizing: border-box;
-    margin: 8px;
-    box-shadow: 3px 3px 3px #92d2e9;
-    border-radius: 5px;
-}
-
-.nolink {
-    text-decoration: none;
-    color: black;
-}
 
 /*------HOOVER------*/
 
@@ -227,27 +112,4 @@ footer div {
         width: 48vw;
         height: 27vw;
     }
-
-    .main-team {
-        display: flex;
-        flex-direction: row;
-        flex-wrap: wrap;
-        justify-content: space-around;
-        width: auto;
-    }
-
-    header nav,
-    header nav ul {
-        display: flex;
-        font-size: 12px;
-        padding: 10px;
-        list-style-type: none;
-        justify-content: space-between;
-        align-items: center;
-        text-decoration: none;
-    }
-
-    .burguer-menu {
-        display: none;
-      }
 }        

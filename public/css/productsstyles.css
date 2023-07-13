@@ -58,3 +58,11 @@
   text-align: justify;
   font-size: 16px;
 }
+
+
+@media (min-width: 769px) {
+  div iframe {
+      width: 48vw;
+      height: 27vw;
+  }
+}   
