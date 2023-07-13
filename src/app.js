@@ -18,7 +18,7 @@ app.get('/', (req, res) => {
 
 app.use('/products',routeProducts)
 
-app.use('/profile',routeUser)
+app.use('/auth',routeUser)
 
 app.use('/cart',routeCart)
 

@@ -2,12 +2,11 @@ const path = require("path");
 
 const controlUser = {
     login : (req, res) => {
-        let htmlPath = path.resolve(__dirname, '../src/views/user/login.html');
-        res.sendFile(htmlPath);
+        res.render('./auth/login');
     },
+    
     register : (req, res) => {
-        let htmlPath = path.resolve(__dirname, '../src/views/user/register.html');
-        res.sendFile(htmlPath);
+        res.render('./auth/register');
     },
 };
 
