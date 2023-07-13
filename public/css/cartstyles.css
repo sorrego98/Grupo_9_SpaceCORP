@@ -2,30 +2,30 @@
   margin: 0px;
   padding: 0px;
 }
-  
-body{
-  width: 95vw;
-  height: 100%;
-}
 
 body{
-  font-family: 'Roboto', sans-serif;
-  color: black;
-  background-color: #e9f6fa;
+    width: 100%;
+    height: 100%;
+    font-family: 'Roboto', sans-serif;
+    color: black;
+    background: #e9f6fa;
 }
 
 
 /*------HEADER------*/
 
 header {
+  position: sticky;
+  top: 0;
   background-image: url('https://github.com/sorrego98/Grupo_9_SpaceCORP/blob/master/documentacion/Background_AirSound.png?raw=true');
-  display: flex;
+  /*background: linear-gradient(90deg, rgba(54,165,213,0.9) 0%, rgba(54,165,213,0.5) 45%, rgba(152,209,233,0.1) 100%);
+  /*background: linear-gradient(90deg, rgba(54,165,213,0.9) 0%, rgba(54,165,213,0.5) 49%, rgba(152,209,233,0.1) 80%, rgba(255,255,255,1) 100%);
+  */display: flex;
   justify-content: space-between;
   align-items: center;
-  height: 50px;
-  padding: 20px;
+  padding: 0px 20px 0px 0px;
 }
-  
+
 .burguer-menu {
   color: black;
   box-shadow: 3px 3px 3px #222222;
@@ -35,17 +35,17 @@ header {
   border: 1px solid black;
   text-align: center;
 }
-  
+
 .burguer-menu:hover {
   background-color: #222222;
   box-shadow: 3px 3px 3px #ffffff;
   color: #ffffff;
 }
-  
+
 .fa-bars {
   font-size: 30px;
 }
-  
+
 .logo-container {
   display: flex;
   align-items: center;
@@ -53,7 +53,7 @@ header {
   height: 60px;
   padding: 40px;
 }
-  
+
 .logo {
   width: 100%;
   height: 100%;
@@ -68,14 +68,13 @@ header nav{
 
 header nav ul li {
   padding: 10px;
-}
 
+}
 header nav ul li a{
   text-decoration: none;
   color:black;
   font-size: 14px;
 }
-
 
 /*------MAIN------*/
 
@@ -232,9 +231,8 @@ div .boton-pagar{
 
 footer {
   align-content: flex-end;
-  font-size: 16px;
 }
-  
+
 footer div {
   display: flexbox;
   flex-direction: column;
@@ -242,41 +240,42 @@ footer div {
   padding: 10px;
   background-color: #e9f6fa;
 }
-  
+
 section div p {
   text-align: center;
   margin: 5px 0px;
 }
-  
+
 section div h4 {
   text-align: center;
 }
-  
-footer div {
+
+footer section div {
   box-sizing: border-box;
   margin: 8px;
   box-shadow: 3px 3px 3px #92d2e9;
   border-radius: 5px;
 }
-  
+
 .nolink {
   text-decoration: none;
   color: black;
 }
-  
+
 .nolink-yt:hover {
   background-color: #bc5e6a;
   color: #ffffff;
   box-shadow: 3px 3px 3px #c02539;
   border-radius: 5px;
 }
-  
+
 .nolink-ig:hover {
   background-color: #f69045;
   color: #ffffff;
   box-shadow: 3px 3px 3px #f69045;
   border-radius: 5px;
 }
+
   
 /*----------*/
   
@@ -302,9 +301,9 @@ footer div {
     justify-content: space-between;
     align-items: center;
     text-decoration: none;
-  }
+}
 
-  .burguer-menu {
-    display: none;
-  }
+.burguer-menu {
+  display: none;
+}
 }
