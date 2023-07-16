@@ -1,0 +1,124 @@
+/*---------Registro--------*/
+.split-view{
+  margin: 10px 20px;
+}
+
+.form-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.header-form{
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  width: 100%;
+  align-items: center;
+  gap: 0.5em;
+  padding: 10px 0px;
+  background-color: black;
+  color: white;
+}
+
+.form{
+  display: flex;
+  flex-direction: column;
+  gap: 1.2em;
+  width: 94%;
+  margin: -5px auto 0px auto;
+  border: 1px solid #111111;
+  border-radius: 3px;
+  padding: 10px 5px 5px;
+}
+
+.subitem{
+  display: flex;
+  flex-direction: column;
+  gap: 0.3em;
+  width: 90%;
+  margin: 0px auto;
+  align-items: center;
+}
+
+.center-title{
+  text-align: center;
+}
+
+.form-dimention{
+  height: 2em;
+  width: 100%;
+}
+
+.image-info{
+  text-align: center;
+}
+
+.sub-rows{
+  display: flex;
+  flex-direction: row;
+  width: 80%;
+  align-items: center;
+  justify-content: space-around;  
+}
+
+.sub-element{
+  margin: auto 0.8em;
+}
+
+.preview-item{
+  display: none;
+}
+
+.form-button {
+  width: 100%;
+  padding: 10px;
+  background-color: #222222;
+  color: #ffffff;
+  border-radius: 5px;
+  cursor: pointer;
+  margin: 10px auto;
+
+}
+
+.form-button:hover {
+  background-color: #111111;
+}
+
+@media (min-width: 769px) {
+
+  .split-view{
+    margin: 10px 20px;
+    display: flex;
+    flex-direction: row;
+    gap: 0.5em;
+
+  }
+
+  .form-container{
+    width: 30%
+  }
+  
+  .form{
+    width: 96%
+  }
+  .previews-container{
+    width: 65%
+  }
+  .preview-item{
+    display: flex;
+    flex-direction: column;
+    gap: 0.5em;
+    align-items: center;
+
+  }
+
+  .preview-desktop, .preview-mobile{
+    height: 100px;
+    width: 300px;
+    background-color: aqua;
+  }
+  .preview-mobile{
+    
+  }
+  
+}
