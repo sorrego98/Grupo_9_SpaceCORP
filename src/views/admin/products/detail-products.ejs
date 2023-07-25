@@ -1,0 +1,40 @@
+<%- include ('../../partials/commons/head')%>
+    <title>Nuestros Servicios</title>
+    <link rel="stylesheet" href="/css/productsstyles.css">
+</head>
+<%- include ('../../partials/commons/header')%>
+    <main class="container-fluid">
+        <!--Detalle de Producto-->
+        <br><br>
+        <section class="row">
+          <article class="col-12  card">
+            <div class="card-body">
+              <h2 class="display-4 text-primary  text-center pt-2">Detalle del Producto</h2>
+            </div>
+          </article>
+          <article class="col-12 col-md-6 mx-auto mt-5 producto">
+
+            <% /* if (miMoto.descuento==30) { */ %>
+             <!--<img class="descuento" src="/img/promo30.png" alt="Descuento 30%">-->
+              <% /* } else if(miMoto.descuento==15){ */%>
+                <!--<img class="descuento" src="/img/promo15.png" alt="Descuento 15%">-->
+                <%/*}*/%>
+                  <div class="card-body">
+                    <h5 class="card-title">
+                      <%= product.name%>
+                    </h5>
+                    <h5 class="card-title">$ <%= product.price %>
+                    </h5>
+                    <p class="card-text">
+                      <%= product.description %>
+                    </p>
+
+                  </div>
+                  <a href="/admin/products" class="btn btn-danger">Volver</a>
+          </article>
+        </section>
+    </main>
+
+  </body>
+
+</html>

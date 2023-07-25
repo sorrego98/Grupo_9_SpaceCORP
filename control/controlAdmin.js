@@ -8,10 +8,18 @@ const adminProducts = {
         res.render('./admin/products/list-products',{products})
     },
     addProduct : (req, res) => {
+
         res.render('./admin/products/add-products')
     },
     modProduct : (req, res) => {
         res.render('./admin/products/modify-products')
+    },
+    detailProduct : (req, res) => {
+        const products = controlMain.controlMethods.leerJSON('products.json');
+        const product = products.find(product =>
+            req.params.id == product.id
+        );
+        res.render('./admin/products/detail-products', {product})
     }
 };
 

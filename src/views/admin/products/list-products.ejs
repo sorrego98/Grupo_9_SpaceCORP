@@ -11,7 +11,7 @@
             <h2 class="display-4 text-primary text-center pt-2">Administrador de Productos</h2>
         </article>
         <article class="col-12">
-            <a href="/administrar/create"><ion-icon name="add-circle-outline"></ion-icon>Agregar</a>
+            <a href="/admin/products/add-product"><ion-icon name="add-circle-outline"></ion-icon>Agregar</a>
         </article>
         <article class="col-12" >
         <table class=" table ">
@@ -29,9 +29,9 @@
                 <tr>
                 <td><%= product.id%> </td>
                 <td><%= product.name%> </td>
-                <td><a href="/administrar/detail/<%= product.id%> "> <ion-icon name="eye-outline"></ion-icon></a></td>
-                <td><a href="/administrar/edit/<%= product.id%> "> <ion-icon name="pencil-outline"></ion-icon></a></td>
-                <td><a href="/administrar/delete/<%= product.id%>"><ion-icon name="trash-outline"></ion-icon></a></td>
+                <td><a href="/admin/products/detail-product/<%= product.id%> "> <ion-icon name="eye-outline"></ion-icon></a></td>
+                <td><a href="/admin/products/modify-product/<%= product.id%> "> <ion-icon name="pencil-outline"></ion-icon></a></td>
+                <td><a href="/admin/products/delete-product/<%= product.id%>"><ion-icon name="trash-outline"></ion-icon></a></td>
                 </tr>
                 <% }); %>
             </tbody>
