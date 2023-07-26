@@ -1,4 +1,5 @@
 const path = require("path");
+const fs = require("fs");
 let controlMain = require('../control/controlMain')
 
 const adminProducts = {
@@ -12,7 +13,11 @@ const adminProducts = {
         res.render('./admin/products/add-products')
     },
     modProduct : (req, res) => {
-        res.render('./admin/products/modify-products')
+        const products = controlMain.controlMethods.leerJSON('products.json');
+        const product = products.find(product =>
+            req.params.id == product.id
+        );
+        res.render('./admin/products/modify-products', {product})
     },
     detailProduct : (req, res) => {
         const products = controlMain.controlMethods.leerJSON('products.json');
@@ -20,6 +25,46 @@ const adminProducts = {
             req.params.id == product.id
         );
         res.render('./admin/products/detail-products', {product})
+    },
+    alterProduct : (req, res) => {
+        const products = controlMain.controlMethods.leerJSON('products.json');
+        let arrProducts = [];
+        products.forEach(product => {
+            if (product.id !== req.params.id){
+                arrProducts.push(product);
+            }else{
+                arrProducts.push(
+                    {
+                        id: product.id,
+                        name: req.body.name,
+                        description: req.body.description,
+                        image: req.file ? pic = req.file.filename : pic = req.body.oldImage,
+                        category: req.body.name,
+                        priceType: req.body.profile,
+                        price: req.body.price
+                    }
+                );
+            }
+
+        });
+        
+        let resProducts = JSON.stringify(arrProducts, null, 2);
+        fs.writeFileSync(path.resolve(__dirname, '../data/products.json'), resProducts);
+        res.redirect('/admin/products');
+    },
+    deleteProduct : (req, res) => {
+        const products = controlMain.controlMethods.leerJSON('products.json');
+        let arrProducts = [];
+        products.forEach(product => {
+            if (product.id !== req.params.id){
+                arrProducts.push(product);
+            }
+        });
+        
+        let resProducts = JSON.stringify(arrProducts, null, 2);
+        fs.writeFileSync(path.resolve(__dirname, '../data/products.json'), resProducts);
+        res.redirect('/admin/products');
+
     }
 };
 

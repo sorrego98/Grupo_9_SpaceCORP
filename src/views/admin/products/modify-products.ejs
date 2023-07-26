@@ -9,36 +9,45 @@
                 <div class ="header-form">                    
                     <h2 class="form-title"><i class="fa-solid fa-wand-magic-sparkles form-title fa-lg"></i> Modificar Producto </h2>
                 </div>
-                <form class="form" enctype="multipart/form-data" method="post" action="/products/modify-product">
+                <form class="form" enctype="multipart/form-data" method="post" action="/admin/products/modify-product/<%= product.id%>?_method=PUT">
                     <div class="subitem">
                         <h4 class="center-title">Nombre del Producto</h4>
-                        <input type="text" id="input-user" class="form-input form-dimention" required placeholder="Ingrese un nombre para su producto">
+                        <input type="text" name="name" id="input-user" class="form-input form-dimention" required placeholder="Ingrese un nombre para su producto" value="<%= product.name%>">
                     </div>
                     
                     <div class="subitem">
                         <h4 class="center-title">Descripción</h4>
-                        <input type="text" id="input-pass" class="form-input form-dimention" required placeholder="Ingrese una descripción (MAX: 300 caracteres)">                        
+                        <input type="text" name="description" id="input-pass" class="form-input form-dimention" required placeholder="Ingrese una descripción (MAX: 300 caracteres)" value="<%= product.description%>">                        
                     </div>
                     
                     <div class="subitem">
                         <h4 class="center-title">Imagen</h4>
-                        <input type="file" id="input-pass-confirm" class="form-input image-info" required placeholder="Ingrese su contraseña">                        
+                        <div class="custom-file">
+                            <figure class="form-group">
+                              <img class="w-100" src="/db-images/<%=product.image%>"
+                               alt="services-others" <%=product.image%>">
+                            </figure>
+                            <input type="hidden" name="oldImage" value="<%=product.image%>">
+                            <input type="file" name="image">
+                        </div>                        
                     </div>
 
                     <div class="subitem">
                         <h4 class="center-title">Categoría de costo</h4>
                         <div class="sub-rows">
                             <label>
-                                <input type="radio" class="sub-element" name="profile" value="fixed" required>Precio Fijo</input>
+                                
+                                <input type="radio" class="sub-element" name="profile" value="fixed" required <%= product.priceType == 'fixed'? "checked" : null %>>Precio Fijo</input>                                
                             </label>
                             <label>
-                                <input type="radio" class="sub-element" name="profile" value="quoted" required>Cotización</input>
+                                <input type="radio" class="sub-element" name="profile" value="quoted" required <%= product.priceType == 'quoted'? "checked" : null %>>Cotización</input>
+                                
                             </label>
                         </div>
                     </div>
                     <div class="subitem">
                         <h4 class="center-title">Precio</h4>
-                        <input type="text" id="input-email" class="form-input form-dimention center-title" required placeholder="0,00$">
+                        <input type="text" name="price" id="input-email" class="form-input form-dimention center-title" required placeholder="0,00$" value="<%=product.price%>">
 
                     </div>
 
