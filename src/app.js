@@ -20,14 +20,14 @@ app.use(express.urlencoded({ extended: false }));
 app.use(methodOverride('_method'));
 app.use(express.json());
 
-app.use('/',routeMain)
+app.use('/',routeMain);
 
-app.use('/products',routeProducts)
+app.use('/products',routeProducts);
 
-app.use('/auth',routeUser)
+app.use('/auth',routeUser);
 
-app.use('/cart',routeCart)
+app.use('/cart',routeCart);
 
-app.use('/admin',routeAdmin)
+app.use('/admin',routeAdmin);
 
 app.listen(PORT, () => console.log("Server Running on " + PORT));
