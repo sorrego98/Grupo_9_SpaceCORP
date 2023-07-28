@@ -19,7 +19,7 @@
   },
   {
     "id": "3",
-    "name": "grabación a distancia",
+    "name": "Grabación a distancia",
     "description": "Haz realidad tu proyecto musical sin necesidad de tener músicos propios. Utiliza nuestro servicio de grabación a distancia y nuestro equipo de trabajo se encargará de grabar las pistas según tus especificaciones. Obtén grabaciones profesionales sin complicaciones. ¡Deja que nuestro equipo haga realidad tu música!",
     "image": "grabacion-distacia.jpg",
     "category": "grabdist",
@@ -46,7 +46,7 @@
   },
   {
     "id": "6",
-    "name": "grabación de audio",
+    "name": "Grabación de audio",
     "description": "Nuestro servicio de grabación de audio te ofrece resultados profesionales y de alta calidad. Contamos con un equipo experto y equipos de grabación de última generación. Ya sea que necesites grabar voces, instrumentos, foley u otros sonidos, te brindaremos asistencia técnica y un entorno óptimo para lograr el mejor sonido posible. Confía en nosotros para capturar tu sonido de manera excepcional.",
     "image": "captura.jpg",
     "category": "captura",

@@ -32,6 +32,9 @@
                 <td><a href="/admin/products/detail-product/<%= product.id%> "> <ion-icon name="eye-outline"></ion-icon></a></td>
                 <td><a href="/admin/products/modify-product/<%= product.id%> "> <ion-icon name="pencil-outline"></ion-icon></a></td>
                 <td><a href="/admin/products/delete-product/<%= product.id%>"><ion-icon name="trash-outline"></ion-icon></a></td>
+                <td></td><form class="has-buttons" action="/admin/products/delete-product/<%= product.id%>?_method=DELETE" method="POST">
+                    <button class="button is-danger" type="submit"><ion-icon name="trash-outline"></ion-icon></button>
+                </form></td>
                 </tr>
                 <% }); %>
             </tbody>
