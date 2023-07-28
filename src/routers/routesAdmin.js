@@ -20,7 +20,8 @@ const upload = multer({ storage });
 router.get("/products", controlAdmin.adminProducts.listProducts); // /products (get)
 router.get("/products/add-product", controlAdmin.adminProducts.addProduct); // /products/create (get)
 router.get("/products/detail-product/:id", controlAdmin.adminProducts.detailProduct); // /products/:id (get)
-router.post("/products/add-product", controlAdmin.adminProducts.addProduct); // /products (post)
+router.get("/products/add-product", controlAdmin.adminProducts.addProduct); // /products (get)
+router.post("/products/", controlAdmin.adminProducts.saveProduct); // /products (get)
 router.get("/products/modify-product/:id", controlAdmin.adminProducts.modProduct); // /products/:id/edit (get)
 router.put("/products/modify-product/:id", upload.single('image'), controlAdmin.adminProducts.alterProduct); // /products/:id (put)
 // -------------------- Preguntar a Rodri y a Leo --------------------

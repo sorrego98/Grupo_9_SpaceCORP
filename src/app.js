@@ -1,11 +1,11 @@
 const express = require('express');
 const path = require('path');
 const app = express();
-const routeMain = require("../routers/routesMain");
-const routeProducts = require("../routers/routesProducts");
-const routeUser = require("../routers/routesUser");
-const routeCart = require("../routers/routesCart");
-const routeAdmin = require("../routers/routesAdmin");
+const routeMain = require("./routers/routesMain");
+const routeProducts = require("./routers/routesProducts");
+const routeUser = require("./routers/routesUser");
+const routeCart = require("./routers/routesCart");
+const routeAdmin = require("./routers/routesAdmin");
 const methodOverride = require('method-override');
 require('dotenv').config();
 

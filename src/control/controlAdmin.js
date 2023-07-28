@@ -1,6 +1,6 @@
 const path = require("path");
 const fs = require("fs");
-let controlMain = require('../control/controlMain');
+let controlMain = require('./controlMain');
 const { products } = require("./controlProducts");
 
 const adminProducts = {
@@ -11,6 +11,24 @@ const adminProducts = {
     },
     addProduct : (req, res) => {
         res.render('./admin/products/add-products')
+    },
+    saveProduct : (req, res) => {
+        const lastId = function() {
+            const products = controlMain.controlMethods.leerJSON('products.json');
+            const lastProduct = products.pop();
+            if(lastProduct){
+                return ++lastProduct.id
+            }
+            return 1
+        }
+
+        const products = controlMain.controlMethods.leerJSON('products.json');
+        const productId = lastId();
+        const newProducts = products.push(productId);
+        req.body.image = req.file ? req.file.filename : '';
+        let resProducts = JSON.stringify(newProducts, null, 2);
+        fs.writeFileSync(path.resolve(__dirname, '../data/products.json'), resProducts);
+        res.redirect('/admin/products');
     },
     modProduct : (req, res) => {
         const products = controlMain.controlMethods.leerJSON('products.json');
