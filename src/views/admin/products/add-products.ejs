@@ -9,20 +9,20 @@
                 <div class ="header-form">                    
                     <h2 class="form-title"><i class="fa-solid fa-circle-plus form-title fa-lg"></i> Añadir Producto </h2>
                 </div>
-                <form class="form" enctype="multipart/form-data" method="post" action="/admin/products">
+                <form class="form" enctype="multipart/form-data" method="POST" action="/admin/products/add-product">
                     <div class="subitem">
                         <h3 class="center-title">Nombre del Producto</h3>
-                        <input type="text" id="input-user" class="form-input form-dimention" required placeholder="Ingrese un nombre para su producto">
+                        <input type="text" name="name" id="input-user" class="form-input form-dimention" required placeholder="Ingrese un nombre para su producto">
                     </div>
                     
                     <div class="subitem">
                         <h3 class="center-title">Descripción</h3>
-                        <input type="text" id="input-pass" class="form-input form-dimention" required placeholder="Ingrese una descripción (MAX: 300 caracteres)">                        
+                        <input type="text" name="description" id="input-pass" class="form-input form-dimention" required placeholder="Ingrese una descripción (MAX: 300 caracteres)">                        
                     </div>
                     
                     <div class="subitem">
                         <h3 class="center-title">Imagen</h3>
-                        <input type="file" id="input-pass-confirm" class="form-input image-info" required placeholder="Ingrese su contraseña">                        
+                        <input type="file" name="image" id="image" class="form-input image-info" required placeholder="Ingrese imagen">                        
                     </div>
 
                     <div class="subitem">
@@ -38,7 +38,7 @@
                     </div>
                     <div class="subitem">
                         <h3 class="center-title">Precio</h3>
-                        <input type="text" id="input-email" class="form-input form-dimention center-title" required placeholder="0,00$">
+                        <input type="text" name="price" id="input-email" class="form-input form-dimention center-title" required placeholder="0,00$">
 
                     </div>
 

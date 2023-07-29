@@ -4,53 +4,55 @@ let controlMain = require('./controlMain');
 const { products } = require("./controlProducts");
 
 const adminProducts = {
-    listProducts : (req, res) => {
+    listProducts: (req, res) => {
         const products = controlMain.controlMethods.leerJSON('products.json');
         /*console.log(products)*/
-        res.render('./admin/products/list-products',{products})
+        res.render('./admin/products/list-products', { products })
     },
-    addProduct : (req, res) => {
+    addProduct: (req, res) => {
         res.render('./admin/products/add-products')
     },
-    saveProduct : (req, res) => {
-        const lastId = function() {
-            const products = controlMain.controlMethods.leerJSON('products.json');
-            const lastProduct = products.pop();
-            if(lastProduct){
-                return ++lastProduct.id
-            }
-            return 1
-        }
-
+    saveProduct: (req, res) => {
         const products = controlMain.controlMethods.leerJSON('products.json');
-        const productId = lastId();
-        const newProducts = products.push(productId);
-        req.body.image = req.file ? req.file.filename : '';
-        let resProducts = JSON.stringify(newProducts, null, 2);
+        const lastProduct = products.pop();
+        products.push(lastProduct);
+        const newProduct = {
+            id: (parseInt(lastProduct.id) +1).toString,
+            // id: parseInt(lastProduct.id) +1,
+            name: req.body.name,
+            description: req.body.description,
+            image: req.file.filename,
+            category: req.body.name,
+            priceType: req.body.profile,
+            price: req.body.price
+        }
+        products.push(newProduct);
+
+        let resProducts = JSON.stringify(products, null, 2);
         fs.writeFileSync(path.resolve(__dirname, '../data/products.json'), resProducts);
         res.redirect('/admin/products');
     },
-    modProduct : (req, res) => {
+    modProduct: (req, res) => {
         const products = controlMain.controlMethods.leerJSON('products.json');
         const product = products.find(product =>
             req.params.id == product.id
         );
-        res.render('./admin/products/modify-products', {product})
+        res.render('./admin/products/modify-products', { product })
     },
-    detailProduct : (req, res) => {
+    detailProduct: (req, res) => {
         const products = controlMain.controlMethods.leerJSON('products.json');
         const product = products.find(product =>
             req.params.id == product.id
         );
-        res.render('./admin/products/detail-products', {product})
+        res.render('./admin/products/detail-products', { product })
     },
-    alterProduct : (req, res) => {
+    alterProduct: (req, res) => {
         const products = controlMain.controlMethods.leerJSON('products.json');
         let arrProducts = [];
         products.forEach(product => {
-            if (product.id !== req.params.id){
+            if (product.id !== req.params.id) {
                 arrProducts.push(product);
-            }else{
+            } else {
                 arrProducts.push(
                     {
                         id: product.id,
@@ -64,26 +66,26 @@ const adminProducts = {
                 );
             }
         });
-        
+
         let resProducts = JSON.stringify(arrProducts, null, 2);
         fs.writeFileSync(path.resolve(__dirname, '../data/products.json'), resProducts);
         res.redirect('/admin/products');
     },
-    deleteProduct : (req, res) => {
+    deleteProduct: (req, res) => {
         const products = controlMain.controlMethods.leerJSON('products.json');
         let arrProducts = [];
         products.forEach(product => {
-            if (product.id !== req.params.id){
+            if (product.id !== req.params.id) {
                 arrProducts.push(product);
             }
         });
-        
+
         let resProducts = JSON.stringify(arrProducts, null, 2);
         fs.writeFileSync(path.resolve(__dirname, '../data/products.json'), resProducts);
         res.redirect('/admin/products');
 
     },
-    deleteTest : (req, res) => {
+    deleteTest: (req, res) => {
         const products = controlMain.controlMethods.leerJSON('products.json');
         const id = req.params.id;
         const filteredItems = products.filter(currentItem => currentItem.id != id);
@@ -91,7 +93,7 @@ const adminProducts = {
         fs.writeFileSync(path.resolve(__dirname, '../data/products.json'), resProducts);
         res.redirect('/admin/products');
     }
-    
+
 };
 
 /*const adminUsers = {
@@ -106,5 +108,6 @@ const adminProducts = {
     }
 };*/
 
-module.exports = {adminProducts /*, adminUsers*/
+module.exports = {
+    adminProducts /*, adminUsers*/
 };

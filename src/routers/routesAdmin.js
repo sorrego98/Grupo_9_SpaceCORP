@@ -7,7 +7,7 @@ const multer = require('multer');
 
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
-    cb(null, path.resolve(__dirname, '../public/db-images'))
+    cb(null, path.resolve(__dirname, '../../public/db-images'))
   },
   /*acá genera el nombre del archivo*/
   filename: function (req, file, cb) {
@@ -21,7 +21,7 @@ router.get("/products", controlAdmin.adminProducts.listProducts); // /products (
 router.get("/products/add-product", controlAdmin.adminProducts.addProduct); // /products/create (get)
 router.get("/products/detail-product/:id", controlAdmin.adminProducts.detailProduct); // /products/:id (get)
 router.get("/products/add-product", controlAdmin.adminProducts.addProduct); // /products (get)
-router.post("/products/", controlAdmin.adminProducts.saveProduct); // /products (get)
+router.post("/products/add-product", upload.single('image'),controlAdmin.adminProducts.saveProduct); // /products (get)
 router.get("/products/modify-product/:id", controlAdmin.adminProducts.modProduct); // /products/:id/edit (get)
 router.put("/products/modify-product/:id", upload.single('image'), controlAdmin.adminProducts.alterProduct); // /products/:id (put)
 // -------------------- Preguntar a Rodri y a Leo --------------------
