@@ -1,10 +1,11 @@
-Retro Sprint 1
+Retro Sprint 3
 
-1. Comenzar a hacer: mejorar la comunicación y avisar con antelación si no podremos participar de alguna sesión.
-2. Hacer más: apropiarse mas del proyecto individualmente y tomar mas la inicitiva.
-3. Continuar haciendo: utilizar trello para organizar las tareas y dar seguimiento.
-4. Hacer menos: que las reuniones no se extiendan más de lo previamente acordado.
-5. Dejar de hacer: no identificamos nada que debamos dejar de hacer.
+1. Comenzar a hacer: Enfocarnos en los objetivos del sprint y una vez resueltos todos los puntos avanzar con otros pendientes.
+2. Hacer más: Utilizar trello para organizar las tareas y dar seguimiento.
+4. Continuar haciendo: Mejorar la comunicación y utilizar los canales grupales para asegurar que todos los miembros esten notificados
+5. Hacer menos: Darle más relevancia a los detalles que a los requerimientos del sprint.
+6. Dejar de hacer: Trabajar código fuera de VSC, con el fin de incentivar la metodología propuesta en la cursada.
+
 
 Retro Sprint 2
 
@@ -13,3 +14,12 @@ Retro Sprint 2
 3. Continuar haciendo: utilizar trello para organizar las tareas y dar seguimiento.
 4. Hacer menos: trabajar individualmente y participar mas de las sesiones de trabajo (días martes) y weekly (sábados).
 5. Dejar de hacer: trabajar código fuera de VSC, con el fin de incentivar la metodología propuesta en la cursada.
+
+
+Retro Sprint 1
+
+1. Comenzar a hacer: mejorar la comunicación y avisar con antelación si no podremos participar de alguna sesión.
+2. Hacer más: apropiarse mas del proyecto individualmente y tomar mas la inicitiva.
+3. Continuar haciendo: utilizar trello para organizar las tareas y dar seguimiento.
+4. Hacer menos: que las reuniones no se extiendan más de lo previamente acordado.
+5. Dejar de hacer: no identificamos nada que debamos dejar de hacer.
