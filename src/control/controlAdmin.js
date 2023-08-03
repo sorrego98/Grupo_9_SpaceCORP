@@ -17,8 +17,8 @@ const adminProducts = {
         const lastProduct = products.pop();
         products.push(lastProduct);
         const newProduct = {
-            // id: (parseInt(lastProduct.id) +1).toString,
-            id: parseInt(lastProduct.id) +1,
+            id: (parseInt(lastProduct.id) +1).toString,
+            //id: parseInt(lastProduct.id) +1,
             name: req.body.name,
             description: req.body.description,
             image: req.file.filename,
@@ -88,7 +88,7 @@ const adminProducts = {
     deleteTest: (req, res) => {
         const products = controlMain.controlMethods.leerJSON('products.json');
         const id = req.params.id;
-        const filteredProducts = products.filter(currentProduct => currentProduct.id != id);
+        const filteredProducts = products.filter(currentProduct => currentProduct.id !== id);
         let resProducts = JSON.stringify(filteredProducts, null, 2);
         fs.writeFileSync(path.resolve(__dirname, '../data/products.json'), resProducts);
         res.redirect('/admin/products');

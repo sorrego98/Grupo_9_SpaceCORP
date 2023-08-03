@@ -106,14 +106,5 @@
     "category": "Prueba Agregado",
     "priceType": "fixed",
     "price": "50000"
-  },
-  {
-    "id": 13,
-    "name": "Agregado2",
-    "description": "Prueba 2",
-    "image": "product-1690595918419.jpg",
-    "category": "Agregado2",
-    "priceType": "fixed",
-    "price": "57000"
   }
 ]
