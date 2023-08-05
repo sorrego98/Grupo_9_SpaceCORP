@@ -79,32 +79,5 @@
     "category": "transcripcion",
     "priceType": "fixed",
     "price": "123000"
-  },
-  {
-    "id": "10",
-    "name": "Eliminar prueba",
-    "description": "Eliminando productos parte1",
-    "image": "delete.jpg",
-    "category": "Eliminar prueba",
-    "priceType": "fixed",
-    "price": "123000"
-  },
-  {
-    "id": "11",
-    "name": "Eliminar prueba2",
-    "description": "Eliminando productos parte2",
-    "image": "delete2.jpg",
-    "category": "Eliminar prueba",
-    "priceType": "fixed",
-    "price": "123000"
-  },
-  {
-    "id": 12,
-    "name": "Prueba Agregado",
-    "description": "Producto agregado",
-    "image": "product-1690595764255.jpg",
-    "category": "Prueba Agregado",
-    "priceType": "fixed",
-    "price": "50000"
   }
 ]
