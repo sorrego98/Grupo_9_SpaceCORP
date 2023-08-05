@@ -1,15 +1,15 @@
 [
   {
-    "id": "1",
-    "name": "ahora esta mal",
+    "id": 1,
+    "name": "Clases de música",
     "description": "Descubre y desarrolla tu potencial musical a través de nuestras clases personalizadas. Nuestros profesores expertos te guiarán en un viaje musical adaptado a tus necesidades y objetivos. Aprende teoría musical, técnica instrumental, canto o composición en un ambiente interactivo y divertido. Tanto si eres principiante como si tienes experiencia, nuestras clases te ayudarán a crecer como músico. ¡Reserva tu clase ahora y comienza tu viaje musical con nosotros!",
-    "image": "product-1690337028531.png",
-    "category": "ahora esta mal",
-    "priceType": "fixed",
+    "image": "product-1691250844685.png",
+    "category": "Clases de música",
+    "priceType": "quoted",
     "price": "123000asdasdasdas"
   },
   {
-    "id": "2",
+    "id": 2,
     "name": "Sala de ensayos",
     "description": "Prepárate para actuaciones increíbles en nuestra sala de ensayos equipada con todo lo necesario. Disfruta de un espacio acogedor y equipado con equipos de alta calidad para ensayar con tu banda. Reserva sesiones flexibles y aprovecha un entorno propicio para la creatividad y la colaboración. ¡Haz que tu música cobre vida en nuestra sala de ensayos!",
     "image": "ensayadero.jpg",
@@ -18,7 +18,7 @@
     "price": "123000"
   },
   {
-    "id": "3",
+    "id": 3,
     "name": "Grabación a distancia",
     "description": "Haz realidad tu proyecto musical sin necesidad de tener músicos propios. Utiliza nuestro servicio de grabación a distancia y nuestro equipo de trabajo se encargará de grabar las pistas según tus especificaciones. Obtén grabaciones profesionales sin complicaciones. ¡Deja que nuestro equipo haga realidad tu música!",
     "image": "grabacion-distacia.jpg",
@@ -27,7 +27,7 @@
     "price": "123000"
   },
   {
-    "id": "4",
+    "id": 4,
     "name": "Masterización",
     "description": "Confía en nuestro servicio de masterización para llevar tu música al siguiente nivel. Nuestro equipo experto mejorará la calidad y el sonido de tus canciones, asegurándose de que suenen profesionales y competitivas. Destaca con confianza en cada reproducción y deja que tu música brille con nuestro servicio de masterización.",
     "image": "masterizacion.jpg",
@@ -36,7 +36,7 @@
     "price": "123000"
   },
   {
-    "id": "5",
+    "id": 5,
     "name": "Mezcla",
     "description": "Confía en nuestro servicio de mezcla para lograr un sonido equilibrado y atractivo. Nuestro equipo de ingenieros de sonido utilizará técnicas profesionales para combinar y resaltar cada elemento de tu música. Trabajaremos juntos para asegurarnos de que la mezcla refleje tu visión artística y logre el máximo potencial de tus grabaciones. Obtén una mezcla profesional y pulida que hará que tu música se destaque.",
     "image": "mezcla.jpg",
@@ -45,7 +45,7 @@
     "price": "123000"
   },
   {
-    "id": "6",
+    "id": 6,
     "name": "Grabación de audio",
     "description": "Nuestro servicio de grabación de audio te ofrece resultados profesionales y de alta calidad. Contamos con un equipo experto y equipos de grabación de última generación. Ya sea que necesites grabar voces, instrumentos, foley u otros sonidos, te brindaremos asistencia técnica y un entorno óptimo para lograr el mejor sonido posible. Confía en nosotros para capturar tu sonido de manera excepcional.",
     "image": "captura.jpg",
@@ -54,7 +54,7 @@
     "price": "123000"
   },
   {
-    "id": "7",
+    "id": 7,
     "name": "Producción musical",
     "description": "Haz realidad tus ideas musicales con nuestro servicio de producción. Trabajaremos juntos en cada etapa, desde la grabación hasta la mezcla y masterización. Nuestro equipo experimentado te guiará en la selección de sonidos, la instrumentación y la creación de arreglos. Utilizaremos equipos profesionales y tecnología avanzada para garantizar la más alta calidad. Confía en nosotros para llevar tu música al siguiente nivel y crear una producción que destaque.",
     "image": "produccion.jpg",
@@ -63,7 +63,7 @@
     "price": "A convenir"
   },
   {
-    "id": "8",
+    "id": 8,
     "name": "Servicio de BeatMaker",
     "description": "Crea ritmos profesionales con nuestro servicio de Beatmaker. Nuestro equipo de talentosos productores te brindará ritmos originales y de alta calidad que se ajusten a tu estilo musical. Personalizamos los beats según tus preferencias y los entregamos en formato de alta calidad. Eleva tu música con nuestros ritmos creativos y profesionales.",
     "image": "beatmaker.jpg",
@@ -72,7 +72,7 @@
     "price": "A convenir"
   },
   {
-    "id": "9",
+    "id": 9,
     "name": "Transcripción de Guiones Melódicos",
     "description": "Protege tus derechos de autor con nuestra transcripción de guiones melódicos. Convertimos tus melodías en partituras precisas y legibles para respaldar legalmente tu música. Confía en nosotros para obtener la documentación necesaria y proteger tu propiedad intelectual.",
     "image": "transcripcion.jpg",

@@ -17,8 +17,8 @@ const adminProducts = {
         const lastProduct = products.pop();
         products.push(lastProduct);
         const newProduct = {
-            id: (parseInt(lastProduct.id) +1).toString(),
-            //id: parseInt(lastProduct.id) +1,
+            //id: (parseInt(lastProduct.id) +1).toString(),
+            id: parseInt(lastProduct.id) +1,
             name: req.body.name,
             description: req.body.description,
             image: req.file.filename,
@@ -35,30 +35,43 @@ const adminProducts = {
     modProduct: (req, res) => {
         const products = controlMain.controlMethods.leerJSON('products.json');
         const product = products.find(product =>
-            req.params.id == product.id
+            parseInt(req.params.id) === product.id
         );
         res.render('./admin/products/modify-products', { product })
     },
     detailProduct: (req, res) => {
         const products = controlMain.controlMethods.leerJSON('products.json');
         const product = products.find(product =>
-            req.params.id == product.id
+            parseInt(req.params.id) === product.id
         );
         res.render('./admin/products/detail-products', { product })
     },
     alterProduct: (req, res) => {
         const products = controlMain.controlMethods.leerJSON('products.json');
+        let pic = "";
         let arrProducts = [];
         products.forEach(product => {
-            if (product.id !== req.params.id) {
+            if (product.id !== parseInt(req.params.id)) {
                 arrProducts.push(product);
-            } else {
+            } else {    
+                console.log(product.image)
+                if(req.file){
+                    pic = req.file.filename
+                    try {
+                        fs.unlinkSync(path.resolve(__dirname, '../../public/db-images/', product.image));             
+                      } catch (e) {                        
+                      }
+
+                }else{
+                    pic = req.body.oldImage
+
+                }
                 arrProducts.push(
                     {
                         id: product.id,
                         name: req.body.name,
                         description: req.body.description,
-                        image: req.file ? pic = req.file.filename : pic = req.body.oldImage,
+                        image: pic,
                         category: req.body.name,
                         priceType: req.body.profile,
                         price: req.body.price
@@ -70,24 +83,11 @@ const adminProducts = {
         let resProducts = JSON.stringify(arrProducts, null, 2);
         fs.writeFileSync(path.resolve(__dirname, '../data/products.json'), resProducts);
         res.redirect('/admin/products');
+        
     },
     deleteProduct: (req, res) => {
         const products = controlMain.controlMethods.leerJSON('products.json');
-        let arrProducts = [];
-        products.forEach(product => {
-            if (product.id !== req.params.id) {
-                arrProducts.push(product);
-            }
-        });
-
-        let resProducts = JSON.stringify(arrProducts, null, 2);
-        fs.writeFileSync(path.resolve(__dirname, '../data/products.json'), resProducts);
-        res.redirect('/admin/products');
-
-    },
-    deleteTest: (req, res) => {
-        const products = controlMain.controlMethods.leerJSON('products.json');
-        const id = req.params.id;
+        const id = parseInt(req.params.id);
         const deleteProduct = products.find(product => product.id == id);
         const filteredProducts = products.filter(currentProduct => currentProduct.id !== id);
         let resProducts = JSON.stringify(filteredProducts, null, 2);

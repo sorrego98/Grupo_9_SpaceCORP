@@ -23,6 +23,6 @@ router.get("/products/add-product", controlAdmin.adminProducts.addProduct); // /
 router.post("/products/add-product", upload.single('image'),controlAdmin.adminProducts.saveProduct); // /products (get)
 router.get("/products/modify-product/:id", controlAdmin.adminProducts.modProduct); // /products/:id/edit (get)
 router.put("/products/modify-product/:id", upload.single('image'), controlAdmin.adminProducts.alterProduct); // /products/:id (put)
-router.delete("/products/delete-product/:id", controlAdmin.adminProducts.deleteTest);
+router.delete("/products/delete-product/:id", controlAdmin.adminProducts.deleteProduct); // /products/:id (delete)
 
 module.exports = router;
