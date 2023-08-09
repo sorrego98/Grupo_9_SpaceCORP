@@ -58,7 +58,7 @@ const adminProducts = {
                 if(req.file){
                     pic = req.file.filename
                     try {
-                        fs.unlinkSync(path.resolve(__dirname, '../../public/db-images/', product.image));             
+                        fs.unlinkSync(path.resolve(__dirname, '../../public/db-images/products/', product.image));             
                       } catch (e) {                        
                       }
 
@@ -92,7 +92,7 @@ const adminProducts = {
         const filteredProducts = products.filter(currentProduct => currentProduct.id !== id);
         let resProducts = JSON.stringify(filteredProducts, null, 2);
         fs.writeFileSync(path.resolve(__dirname, '../data/products.json'), resProducts);
-        fs.unlinkSync(path.resolve(__dirname, '../../public/db-images/', deleteProduct.image));
+        fs.unlinkSync(path.resolve(__dirname, '../../public/db-images/products/', deleteProduct.image));
         res.redirect('/admin/products');
     }
 
