@@ -2,6 +2,7 @@ const path = require("path");
 const fs = require("fs");
 let controlMain = require('./controlMain');
 const { products } = require("./controlProducts");
+const { users } = require("./controlUsers");
 
 const adminProducts = {
     listProducts: (req, res) => {
@@ -98,18 +99,102 @@ const adminProducts = {
 
 };
 
-/*const adminUsers = {
-    products : (req, res) => {
-        res.render('./admin/products/list-products')
+const adminUsers = {
+    listUsers: (req, res) => {
+        const users = controlMain.controlMethods.leerJSON('users.json');
+        /*console.log(users)*/
+        res.render('./admin/users/list-users', { users })
     },
-    addProducts : (req, res) => {
-        res.render('./admin/products/add-products')
+    addUser: (req, res) => {
+        res.render('./admin/users/add-users')
     },
-    modifyProducts : (req, res) => {
-        res.render('./admin/products/modify-products')
+    saveUser: (req, res) => {
+        const users = controlMain.controlMethods.leerJSON('users.json');
+        const lastUser = users.pop();
+        users.push(lastUser);
+        const newUser = {
+            //id: (parseInt(lastUser.id) +1).toString(),
+            id: parseInt(lastUser.id) +1,
+            first_name: req.body.name,
+            last_name: req.body.description,
+            user_name: req.body.user_name,
+            password: req.body.password,
+            email: req.body.email,
+            image_profile: req.file.filename
+        }
+        users.push(newUser);
+
+        let resUsers = JSON.stringify(users, null, 2);
+        fs.writeFileSync(path.resolve(__dirname, '../data/users.json'), resUsers);
+        res.redirect('/admin/users');
+    },
+    modUser: (req, res) => {
+        const users = controlMain.controlMethods.leerJSON('users.json');
+        const user = users.find(user =>
+            parseInt(req.params.id) === user.id
+        );
+        res.render('./admin/users/modify-users', { user })
+    },
+    detailUser: (req, res) => {
+        const users = controlMain.controlMethods.leerJSON('users.json');
+        const user = users.find(user =>
+            parseInt(req.params.id) === user.id
+        );
+        res.render('./admin/users/detail-users', { user })
+    },
+    alterUser: (req, res) => {
+        const users = controlMain.controlMethods.leerJSON('users.json');
+        let pic = "";
+        let arrUsers = [];
+        users.forEach(user => {
+            if (user.id !== parseInt(req.params.id)) {
+                arrUsers.push(user);
+            } else {    
+                console.log(user.image)
+                if(req.file){
+                    pic = req.file.filename
+                    try {
+                        fs.unlinkSync(path.resolve(__dirname, '../../public/db-images/users/', user.image));             
+                      } catch (e) {                        
+                      }
+
+                }else{
+                    pic = req.body.oldImage
+
+                }
+                arrUsers.push(
+                    {
+                        id: user.id,
+                        first_name: req.body.name,
+                        last_name: req.body.description,
+                        user_name: req.body.user_name,
+                        password: req.body.password,
+                        email: req.body.email,
+                        image_profile: req.file.filename
+                    }
+                );
+            }
+        });
+
+        let resUsers = JSON.stringify(arrUsers, null, 2);
+        fs.writeFileSync(path.resolve(__dirname, '../data/users.json'), resUsers);
+        res.redirect('/admin/users');
+        
+    },
+    deleteUser: (req, res) => {
+        const users = controlMain.controlMethods.leerJSON('users.json');
+        const id = parseInt(req.params.id);
+        const deleteUser = users.find(user => user.id == id);
+        const filteredUsers = users.filter(currentUser => currentuser.id !== id);
+        let resUsers = JSON.stringify(filteredUsers, null, 2);
+        fs.writeFileSync(path.resolve(__dirname, '../data/users.json'), resUsers);
+        fs.unlinkSync(path.resolve(__dirname, '../../public/db-images/users/', deleteUser.image));
+        res.redirect('/admin/users');
     }
-};*/
+
+};
+
 
 module.exports = {
-    adminProducts /*, adminUsers*/
+    adminProducts , adminUsers
 };
