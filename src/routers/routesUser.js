@@ -15,7 +15,7 @@ const {body} = require('express-validator');  //引入验证模块
 const controlUser = require(path.resolve(__dirname, "../control/controlUser.js"));
 
 // llamo el registro de ususarios para valdidar si existe o no el usuario
-let archivoUsuarios = JSON.parse(fs.readFileSync(path.resolve(__dirname, "../data/usuarios.json")));
+let archivoUsuarios = JSON.parse(fs.readFileSync(path.resolve(__dirname, "../data/users.json")));
 
 //uso de multer para la carga de imagenes
 
