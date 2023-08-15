@@ -9,6 +9,7 @@ const routeAdmin = require("./routers/routesAdmin");
 const methodOverride = require('method-override');
 require('dotenv').config();
 
+
 const PORT = parseInt(process.env.PORT);
 
 app.use(express.static(path.resolve(__dirname, '../public')));
@@ -29,5 +30,10 @@ app.use('/auth',routeUser);
 app.use('/cart',routeCart);
 
 app.use('/admin',routeAdmin);
+
+//URL encode  - Para que nos pueda llegar la información desde el formulario al req.body
+app.use(express.urlencoded({ extended: false }));
+//Middleware de aplicación el cual se encargue de controlar la posibilidad de usar otros métodos diferentes al GET y al POST, en nuestros formularios
+app.use(methodOverride('_method'));
 
 app.listen(PORT, () => console.log("Server Running on " + PORT));
