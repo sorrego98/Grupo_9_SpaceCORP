@@ -3,9 +3,9 @@ const router = express.Router();
 const path = require("path");   //引入path模块
 
 //paquete para comparar contraseñas
-const bcrypt = require('bcryptjs');  //引入加密模块
+ //引入加密模块
 // paquete para leer el archivo json
-const fs = require("fs");   //引入文件模块
+
 // paquete para subir archivos
 const multer = require('multer');   //引入文件上传模块
 //Paquete express validator
@@ -14,8 +14,8 @@ const {body} = require('express-validator');  //引入验证模块
 //requiero el modulo de controladores
 const controlUser = require(path.resolve(__dirname, "../control/controlUser.js"));
 
-// llamo el registro de ususarios para valdidar si existe o no el usuario
-let archivoUsuarios = JSON.parse(fs.readFileSync(path.resolve(__dirname, "../data/users.json")));
+
+
 
 //uso de multer para la carga de imagenes
 
@@ -77,7 +77,7 @@ const validacionesRegistro = [
 
 // Métodos en nuestros controladores: index - show - edit - delete 
 router.get('/login', controlUser.login);
-router.post('/login', validacionesLogin,controlUser.ingresar);
+
 
 router.get('/register', controlUser.registro);
 

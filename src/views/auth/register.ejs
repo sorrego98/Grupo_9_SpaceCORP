@@ -5,7 +5,7 @@
 <%- include ('../partials/commons/header')%>
     <main>
         <section id="reg-container" class="container form-container">
-            <form action="/register" method="post" enctype="multipart/form-data" class="form">
+            <form action="/auth/register" method="post" enctype="multipart/form-data" class="form">
                 <h2 class="form-title">Registro <i class="fa-regular fa-user"></i></h2>
                 <div>
                 <label class="form-label">Nombre</label>
@@ -36,7 +36,7 @@
                     <input type="file"   name="avatar"  placeholder="Debes eligir tu avatar...">
                 </div>
                 <div>
-                <button type="submit" name="registrar" class="boton-registro form-button">Registrarse</button>
+                <button type="submit" name="register" class="boton-registro form-button">Registrarse</button>
                 </div>
             </form>
         </section>

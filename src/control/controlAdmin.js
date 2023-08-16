@@ -2,7 +2,7 @@ const path = require("path");
 const fs = require("fs");
 let controlMain = require('./controlMain');
 const { products } = require("./controlProducts");
-const { users } = require("./controlUsers");
+const { users } = require("./controlUser");
 
 const adminProducts = {
     listProducts: (req, res) => {
@@ -99,10 +99,11 @@ const adminProducts = {
 
 };
 
+/*
 const adminUsers = {
     listUsers: (req, res) => {
         const users = controlMain.controlMethods.leerJSON('users.json');
-        /*console.log(users)*/
+     
         res.render('./admin/users/list-users', { users })
     },
     addUser: (req, res) => {
@@ -194,7 +195,7 @@ const adminUsers = {
 
 };
 
-
+*/
 module.exports = {
-    adminProducts , adminUsers
+    adminProducts //,adminUsers
 };
