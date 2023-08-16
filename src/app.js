@@ -12,6 +12,7 @@ const routeAdmin = require("./routers/routesAdmin");
 const methodOverride = require('method-override');
 require('dotenv').config();
 
+
 const PORT = parseInt(process.env.PORT);
 
 //Aqui requiero los paquetes para trabajar lo referido a session y cookies

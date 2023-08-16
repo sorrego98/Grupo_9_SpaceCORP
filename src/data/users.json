@@ -1,93 +1,92 @@
 [
-    {
-        "id": 1,
-        "first_name": "Alvan",
-        "last_name": "Matula",
-        "user_name": "amatula0",
-        "email": "amatula0@omniture.com",
-        "password": "dL1(QcnEW%+0",
-        "image_profile": "http://dummyimage.com/210x100.png/dddddd/000000",
-        "category": 1
-    },
-    {
-        "id": 2,
-        "first_name": "Aile",
-        "last_name": "Haverson",
-        "user_name": "ahaverson1",
-        "email": "ahaverson1@thetimes.co.uk",
-        "password": "sG1+<_y+/vOPj",
-        "image_profile": "http://dummyimage.com/190x100.png/ff4444/ffffff",
-        "category": 2
-    },
-    {
-        "id": 3,
-        "first_name": "Lauree",
-        "last_name": "Guesford",
-        "user_name": "lguesford2",
-        "email": "lguesford2@indiegogo.com",
-        "password": "yS0)n(mL/$=",
-        "image_profile": "http://dummyimage.com/174x100.png/cc0000/ffffff",
-        "category": 2
-    },
-    {
-        "id": 4,
-        "first_name": "Dagmar",
-        "last_name": "Navarijo",
-        "user_name": "dnavarijo3",
-        "email": "dnavarijo3@redcross.org",
-        "password": "nQ8(BG.)J",
-        "image_profile": "http://dummyimage.com/164x100.png/5fa2dd/ffffff",
-        "category": 2
-    },
-    {
-        "id": 5,
-        "first_name": "Evania",
-        "last_name": "Goscomb",
-        "user_name": "egoscomb4",
-        "email": "egoscomb4@usda.gov",
-        "password":"lK5+h,RU6Ra#I`", 
-        "image_profile": "http://dummyimage.com/142x100.png/cc0000/ffffff",
-        "category": 2
-    },
-    {
-        "id": 6,
-        "first_name": "Nichol",
-        "last_name": "Josilevich",
-        "user_name": "njosilevich5",
-        "email": "njosilevich5@icio.us",
-        "password": "kV3}q(@}0",
-        "image_profile": "http://dummyimage.com/133x100.png/cc0000/ffffff",
-        "category": 2
-    },
-    {
-        "id": 7,
-        "first_name": "Farand",
-        "last_name": "Goomes",
-        "user_name": "fgoomes6",
-        "email": "fgoomes6@cnn.com",
-        "password": "xK5/xD`5\\Siw.",
-        "image_profile": "http://dummyimage.com/195x100.png/5fa2dd/ffffff",
-        "category": 2
-    },
-    {
-        "id": 8,
-        "first_name": "Laurent",
-        "last_name": "Antosch",
-        "user_name": "lantosch7",
-        "email": "lantosch7@nationalgeographic.com",
-        "password":"bI9>y@4vsH,~$,v", 
-        "image_profile": "http://dummyimage.com/250x100.png/dddddd/000000",
-        "category": 2
-    },
-    {
-        "id": 9,
-        "first_name": "Florencia",
-        "last_name": "Guede",
-        "user_name": "florguede",
-        "email": "florenciaguede@gmail.com",
-        "password":"$2a$12$95HkpVn0/n8XIuNy1kSv4OIl1NvSSHZ7SzyEIM7czC4fSf3cZm53u", 
-        "image_profile": "http://dummyimage.com/250x100.png/dddddd/000000",
-        "category": 2
-    }
+  {
+    "id": 1,
+    "first_name": "Alvan",
+    "last_name": "Matula",
+    "user_name": "amatula0",
+    "email": "amatula0@omniture.com",
+    "password": "dL1(QcnEW%+0",
+    "image_profile": "http://dummyimage.com/210x100.png/dddddd/000000",
+    "category": 1
+  },
+  {
+    "id": 2,
+    "first_name": "Aile",
+    "last_name": "Haverson",
+    "user_name": "ahaverson1",
+    "email": "ahaverson1@thetimes.co.uk",
+    "password": "sG1+<_y+/vOPj",
+    "image_profile": "http://dummyimage.com/190x100.png/ff4444/ffffff",
+    "category": 2
+  },
+  {
+    "id": 3,
+    "first_name": "Lauree",
+    "last_name": "Guesford",
+    "user_name": "lguesford2",
+    "email": "lguesford2@indiegogo.com",
+    "password": "yS0)n(mL/$=",
+    "image_profile": "http://dummyimage.com/174x100.png/cc0000/ffffff",
+    "category": 2
+  },
+  {
+    "id": 4,
+    "first_name": "Dagmar",
+    "last_name": "Navarijo",
+    "user_name": "dnavarijo3",
+    "email": "dnavarijo3@redcross.org",
+    "password": "nQ8(BG.)J",
+    "image_profile": "http://dummyimage.com/164x100.png/5fa2dd/ffffff",
+    "category": 2
+  },
+  {
+    "id": 5,
+    "first_name": "Evania",
+    "last_name": "Goscomb",
+    "user_name": "egoscomb4",
+    "email": "egoscomb4@usda.gov",
+    "password": "lK5+h,RU6Ra#I`",
+    "image_profile": "http://dummyimage.com/142x100.png/cc0000/ffffff",
+    "category": 2
+  },
+  {
+    "id": 6,
+    "first_name": "Nichol",
+    "last_name": "Josilevich",
+    "user_name": "njosilevich5",
+    "email": "njosilevich5@icio.us",
+    "password": "kV3}q(@}0",
+    "image_profile": "http://dummyimage.com/133x100.png/cc0000/ffffff",
+    "category": 2
+  },
+  {
+    "id": 7,
+    "first_name": "Farand",
+    "last_name": "Goomes",
+    "user_name": "fgoomes6",
+    "email": "fgoomes6@cnn.com",
+    "password": "xK5/xD`5\\Siw.",
+    "image_profile": "http://dummyimage.com/195x100.png/5fa2dd/ffffff",
+    "category": 2
+  },
+  {
+    "id": 8,
+    "first_name": "Laurent",
+    "last_name": "Antosch",
+    "user_name": "lantosch7",
+    "email": "lantosch7@nationalgeographic.com",
+    "password": "bI9>y@4vsH,~$,v",
+    "image_profile": "http://dummyimage.com/250x100.png/dddddd/000000",
+    "category": 2
+  },
+  {
+    "id": 9,
+    "first_name": "Florencia",
+    "last_name": "Guede",
+    "user_name": "florguede",
+    "email": "florenciaguede@gmail.com",
+    "password": "$2a$12$95HkpVn0/n8XIuNy1kSv4OIl1NvSSHZ7SzyEIM7czC4fSf3cZm53u",
+    "image_profile": "http://dummyimage.com/250x100.png/dddddd/000000",
+    "category": 2
+  }
 ]
-

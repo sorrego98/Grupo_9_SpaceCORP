@@ -70,5 +70,14 @@
     "category": "transcripcion",
     "priceType": "fixed",
     "price": "123000"
+  },
+  {
+    "id": 10,
+    "name": "Transcripción de Guiones Melódicos",
+    "description": "Protege tus derechos de autor con nuestra transcripción de guiones melódicos. Convertimos tus melodías en partituras precisas y legibles para respaldar legalmente tu música. Confía en nosotros para obtener la documentación necesaria y proteger tu propiedad intelectual.",
+    "image": "product-1691548445770.jpg",
+    "category": "Transcripción de Guiones Melódicos",
+    "priceType": "fixed",
+    "price": "123000"
   }
 ]
