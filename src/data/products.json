@@ -1,14 +1,5 @@
 [
   {
-    "id": 1,
-    "name": "Clases de música",
-    "description": "Descubre y desarrolla tu potencial musical a través de nuestras clases personalizadas. Nuestros profesores expertos te guiarán en un viaje musical adaptado a tus necesidades y objetivos. Aprende teoría musical, técnica instrumental, canto o composición en un ambiente interactivo y divertido. Tanto si eres principiante como si tienes experiencia, nuestras clases te ayudarán a crecer como músico. ¡Reserva tu clase ahora y comienza tu viaje musical con nosotros!",
-    "image": "product-1691250844685.png",
-    "category": "Clases de música",
-    "priceType": "quoted",
-    "price": "123000asdasdasdas"
-  },
-  {
     "id": 2,
     "name": "Sala de ensayos",
     "description": "Prepárate para actuaciones increíbles en nuestra sala de ensayos equipada con todo lo necesario. Disfruta de un espacio acogedor y equipado con equipos de alta calidad para ensayar con tu banda. Reserva sesiones flexibles y aprovecha un entorno propicio para la creatividad y la colaboración. ¡Haz que tu música cobre vida en nuestra sala de ensayos!",

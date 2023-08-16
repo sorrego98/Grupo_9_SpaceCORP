@@ -78,5 +78,16 @@
         "password":"bI9>y@4vsH,~$,v", 
         "image_profile": "http://dummyimage.com/250x100.png/dddddd/000000",
         "category": 2
+    },
+    {
+        "id": 9,
+        "first_name": "Florencia",
+        "last_name": "Guede",
+        "user_name": "florguede",
+        "email": "florenciaguede@gmail.com",
+        "password":"$2a$12$95HkpVn0/n8XIuNy1kSv4OIl1NvSSHZ7SzyEIM7czC4fSf3cZm53u", 
+        "image_profile": "http://dummyimage.com/250x100.png/dddddd/000000",
+        "category": 2
     }
 ]
+

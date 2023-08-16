@@ -5,15 +5,28 @@
 <%- include ('../partials/commons/header')%>
     <main>
         <section id="login-container" class="container">
-            <form>
+            <form method="POST" action="/auth/login">
                 <h2>Inicio de sesión</h2>
                 <br>
                 <label>Email:</label>
-                <input type="email" id="input-email" class="input" required placeholder="Ingrese su email">
+                <input type="email" id="input-email" class="input"  name="email" required placeholder="Ingrese su email" value="<%= typeof old != 'undefined' ? old.email : '' %>" >
+                <% if(typeof(errors) != 'undefined' && errors.email){%>
+                    <span class="text-danger">
+                      <%= errors.email.msg %>
+                    </span>
+                 <%}%>
                 <br>
                 <label>Contraseña:</label>
-                <input type="password" id="input-pass" class="input" required placeholder="Ingrese su contraseña">
+                <input type="password" id="input-pass" class="input" name="password" required placeholder="Ingrese su contraseña">
+                <% if(typeof(errors) != 'undefined' && errors.password){%>
+                    <span class="text-danger">
+                      <%= errors.password.msg %>
+                    </span>
+                 <%}%>
                 <br>
+                <div class="form-group ">
+                    <input type="checkbox" name="recordarme"><label class="checkbox-inline">Recordarme</label>
+                  </div>
                 <br>
                 <button type="submit" name="login" class="boton-login">Iniciar Sesión</button>
             </form>
