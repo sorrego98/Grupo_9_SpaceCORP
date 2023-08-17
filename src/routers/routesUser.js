@@ -2,6 +2,8 @@ const express = require("express");
 const router = express.Router();
 let controlUser = require('../control/controlUser')
 const path = require('path');
+const guestMiddleware = require('../middlewares/guestMiddleware');
+const authMiddleware = require('../middlewares/authMiddleware');
 
 //Requiero fs ya que debo leer el archivo json de usuarios y verificar si el usuario que se está reistrando existe o no
 const fs = require ('fs');
@@ -96,13 +98,14 @@ const validacionesLogin = [
     }).withMessage('Usuario o contraseña no coinciden'),
 ]
 
-router.get("/register", controlUser.register);
+router.get("/register", guestMiddleware,controlUser.register);
 //Aqui en esta ruta envio al controlador el avatar del usuario así como las respectivas validaciones
 router.post('/register', upload.single('avatar'),validacionesRegistro, controlUser.create);
 
-router.get("/login", controlUser.login);
+router.get("/login", guestMiddleware, controlUser.login);
 //agrego ruta por post que va al controlador
 router.post("/login", validacionesLogin, controlUser.loginProcess);
+router.get('/profile', authMiddleware, controlUser.profile);
 //Esta ruta se activa al momento que el usuario desea salir de la página
 router.get('/logout', controlUser.logout);
 

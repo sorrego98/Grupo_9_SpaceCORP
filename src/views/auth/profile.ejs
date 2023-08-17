@@ -1,0 +1,19 @@
+<%- include ('../partials/commons/head')%>
+    <link rel="stylesheet" href="/css/loginstyles.css">
+    <title>Profile</title>
+</head>
+<%- include ('../partials/commons/header')%>
+    <main>
+        <div  style="margin-top: 40px;">
+            <div >
+                <div >
+                    <h2>Hi <%= user.first_name %>  <%= user.last_name %> </h2>
+                    <img src="/db-images/users/<%= user.image_profile %> ">
+                    <br>
+                    <br>
+                    <div ><%= user.email %> </div>
+                </div>
+            </div>
+        </div>
+    </main>
+<%- include ('../partials/commons/footer')%>

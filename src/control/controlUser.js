@@ -1,14 +1,15 @@
 const path = require("path");
 const fs = require('fs');
-let controlMain = require('./controlMain');
+const controlMain = require('./controlMain');
 const bcrypt = require('bcryptjs');
+
 
 //Aquí requiero a la función que trae los errores desde la ruta, de llegar a existir
 const { validationResult } = require('express-validator');
 
 const controlUser = {
-  registro: function (req, res) {
-    res.render(path.resolve(__dirname, "../views/auth/register"));
+  register: (req, res) => {
+    res.render('../views/auth/register');
   },
 
   create: (req, res) => {
@@ -74,7 +75,7 @@ const controlUser = {
       if (req.body.recordarme) {
         res.cookie('email', usuarioLogueado.email, { maxAge: 1000 * 60 * 60 * 24 })
       }
-      return res.redirect('/');
+      return res.redirect('/auth/profile');
 
     } else {
       //Devolver a la vista los errores
@@ -84,13 +85,14 @@ const controlUser = {
 
   logout: (req, res) => {
     req.session.destroy();
-    res.cookie('email', null, { maxAge: -1 });
-    res.redirect('../views/auth/login')
+    res.clearCookie('userEmail');
+    res.redirect('/auth/login')
   },
-
-  register: (req, res) => {
-    res.render('../views/auth/register');
-  },
+  profile: (req, res) => {
+		return res.render('./auth/profile', {
+			user: req.session.usuario
+		});
+	}  
 };
 
 module.exports = controlUser;
