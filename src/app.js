@@ -12,7 +12,6 @@ const routeAdmin = require("./routers/routesAdmin");
 const methodOverride = require('method-override');
 require('dotenv').config();
 
-
 const PORT = parseInt(process.env.PORT);
 
 //Aqui requiero los paquetes para trabajar lo referido a session y cookies
@@ -32,13 +31,6 @@ app.use(express.urlencoded({ extended: false }));
 app.use(methodOverride('_method'));
 app.use(express.json());
 
-//Para usar las rutas
-app.use('/',routeMain);
-app.use('/products',routeProducts);
-app.use('/auth',routeUser);
-app.use('/cart',routeCart);
-app.use('/admin',routeAdmin);
-
 // Aquí requerimos nuestros middlewares de session y cookies
 app.use(session({
     secret: "secreto",
@@ -51,6 +43,13 @@ app.use(cookieParser());
 
 //Middleware de aplicación que se encarga de controlar si el usuario está logueado o no.
 app.use(acceso);
+
+//Para usar las rutas
+app.use('/',routeMain);
+app.use('/products',routeProducts);
+app.use('/auth',routeUser);
+app.use('/cart',routeCart);
+app.use('/admin',routeAdmin);
 
 //Levantar servidor
 app.listen(PORT, () => console.log("Server Running on " + PORT));

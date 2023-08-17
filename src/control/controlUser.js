@@ -74,7 +74,7 @@ const controlUser = {
       if (req.body.recordarme) {
         res.cookie('email', usuarioLogueado.email, { maxAge: 1000 * 60 * 60 * 24 })
       }
-      return res.redirect('./main/home');
+      return res.redirect('/');
 
     } else {
       //Devolver a la vista los errores

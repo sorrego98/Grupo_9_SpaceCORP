@@ -88,5 +88,15 @@
     "password": "$2a$12$95HkpVn0/n8XIuNy1kSv4OIl1NvSSHZ7SzyEIM7czC4fSf3cZm53u",
     "image_profile": "http://dummyimage.com/250x100.png/dddddd/000000",
     "category": 2
+  },
+  {
+    "id": 10,
+    "first_name": "Marciano",
+    "last_name": "García",
+    "user_name": "mg",
+    "password": "$2a$10$w7X6Xdkx2yYUpfuX6lvKaO6XqgTCYQsp7iMyNM6dZ54V/mAs6p3sG",
+    "email": "mg@gmail.com",
+    "image_profile": "product-1692286056774.jpg",
+    "role": 1
   }
 ]
