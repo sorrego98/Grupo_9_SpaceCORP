@@ -7,7 +7,12 @@
         <div  style="margin-top: 40px;">
             <div >
                 <div >
-                    <h2>Hi <%= user.first_name %>  <%= user.last_name %> </h2>
+                    <h2>¡Sea bien comido! <%= user.first_name %>  <%= user.last_name %> </h2>
+                    <h3> Su tipo de usuario es <% if (user.role ===1) { %>
+                        <%= 'administrador' %>
+                    <% } else { %> 
+                        <%= 'cualquier otro' %>
+                    <% } %></h3>
                     <img src="/db-images/users/<%= user.image_profile %> ">
                     <br>
                     <br>

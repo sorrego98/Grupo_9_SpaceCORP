@@ -19,6 +19,7 @@ const session = require ('express-session');
 const cookieParser = require('cookie-parser');
 //Requerir el middleware que controla si el usuario está o no Logueado
 const acceso = require('./middlewares/acceso');
+const loggedMiddleware = require('./middlewares/loggedMiddleware');
 
 app.use(express.static(path.resolve(__dirname, '../public')));
 
@@ -43,6 +44,7 @@ app.use(cookieParser());
 
 //Middleware de aplicación que se encarga de controlar si el usuario está logueado o no.
 app.use(acceso);
+app.use(loggedMiddleware);
 
 //Para usar las rutas
 app.use('/',routeMain);

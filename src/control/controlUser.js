@@ -29,7 +29,7 @@ const controlUser = {
         password: bcrypt.hashSync(req.body.password, 10),
         email: req.body.email,
         image_profile: req.file ? req.file.filename : "",
-        role: 1,
+        role: 2,
       };
       let archivoUsers = fs.readFileSync(
         path.resolve(__dirname, "../data/users.json"),
@@ -89,10 +89,10 @@ const controlUser = {
     res.redirect('/auth/login')
   },
   profile: (req, res) => {
-		return res.render('./auth/profile', {
-			user: req.session.usuario
-		});
-	}  
+    return res.render('./auth/profile', {
+      user: req.session.usuario
+    });
+  }
 };
 
 module.exports = controlUser;

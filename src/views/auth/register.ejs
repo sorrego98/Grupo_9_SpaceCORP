@@ -16,8 +16,12 @@
                 <input type="text" class="form-control" name="last_name" placeholder="Apellido" value="<%= typeof old != 'undefined' ? old.last_name : '' %>">
                 </div>
                 <div>
+                    <label class="form-label">Email</label> 
+                    <input type="email" class="form-control" name="email" placeholder="Email" value="<%= typeof old != 'undefined' ? old.email : '' %>">
+                </div>
+                <div>
                     <label class="form-label">Nombre de usuario</label>
-                    <input type="text" class="form-control" name="user_name" placeholder="Nombre de usuario" value="<%= typeof old != 'undefined' ? old.last_name : '' %>">
+                    <input type="text" class="form-control" name="user_name" placeholder="Nombre de usuario" value="<%= typeof old != 'undefined' ? old.user_name : '' %>">
                 </div>
                 <div>  
                     <label class="form-label">Contraseña</label> 
@@ -26,10 +30,6 @@
                 <div>
                     <label class="form-label">Confimar contraseña</label> 
                     <input type="password" class="form-control" name="confirm_password" placeholder="Confirma Contraseña" >
-                </div>
-                <div>
-                    <label class="form-label">Email</label> 
-                    <input type="email" class="form-control" name="email" placeholder="Email" value="<%= typeof old != 'undefined' ? old.email : '' %>">
                 </div>
                 <div>
                     <label class="form-label">Avatar</label> 

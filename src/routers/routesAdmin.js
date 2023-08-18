@@ -1,5 +1,4 @@
 const path = require("path");
-const fs = require("fs");
 const express = require("express");
 const router = express.Router();
 const controlAdmin = require('../control/controlAdmin')
@@ -17,20 +16,7 @@ const storageP = multer.diskStorage({
   }
 });
 
-//Almacenamiento Usuario
-const storageU = multer.diskStorage({
-  destination: function (req, file, cb) {
-    cb(null, path.resolve(__dirname, '../../public/db-images/users'))
-  },
-  /*acá genera el nombre del archivo*/
-  filename: function (req, file, cb) {
-    cb(null, 'user-' + Date.now() + path.extname(file.originalname))
-  }
-});
-
-
 const uploadP = multer({ storageP });
-const uploadU = multer({ storageP });
 
 //Rutas Producto
 

@@ -33,18 +33,15 @@
                   <a href="/contact">CONTACT</a>
                 </div>
               </li>
-              <li class="nav-ul-li">
-                <div class="elemento-li">
-                  <i class="fa-solid fa-id-card"></i>
-                  <a href="/auth/register">REGISTER</a>
-                </div>
-              </li>
-              <li class="nav-ul-li">
-                <div class="elemento-li">
-                  <i class="fa-solid fa-right-to-bracket"></i>
-                  <a href="/auth/login">LOGIN</a>
-                </div>
-              </li>
+              <% if (locals.isLogged) { %>
+                <% if (locals.usuario.role ===1) { %>
+                  <li class="nav-ul-li">
+                    <div class="elemento-li">
+                      <i class="fa-solid fa-gear"></i>
+                      <a href="/admin/products">ADMON</a>
+                    </div>
+                  </li>
+                <% } %>
               <li class="nav-ul-li">
                 <div class="elemento-li">
                   <i class="fa-solid fa-user"></i>
@@ -57,6 +54,20 @@
                   <a href="/auth/logout">LOG OUT</a>
                 </div>
               </li>
+              <% } else { %>
+              <li class="nav-ul-li">
+                <div class="elemento-li">
+                  <i class="fa-solid fa-id-card"></i>
+                  <a href="/auth/register">REGISTER</a>
+                </div>
+              </li>
+              <li class="nav-ul-li">
+                <div class="elemento-li">
+                  <i class="fa-solid fa-right-to-bracket"></i>
+                  <a href="/auth/login">LOGIN</a>
+                </div>
+              </li>
+              <% } %>
             </ul>
           </nav> 
         <div class="burguer-menu">
