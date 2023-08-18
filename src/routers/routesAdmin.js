@@ -1,8 +1,10 @@
 const path = require("path");
 const express = require("express");
 const router = express.Router();
-const controlAdmin = require('../control/controlAdmin')
+const controlAdmin = require('../control/controlAdmin');
 const multer = require('multer');
+const authMiddleware = require('../middlewares/authMiddleware');
+const adminMiddleware = require('../middlewares/adminMiddleware');
 
 //Almacenamiento Producto
 
@@ -20,7 +22,7 @@ const uploadP = multer({ storageP });
 
 //Rutas Producto
 
-router.get("/products", controlAdmin.adminProducts.listProducts); // /products (get)
+router.get("/products", authMiddleware, adminMiddleware, controlAdmin.adminProducts.listProducts); // /products (get)
 router.get("/products/detail-product/:id", controlAdmin.adminProducts.detailProduct); // /products/:id (get)
 router.get("/products/add-product", controlAdmin.adminProducts.addProduct); // /products (get)
 router.post("/products/add-product", uploadP.single('image'),controlAdmin.adminProducts.saveProduct); // /products (get)
