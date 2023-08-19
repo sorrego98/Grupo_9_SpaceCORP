@@ -1,5 +1,14 @@
 [
   {
+    "id": 1,
+    "name": "Clases de Música",
+    "description": "Texto cualquiera",
+    "image": "clases-musica.jpg",
+    "category": "clases",
+    "priceType": "fixed",
+    "price": "123000"
+  },
+  {
     "id": 2,
     "name": "Sala de ensayos",
     "description": "Prepárate para actuaciones increíbles en nuestra sala de ensayos equipada con todo lo necesario. Disfruta de un espacio acogedor y equipado con equipos de alta calidad para ensayar con tu banda. Reserva sesiones flexibles y aprovecha un entorno propicio para la creatividad y la colaboración. ¡Haz que tu música cobre vida en nuestra sala de ensayos!",
@@ -12,7 +21,7 @@
     "id": 3,
     "name": "Grabación a distancia",
     "description": "Haz realidad tu proyecto musical sin necesidad de tener músicos propios. Utiliza nuestro servicio de grabación a distancia y nuestro equipo de trabajo se encargará de grabar las pistas según tus especificaciones. Obtén grabaciones profesionales sin complicaciones. ¡Deja que nuestro equipo haga realidad tu música!",
-    "image": "grabacion-distacia.jpg",
+    "image": "grabacion-distancia.jpg",
     "category": "grabdist",
     "priceType": "fixed",
     "price": "123000"
