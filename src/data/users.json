@@ -87,7 +87,7 @@
     "email": "florenciaguede@gmail.com",
     "password": "$2a$12$95HkpVn0/n8XIuNy1kSv4OIl1NvSSHZ7SzyEIM7czC4fSf3cZm53u",
     "image_profile": "http://dummyimage.com/250x100.png/dddddd/000000",
-    "category": 1
+    "role": 1
   },
   {
     "id": 10,
