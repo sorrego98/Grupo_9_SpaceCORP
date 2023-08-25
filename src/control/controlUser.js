@@ -85,7 +85,7 @@ const controlUser = {
 
   logout: (req, res) => {
     req.session.destroy();
-    res.clearCookie('userEmail');
+    res.clearCookie('email');
     res.redirect('/auth/login')
   },
   profile: (req, res) => {
