@@ -23,12 +23,12 @@ const upload = multer({ storage });
 //Rutas Producto
 
 router.get("/products", authMiddleware, adminMiddleware, controlAdmin.adminProducts.listProducts); // /products (get)
-router.get("/products/detail-product/:id", controlAdmin.adminProducts.detailProduct); // /products/:id (get)
-router.get("/products/add-product", controlAdmin.adminProducts.addProduct); // /products (get)
+router.get("/products/detail-product/:id", authMiddleware, adminMiddleware, controlAdmin.adminProducts.detailProduct); // /products/:id (get)
+router.get("/products/add-product", authMiddleware, adminMiddleware, controlAdmin.adminProducts.addProduct); // /products (get)
 router.post("/products/add-product", upload.single('image'),controlAdmin.adminProducts.saveProduct); // /products (get)
-router.get("/products/modify-product/:id", controlAdmin.adminProducts.modProduct); // /products/:id/edit (get)
+router.get("/products/modify-product/:id", authMiddleware, adminMiddleware, controlAdmin.adminProducts.modProduct); // /products/:id/edit (get)
 router.put("/products/modify-product/:id", upload.single('image'), controlAdmin.adminProducts.alterProduct); // /products/:id (put)
-router.delete("/products/delete-product/:id", controlAdmin.adminProducts.deleteProduct); // /products/:id (delete)
+router.delete("/products/delete-product/:id", authMiddleware, adminMiddleware, controlAdmin.adminProducts.deleteProduct); // /products/:id (delete)
 
 //Rutas usuario
 /*
