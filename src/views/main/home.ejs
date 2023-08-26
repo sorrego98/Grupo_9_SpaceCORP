@@ -1,16 +1,17 @@
 <%- include ('../partials/commons/head')%>
     <link rel="stylesheet" href="/css/homestyles.css">
+    <!-- <link rel="stylesheet" href="/css/slide.css"> -->
     <title>AirSound Studio</title>
 </head>
 <%- include ('../partials/commons/header')%>
     <main>
-        <section>
+        <section class="main-section">
             <h2>Quiénes somos</h2>
             <p>AirSound ofrece distintos servicios musicales y de audio a tu medida como captura, mezcla, masterización, arreglos musicales, entre otros.</p>
             <p>Nuestro objetivo  es dar vida a grandes ideas, sacar provecho de ellas y salir con un gran proyecto, cumpliendo las exigencias del mercado actual.</p>
             <p>Nuestro propósito es apoyar, ayudar, cambiar y transformar vidas.</p>
         </section>
-        <section>
+        <section class="main-section">
             <h2>Nuestra familia</h2>
             <article class="main-team">
                 <div class="main-team-div">
@@ -30,7 +31,7 @@
                 </div>
             </article>
         </section>
-        <section>
+        <section class="main-section">
             <h2>Últimas producciones</h2>
             <article>
                 <p>Últimas producciones en las que hemos tenido participación</p>
@@ -47,21 +48,41 @@
                 </div>
             </article>
         </section>
-        <section>
+        <section class="main-section">
             <h2>Galería</h2>
             <article>
                 <p>Un poco de nosotros</p>
-                <div>
-                    <div class="image-center">
-                        <img src="/img/drum.jpg" alt="Drumrec" width="90%">
+                <section>
+                    <!-- <div>
+                        <div class="image-center">
+                            <img src="/db-images/home/drum.jpg" alt="Drumrec" width="90%">
+                        </div>
+                        <div class="image-center">
+                            <img src="/db-images/home/jazzy.jpg" alt="Jazzy by La Suite" width="90%">
+                        </div>
+                        <div class="image-center">
+                            <img src="/db-images/home/sirenos.jpg" alt="Malé by The Siderens" width="90%">
+                        </div>
+                    </div> -->
+                </section>
+                <section class="general">
+                    <div class="container-carousel">
+                        <div class="carruseles" id="slider">
+                            <section class="slider-section" id="slider-section">
+                                <img src="/db-images/home/sirenos.jpg" alt="Malé by The Siderens">
+                            </section>
+                            <section class="slider-section" id="slider-section">
+                                <img src="/db-images/home/jazzy.jpg" alt="Jazzy by La Suite">
+                            </section>
+                            <section class="slider-section" id="slider-section">
+                                <img src="/db-images/home/drum.jpg" alt="Drumrec">
+                            </section>
+                        </div>
+                        <div class="btn-left"><i class="fa-solid fa-circle-arrow-left"></i></div>
+                        <div class="btn-right "><i class="fa-solid fa-circle-arrow-right"></i></div>
                     </div>
-                    <div class="image-center">
-                        <img src="/img/jazzy.jpg" alt="Jazzy by La Suite" width="90%">
-                    </div>
-                    <div class="image-center">
-                        <img src="/img/sirenos.jpg" alt="Malé by The Siderens" width="90%">
-                    </div>
-                </div>
+                    <script src="/css/scripts/imgScript.js"></script>
+                </section>
             </article>
         </section>
     </main>

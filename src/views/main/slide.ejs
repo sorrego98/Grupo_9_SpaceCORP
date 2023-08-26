@@ -1,0 +1,43 @@
+<%- include ('../partials/commons/head')%>
+    <link rel="stylesheet" href="/css/slide.css">
+    <title>Slide</title>
+</head>
+<%- include ('../partials/commons/header')%>
+    <main>
+        <section>
+            <!-- <h2>Galería</h2>
+            <article>
+                <p>Un poco de nosotros</p>
+                <div>
+                    <div class="image-center">
+                        <img src="/img/drum.jpg" alt="Drumrec" width="90%">
+                    </div>
+                    <div class="image-center">
+                        <img src="/img/jazzy.jpg" alt="Jazzy by La Suite" width="90%">
+                    </div>
+                    <div class="image-center">
+                        <img src="/img/sirenos.jpg" alt="Malé by The Siderens" width="90%">
+                    </div>
+                </div>
+            </article>
+        </section> -->
+        <section class="general">
+            <div class="container-carousel">
+                <div class="carruseles" id="slider">
+                    <section class="slider-section" id="slider-section">
+                        <img src="/db-images/home/sirenos.jpg" alt="Malé by The Siderens">
+                    </section>
+                    <section class="slider-section" id="slider-section">
+                        <img src="/db-images/home/jazzy.jpg" alt="Jazzy by La Suite">
+                    </section>
+                    <section class="slider-section" id="slider-section">
+                        <img src="/db-images/home/drum.jpg" alt="Drumrec">
+                    </section>
+                </div>
+                <div class="btn-left"><i class="fa-solid fa-circle-arrow-left"></i></div>
+                <div class="btn-right "><i class="fa-solid fa-circle-arrow-right"></i></div>
+            </div>
+            <script src="/css/scripts/imgScript.js"></script>
+        </section>
+    </main>
+<%- include ('../partials/commons/footer')%>
