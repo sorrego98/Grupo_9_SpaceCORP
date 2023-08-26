@@ -88,37 +88,5 @@
     "category": "Transcripción de Guiones Melódicos",
     "priceType": "fixed",
     "price": "123000"
-  },
-  {
-    "id": 11,
-    "name": "123",
-    "description": "123",
-    "category": "123",
-    "priceType": "fixed",
-    "price": "10"
-  },
-  {
-    "id": 12,
-    "name": "123",
-    "description": "123",
-    "category": "123",
-    "priceType": "fixed",
-    "price": "10"
-  },
-  {
-    "id": 13,
-    "name": "aaa",
-    "description": "aaa",
-    "category": "aaa",
-    "priceType": "fixed",
-    "price": "10"
-  },
-  {
-    "id": 14,
-    "name": "aaa",
-    "description": "bbb",
-    "category": "aaa",
-    "priceType": "fixed",
-    "price": "5"
   }
 ]
