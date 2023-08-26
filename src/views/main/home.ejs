@@ -35,55 +35,60 @@
             <h2>Últimas producciones</h2>
             <article>
                 <p>Últimas producciones en las que hemos tenido participación</p>
-                <div class="videos">
-                    <div>
-                        <iframe width="auto" height="auto" src="https://www.youtube-nocookie.com/embed/H7tbjuHHbsQ" title="LoL- El Poeta Halley" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                <section class="general-videos">
+                    <div class="container-carousel-videos">
+                        <div class="carruseles-video" id="slider-video">
+                            <section class="slider-section-video" id="slider-section-video">
+                                <iframe src="https://www.youtube-nocookie.com/embed/H7tbjuHHbsQ" title="LoL- El Poeta Halley" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                            </section>
+                            <section class="slider-section-video" id="slider-section">
+                                <iframe src="https://www.youtube-nocookie.com/embed/lfeRc9tRQzM" title="MdB- Cuento al viento" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                            </section>
+                            <section class="slider-section-video" id="slider-section">
+                                <iframe src="https://www.youtube-nocookie.com/embed/7OlzxfSKjtI" title="DD- Quanuqueando" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                            </section>    
+                            <section class="slider-section-video" id="slider-section">
+                                <iframe src="https://www.youtube-nocookie.com/embed/ONvgGORQj8k" title="LMT- Buen Finde" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                            </section>             
+                            <section class="slider-section-video" id="slider-section">
+                                <iframe src="https://www.youtube-nocookie.com/embed/Pcnsgs8G5fo"  title="KR- No me beses en la boca" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                            </section>             
+                        </div>
+                        <div class="btn-leftv"><i class="fa-solid fa-circle-arrow-left"></i></div>
+                        <div class="btn-rightv"><i class="fa-solid fa-circle-arrow-right"></i></div>
                     </div>
-                    <div>
-                        <iframe width="auto" height="auto" src="https://www.youtube-nocookie.com/embed/lfeRc9tRQzM" title="MdB- Cuento al viento" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-                    </div>
-                    <div>
-                        <iframe width="auto" height="auto" src="https://www.youtube-nocookie.com/embed/7OlzxfSKjtI" title="DD- Quanuqueando" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-                    </div>                    
-                </div>
+                </section>
             </article>
         </section>
         <section class="main-section">
             <h2>Galería</h2>
             <article>
                 <p>Un poco de nosotros</p>
-                <section>
-                    <!-- <div>
-                        <div class="image-center">
-                            <img src="/db-images/home/drum.jpg" alt="Drumrec" width="90%">
-                        </div>
-                        <div class="image-center">
-                            <img src="/db-images/home/jazzy.jpg" alt="Jazzy by La Suite" width="90%">
-                        </div>
-                        <div class="image-center">
-                            <img src="/db-images/home/sirenos.jpg" alt="Malé by The Siderens" width="90%">
-                        </div>
-                    </div> -->
-                </section>
                 <section class="general">
                     <div class="container-carousel">
                         <div class="carruseles" id="slider">
                             <section class="slider-section" id="slider-section">
-                                <img src="/db-images/home/sirenos.jpg" alt="Malé by The Siderens">
+                                <img class="img" src="/db-images/home/sirenos.jpg" alt="Malé by The Siderens">
                             </section>
                             <section class="slider-section" id="slider-section">
-                                <img src="/db-images/home/jazzy.jpg" alt="Jazzy by La Suite">
+                                <img class="img" src="/db-images/home/jazzy.jpg" alt="Jazzy by La Suite">
                             </section>
                             <section class="slider-section" id="slider-section">
-                                <img src="/db-images/home/drum.jpg" alt="Drumrec">
+                                <img class="img" src="/db-images/home/drum.jpg" alt="Drumrec">
+                            </section>
+                            <section class="slider-section" id="slider-section">
+                                <img class="img" src="/db-images/home/azogue.jpg" alt="El Azogue by Marea">
+                            </section>
+                            <section class="slider-section" id="slider-section">
+                                <img class="img" src="/db-images/home/desatormentandonos.jpg" alt="desatormentandonos by Pescado Rabioso">
                             </section>
                         </div>
                         <div class="btn-left"><i class="fa-solid fa-circle-arrow-left"></i></div>
                         <div class="btn-right "><i class="fa-solid fa-circle-arrow-right"></i></div>
                     </div>
-                    <script src="/css/scripts/imgScript.js"></script>
                 </section>
             </article>
         </section>
+        <script src="/css/scripts/scripts.js"></script>
     </main>
 <%- include ('../partials/commons/footer')%>

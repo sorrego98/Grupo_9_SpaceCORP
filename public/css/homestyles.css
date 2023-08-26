@@ -58,17 +58,73 @@ main section article p a{
     color: black;
 }
 
-.videos{
+/*----Slide video----*/
+.general-videos {
+    /* height: 80vh; */
     display: flex;
-    flex-wrap: wrap;
-    flex-direction: column;
     align-items: center;
+    justify-content: center;
+    background: #e9f6fa;
+    padding: 20px;
 }
 
-div iframe{
-    width: 80vw;
-    height: 45vw;
-    /*El width y Height lo pensé como una resolución de 16:9, la cual es el formato usado en youtube*/
+.container-carousel-videos {
+    position: relative;
+    width: 750px;
+    height: 450px;
+    background-color: #e0e0e0;
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.66);
+    border-radius: 15px;
+    overflow: hidden;
+}
+
+.carruseles-video {
+    width: 500%;
+    height: 100%;
+    display: flex;
+}
+
+.slider-section-video {
+    width: calc(100% / 5);
+    height: 100%;
+}
+
+.slider-section-video iframe {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 15px;
+}
+
+.btn-leftv,
+.btn-rightv {
+    display: flex;
+    position: absolute;
+    top: 50%;
+    font-size: 1.5rem;
+    background-color: transparent;
+    border-radius: 50%;
+    padding: 5px;
+    font-weight: 600;
+    cursor: pointer;
+    color: #ffffff81;
+    transform: translate(0, -50%);
+    transition: .5s ease;
+    user-select: none;
+}
+
+.btn-leftv:hover,
+.btn-rightv:hover {
+    background-color: #92d2e9;
+    color: blueviolet;
+}
+
+.btn-leftv {
+    left: 10px;
+}
+
+.btn-rightv {
+    right: 10px;
 }
 
 /*----Slide image----*/
@@ -93,13 +149,13 @@ div iframe{
 }
 
 .carruseles {
-    width: 300%;
+    width: 500%;
     height: 100%;
     display: flex;
 }
 
 .slider-section {
-    width: calc(100% / 3);
+    width: calc(100% / 5);
     height: 100%;
 }
 
@@ -164,11 +220,6 @@ main form div{
 }
 
 @media (min-width: 769px){
-    div iframe{
-        width: 48vw;
-        height: 27vw;
-    }
-
     .main-team{
         display: flex;
         flex-direction: row;
