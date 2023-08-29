@@ -1,3 +1,10 @@
+Weekly lunes 28 de agosto
+
+● Qué hizo esta semana: se finalizó el Sprint 5 y se definieron responsabilidades en Trello para el Sprint 6.
+● Si se encontró con algún impedimento: dificultades en la corrección de errores en versiones actuales que fueron solucionados en la última semana.
+● Qué va a hacer la próxima semana: trabajar en los requerimientos del Sprint 6 para luego abordar temas pendientes.
+
+
 Weekly sabado 5 de agosto
 
 ● Qué hizo esta semana: se finalizó el Sprint 4 y se definieron responsabilidades en Trello para el Sprint 5.
