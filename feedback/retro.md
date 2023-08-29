@@ -1,6 +1,6 @@
 Retro Sprint 5
 
-1. Comenzar a hacer: Darle más relevancia a los detalles que a los requerimientos del sprint.
+1. Comenzar a hacer: Darle más relevancia a los detalles que a los requerimientos del sprint. Testear el código completo.
 2. Hacer más: Utilizar trello para organizar las tareas y dar seguimiento.
 3. Continuar haciendo: Enfocarnos en los objetivos del sprint y una vez resueltos todos los puntos avanzar con otros pendientes.
 4. Hacer menos: 
