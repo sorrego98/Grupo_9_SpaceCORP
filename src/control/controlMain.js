@@ -17,4 +17,11 @@ const controlMethods = {
     }
 };
 
-module.exports = {controlMain, controlMethods};
+const controlDB ={
+    listData: 1/* CREAR CODIGO PARA HACER LA BUSQUEDA DE DATOS, LISTADOS O DETALLES EN LA BD*/,
+    createData: 1/* CREAR CODIGO PARA HACER LA INSERCIÓN DE REGISTROS EN LA BD*/,
+    updateData: 1 /* CREAR CODIGO PARA HACER UNA ACTUALIZACION O MODIFICACIÓN EN LA BD*/,
+    destroyData: 1 /* CREAR CODIGO PARA HACER ELIMINACIÓN EN LA BD*/
+};
+
+module.exports = {controlMain, controlMethods, controlDB};
