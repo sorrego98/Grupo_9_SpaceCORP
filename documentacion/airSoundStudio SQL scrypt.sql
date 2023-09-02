@@ -10,6 +10,7 @@ CREATE TABLE `roles` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=0 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
+
 DROP TABLE IF EXISTS `users`;
 CREATE TABLE `users` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
@@ -53,8 +54,8 @@ DROP TABLE IF EXISTS `products`;
 CREATE TABLE `products` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `name` varchar(100) COLLATE utf8_unicode_ci NOT null,
-  `description` varchar(100) COLLATE utf8_unicode_ci NOT null,
-  `image` varchar(100) COLLATE utf8_unicode_ci NOT null,  
+  `description` varchar(500) COLLATE utf8_unicode_ci NOT null,
+  `image` varchar(1000) COLLATE utf8_unicode_ci NOT null,  
   `price_id` int(10) unsigned NOT null,  
   `price` decimal(30,2) COLLATE utf8_unicode_ci, 
   `status` boolean COLLATE utf8_unicode_ci NOT null,
@@ -90,7 +91,7 @@ CREATE TABLE `user_sales` (
   `id_user` int(10) unsigned NOT NULL,
   `id_product` int(10) unsigned NOT NULL,
   `quantity` int(100) unsigned NOT NULL,
-  `total_price` decimal(30,2) unsigned NOT NULL,
+  `total_price` decimal(60,2) unsigned NOT NULL,
   `created_at` TimeStamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `user_sales_id_user_foreign` (`id_user`),
@@ -110,7 +111,6 @@ CREATE TABLE `user_fav_products` (
   CONSTRAINT `user_fav_products_id_user_foreign` FOREIGN KEY (`id_user`) REFERENCES `users` (`id`),
   CONSTRAINT `user_fav_products_id_product_foreign` FOREIGN KEY (`id_product`) REFERENCES `products` (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=0 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-
 
 /* -------------------------------------------- DATA MIGRATION -------------------------------------------- */
 INSERT INTO `roles` VALUES 
