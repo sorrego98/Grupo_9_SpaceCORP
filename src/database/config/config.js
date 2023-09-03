@@ -57,21 +57,21 @@ module.exports = {
     "username": "root",
     "password": "", /* aquí coloca tu password a la BD de development */
     "database": "air_sound_studio",
-    "host": "172.0.0.1",
+    "host": "localhost",
     "dialect": "mysql",
   },
   "test": {
       "username": "root",
       "password": "", /* aquí coloca tu password a la BD de development */
       "database": "air_sound_studio",
-      "host": "172.0.0.1",
+      "host": "localhost",
       "dialect": "mysql",
   },
   "production": {
       "username": "root",
       "password": "", /* aquí coloca tu password a la BD de development */
       "database": "air_sound_studio",
-      "host": "172.0.0.1",
+      "host": "localhost",
       "dialect": "mysql",
   }
 };

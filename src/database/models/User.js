@@ -37,15 +37,17 @@ module.exports = (sequelize, dataTypes) => {
         },
     };
     let config = {
-        timestamps: true,
+        timestamps: false,
         underscored: true
     }
     const Users = sequelize.define(alias, cols, config); 
 
-    Users.associate = function(models){
-        Users.belongsTo(models.Role,{
-            as:"roles", /*revisa */
-            foreignKey:"role_id"
-        })
-    }
+    // Users.associate = function(models){
+    //     Users.belongsTo(models.Role,{
+    //         as:"roles", /*revisa */
+    //         foreignKey:"role_id"
+    //     })
+    // }
+
+    return Users;
 };

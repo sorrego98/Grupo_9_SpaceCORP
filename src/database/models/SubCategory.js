@@ -18,21 +18,19 @@ module.exports = (sequelize, dataTypes) => {
         }
     };
     let config = {
-        timestamps: true,
+        tableName: "sub_categories",
+        timestamps: false,
         underscored: true
     }
     const SubCategory = sequelize.define(alias, cols, config); 
 
-    SubCategory.associate = function(models){
-        SubCategory.belongsTo(models.Category,{
-            as:"categories",
-            foreignKey:"cat_id"
-        })
-        
-        SubCategory.hasMany(models.Products,{
-            as:"products", /*revisa */            
-            foreignKey:"subcat_id"
-        })
-    }
+    // SubCategory.associate = function(models){
+    //     SubCategory.belongsTo(models.Category,{
+    //         as:"categories",
+    //         foreignKey:"cat_id"
+    //     })
+    // }
+
+    return SubCategory;
 }
 ;

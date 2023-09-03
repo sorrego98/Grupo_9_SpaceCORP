@@ -3,10 +3,21 @@ const fs = require("fs");
 let controlMain = require('./controlMain');
 const { products } = require("./controlProducts");
 const { users } = require("./controlUser");
-//const db = require('../database/models'); ---> esto está tirando el proyecto
+const db = require('../database/models'); /*---> esto está tirando el proyecto*/
 
 const adminProducts = {
-    metodoPrueba: 1,
+    metodoPrueba: function(req,res) {
+        // db.Products.findAll()
+        //     .then(prods => res.send(prods))
+        //     .catch(error => console.log("surgió un error: " + error));
+        db.UserSale.findAll()
+            .then(function(cats) {
+                console.log("aviso")
+                console.log(cats)
+                res.send(cats)
+            })
+            .catch(error => console.log("surgió un error: " + error));
+    },
     listProducts: (req, res) => {
         const products = controlMain.controlMethods.leerJSON('products.json');
         res.render('./admin/products/list-products', { products })

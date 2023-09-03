@@ -14,15 +14,17 @@ module.exports = (sequelize, dataTypes) => {
         }
     };
     let config = {
-        timestamps: true,
+        timestamps: false,
         underscored: true
     }
     const Roles = sequelize.define(alias, cols, config); 
     
-    Roles.associate = function(models){
-        Roles.hasMany(models.User,{
-            as:"users",
-            foreignKey:"role_id"
-        })
-    }
+    // Roles.associate = function(models){
+    //     Roles.hasMany(models.User,{
+    //         as:"users",
+    //         foreignKey:"role_id"
+    //     })
+    // }
+
+    return Roles;
 };

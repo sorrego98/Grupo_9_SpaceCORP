@@ -14,17 +14,22 @@ module.exports = (sequelize, dataTypes) => {
         }
     };
     let config = {
-        timestamps: false,
-        createdAt: 'created_at',
-        updatedAt: 'updated_at',
-        deletedAt: false
+        tableName: "product_prices",
+        timestamps: false
     }
     const ProductPrice = sequelize.define(alias, cols, config); 
+
+    //Aquí debes realizar lo necesario para crear las relaciones con el modelo (Movie)
     
-    ProductPrice.associate = function(models){
-        Products.hasMany(models.Products,{
-            as:"products", /*revisa */            
-            foreignKey:"price_id"
-        })
-    }
+    // Actor.associate = function(models){
+        
+    //     Actor.belongsToMany(models.Movie,{
+    //         as:"peliculas",
+    //         through:"actor_movie",
+    //         foreignKey:"actor_id",
+    //         otherKey:"movie_id",
+    //         timestamps:false
+    //     })
+    // }
+    return ProductPrice;
 };
