@@ -2,12 +2,14 @@ const express = require('express');
 const app = express();
 const path = require('path');
 
+
 //Requerir las rutas
 const routeMain = require("./routers/routesMain");
 const routeProducts = require("./routers/routesProducts");
 const routeUser = require("./routers/routesUser");
 const routeCart = require("./routers/routesCart");
 const routeAdmin = require("./routers/routesAdmin");
+const routeAPI = require("./routers/api/routesAPI");
 
 const methodOverride = require('method-override');
 require('dotenv').config();
@@ -52,6 +54,7 @@ app.use('/products',routeProducts);
 app.use('/auth',routeUser);
 app.use('/cart',routeCart);
 app.use('/admin',routeAdmin);
+app.use('/api',routeAPI);
 
 //Levantar servidor
 app.listen(PORT, () => console.log("Server Running on " + PORT));

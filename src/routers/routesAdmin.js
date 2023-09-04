@@ -21,7 +21,7 @@ const storage = multer.diskStorage({
 const upload = multer({ storage });
 
 //Rutas Producto
-
+router.get("/", controlAdmin.adminProducts.metodoPrueba); // /products (get)
 router.get("/products", authMiddleware, adminMiddleware, controlAdmin.adminProducts.listProducts); // /products (get)
 router.get("/products/detail-product/:id", authMiddleware, adminMiddleware, controlAdmin.adminProducts.detailProduct); // /products/:id (get)
 router.get("/products/add-product", authMiddleware, adminMiddleware, controlAdmin.adminProducts.addProduct); // /products (get)

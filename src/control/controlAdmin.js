@@ -3,11 +3,23 @@ const fs = require("fs");
 let controlMain = require('./controlMain');
 const { products } = require("./controlProducts");
 const { users } = require("./controlUser");
+const db = require('../database/models'); /*---> esto está tirando el proyecto*/
 
 const adminProducts = {
+    metodoPrueba: function(req,res) {
+        // db.Products.findAll()
+        //     .then(prods => res.send(prods))
+        //     .catch(error => console.log("surgió un error: " + error));
+        db.UserSale.findAll()
+            .then(function(cats) {
+                console.log("aviso")
+                console.log(cats)
+                res.send(cats)
+            })
+            .catch(error => console.log("surgió un error: " + error));
+    },
     listProducts: (req, res) => {
         const products = controlMain.controlMethods.leerJSON('products.json');
-        /*console.log(products)*/
         res.render('./admin/products/list-products', { products })
     },
     addProduct: (req, res) => {
@@ -18,7 +30,6 @@ const adminProducts = {
         const lastProduct = products.pop();
         products.push(lastProduct);
         const newProduct = {
-            //id: (parseInt(lastProduct.id) +1).toString(),
             id: parseInt(lastProduct.id) +1,
             name: req.body.name,
             description: req.body.description,
@@ -99,63 +110,60 @@ const adminProducts = {
 
 };
 
-/*
-const adminUsers = {
-    listUsers: (req, res) => {
-        const users = controlMain.controlMethods.leerJSON('users.json');
-     
-        res.render('./admin/users/list-users', { users })
+const adminProductsJSON = {
+    listProducts: (req, res) => {
+        const products = controlMain.controlMethods.leerJSON('products.json');
+        res.render('./admin/products/list-products', { products })
     },
-    addUser: (req, res) => {
-        res.render('./admin/users/add-users')
+    addProduct: (req, res) => {
+        res.render('./admin/products/add-products')
     },
-    saveUser: (req, res) => {
-        const users = controlMain.controlMethods.leerJSON('users.json');
-        const lastUser = users.pop();
-        users.push(lastUser);
-        const newUser = {
-            //id: (parseInt(lastUser.id) +1).toString(),
-            id: parseInt(lastUser.id) +1,
-            first_name: req.body.name,
-            last_name: req.body.description,
-            user_name: req.body.user_name,
-            password: req.body.password,
-            email: req.body.email,
-            image_profile: req.file.filename
+    saveProduct: (req, res) => {
+        const products = controlMain.controlMethods.leerJSON('products.json');
+        const lastProduct = products.pop();
+        products.push(lastProduct);
+        const newProduct = {
+            id: parseInt(lastProduct.id) +1,
+            name: req.body.name,
+            description: req.body.description,
+            image: req.file.filename,
+            category: req.body.name,
+            priceType: req.body.profile,
+            price: req.body.price
         }
-        users.push(newUser);
+        products.push(newProduct);
 
-        let resUsers = JSON.stringify(users, null, 2);
-        fs.writeFileSync(path.resolve(__dirname, '../data/users.json'), resUsers);
-        res.redirect('/admin/users');
+        let resProducts = JSON.stringify(products, null, 2);
+        fs.writeFileSync(path.resolve(__dirname, '../data/products.json'), resProducts);
+        res.redirect('/admin/products');
     },
-    modUser: (req, res) => {
-        const users = controlMain.controlMethods.leerJSON('users.json');
-        const user = users.find(user =>
-            parseInt(req.params.id) === user.id
+    modProduct: (req, res) => {
+        const products = controlMain.controlMethods.leerJSON('products.json');
+        const product = products.find(product =>
+            parseInt(req.params.id) === product.id
         );
-        res.render('./admin/users/modify-users', { user })
+        res.render('./admin/products/modify-products', { product })
     },
-    detailUser: (req, res) => {
-        const users = controlMain.controlMethods.leerJSON('users.json');
-        const user = users.find(user =>
-            parseInt(req.params.id) === user.id
+    detailProduct: (req, res) => {
+        const products = controlMain.controlMethods.leerJSON('products.json');
+        const product = products.find(product =>
+            parseInt(req.params.id) === product.id
         );
-        res.render('./admin/users/detail-users', { user })
+        res.render('./admin/products/detail-products', { product })
     },
-    alterUser: (req, res) => {
-        const users = controlMain.controlMethods.leerJSON('users.json');
+    alterProduct: (req, res) => {
+        const products = controlMain.controlMethods.leerJSON('products.json');
         let pic = "";
-        let arrUsers = [];
-        users.forEach(user => {
-            if (user.id !== parseInt(req.params.id)) {
-                arrUsers.push(user);
+        let arrProducts = [];
+        products.forEach(product => {
+            if (product.id !== parseInt(req.params.id)) {
+                arrProducts.push(product);
             } else {    
-                console.log(user.image)
+                console.log(product.image)
                 if(req.file){
                     pic = req.file.filename
                     try {
-                        fs.unlinkSync(path.resolve(__dirname, '../../public/db-images/users/', user.image));             
+                        fs.unlinkSync(path.resolve(__dirname, '../../public/db-images/products/', product.image));             
                       } catch (e) {                        
                       }
 
@@ -163,39 +171,37 @@ const adminUsers = {
                     pic = req.body.oldImage
 
                 }
-                arrUsers.push(
+                arrProducts.push(
                     {
-                        id: user.id,
-                        first_name: req.body.name,
-                        last_name: req.body.description,
-                        user_name: req.body.user_name,
-                        password: req.body.password,
-                        email: req.body.email,
-                        image_profile: req.file.filename
+                        id: product.id,
+                        name: req.body.name,
+                        description: req.body.description,
+                        image: pic,
+                        category: req.body.name,
+                        priceType: req.body.profile,
+                        price: req.body.price
                     }
                 );
             }
         });
 
-        let resUsers = JSON.stringify(arrUsers, null, 2);
-        fs.writeFileSync(path.resolve(__dirname, '../data/users.json'), resUsers);
-        res.redirect('/admin/users');
+        let resProducts = JSON.stringify(arrProducts, null, 2);
+        fs.writeFileSync(path.resolve(__dirname, '../data/products.json'), resProducts);
+        res.redirect('/admin/products');
         
     },
-    deleteUser: (req, res) => {
-        const users = controlMain.controlMethods.leerJSON('users.json');
+    deleteProduct: (req, res) => {
+        const products = controlMain.controlMethods.leerJSON('products.json');
         const id = parseInt(req.params.id);
-        const deleteUser = users.find(user => user.id == id);
-        const filteredUsers = users.filter(currentUser => currentuser.id !== id);
-        let resUsers = JSON.stringify(filteredUsers, null, 2);
-        fs.writeFileSync(path.resolve(__dirname, '../data/users.json'), resUsers);
-        fs.unlinkSync(path.resolve(__dirname, '../../public/db-images/users/', deleteUser.image));
-        res.redirect('/admin/users');
+        const deleteProduct = products.find(product => product.id == id);
+        const filteredProducts = products.filter(currentProduct => currentProduct.id !== id);
+        let resProducts = JSON.stringify(filteredProducts, null, 2);
+        fs.writeFileSync(path.resolve(__dirname, '../data/products.json'), resProducts);
+        fs.unlinkSync(path.resolve(__dirname, '../../public/db-images/products/', deleteProduct.image));
+        res.redirect('/admin/products');
     }
 
 };
-
-*/
 module.exports = {
-    adminProducts //,adminUsers
+    adminProducts, adminProductsJSON
 };
