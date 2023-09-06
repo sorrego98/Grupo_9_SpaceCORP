@@ -1,6 +1,5 @@
-/*hay que modificar el modelo ER para agregar los timestamps de creación y modificación de usuarios*/
 module.exports = (sequelize, dataTypes) => {
-    let alias = 'Users';
+    let alias = 'Users'; /*este alias, hace relación al modelo del associate*/
     let cols = {
         id: {
             type: dataTypes.INTEGER(10).UNSIGNED,
@@ -37,17 +36,39 @@ module.exports = (sequelize, dataTypes) => {
         },
     };
     let config = {
+        tableName: "Users",
         timestamps: false,
         underscored: true
     }
-    const Users = sequelize.define(alias, cols, config); 
+    const User = sequelize.define(alias, cols, config);
 
-    // Users.associate = function(models){
-    //     Users.belongsTo(models.Role,{
-    //         as:"roles", /*revisa */
-    //         foreignKey:"role_id"
-    //     })
-    // }
+    User.associate = function(models){
+        User.belongsTo(models.Roles,{
+            as:"roles",
+            foreignKey:"role_id"
+        })  
 
-    return Users;
+        User.belongsToMany(models.Products,{
+            as:"userscart",
+            through:"user_cart_products",
+            foreignKey:"id_user",
+            otherKey:"id_product",
+            timestamps:true})
+            
+        User.belongsToMany(models.Products,{
+            as:"usersfav",
+            through:"user_fav_products",
+            foreignKey:"id_user",
+            otherKey:"id_product",
+            timestamps:true})
+            
+        User.belongsToMany(models.Products,{
+            as:"userssale",
+            through:"user_sales",
+            foreignKey:"id_user",
+            otherKey:"id_product",
+            timestamps:true})
+    }
+
+    return User;
 };

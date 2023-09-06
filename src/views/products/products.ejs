@@ -11,7 +11,7 @@
                     <div class="photo">
                         <img src="/db-images/products/<%= products[i].image%>" alt="img-referencial">
                     </div>
-                    <p class="name"><%= products[i].name%></p>
+                    <p class="name"><%= products[i].name%><br><%= products[i].subcategory.name%></p>
                     <div class="price-add-fav">             
                         <p><%= products[i].price%></p>           
                         <button><a href="#"><i class="fa-solid fa-basket-shopping"></i></a></button>
