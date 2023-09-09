@@ -4,12 +4,13 @@ const db = require('../database/models'); /*---> esto está tirando el proyecto*
 
 const controlProducts = {    
     products: function (req, res) {
-        db.Products.findAll(
-            {include: [{association: "subcategory"},{association: "category"}]}
+        db.Category.findAll(
+            {include: [{association: "subcategories"},{association: "products"}]}
         )
         .then( function(products){
             console.log(products)
-            res.render('./products/products', { products })
+            res.json(products)
+            /*res.render('./products/products', { products })*/
         })
         .catch(error => res.send("Error presente: " + error));
     }

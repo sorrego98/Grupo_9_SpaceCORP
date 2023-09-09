@@ -10,6 +10,10 @@ module.exports = (sequelize, dataTypes) => {
             type: dataTypes.STRING(100),
             allowNull: false
         },
+        description: {
+            type: dataTypes.STRING(500),
+            allowNull: false
+        },
         catId: {
             type: dataTypes.INTEGER(10).UNSIGNED,
             allowNull: false
