@@ -42,33 +42,33 @@ module.exports = (sequelize, dataTypes) => {
     }
     const User = sequelize.define(alias, cols, config);
 
-    User.associate = function(models){
-        User.belongsTo(models.Roles,{
-            as:"roles",
-            foreignKey:"role_id"
-        })  
+    // User.associate = function(models){
+    //     User.belongsTo(models.Roles,{
+    //         as:"roles",
+    //         foreignKey:"role_id"
+    //     })  
 
-        User.belongsToMany(models.Products,{
-            as:"userscart",
-            through:"user_cart_products",
-            foreignKey:"id_user",
-            otherKey:"id_product",
-            timestamps:true})
+    //     User.belongsToMany(models.Products,{
+    //         as:"userscart",
+    //         through:"user_cart_products",
+    //         foreignKey:"id_user",
+    //         otherKey:"id_product",
+    //         timestamps:true})
             
-        User.belongsToMany(models.Products,{
-            as:"usersfav",
-            through:"user_fav_products",
-            foreignKey:"id_user",
-            otherKey:"id_product",
-            timestamps:true})
+    //     User.belongsToMany(models.Products,{
+    //         as:"usersfav",
+    //         through:"user_fav_products",
+    //         foreignKey:"id_user",
+    //         otherKey:"id_product",
+    //         timestamps:true})
             
-        User.belongsToMany(models.Products,{
-            as:"userssale",
-            through:"user_sales",
-            foreignKey:"id_user",
-            otherKey:"id_product",
-            timestamps:true})
-    }
+    //     User.belongsToMany(models.Products,{
+    //         as:"userssale",
+    //         through:"user_sales",
+    //         foreignKey:"id_user",
+    //         otherKey:"id_product",
+    //         timestamps:true})
+    // }
 
     return User;
 };
