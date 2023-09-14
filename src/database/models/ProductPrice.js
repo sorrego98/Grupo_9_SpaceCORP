@@ -6,8 +6,6 @@ module.exports = (sequelize, dataTypes) => {
             primaryKey: true,
             autoIncrement: true
         },
-        // created_at: dataTypes.TIMESTAMP,
-        // updated_at: dataTypes.TIMESTAMP,
         name: {
             type: dataTypes.STRING(100),
             allowNull: false
@@ -18,18 +16,13 @@ module.exports = (sequelize, dataTypes) => {
         timestamps: false
     }
     const ProductPrice = sequelize.define(alias, cols, config); 
-
-    //Aquí debes realizar lo necesario para crear las relaciones con el modelo (Movie)
     
-    // Actor.associate = function(models){
-        
-    //     Actor.belongsToMany(models.Movie,{
-    //         as:"peliculas",
-    //         through:"actor_movie",
-    //         foreignKey:"actor_id",
-    //         otherKey:"movie_id",
-    //         timestamps:false
+    // ProductPrice.associate = function(models){
+    //     ProductPrice.hasMany(models.Products,{
+    //         as:"productprice", /*revisa */
+    //         foreignKey:"price_id"
     //     })
     // }
+    
     return ProductPrice;
 };
