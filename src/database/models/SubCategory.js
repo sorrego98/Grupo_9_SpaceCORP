@@ -14,6 +14,10 @@ module.exports = (sequelize, dataTypes) => {
             type: dataTypes.STRING(500),
             allowNull: false
         },
+        image: {
+            type: dataTypes.STRING(1000),
+            allowNull: false
+        },
         catId: {
             type: dataTypes.INTEGER(10).UNSIGNED,
             allowNull: false

@@ -4,21 +4,12 @@
 </head>
 <%- include ('../partials/commons/header')%>
     <main>
-        <h2 class="section-title">Servicios</h2>
-        <section class="list-products">
+        <h2>Servicios</h2>
             <% for(let i= 0; i < products.length; i++){ %>
-                <article class="base-product">
-                    <div class="photo">
-                        <img src="/db-images/products/<%= products[i].image%>" alt="img-referencial">
-                    </div>
-                    <p class="name"><%= products[i].name%><br><%= products[i].subcategory.name%></p>
-                    <div class="price-add-fav">             
-                        <p><%= products[i].price%></p>           
-                        <button><a href="#"><i class="fa-solid fa-basket-shopping"></i></a></button>
-                        <button><a href="#"><i class="fa-solid fa-heart"></i></a></button>
-                    </div>
-                </article>
+                <section class="main-section">
+                    <h3><%= products[i].name%></h3>
+                    <p class="name"><%= products[i].name%></p>
+                </section>
             <% } %>
-        </section>
     </main>
 <%- include ('../partials/commons/footer')%>

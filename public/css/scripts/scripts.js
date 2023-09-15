@@ -9,7 +9,7 @@ let widthVideo = 100 / sliderSectionv.length;
 
 setInterval(() => {
     moveToRightv()
-}, 600000);
+}, 6000000);
 
 const moveToRightv = () => {
     if (counter >= sliderSectionv.length-1) {
@@ -54,7 +54,7 @@ let widthImg = 100 / sliderSection.length;
 
 setInterval(() => {
     moveToRightImg()
-}, 3500);
+}, 5000);
 
 const moveToRightImg = () => {
     if (counterImg >= sliderSection.length-1) {
