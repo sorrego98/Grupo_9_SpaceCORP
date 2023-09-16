@@ -38,6 +38,7 @@ CREATE TABLE `sub_categories` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `name` varchar(100) COLLATE utf8_unicode_ci NOT null,
   `description` varchar(500) COLLATE utf8_unicode_ci default 'sin descripción',
+  `image` varchar(1000) COLLATE utf8_unicode_ci default 'product-1691548445770.jpg' ,
   `cat_id` int(10) unsigned NOT NULL,
   PRIMARY KEY (`id`),
   KEY `sub_categories_cat_id_foreign` (`cat_id`),
