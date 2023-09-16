@@ -4,7 +4,7 @@ const db = require('../database/models'); /*---> esto está tirando el proyecto*
 
 const controlProducts = {    
     productsDBJSON: function (req, res) {
-        db.Category.findAll()
+        db.Category.findAll({include: subcat})
         .then( products => res.json(products))    
             /*res.render('./products/products', { products })*/
         .catch(error => res.send("Error presente: " + error));
