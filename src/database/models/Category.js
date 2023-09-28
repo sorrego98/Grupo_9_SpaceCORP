@@ -18,17 +18,17 @@ module.exports = (sequelize, dataTypes) => {
     }
     const Category = sequelize.define(alias, cols, config); 
 
-    // Category.associate = function(models){
-    //     Category.hasMany(models.SubCategory,{
-    //         as:"subcategories",
-    //         foreignKey:"cat_id"
-    //     })
+    Category.associate = function(models){
+        Category.hasMany(models.SubCategory,{
+            as:"subcategories",
+            foreignKey:"cat_id"
+        })
 
-    //     Category.hasMany(models.Products,{
-    //         as:"products", /*revisa */
-    //         foreignKey:"cat_id"
-    //     })
-    // }
+        Category.hasMany(models.Products,{
+            as:"products", /*revisar*/
+            foreignKey:"cat_id"
+        })
+    }
 
     return Category;
 };

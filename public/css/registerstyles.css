@@ -47,6 +47,10 @@
   background-color: #111111;
 }
 
+.w-100{
+  max-width: 100px;
+}
+
 /*------SOCIAL MEDIA------*/
 
 .social-media-log {

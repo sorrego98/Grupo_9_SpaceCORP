@@ -88,5 +88,14 @@
     "category": "Transcripción de Guiones Melódicos",
     "priceType": "fixed",
     "price": "123000"
+  },
+  {
+    "id": 11,
+    "name": "producto nuevo",
+    "description": "nuevo producto",
+    "image": "product-1692756516586.png",
+    "category": "producto nuevo",
+    "priceType": "fixed",
+    "price": "13123"
   }
 ]

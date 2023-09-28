@@ -14,10 +14,10 @@ module.exports = (sequelize, dataTypes) => {
             type: dataTypes.STRING(500),
             allowNull: false
         },
-        image: {
-            type: dataTypes.STRING(1000),
-            allowNull: false
-        },
+        // image: {
+        //     type: dataTypes.STRING(1000),
+        //     allowNull: false
+        // },
         catId: {
             type: dataTypes.INTEGER(10).UNSIGNED,
             allowNull: false
@@ -30,12 +30,12 @@ module.exports = (sequelize, dataTypes) => {
     }
     const SubCategory = sequelize.define(alias, cols, config); 
 
-    // SubCategory.associate = function(models){
-    //     SubCategory.belongsTo(models.Category,{
-    //         as:"categories",
-    //         foreignKey:"cat_id"
-    //     })
-    // }
+    SubCategory.associate = function(models){
+        SubCategory.belongsTo(models.Category,{
+            as:"categories",
+            foreignKey:"cat_id"
+        })
+    }
 
     return SubCategory;
 }

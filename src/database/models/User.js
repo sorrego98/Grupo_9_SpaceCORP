@@ -42,11 +42,13 @@ module.exports = (sequelize, dataTypes) => {
     }
     const User = sequelize.define(alias, cols, config);
 
-    // User.associate = function(models){
-    //     User.belongsTo(models.Roles,{
-    //         as:"roles",
-    //         foreignKey:"role_id"
-    //     })  
+    User.associate = function(models){
+        User.belongsTo(models.Roles,{
+            as:"roles",
+            foreignKey:"role_id"
+        })
+    }
+      
 
     //     User.belongsToMany(models.Products,{
     //         as:"userscart",

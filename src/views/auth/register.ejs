@@ -9,11 +9,11 @@
                 <h2 class="form-title">Registro <i class="fa-regular fa-user"></i></h2>
                 <div>
                 <label class="form-label">Nombre</label>
-                <input required type="text" class="form-control" name="first_name" placeholder="Nombre" value="<%= typeof old != 'undefined' ? old.first_name : '' %>">
+                <input required type="text" class="form-control" name="first_name" placeholder="Nombre" value="<%= typeof old != 'undefined' ? old.firstName : '' %>">
                 </div>
                 <div>
                 <label class="form-label">Apellido</label>
-                <input type="text" class="form-control" name="last_name" placeholder="Apellido" value="<%= typeof old != 'undefined' ? old.last_name : '' %>">
+                <input type="text" class="form-control" name="last_name" placeholder="Apellido" value="<%= typeof old != 'undefined' ? old.lastName : '' %>">
                 </div>
                 <div>
                     <label class="form-label">Email</label> 
@@ -21,7 +21,7 @@
                 </div>
                 <div>
                     <label class="form-label">Nombre de usuario</label>
-                    <input type="text" class="form-control" name="user_name" placeholder="Nombre de usuario" value="<%= typeof old != 'undefined' ? old.user_name : '' %>">
+                    <input type="text" class="form-control" name="user_name" placeholder="Nombre de usuario" value="<%= typeof old != 'undefined' ? old.userName : '' %>">
                 </div>
                 <div>  
                     <label class="form-label">Contraseña</label> 
