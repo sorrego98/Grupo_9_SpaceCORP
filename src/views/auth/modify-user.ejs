@@ -11,7 +11,7 @@
                 </div>
                 <!--borrar el enctype="multipart/form-data"-->
                 <form class="form" enctype="multipart/form-data" 
-                        method="POST" action="/auth/profile/modify-user/<%= user.id%>?_method=PUT">
+                        method="POST" action="/auth/profile/modify-user?_method=PUT">
                     <div class="subitem">
                         <h4 class="center-title">Nombre del Usuario</h4>
                         <input type="text" name="firstName" id="input-user" class="form-input form-dimention" required placeholder="Ingrese su nombre" value="<%= user.firstName%>">

@@ -35,8 +35,8 @@ router.post("/login", validacionesLogin, controlUser.loginProcess); //agrego rut
 
 router.get('/profile', authMiddleware, controlUser.profile);
 //router.get('/profile', controlUser.profile);
-router.get('/profile/modify-user/:id', controlUser.editarPerfil);
-router.put('/profile/modify-user/:id', upload.single('avatar'), controlUser.modificarPerfil);
+router.get('/profile/modify-user', controlUser.editarPerfil);
+router.put('/profile/modify-user', upload.single('avatar'), controlUser.modificarPerfil);
 
 router.get('/logout', controlUser.logout); //Esta ruta se activa al momento que el usuario desea salir de la página
 
