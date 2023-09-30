@@ -6,7 +6,7 @@ module.exports = (sequelize, dataTypes) => {
             primaryKey: true,
             autoIncrement: true
         },
-        name: {
+        roleName: { //actualicé nombre
             type: dataTypes.STRING(100),
             allowNull: false
         }
@@ -17,7 +17,7 @@ module.exports = (sequelize, dataTypes) => {
         underscored: true
     }
     const Role = sequelize.define(alias, cols, config); 
-    
+
     Role.associate = function(models){
         Role.hasMany(models.Users,{
             as:"users",

@@ -23,6 +23,17 @@ const cookieParser = require('cookie-parser');
 const acceso = require('./middlewares/acceso');
 const loggedMiddleware = require('./middlewares/loggedMiddleware');
 
+//Para validar si están funcionando las relaciones
+const db = require('./database/models');
+//db.Category.findByPk(2, {include: [{association: "subcategories"}]})
+//.then((categoria)=>console.log(JSON.stringify(categoria,null,2)))
+//.catch((error) => console.log(`Error tirado : ${error}`));
+
+// db.Users.findAll({include: [{association: 'roles'}]})
+// .then((usuarios)=>console.log(JSON.stringify(usuarios,null,2)))
+// .catch((error) => console.log(`Error tirado : ${error}`));
+
+
 app.use(express.static(path.resolve(__dirname, '../public')));
 
 app.set('view engine','ejs');

@@ -1,12 +1,12 @@
-let cat = require('./models/Category')
-let subCat = require('./models/SubCategory')
-let prod = require('./models/Product')
-let prodPrice = require('./models/ProductPrice')
-let role = require('./models/Role')
-let user = require('./models/User')
-let userFav = require('./models/UserFavProduct')
-let userCart = require('./models/UserCartProduct')
-let userSale = require('./models/UserSale')
+// let cat = require('./models/Category')
+// let subCat = require('./models/SubCategory')
+// let prod = require('./models/Product')
+// let prodPrice = require('./models/ProductPrice')
+// let role = require('./models/Role')
+// let user = require('./models/User')
+// let userFav = require('./models/UserFavProduct')
+// let userCart = require('./models/UserCartProduct')
+// let userSale = require('./models/UserSale')
 
 
 // /* asociaciones para la tabla CATEGORIAS */

@@ -1,8 +1,9 @@
 //Requiero el paquete expres-validator
 const { body } = require('express-validator');
+//const db = require('../database/models');
+//const User = db.Users;
 
 const validacionesRegistro = [
-    //Aquí incoporé otras validaciones
     body('first_name').isLength({
         min: 1
     }).withMessage('El campo nombre no puede estar vacío'),
@@ -23,7 +24,7 @@ const validacionesRegistro = [
 
     body('confirm_password').custom((value, { req }) => {
         if (req.body.password == value) {
-            return true    // Si yo retorno un true  no se muestra el error     
+            return true    // Si retorno un true no se muestra el error     
         } else {
             return false   // Si retorno un false si se muestra el error
         }
