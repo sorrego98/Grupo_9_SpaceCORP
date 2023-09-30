@@ -1,0 +1,47 @@
+<%- include ('../../../partials/commons/head')%>
+    <link rel="stylesheet" href="/css/addproducts.css">
+    <title>Agregar Subcategoría</title>
+</head>
+<%- include ('../../../partials/commons/header')%>
+    <main>
+        <div class="split-view">            
+            <section class="form-container">
+                <div class ="header-form">                    
+                    <h2 class="form-title"><i class="fa-solid fa-circle-plus form-title fa-lg"></i> Agregar Subcategoría </h2>
+                </div>
+                <form class="form" enctype="multipart/form-data" method="POST" action="/admin/products/subcategories/add-subcategory">
+                    <div class="subitem">
+                        <h3 class="center-title">Nombre de la subcategoría</h3>
+                        <input type="text" name="subcategoryname" id="subcategoryname" class="form-input form-dimention" required placeholder="Ingrese un nombre para su producto">
+                    </div>
+                    
+                    <div class="subitem">
+                        <h3 class="center-title">Descripción</h3>
+                        <input type="text" name="subcategorydescription" id="subcategorydescription" class="form-input form-dimention" required placeholder="Ingrese una descripción (MAX: 300 caracteres)">                        
+                    </div>
+                    
+                    <div class="subitem">
+                        <h3 class="center-title">Imagen Subcategoría</h3>
+                        <input type="file" name="image" id="image" class="form-input image-info" required placeholder="Ingrese imagen">                        
+                    </div>
+
+                    <div class="subitem">
+                        <label for="categoryID">Categoría </label>
+                            <p>
+                                <select name="category_id" id="" required>
+                                    <option value="" disabled selected>- Seleccione la categoría - </option>
+                                    <% allCategories.forEach(category => { %>
+                                    <option value="<%= category.id %>"><%= category.name %></option>
+                                    <% }); %>
+                                </select>
+                            </p>
+                    </div>
+
+                    <div class="subitem">
+                        <button type="submit" name="add-item" class="add-item-button form-button">Crear</button>
+                    </div>
+                </form>
+            </section> 
+        </div>     
+    </main>
+    <%- include ('../../../partials/commons/footer')%>

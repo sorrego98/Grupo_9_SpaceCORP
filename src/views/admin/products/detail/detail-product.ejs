@@ -1,0 +1,57 @@
+<%- include ('../../../partials/commons/head')%>
+  <title>Admon: Detalle de Producto</title>
+  <link rel="stylesheet" href="/css/productsstyles.css">
+  </head>
+  <%- include ('../../../partials/commons/header')%>
+    <main class="container-fluid">
+      <!--Detalle de Producto-->
+      <br><br>
+      <section class="row">
+        <article class="col-12  card">
+          <div class="card-body">
+            <h2 class="display-4 text-primary  text-center pt-2">Detalle del Producto</h2>
+          </div>
+        </article>
+        <article class="col-12 col-md-6 mx-auto mt-5 producto">
+
+          <div class="card-body">
+            <h5 class="card-title">
+              <%= product.name%>
+            </h5>
+            <p class="card-text">
+              <%= product.description %>
+            </p>
+            <p class="card-text">
+              <% if (product.status) { %>
+                Estado: Activo
+              <% } else { %>
+                Estado: inactivo
+              <% } %>
+            </p>
+            <p>
+              Categoría: <%= product.categories.name%>
+            </p>
+            <p>
+              Subcategoría: <%= product.subcategories.name%>
+            </p>
+            <p>
+              Descripción: <%= product.subcategories.description%>
+            </p>
+            <p>
+              Precio: <%= product.price%>
+            </p>
+            <p>
+              Unidad del precio: <%= product.productprices.name%>
+            </p>
+            <div class="subitem">
+              <figure class="form-group">
+                <img width="25%" class="w-100" src="/db-images/products/products/<%=product.image%>" alt="services-others"
+                  <%=product.image%>>
+              </figure>
+            </div>
+          </div>
+          <a href="/admin/products/products" class="btn btn-danger">Volver</a>
+        </article>
+      </section>
+    </main>
+    <%- include ('../../../partials/commons/footer')%>

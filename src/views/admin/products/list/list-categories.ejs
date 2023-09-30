@@ -1,0 +1,43 @@
+<%- include ('../../../partials/commons/head')%>
+    <title>Admon: Categories</title>
+    <link rel="stylesheet" href="/css/productsstyles.css">
+</head>
+<%- include ('../../../partials/commons/header')%>
+    <main class="container-fluid">
+        <!--Administrador de productos-->
+        <br>
+        <section class="row">
+        <article class="col-12 ">
+            <h2 class="display-4 text-primary text-center pt-2">Administrador de Categorías</h2>
+        </article>
+        <article class="col-12">
+            <a href="/admin/products/categories/add-category"><ion-icon name="add-circle-outline"></ion-icon>Agregar</a>
+        </article>
+        <article class="col-12" >
+        <table class=" table ">
+            <thead class="text-white bg-primary">
+                <tr>  
+                <th scope="col">Id</th>
+                <th scope="col">Nombre</th>
+                <th scope="col">Editar</th>
+                <th scope="col">Borrar</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% categories.forEach(category => { %>
+                <tr>
+                <td><%= category.id%> </td>
+                <td><%= category.name%> </td>
+                <td><a href="/admin/products/categories/modify-category/<%= category.id%> "> <ion-icon name="pencil-outline"></ion-icon></a></td>
+                <td><form class="has-buttons" action="/admin/products/categories/delete-category/<%= category.id%>?_method=DELETE" method="POST">
+                    <button style ="border: none" class="button is-danger" type="submit"><ion-icon name="trash-outline"></ion-icon></button>
+                </form></td>
+                </tr>
+                <% }); %>
+            </tbody>
+            </table> 
+        </article>       
+        </section>
+        <script src="https://unpkg.com/ionicons@5.2.3/dist/ionicons.js"></script>
+  </main>
+<%- include ('../../../partials/commons/footer')%>

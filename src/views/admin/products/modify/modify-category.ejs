@@ -1,0 +1,24 @@
+<%- include ('../../../partials/commons/head')%>
+    <link rel="stylesheet" href="/css/modproducts.css">
+    <title>Modificar Categoría</title>
+</head>
+<%- include ('../../../partials/commons/header')%>
+    <main>
+        <div class="split-view">            
+            <section class="form-container">
+                <div class ="header-form">                    
+                    <h2 class="form-title"><i class="fa-solid fa-wand-magic-sparkles form-title fa-lg"></i> Modificación de Categoría </h2>
+                </div>
+                <form class="form" method="POST" action="/admin/products/categories/modify-category/<%= category.id%>?_method=PUT">
+                    <div class="subitem">
+                        <h4 class="center-title">Nombre del Producto</h4>
+                        <input type="text" name="categoryname" id="categoryname" class="form-input form-dimention" required placeholder="Ingrese el tipo de precio" value="<%= category.name%>">
+                    </div>
+
+                    <div class="subitem">
+                        <button type="submit" name="add-item" class="add-item-button form-button">Guardar Cambios</button>
+                    </div>
+                </form>
+        </div>     
+    </main>
+    <%- include ('../../../partials/commons/footer')%>

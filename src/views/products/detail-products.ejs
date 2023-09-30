@@ -1,0 +1,19 @@
+<%- include ('../partials/commons/head')%>
+    <title>Nuestros Servicios</title>
+    <link rel="stylesheet" href="/css/detailproductsstyles.css">
+</head>
+<%- include ('../partials/commons/header')%>
+    <main>
+        <h2><%= subcategory.name%></h2>
+        <p><%= subcategory.description%></p>
+        <label for="productSelect"></label> <br>
+        <select name="productSelect" id="productSelect">
+            <% for(let i= 0; i < subcategory.products.length; i++){ %>
+                <option value="<%= subcategory.products[i].name %>"><%= subcategory.products[i].name %></option>
+                <img class="photo" src="/db-images/products/<%= subcategory.products[i].image%>" alt="<%= subcategory.products[i].image%>">
+        <p><%= subcategory.products[i].name%></p>
+            <% } %>
+        </select>
+        
+    </main>
+<%- include ('../partials/commons/footer')%>

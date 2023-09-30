@@ -41,43 +41,48 @@ module.exports = (sequelize, dataTypes) => {
     }
     const Products = sequelize.define(alias, cols, config); 
 
-    // Products.associate = function(models){
-    //     Products.belongsTo(models.Category,{
-    //         as:"category", /*revisa */
-    //         foreignKey:"cat_id"
-    //     })
+    Products.associate = function(models){
+        Products.belongsTo(models.Category,{
+            as:"categories", /*revisa */
+            foreignKey:"cat_id"
+        })
 
-    //     Products.belongsTo(models.ProductPrice,{
-    //         as:"productprice", /*revisa */
-    //         foreignKey:"price_id"
-    //     })
+        Products.belongsTo(models.ProductPrice,{
+            as:"productprices",
+            foreignKey:"price_id"
+        })
 
-    //     Products.belongsTo(models.SubCategory,{
-    //         as:"subcategory", /*revisa */
-    //         foreignKey:"subcat_id"
-    //     })
+        // Products.hasMany(models.ProductPrice,{
+        //     as:"productprices", /*revisa */
+        //     foreignKey:"price_id"
+        // }) 
 
-    //     Products.belongsToMany(models.Users,{
-    //         as:"productscart",
-    //         through:"user_cart_products",
-    //         foreignKey:"id_product",
-    //         otherKey:"id_user",
-    //         timestamps:true})
+        Products.belongsTo(models.SubCategory,{
+            as:"subcategories", /*revisa */
+            foreignKey:"subcat_id"
+        })
 
-    //     Products.belongsToMany(models.Users,{
-    //         as:"productsfav",
-    //         through:"user_fav_products",
-    //         foreignKey:"id_product",
-    //         otherKey:"id_user",
-    //         timestamps:true})
+        // Products.belongsToMany(models.Users,{
+        //     as:"productscarts",
+        //     through:"user_cart_products",
+        //     foreignKey:"id_product",
+        //     otherKey:"id_user",
+        //     timestamps:true})
 
-    //     Products.belongsToMany(models.Users,{
-    //         as:"productssale",
-    //         through:"user_sales",
-    //         foreignKey:"id_product",
-    //         otherKey:"id_user",
-    //         timestamps:true})
-    // }
+        // Products.belongsToMany(models.Users,{
+        //     as:"productsfavs",
+        //     through:"user_fav_products",
+        //     foreignKey:"id_product",
+        //     otherKey:"id_user",
+        //     timestamps:true})
+
+        // Products.belongsToMany(models.Users,{
+        //     as:"productssales",
+        //     through:"user_sales",
+        //     foreignKey:"id_product",
+        //     otherKey:"id_user",
+        //     timestamps:true})
+    }
 
     return Products;
 };

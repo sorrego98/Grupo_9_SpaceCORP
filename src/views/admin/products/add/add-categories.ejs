@@ -1,0 +1,26 @@
+<%- include ('../../../partials/commons/head')%>
+    <link rel="stylesheet" href="/css/addproducts.css">
+    <title>Nueva categoría</title>
+</head>
+<%- include ('../../../partials/commons/header')%>
+    <main>
+        <div class="split-view">            
+            <section class="form-container">
+                <div class ="header-form">                    
+                    <h2 class="form-title"><i class="fa-solid fa-circle-plus form-title fa-lg"></i> Añadir Categoría </h2>
+                </div>
+                <form class="form" method="POST" action="/admin/products/categories/add-category">
+                    <div class="subitem">
+                        <h3 class="center-title">Nombre de la categoría</h3>
+                        <input type="text" name="categoryname" id="categoryname" class="form-input form-dimention" required placeholder="Ingrese un nombre para su categoría">
+                    </div>
+
+                    <div class="subitem">
+                        <button type="submit" name="add-item" class="add-item-button form-button">Crear</button>
+                    </div>
+                </form>
+            </section>
+            
+        </div>     
+    </main>
+    <%- include ('../../../partials/commons/footer')%>

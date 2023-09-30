@@ -9,24 +9,24 @@ let userCart = require('./models/UserCartProduct')
 let userSale = require('./models/UserSale')
 
 
-/* asociaciones para la tabla CATEGORIAS */
-cat.hasMany(subCat,{
-    as:'subcategories',
-    foreignKey:'cat_id'
-})
+// /* asociaciones para la tabla CATEGORIAS */
+// cat.hasMany(subCat,{
+//     as:'subcategories',
+//     foreignKey:'cat_id'
+// })
 
-cat.belongsToMany(cat,{
-    trough:'Products',
-    foreignKey:'cat_id'
-})
-subCat.belongsTo(cat,{
-    as:'subcategories',
-    foreignKey:'cat_id'
-})
+// cat.belongsToMany(cat,{
+//     trough:'Products',
+//     foreignKey:'cat_id'
+// })
+// subCat.belongsTo(cat,{
+//     as:'subcategories',
+//     foreignKey:'cat_id'
+// })
 
-/* asociaciones para la tabla PRODUCTOS */
+// /* asociaciones para la tabla PRODUCTOS */
 
-prod.belongsToMany(cat,{
-    trough:'Products',
-    foreignKey:'cat_id'
-})
+// prod.belongsToMany(cat,{
+//     trough:'Products',
+//     foreignKey:'cat_id'
+// })

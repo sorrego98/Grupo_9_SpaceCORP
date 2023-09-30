@@ -17,12 +17,12 @@ module.exports = (sequelize, dataTypes) => {
     }
     const ProductPrice = sequelize.define(alias, cols, config); 
     
-    // ProductPrice.associate = function(models){
-    //     ProductPrice.hasMany(models.Products,{
-    //         as:"productprice", /*revisa */
-    //         foreignKey:"price_id"
-    //     })
-    // }
+    ProductPrice.associate = function(models){
+        ProductPrice.hasMany(models.Products,{
+            as:"products",
+            foreignKey:"cat_id"
+        })
+    }
     
     return ProductPrice;
 };

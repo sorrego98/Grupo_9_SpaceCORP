@@ -1,0 +1,56 @@
+<%- include ('../../../partials/commons/head')%>
+    <link rel="stylesheet" href="/css/modproducts.css">
+    <title>Modificar Subategoría</title>
+</head>
+<%- include ('../../../partials/commons/header')%>
+    <main>
+        <div class="split-view">            
+            <section class="form-container">
+                <div class ="header-form">                    
+                    <h2 class="form-title"><i class="fa-solid fa-wand-magic-sparkles form-title fa-lg"></i> Modificación de Subcategoría </h2>
+                </div>
+                <form class="form" method="POST" enctype="multipart/form-data" action="/admin/products/subcategories/modify-subcategory/<%= allSubcategories.id%>?_method=PUT">
+                    <div class="subitem">
+                        <h4 class="center-title">Nombre de la subcategoría</h4>
+                        <input type="text" name="subcategoryname" id="subcategoryname" class="form-input form-dimention" required placeholder="Ingrese el tipo de precio" value="<%= allSubcategories.name%>">
+                    </div>
+
+                    <div class="subitem">
+                        <h4 class="center-title">Descripción</h4>
+                        <input type="text" name="subcategorydescription" id="subcategorydescription" class="form-input form-dimention" required placeholder="Ingrese una descripción (MAX: 300 caracteres)" value="<%= allSubcategories.description%>">                        
+                    </div>
+
+                    <div class="subitem">
+                        <h4 class="center-title">Imagen</h4>
+                        <div class="custom-file">
+                            <figure class="form-group">
+                              <img width="20%" src="/db-images/products/subcategories/<%=allSubcategories.image%>" alt="services-others" <%=allSubcategories.image%>>
+                            </figure>
+                            <input type="file" name="image" id="image">
+                            <input type="hidden" name="oldImage" value="<%=allSubcategories.image%>">
+                        </div>                        
+                    </div>
+
+                    <div class="subitem">
+                        <h4 class="center-title">Categoría Actual: <%= allSubcategories.categories.name%></h4>                      
+                    </div>
+
+                    <div class="subitem">
+                        <label for="categoryID">Seleccione una categoría </label>
+                            <p>
+                                <select name="category_id" id="" required>
+                                    <option value="" disabled selected>- Seleccione la categoría - </option>
+                                    <% allCategories.forEach(category => { %>
+                                    <option value="<%= category.id %>"><%= category.name %></option>
+                                    <% }); %>
+                                </select>
+                            </p>
+                    </div>
+
+                    <div class="subitem">
+                        <button type="submit" name="add-item" class="add-item-button form-button">Guardar Cambios</button>
+                    </div>
+                </form>
+        </div>     
+    </main>
+    <%- include ('../../../partials/commons/footer')%>

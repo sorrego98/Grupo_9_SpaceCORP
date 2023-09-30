@@ -14,28 +14,23 @@
         </article>
         <article class="col-12 col-md-6 mx-auto mt-5 producto">
 
-          <% /* if (miMoto.descuento==30) { */ %>
-            <!--<img class="descuento" src="/img/promo30.png" alt="Descuento 30%">-->
-            <% /* } else if(miMoto.descuento==15){ */%>
-              <!--<img class="descuento" src="/img/promo15.png" alt="Descuento 15%">-->
-              <% /*}*/%>
-                <div class="card-body">
-                  <h5 class="card-title">
-                    <%= product.name%>
-                  </h5>
-                  <h5 class="card-title">$ <%= product.price %>
-                  </h5>
-                  <p class="card-text">
-                    <%= product.description %>
-                  </p>
-                  <div class="subitem">
-                    <figure class="form-group">
-                      <img class="w-100" src="/db-images/products/<%=product.image%>" alt="services-others" <%=product.image%>>
-                    </figure>
-                  </div>
-
-                </div>
-                <a href="/admin/products" class="btn btn-danger">Volver</a>
+          <div class="card-body">
+            <h5 class="card-title">
+              <%= product.name%>
+            </h5>
+            <h5 class="card-title">$ <%= product.price %>
+            </h5>
+            <p class="card-text">
+              <%= product.description %>
+            </p>
+            <div class="subitem">
+              <figure class="form-group">
+                <img class="w-100" src="/db-images/products/<%=product.image%>" alt="services-others"
+                  <%=product.image%>>
+              </figure>
+            </div>
+          </div>
+          <a href="/admin/products" class="btn btn-danger">Volver</a>
         </article>
       </section>
     </main>
