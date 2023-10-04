@@ -1,23 +1,40 @@
 console.log('Script funcionando');
-const catID = document.querySelector('#catID');
-const subcatID = document.querySelector('#subcatID');
-
+const catID = document.getElementById('catID');
+const subcatID = document.getElementById('subcatID');
+const priceID = document.getElementById('priceID');
 let categorySelected;
 
-catID.addEventListener('change', e =>{
-    const subAdd = document.querySelector('.subAdd');
-    // console.log(e.target.value);
-    categorySelected = categories.find(_ => _.id == e.target.value);
-    // console.log(categorySelected.subcategories);
-    // console.log(categorySelected);
-    categorySelected.subcategories.forEach(subcat=> {
+catID.addEventListener('change', e =>{    
+    //verifico que la lista del dropdown contenga elementos para poder eliminarlos
+    while (subcatID.hasChildNodes()) { 
+            subcatID.removeChild(subcatID.firstChild);
+    }
+
+    selectedValue =e.target.value;
+    selectedCategory = categories.find( cat => cat.id == e.target.value);
+    selectedCategory.subcategories.forEach(subcat=> {
         let opt = document.createElement('option');
         opt.value = subcat.id;
         opt.textContent += subcat.name;
-        subAdd.appendChild(opt);
+        subcatID.appendChild(opt);
+
     });
 })
 
+// priceID.addEventListener('change', e =>{    
+//     //verifico que la lista del dropdown contenga elementos para poder eliminarlos
+//     console.log()
+//     while (subcatID.hasChildNodes()) { 
+//             subcatID.removeChild(subcatID.firstChild);
+//     }
 
+//     selectedValue =e.target.value;
+//     selectedCategory = categories.find( cat => cat.id == e.target.value);
+//     selectedCategory.subcategories.forEach(subcat=> {
+//         let opt = document.createElement('option');
+//         opt.value = subcat.id;
+//         opt.textContent += subcat.name;
+//         subcatID.appendChild(opt);
 
-    
+//     });
+// })

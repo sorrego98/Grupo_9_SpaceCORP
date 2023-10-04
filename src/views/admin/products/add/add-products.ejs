@@ -52,7 +52,7 @@
                     <div class="subitem">
                         <label for="priceID">Unidad Precio </label>
                             <p>
-                                <select name="price_id" id="" required>
+                                <select name="price_id" id="priceID" required>
                                     <option value="" disabled selected>- Seleccione el tipo de precio - </option>
                                     <% allProductPrices.forEach(price => { %>
                                     <option value="<%= price.id %>"><%= price.name %></option>
@@ -62,14 +62,9 @@
                     </div>
 
                     <div class="subitem">
-                        <h3 class="center-title">Precio</h3>
-                        <input type="text" name="price" id="price" class="form-input form-dimention center-title" required placeholder="0,00$">
-                    </div>
-                    
-                    <div class="subitem">
-                        <h3 class="center-title">Status</h3>
-                        <input type="number" name="statusProduct" id="statusProduct" class="form-input form-dimention center-title" required placeholder="0">
-                    </div>
+                        <h3 class="center-title" id="priceValue">Precio</h3>
+                        <input type="text" name="price" id="priceValueText" class="form-input form-dimention center-title" required placeholder="0,00$ / a convenir">
+                    </div>                    
 
                     <div class="subitem">
                         <button type="submit" name="add-item" class="add-item-button form-button">Crear</button>
