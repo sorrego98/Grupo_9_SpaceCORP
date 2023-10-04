@@ -18,70 +18,84 @@ INSERT INTO `categories` (`name`) VALUES
 ('Proyectos Musicales'), -- 6
 ('Ingeniería de Sonido'); -- 7
 
-INSERT INTO `sub_categories`  (`name`,`description`,`cat_id`)  values
+INSERT INTO `sub_categories`  (`name`,`description`, `image` ,`cat_id`)  values
 ('Instrumentos',
-'Descubre y desarrolla tu potencial musical a través de nuestras clases personalizadas. Nuestros profesores expertos te guiarán en un viaje músical adaptado a tus necesidades y objetivos. Aprende teoría musical, tecnica instrumental, canto o composición en un ambiente interactivo y divertido. Tanto si eres principiante como si tienes experiencia, nuestras clases te ayudarán a crecer como músico. ¡Reserva tu clase ahora y comienza tu viaje musical con nosotros!'
-,1), -- 1
+'Nuestras clases te ayudarán a crecer como músico tanto si eres principiante como un múscio experimentado. ¡Reserva tu clase ahora y comienza tu viaje musical con nosotros!'
+,'1.jpg' ,1), -- 1
 ('Teoría y Producción',
-'Descubre y desarrolla tu potencial musical a través de nuestras clases personalizadas. Nuestros profesores expertos te guiarán en un viaje músical adaptado a tus necesidades y objetivos. Aprende teoría musical, tecnica instrumental, canto o composición en un ambiente interactivo y divertido. Tanto si eres principiante como si tienes experiencia, nuestras clases te ayudarán a crecer como músico. ¡Reserva tu clase ahora y comienza tu viaje musical con nosotros!'
-,1), -- 2
+'Descubre y desarrolla tu potencial musical a través de nuestras clases personalizadas. Aprende teoría musical, tecnica instrumental o composición en un ambiente interactivo y divertido. ¡Reserva tu clase ahora y comienza tu viaje musical con nosotros!'
+,'2.jpg' ,1), -- 2
 ('Sala de Ensayos',
-'Preparate para actuaciones increíbles en nuestra sala de ensayos equipada con todo lo necesario. Disfruta de un espacio acogedor y equipado con equipos de alta calidad para ensayar con tu banda. Reserva sesiones flexibles y aprovecha un entorno propicio para la creatividad y la colaboración. ¡Haz que tu música cobre vida en nuestra sala de ensayos!'
-,2), -- 3
+'Reserva sesiones flexibles y aprovecha un entorno propicio para la creatividad y la colaboración. ¡Haz que tu música cobre vida en nuestra sala de ensayos!'
+,'3.jpg' ,2), -- 3
 ('Instrumentos Percusivos',
-'Haz realidad tu proyecto musical sin necesidad de tener musicos propios. Utiliza nuestro servicio de grabación a distancia y nuestro equipo de trabajo se encargara de grabar las pistas según tus especificaciones. Obtén grabaciones profesionales sin complicaciones. ¡Deja que nuestro equipo haga realidad tu musica!'
-,3), -- 4
+'Utiliza nuestro servicio de grabación a distancia y nuestro equipo de trabajo se encargara de grabar las pistas según tus especificaciones. ¡Deja que nuestro equipo haga realidad tu musica!'
+,'4.jpg' ,3), -- 4
 ('Vientos, Cuerdas, Coros, Teclados',
-'Haz realidad tu proyecto musical sin necesidad de tener musicos propios. Utiliza nuestro servicio de grabación a distancia y nuestro equipo de trabajo se encargara de grabar las pistas según tus especificaciones. Obtén grabaciones profesionales sin complicaciones. ¡Deja que nuestro equipo haga realidad tu musica!'
-,3), -- 5
+'Haz realidad tu proyecto musical sin necesidad de tener musicos propios. Obtén grabaciones profesionales sin complicaciones. ¡Deja que nuestro equipo haga realidad tu musica!'
+,'5.jpg' ,3), -- 5
 ('Captura de Instrumentos',
-'Nuestro servicio de grabación de audio te ofrece resultados profesionales y de alta calidad. Contamos con un equipo experto y equipos de grabacion de última generación. Ya sea que necesites grabar voces, instrumentos, foley u otros sonidos, te brindaremos asistencia tecnica y un entorno óptimo para lograr el mejor sonido posible. Confíaa en nosotros para capturar tu sonido de manera excepcional.'
-,4), -- 6 
+'Contamos con un equipo experto y equipos de grabacion de última generación. Confíaa en nosotros para capturar tu sonido de manera excepcional.'
+,'6.jpg' ,4), -- 6 
 ('Captura de Voces',
-'Nuestro servicio de grabación de audio te ofrece resultados profesionales y de alta calidad. Contamos con un equipo experto y equipos de grabacion de última generación. Ya sea que necesites grabar voces, instrumentos, foley u otros sonidos, te brindaremos asistencia tecnica y un entorno óptimo para lograr el mejor sonido posible. Confíaa en nosotros para capturar tu sonido de manera excepcional.'
-,4), -- 7
+'Nuestro servicio de grabación de audio te ofrece resultados profesionales y de alta calidad. '
+,'7.jpg' ,4), -- 7
 ('Foley',
-'Nuestro servicio de grabación de audio te ofrece resultados profesionales y de alta calidad. Contamos con un equipo experto y equipos de grabacion de última generación. Ya sea que necesites grabar voces, instrumentos, foley u otros sonidos, te brindaremos asistencia tecnica y un entorno óptimo para lograr el mejor sonido posible. Confíaa en nosotros para capturar tu sonido de manera excepcional.'
-,4), -- 8
+'Ya sea que necesites grabar voces, instrumentos, foley u otros sonidos, te brindaremos asistencia tecnica y un entorno óptimo para lograr el mejor sonido posible.'
+,'8.jpg' ,4), -- 8
 ('Propiedad Intelectual',
-'Protege tus derechos de autor con nuestra transcripción de guiones melódicos. Convertimos tus melodías en partituras precisas y legibles para respaldar legalmente tu musica. Confía en nosotros para obtener la documentacion necesaria y proteger tu propiedad intelectual.'
-,5), -- 9
+'Confía en nosotros para obtener la documentacion necesaria y proteger tu propiedad intelectual.'
+,'9.jpg' ,5), -- 9
 ('Producción Musical',
-'Haz realidad tus ideas musicales con nuestro servicio de produccion. Trabajaremos juntos en cada etapa, desde la grabación hasta la mezcla y masterización. Nuestro equipo experimentado te guiará en la selección de sonidos, la instrumentación y la creación de arreglos. Utilizaremos equipos profesionales y tecnología avanzada para garantizar la más alta calidad. Confía en nosotros para llevar tu música al siguiente nivel y crear una producción que destaque.'
-,6), -- 10
+'Trabajaremos juntos en cada etapa, desde la grabación hasta la mezcla y masterización. Nuestro equipo experimentado te guiará en la selección de sonidos, la instrumentación y la creación de arreglos.'
+,'10.jpg' ,6), -- 10
 ('Beatmaker',
-'Crea ritmos profesionales con nuestro servicio de Beatmaker. Nuestro equipo de talentosos productores te brindara ritmos originales y de alta calidad que se ajusten a tu estilo musical. Personalizamos
-los beats segun tus preferencias y los entregamos en formato de alta calidad.
-Eleva tu musica con nuestros ritmos creativos y profesionales.'
-,6), -- 11
+'Nuestro equipo de talentosos productores te brindara ritmos originales y de alta calidad que se ajusten a tu estilo musical'
+,'11.jpg' ,6), -- 11
 ('Masterización',
-'Confía en nuestro servicio de masterización para llevar tu música al siguiente nivel. Nuestro equipo experto mejorará la calidad y el sonido de tus canciones, asegurándose de que suenen profesionales y competitivas. Destaca con confianza en cada reproduccion y deja que tu música brille con nuestro servicio de masterización.'
-,7), -- 12
+' Nuestro equipo experto mejorará la calidad y el sonido de tus canciones, asegurándose de que suenen profesionales y competitivas.'
+,'12.jpg' ,7), -- 12
 ('Mezcla',
-'Confía en nuestro servicio de mezcla para lograr un sonido equilibrado y atractivo. Nuestro equipo de ingenieros de sonido utilizará técnicas profesionales para combinar y resaltar cada elemento de tu musica. Trabajaremos juntos para asegurarnos de que la mezcla refleje tu vision artística y
-logre el máximo potencial de tus grabaciones. Obtén una mezcla profesional y púlida que hara que tu música se destaque.'
-,7); -- 13
+'Trabajaremos juntos para asegurarnos de que la mezcla refleje tu vision artística y logre el máximo potencial de tus grabaciones. Obtén una mezcla profesional y púlida que hara que tu música se destaque.'
+,'13.jpg' ,7); -- 13
 
 
 INSERT INTO `product_prices` (`name`)  VALUES 
 ('por hora'),('por track'),('por canción'),('por proyecto'),('por guión melódico');
 
-INSERT INTO `products` (`name`, `price_id`, `price`, `status`,`cat_id`, `subcat_id`) VALUES 
-('Guitarra',1,15.00,1,1,1),
-('Piano/Teclado',1,15.00,1,1,1),
-('Producción Musical',1,15.00,1,1,2),
-('Técnica Vocal',1,15.00,1,1,2),
-('Teoría Musical',1,15.00,1,1,2),
-('Sala de Ensayos',1,15.00,1,2,3),
-('Instrumentos Percusivos',2,100.00,1,3,4),
-('Vientos, Cuerdas, Coros, Teclados',2,50.00,1,3,5),
-('Captura de Instrumentos',1,15.00,1,4,6),
-('Captura de Voces',1,15.00,1,4,7),
-('Foley',4,NULL,1,4,8),
-('Trancripción de Guiones Melódicos',5,15.00,1,5,9),
-('Producción Musical',4,NULL,1,6,10),
-('Beatmaker',4,NULL,1,6,11),
-('Masterización',3,120.00,1,7,12),
-('Mezcla',3,120.00,1,7,13);
+INSERT INTO `products` (`name`, `description`, `price_id`, `price`, `status`,`cat_id`, `subcat_id`) VALUES 
+('Guitarra','Protege tus derechos de autor con nuestra transcripción de guiones melódicos. Convertimos tus melodías en partituras precisas y legibles para respaldar legalmente tu música. Confía en nosotros para obtener la documentación necesaria y proteger tu propiedad intelectual',1,15.00,1,1,1),
+('Piano/Teclado','Protege tus derechos de autor con nuestra transcripción de guiones melódicos. Convertimos tus melodías en partituras precisas y legibles para respaldar legalmente tu música. Confía en nosotros para obtener la documentación necesaria y proteger tu propiedad intelectual',1,15.00,1,1,1),
+('Producción Musical','Nuestro servicio de grabación de audio te ofrece resultados profesionales y de alta calidad. Contamos con un equipo experto y equipos de grabación de última generación. Ya sea que necesites grabar voces, instrumentos, foley u otros sonidos, te brindaremos asistencia técnica y un entorno óptimo para lograr el mejor sonido posible. Confía en nosotros para capturar tu sonido de manera excepcional.',1,15.00,1,1,2),
+('Técnica Vocal','Nuestro servicio de grabación de audio te ofrece resultados profesionales y de alta calidad. Contamos con un equipo experto y equipos de grabación de última generación. Ya sea que necesites grabar voces, instrumentos, foley u otros sonidos, te brindaremos asistencia técnica y un entorno óptimo para lograr el mejor sonido posible. Confía en nosotros para capturar tu sonido de manera excepcional.',1,15.00,1,1,2),
+('Teoría Musical','Nuestro servicio de grabación de audio te ofrece resultados profesionales y de alta calidad. Contamos con un equipo experto y equipos de grabación de última generación. Ya sea que necesites grabar voces, instrumentos, foley u otros sonidos, te brindaremos asistencia técnica y un entorno óptimo para lograr el mejor sonido posible. Confía en nosotros para capturar tu sonido de manera excepcional.',1,15.00,1,1,2),
+('Sala de Ensayos','Prepárate para actuaciones increíbles en nuestra sala de ensayos equipada con todo lo necesario. Disfruta de un espacio acogedor y equipado con equipos de alta calidad para ensayar con tu banda. Reserva sesiones flexibles y aprovecha un entorno propicio para la creatividad y la colaboración. ¡Haz que tu música cobre vida en nuestra sala de ensayos!',1,15.00,1,2,3),
+('Instrumentos Percusivos','Haz realidad tu proyecto musical sin necesidad de tener músicos propios. Utiliza nuestro servicio de grabación a distancia y nuestro equipo de trabajo se encargará de grabar las pistas según tus especificaciones. Obtén grabaciones profesionales sin complicaciones. ¡Deja que nuestro equipo haga realidad tu música!',2,100.00,1,3,4),
+('Vientos, Cuerdas, Coros, Teclados','Haz realidad tu proyecto musical sin necesidad de tener músicos propios. Utiliza nuestro servicio de grabación a distancia y nuestro equipo de trabajo se encargará de grabar las pistas según tus especificaciones. Obtén grabaciones profesionales sin complicaciones. ¡Deja que nuestro equipo haga realidad tu música!',2,50.00,1,3,5),
+('Captura de Instrumentos','Haz realidad tu proyecto musical sin necesidad de tener músicos propios. Utiliza nuestro servicio de grabación a distancia y nuestro equipo de trabajo se encargará de grabar las pistas según tus especificaciones. Obtén grabaciones profesionales sin complicaciones. ¡Deja que nuestro equipo haga realidad tu música!',1,15.00,1,4,6),
+('Captura de Voces','Haz realidad tu proyecto musical sin necesidad de tener músicos propios. Utiliza nuestro servicio de grabación a distancia y nuestro equipo de trabajo se encargará de grabar las pistas según tus especificaciones. Obtén grabaciones profesionales sin complicaciones. ¡Deja que nuestro equipo haga realidad tu música!',1,15.00,1,4,7),
+('Foley','Nuestro servicio de grabación de audio te ofrece resultados profesionales y de alta calidad. Contamos con un equipo experto y equipos de grabación de última generación. Ya sea que necesites grabar voces, instrumentos, foley u otros sonidos, te brindaremos asistencia técnica y un entorno óptimo para lograr el mejor sonido posible. Confía en nosotros para capturar tu sonido de manera excepcional.',4,NULL,1,4,8),
+('Trancripción de Guiones Melódicos','Protege tus derechos de autor con nuestra transcripción de guiones melódicos. Convertimos tus melodías en partituras precisas y legibles para respaldar legalmente tu música. Confía en nosotros para obtener la documentación necesaria y proteger tu propiedad intelectual',5,15.00,1,5,9),
+('Producción Musical','Nuestro servicio de grabación de audio te ofrece resultados profesionales y de alta calidad. Contamos con un equipo experto y equipos de grabación de última generación. Ya sea que necesites grabar voces, instrumentos, foley u otros sonidos, te brindaremos asistencia técnica y un entorno óptimo para lograr el mejor sonido posible. Confía en nosotros para capturar tu sonido de manera excepcional.',4,NULL,1,6,10),
+('Beatmaker','Crea ritmos profesionales con nuestro servicio de Beatmaker. Nuestro equipo de talentosos productores te brindará ritmos originales y de alta calidad que se ajusten a tu estilo musical. Personalizamos los beats según tus preferencias y los entregamos en formato de alta calidad. Eleva tu música con nuestros ritmos creativos y profesionales.',4,NULL,1,6,11),
+('Masterización','Haz realidad tus ideas musicales con nuestro servicio de producción. Trabajaremos juntos en cada etapa, desde la grabación hasta la mezcla y masterización. Nuestro equipo experimentado te guiará en la selección de sonidos, la instrumentación y la creación de arreglos. Utilizaremos equipos profesionales y tecnología avanzada para garantizar la más alta calidad. Confía en nosotros para llevar tu música al siguiente nivel y crear una producción que destaque.',3,120.00,1,7,12),
+('Mezcla','Haz realidad tus ideas musicales con nuestro servicio de producción. Trabajaremos juntos en cada etapa, desde la grabación hasta la mezcla y masterización. Nuestro equipo experimentado te guiará en la selección de sonidos, la instrumentación y la creación de arreglos. Utilizaremos equipos profesionales y tecnología avanzada para garantizar la más alta calidad. Confía en nosotros para llevar tu música al siguiente nivel y crear una producción que destaque.',3,120.00,1,7,13);
 
+INSERT INTO `galeries` (`name`, `image`)  VALUES 
+('El azogue','azogue.jpg'),
+('Desatormentándonos','desatormentandonos.jpg'),
+('Batería','drum.jpg'),
+('Jazzy','jazzy.jpg'),
+('Sirenos','sirenos.jpg');
 
+INSERT INTO `members` (`name`, `job_name`, `image`, `instagram_name`, `instagram_url`)  VALUES 
+('Camilo Pabón', 'CEO', 'sirenos.jpg', '@juancamilomusica', 'https://www.instagram.com/juancamilomusica/'),
+('Jaison Muriel', 'Ingeniero de Sonido', 'sirenos.jpg', '@jaisonmuriel', 'https://www.instagram.com/jaisonmuriel/'),
+('David Usma', 'Productor Musical', 'sirenos.jpg', '@david_usma', 'https://www.instagram.com/david_usma/');
+
+INSERT INTO `productions` (`song_title`, `artist_name`, `youtube_url`)  VALUES 
+('El Poeta Halley', 'Love of Lesbian', 'https://www.youtube-nocookie.com/embed/H7tbjuHHbsQ'),
+('Cuento al Viento', 'Malena di Bello', 'https://www.youtube-nocookie.com/embed/lfeRc9tRQzM'),
+('Quanuqueando', 'Divididos', 'https://www.youtube-nocookie.com/embed/7OlzxfSKjtI'),
+('Buen Finde', 'La Mono Trio', 'https://www.youtube-nocookie.com/embed/ONvgGORQj8k'),
+('No me Beses en la Boca', 'Kutxi Romero', 'https://www.youtube-nocookie.com/embed/Pcnsgs8G5fo');

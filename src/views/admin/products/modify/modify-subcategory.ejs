@@ -12,7 +12,7 @@
                 <form class="form" method="POST" enctype="multipart/form-data" action="/admin/products/subcategories/modify-subcategory/<%= allSubcategories.id%>?_method=PUT">
                     <div class="subitem">
                         <h4 class="center-title">Nombre de la subcategoría</h4>
-                        <input type="text" name="subcategoryname" id="subcategoryname" class="form-input form-dimention" required placeholder="Ingrese el tipo de precio" value="<%= allSubcategories.name%>">
+                        <input type="text" name="subcategoryname" id="subcategoryname" class="form-input form-dimention" required placeholder="Ingrese el nombre de la subcategoría" value="<%= allSubcategories.name%>">
                     </div>
 
                     <div class="subitem">
@@ -26,8 +26,8 @@
                             <figure class="form-group">
                               <img width="20%" src="/db-images/products/subcategories/<%=allSubcategories.image%>" alt="services-others" <%=allSubcategories.image%>>
                             </figure>
-                            <input type="file" name="image" id="image">
                             <input type="hidden" name="oldImage" value="<%=allSubcategories.image%>">
+                            <input type="file" name="image" id="image">
                         </div>                        
                     </div>
 
@@ -39,7 +39,7 @@
                         <label for="categoryID">Seleccione una categoría </label>
                             <p>
                                 <select name="category_id" id="" required>
-                                    <option value="" disabled selected>- Seleccione la categoría - </option>
+                                    <option value="<%= allSubcategories.categories.id%>" disabled selected><%= allSubcategories.categories.name%></option>
                                     <% allCategories.forEach(category => { %>
                                     <option value="<%= category.id %>"><%= category.name %></option>
                                     <% }); %>

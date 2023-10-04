@@ -37,8 +37,8 @@ DROP TABLE IF EXISTS `sub_categories`;
 CREATE TABLE `sub_categories` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `name` varchar(100) COLLATE utf8_unicode_ci NOT null,
-  `description` varchar(500) COLLATE utf8_unicode_ci default 'sin descripción',
-  `image` varchar(1000) COLLATE utf8_unicode_ci default 'product-1691548445770.jpg' ,
+  `description` varchar(500) COLLATE utf8_unicode_ci,
+  `image` varchar(1000) COLLATE utf8_unicode_ci,
   `cat_id` int(10) unsigned NOT NULL,
   PRIMARY KEY (`id`),
   KEY `sub_categories_cat_id_foreign` (`cat_id`),
@@ -56,6 +56,7 @@ DROP TABLE IF EXISTS `products`;
 CREATE TABLE `products` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `name` varchar(100) COLLATE utf8_unicode_ci NOT null,
+  `description` varchar(900) COLLATE utf8_unicode_ci,
   `image` varchar(1000) COLLATE utf8_unicode_ci default 'product-1691548445770.jpg' ,  
   `price_id` int(10) unsigned NOT null,  
   `price` decimal(30,2) COLLATE utf8_unicode_ci, 
@@ -111,4 +112,32 @@ CREATE TABLE `user_fav_products` (
   KEY `user_fav_products_id_product_foreign` (`id_product`),
   CONSTRAINT `user_fav_products_id_user_foreign` FOREIGN KEY (`id_user`) REFERENCES `users` (`id`),
   CONSTRAINT `user_fav_products_id_product_foreign` FOREIGN KEY (`id_product`) REFERENCES `products` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=0 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+DROP TABLE IF EXISTS `galeries`;
+CREATE TABLE `galeries` (
+  `id` int(100) unsigned NOT NULL AUTO_INCREMENT,
+  `name` varchar(100) COLLATE utf8_unicode_ci NOT null,
+  `image` varchar(1000) COLLATE utf8_unicode_ci,
+  PRIMARY KEY (`id`) 
+) ENGINE=InnoDB AUTO_INCREMENT=0 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+DROP TABLE IF EXISTS `members`;
+CREATE TABLE `members` (
+  `id` int(100) unsigned NOT NULL AUTO_INCREMENT,
+  `name` varchar(100) COLLATE utf8_unicode_ci NOT null,
+  `job_name` varchar(100) COLLATE utf8_unicode_ci NOT null,
+  `image` varchar(1000) COLLATE utf8_unicode_ci,
+  `instagram_name` varchar(100) COLLATE utf8_unicode_ci NOT null,
+  `instagram_url` varchar(100) COLLATE utf8_unicode_ci NOT null,
+  PRIMARY KEY (`id`) 
+) ENGINE=InnoDB AUTO_INCREMENT=0 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+DROP TABLE IF EXISTS `productions`;
+CREATE TABLE `productions` (
+  `id` int(100) unsigned NOT NULL AUTO_INCREMENT,
+  `song_title` varchar(100) COLLATE utf8_unicode_ci NOT null,
+  `artist_name` varchar(100) COLLATE utf8_unicode_ci NOT null,
+  `youtube_url` varchar(100) COLLATE utf8_unicode_ci NOT null,
+  PRIMARY KEY (`id`) 
 ) ENGINE=InnoDB AUTO_INCREMENT=0 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;

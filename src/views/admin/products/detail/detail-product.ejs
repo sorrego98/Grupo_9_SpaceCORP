@@ -19,23 +19,20 @@
               <%= product.name%>
             </h5>
             <p class="card-text">
-              <%= product.description %>
+              Descripción: <%= product.description %>
             </p>
             <p class="card-text">
-              <% if (product.status) { %>
+              <% if (product.status == 1) { %>
                 Estado: Activo
-              <% } else { %>
-                Estado: inactivo
-              <% } %>
+                <% } else { %>
+                  Estado: inactivo
+                  <% } %>
             </p>
             <p>
               Categoría: <%= product.categories.name%>
             </p>
             <p>
               Subcategoría: <%= product.subcategories.name%>
-            </p>
-            <p>
-              Descripción: <%= product.subcategories.description%>
             </p>
             <p>
               Precio: <%= product.price%>
@@ -45,8 +42,8 @@
             </p>
             <div class="subitem">
               <figure class="form-group">
-                <img width="25%" class="w-100" src="/db-images/products/products/<%=product.image%>" alt="services-others"
-                  <%=product.image%>>
+                <img width="25%" class="w-100" src="/db-images/products/products/<%=product.image%>"
+                  alt="services-others" <%=product.image%>>
               </figure>
             </div>
           </div>
