@@ -5,28 +5,31 @@
 <body>
     <%- include ('../partials/commons/header')%>
     <main>
-        <h3>Póngase en contacto con nosotros</h3>
-        <form action="/" method="get">
+        <h3>¡Contáctanos!</h3>
+        <form action="/" method="get" class="form-contact">
             <div>
-                <label for="idname">Nombre*</label>
-                <input type="text" name="name" id="iname" required minlength="3">
+                <label for="idname"></label>
+                <input type="text" name="name" id="iname" required minlength="3" placeholder="Nombre">
             </div>
             <div>
-                <label for="idsubject">Asunto*</label>
-                <input type="text" name="subject" id="idsubject" required>
+                <label for="idemail"></label>
+                <input type="email" name="email" id="idemail" required placeholder="Email de contacto">
             </div>
             <div>
-                <label for="idemail">Correo*</label>
-                <input type="email" name="email" id="idemail" required>
+                <label for="idsubject"></label>
+                <input type="text" name="subject" id="idsubject" required placeholder="Asunto">
             </div>
+            
             <div>
-                <label for="idcomment">Mensaje*</label>
-                <textarea name="comment" id="idcomment" required rows="7" ></textarea>
+                <label for="idcomment"></label>
+                <textarea name="comment" id="idcomment" required rows="7" placeholder="Escribe tu mensaje aquí"></textarea>
             </div>
+            <br>
             <div>
                 <label for="idsend"></label>
                 <input type="submit" name="send" id="idsend">
             </div>
         </form>
+        <br>
     </main>
 <%- include ('../partials/commons/footer')%>

@@ -7,25 +7,23 @@
         <body>
             <section id="login-container" class="container">
                 <form method="POST" action="/auth/login">
-                    <h2>¡Hola! Inicia sesión con tu email y contraseña</h2>
+                    <h2>Inicia sesión</h2>
                     <br>
-                    <label></label>
-                    <input type="email" id="input-email" class="input"  name="email" required placeholder="Ingresa tu email" value="<%= typeof old != 'undefined' ? old.email : '' %>" >
-                    <% if(typeof(errors) != 'undefined'){%>
+                    <label>Email:</label>
+                    <input type="email" id="input-email" class="input"  name="email" required placeholder="Ingrese su email" value="<%= typeof old != 'undefined' ? old.email : '' %>" >
+                    <% if(typeof(errors) != 'undefined' && errors.email){%>
                         <span class="text-danger">
-                          <%= errors[0].msg %>
+                          <%= errors.email.msg %>
                         </span>
                      <%}%>
                     <br>
-                    <br>
-                    <label></label>
-                    <input type="password" id="input-pass" class="input" name="password" required placeholder="Ingresa tu contraseña">
-                    <% if(typeof(errors) != 'undefined' ){%>
+                    <label>Contraseña:</label>
+                    <input type="password" id="input-pass" class="input" name="password" required placeholder="Ingrese su contraseña">
+                    <% if(typeof(errors) != 'undefined' && errors.password){%>
                         <span class="text-danger">
-                          <%= errors[0].msg %>
+                          <%= errors.password.msg %>
                         </span>
                      <%}%>
-                    <br>
                     <br>
                     <div class="form-group ">
                         <input type="checkbox" name="recordarme"><label class="checkbox-inline">Recordarme</label>
@@ -34,15 +32,13 @@
                     <button type="submit" name="login" class="boton-login">Iniciar Sesión</button>
                 </form>
                 <form action="/auth/register" method="get">
-                    <br>
                     <div>
-                        <button type="submit" name="noregister" class="boton-crear">Crear cuenta</button>
+                        <button type="submit" name="noregister" class="boton-registro form-button">¿No tienes una cuenta aún?</button>
                     </div>
                 </form>
             </section>
             <div class="social-media-log">
-                <p>Iniciar sesión con:</p>
-                <br>
+                <p>O inicia sesión con:</p>
                 <div class="icons">
                     <p><a href="#" class="nolink nolink-ig"><i class="fa-brands fa-instagram"></i> Instagram</a></p>
                     <p><a href="#" class="nolink nolink-fb"><i class="fa-brands fa-facebook"></i> Facebook</a></p>

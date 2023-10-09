@@ -4,26 +4,28 @@
 </head>
 <%- include ('../partials/commons/header')%>
     <main>
-        <div  style="margin-top: 40px;">
-            <div >
+        <body>
+            <div  style="margin-top: 40px;">
                 <div >
-                    <h2>¡Sea bien comido! <%= user.firstName %>  <%= user.lastName %> </h2>
-                    <h3> Su tipo de usuario es <% if (user.role ===1) { %>
-                        <%= 'administrador' %>
-                    <% } else { %> 
-                        <%= 'cualquier otro' %>
-                    <% } %></h3>
-                    <img src="/db-images/users/<%= user.imageProfile %> " style="max-width: 100px;">
-                    <br>
-                    <br>
-                    <div ><%= user.email %> </div>
-                    <br>
-                    <div>
-                        <a class="botonEditar" href="/auth/profile/modify-user">
-                            <button type="button">Editar Perfil</button>
+                    <div >
+                        <h2>¡Sea bien comido! <%= user.firstName %>  <%= user.lastName %> </h2>
+                        <h3> Su tipo de usuario es <% if (user.role ===1) { %>
+                            <%= 'administrador' %>
+                        <% } else { %> 
+                            <%= 'cualquier otro' %>
+                        <% } %></h3>
+                        <img src="/db-images/users/<%= user.imageProfile %> " style="max-width: 100px;">
+                        <br>
+                        <br>
+                        <div ><%= user.email %> </div>
+                        <br>
+                        <div>
+                            <a class="botonEditar" href="/auth/profile/modify-user">
+                                <button type="button">Editar Perfil</button>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
+        </body>
     </main>
 <%- include ('../partials/commons/footer')%>

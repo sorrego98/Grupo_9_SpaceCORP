@@ -47,10 +47,44 @@ const controlUser = {
   loginProcess: (req, res) => {
 
       User.findAll(
-        {include: [{association: 'roles'}]}
+        //{include: [{association: 'roles'}]}
         )
         .then((users) => {
       //Aquí guardo los errores que vienen desde la ruta, valiendome del validationResult
+      
+      console.log("Estoy en el control2")
+      console.log(users)
+
+      const validacionesLogin = [
+        body('email').isEmail().withMessage('Agregar un email válido'),
+        body('password').isLength({min: 6 }).withMessage('La contraseña debe tener un mínimo de 6 caractéres')
+        ,
+         body('email').custom( (value) =>{
+           for (let i = 0; i < users.length; i++) {
+               if (users[i].email == value) {
+                   return true    
+               }
+           }
+           return false
+         }).withMessage('Usuario no se encuentra registrado...')
+         ,
+      
+         //Aquí valido si la contraseña colocada es la misma a la que tenemos hasheada
+         body('password').custom( (value, {req}) =>{
+             for (let i = 0; i < users.length; i++) {
+                 if (users[i].email == req.body.email) {
+                     if(bcrypt.compareSync(value, users[i].password)){
+                       return true;
+                     }else{
+                       return false;
+                     }
+                 }
+             } 
+         }).withMessage('Usuario o contraseña no coinciden')
+        ]      
+      
+      console.log("validaciones",validacionesLogin)
+      
       let errors = validationResult(req);
       
       let usuarioLogueado = [];
@@ -72,7 +106,7 @@ const controlUser = {
         //return res.send(usuarioLogueado);
         //Aquí determino si el usuario fue encontrado ó no en la Base de Datos
         if (usuarioLogueado.length === 0) {
-          return res.render(path.resolve(__dirname, '../views/auth/login'),{ errors: [{ msg: "Usuario y contraseña no coinciden" }] });
+          return res.render(path.resolve(__dirname, '../views/auth/login'),{ errors: [{ msg: "Credenciales invalidas" }] });
         } else {
           //Aquí guardo en SESSION al usuario logueado
           req.session.usuario = usuarioLogueado[0];

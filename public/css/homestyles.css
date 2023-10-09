@@ -200,12 +200,17 @@ main section article p a{
 /*------Contact-----*/
 
 main form{
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    padding: 10px;
-    background-color: #92d2e9;
+    align-content: center;
+   position: relative;
+    width: 400px;
+    height: 70%;
+    max-width: 70%;
+    max-height: 100%;
+    text-align: center;
     border-radius: 10px;
+    box-sizing: border-box;
+    box-shadow: #000;
+    margin: 10px auto;
 }
 
 main form div{
@@ -217,7 +222,26 @@ main form div{
     padding: 5px;
     margin: 0 10px;
     height: auto;
+    
 }
+
+
+#iname, #idsubject, #idemail, #idcomment{
+    font-size: 12px;
+    padding: 5px;
+    border-radius: 5px;
+    border-color: transparent;
+}
+
+#idsend{
+    font-size: 14px;
+    font-weight: bold;
+    padding: 5px;
+    border-radius: 5px;
+    color: #ffffff;
+    background-color: #36A5D5;
+    border-color: #36A5D5;
+  }
 
 @media (min-width: 769px){
     .main-team{
@@ -228,3 +252,12 @@ main form div{
         width: auto;    
     }
 }
+
+
+/*------HOOVER------*/
+
+#idsend:hover {
+    color: #ffffff;
+      box-shadow: 3px 3px 3px #36A5D5;
+      border-radius: 5px;
+  }
