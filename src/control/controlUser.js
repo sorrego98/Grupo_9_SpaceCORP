@@ -45,67 +45,76 @@ const controlUser = {
   },
 
   loginProcess: (req, res) => {
-
-      User.findAll(
-        {include: [{association: 'roles'}]}
-        )
-        .then((users) => {
-      //Aquí guardo los errores que vienen desde la ruta, valiendome del validationResult
-      let errors = validationResult(req);
+    let band = true; //para saber que hay errores
+    let email = req.body.email;
+    let password = req.body.password;
+    let remindMe = req.body.recordarme;
+    let Results = validationResult(req);
+    let errors = Results.errors;
+    console.log(errors)
+    if(remindMe){
+      res.cookie('email',email,{maxAge: 1000 * 60 * 60 * 24})
       
-      let usuarioLogueado = [];
-
-      if(req.body.email != '' && req.body.password != ''){
-        usuarioLogueado = users.filter(function (user) {
-          return user.email === req.body.email  
-        });
-        console.log("check1",usuarioLogueado);
-
-        //Aquí verifico si la clave que está colocando es la misma que está hasheada en la Base de datos - El compareSync retorna un true ó un false
-        if(bcrypt.compareSync(req.body.password, usuarioLogueado[0].password) === false){
-          usuarioLogueado = [];
-        }
-      } 
-      console.log("check2",usuarioLogueado);
-      console.log("check3",usuarioLogueado.length);
-      //console.log("check4", usuarioLogueado[0].password)
-        //return res.send(usuarioLogueado);
-        //Aquí determino si el usuario fue encontrado ó no en la Base de Datos
-        if (usuarioLogueado.length === 0) {
-          return res.render(path.resolve(__dirname, '../views/auth/login'),{ errors: [{ msg: "Usuario y contraseña no coinciden" }] });
-        } else {
-          //Aquí guardo en SESSION al usuario logueado
-          req.session.usuario = usuarioLogueado[0];
-        }
-        //Aquí verifico si el usuario le dio click en el check box para recordar al usuario 
-        if(req.body.recordarme){
-          res.cookie('email',usuarioLogueado[0].email,{maxAge: 1000 * 60 * 60 * 24})
-        }
-        return res.redirect('/auth/profile'); 
+    }                  
+    if(Results.isEmpty()){
+      User.findOne({
+        include: [{association: 'roles'}],
+        where:{email}
       })
-    },
+      .then(user => {
+        /*defino mi propio tipo de error, en caso de que  en la bdd no se consigan datos*/
+        errors = [{msg:"usuario y/o contraseña inválidos."}]
+        console.log(errors)
+        if(user){
+          if(bcrypt.compareSync(password, user.password) === true){
+            req.session.usuario = user; 
+            return res.status(200).redirect('/auth/profile');            
+          
+          }
 
-  // loginProcess: (req, res) => {
-  //     User.findAll({include: [{association: 'roles'}]})
-  //       .then( users => {
+        }
+        return res.render(path.resolve(__dirname, '../views/auth/login'),{ errors});
 
-  //     const errors = validationResult(req);
-  //     if (errors.isEmpty()) {
-  //       let usuarioLogueado = users.find(usuario => usuario.email == req.body.email)
-  //       delete usuarioLogueado.password;
-  //       req.session.usuario = usuarioLogueado;  //Guardar del lado del servidor
+      })  
 
-  //       //Aquí voy a guardar las cookies del usuario que se loguea
-  //       if (req.body.recordarme) {
-  //         res.cookie('email', usuarioLogueado.email, { maxAge: 1000 * 60 * 60 * 24 })
-  //       }
-  //       return res.redirect('/auth/profile');
+    }else{      
+      res.clearCookie('email');
+      return res.render(path.resolve(__dirname, '../views/auth/login'),{ errors});
 
-  //     } else {
-  //       //Devolver a la vista los errores
-  //       res.render(path.resolve(__dirname, '../views/auth/login'), { errors: errors.mapped(), old: req.body });
-  //     }})
-  //   },
+    }
+
+  }, 
+
+      // User.findAll(
+      //   {include: [{association: 'roles'}]}
+      //   )
+      //   .then((users) => {
+      // //Aquí guardo los errores que vienen desde la ruta, valiendome del validationResult
+      // let errors = validationResult(req);      
+      // let usuarioLogueado = [];
+      // if(req.body.email != '' && req.body.password != ''){
+      //   usuarioLogueado = users.filter(function (user) {
+      //     return user.email === req.body.email  
+      //   });
+      //   //Aquí verifico si la clave que está colocando es la misma que está hasheada en la Base de datos - El compareSync retorna un true ó un false
+      //   if(bcrypt.compareSync(req.body.password, usuarioLogueado[0].password) === false){
+      //     usuarioLogueado = [];
+      //   }
+      // } 
+      //   //Aquí determino si el usuario fue encontrado ó no en la Base de Datos
+      //   if (usuarioLogueado.length === 0) {
+      //     return res.render(path.resolve(__dirname, '../views/auth/login'),{ errors: [{ msg: "Usuario y contraseña no coinciden" }] });
+      //   } else {
+      //     //Aquí guardo en SESSION al usuario logueado
+      //     req.session.usuario = usuarioLogueado[0];
+      //   }
+      //   //Aquí verifico si el usuario le dio click en el check box para recordar al usuario 
+      //   if(req.body.recordarme){
+      //     res.cookie('email',usuarioLogueado[0].email,{maxAge: 1000 * 60 * 60 * 24})
+      //   }
+      //   return res.redirect('/auth/profile'); 
+      // })
+    // },
 
   logout: (req, res) => {
     req.session.destroy();

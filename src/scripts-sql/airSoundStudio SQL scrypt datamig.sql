@@ -4,8 +4,9 @@ INSERT INTO `roles` (`role_name`)  VALUES
 
 INSERT INTO `users` (`first_name`,`last_name`,`user_name`,`email`,`password`,`role_id`) VALUES
 ('Sebastián','Orrego','sebaorrego','mg@gmail.com','$2a$10$w7X6Xdkx2yYUpfuX6lvKaO6XqgTCYQsp7iMyNM6dZ54V/mAs6p3sG',1),
-('Florencia','Guede','florguede','florenciaguede@gmail.com','$2a$12$95HkpVn0/n8XIuNy1kSv4OIl1NvSSHZ7SzyEIM7czC4fSf3cZm53u',2),
-('Carlos','Echegaray','carloseche','carlos.charlex@gmail.com','$2a$12$95HkpVn0/n8XIuNy1kSv4OIl1NvSSHZ7SzyEIM7czC4fSf3cZm53u',2),
+('Florencia','Guede','florguede','florenciaguede@gmail.com','$2a$10$ZjTDZd/8B4QakaPS9HNoO.P3cF0QHH/VeSBXUtfAshaX7OPb/WWc2',2),
+('Carlos','Echegaray','carloseche','carlos.charlex@gmail.com','$2a$10$Bi/JviMO/LYmrEwkOaRJBeFXd0kQSVUv1csyO9qn5Me3xKEVQUzEa',2),
+('NomPrueba','','ApePrueba','1@1.com','$2a$10$Bi/JviMO/LYmrEwkOaRJBeFXd0kQSVUv1csyO9qn5Me3xKEVQUzEa',3),
 ('Andrés','Amortegui','andresamor','andres.amortegui@gmail.com','$2a$10$w7X6Xdkx2yYUpfuX6lvKaO6XqgTCYQsp7iMyNM6dZ54V/mAs6p3sG',3),
 ('Julián','Díaz','juliandiaz','andres.amortegui@gmail.com','$2a$10$w7X6Xdkx2yYUpfuX6lvKaO6XqgTCYQsp7iMyNM6dZ54V/mAs6p3sG',3);
 
