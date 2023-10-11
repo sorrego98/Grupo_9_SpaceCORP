@@ -1,0 +1,50 @@
+<%- include ('../../../partials/commons/head')%>
+    <link rel="stylesheet" href="/css/modproducts.css">
+    <title>Modificar Miembro</title>
+</head>
+<%- include ('../../../partials/commons/header')%>
+    <main>
+        <div class="split-view">            
+            <section class="form-container">
+                <div class ="header-form">                    
+                    <h2 class="form-title"><i class="fa-solid fa-wand-magic-sparkles form-title fa-lg"></i> Modificación de Miembro </h2>
+                </div>
+                <form class="form" method="POST" enctype="multipart/form-data" action="/admin/home/staff/modify-member/<%= member.id%>?_method=PUT">
+
+                    <div class="subitem">
+                        <h4 class="center-title">Nombre</h4>
+                        <input type="text" name="membername" id="membername" class="form-input form-dimention" required placeholder="Ingrese el nombre del integrante" value="<%= member.name%>">
+                    </div>
+
+                    <div class="subitem">
+                        <h4 class="center-title">Cargo</h4>
+                        <input type="text" name="jobname" id="jobname" class="form-input form-dimention" required placeholder="Ingrese el cargo del integrante" value="<%= member.jobName%>">
+                    </div>
+
+                    <div class="subitem">
+                        <h4 class="center-title">Usuario de Instagram</h4>
+                        <input type="text" name="instagramname" id="instagramname" class="form-input form-dimention" required placeholder="ej: @fatboy123" value="<%= member.instagramName%>">
+                    </div>
+                    <div class="subitem">
+                        <h4 class="center-title">Link de Usuario Instagram</h4>
+                        <input type="text" name="instagramurl" id="instagramurl" class="form-input form-dimention" required placeholder="Ingrese un link" value="<%= member.instagramUrl%>">
+                    </div>
+                    
+                    <div class="subitem">
+                        <h4 class="center-title">Imagen</h4>
+                        <div class="custom-file">
+                            <figure class="form-group">
+                              <img width="40%" src="/db-images/home/members/<%=member.image%>" alt="services-others" <%=member.image%>>
+                            </figure>
+                            <input type="hidden" name="oldImage" value="<%=member.image%>">
+                            <input type="file" name="image" id="image">
+                        </div>                        
+                    </div>
+
+                    <div class="subitem">
+                        <button type="submit" name="add-item" class="add-item-button form-button">Guardar Cambios</button>
+                    </div>
+                </form>
+        </div>     
+    </main>
+    <%- include ('../../../partials/commons/footer')%>

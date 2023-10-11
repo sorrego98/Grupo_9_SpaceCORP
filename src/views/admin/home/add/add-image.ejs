@@ -1,0 +1,31 @@
+<%- include ('../../../partials/commons/head')%>
+    <link rel="stylesheet" href="/css/addproducts.css">
+    <title>Nuevo Foto Galería</title>
+</head>
+<%- include ('../../../partials/commons/header')%>
+    <main>
+        <div class="split-view">            
+            <section class="form-container">
+                <div class ="header-form">                    
+                    <h2 class="form-title"><i class="fa-solid fa-circle-plus form-title fa-lg"></i> Añadir Foto </h2>
+                </div>
+                <form class="form" method="POST" enctype="multipart/form-data" action="/admin/home/galery/add-image">
+                    <div class="subitem">
+                        <h3 class="center-title">Nombre de la Foto</h3>
+                        <input type="text" name="imagename" id="imagename" class="form-input form-dimention" required placeholder="Ingrese un nombre">
+                    </div>
+
+                    <div class="subitem">
+                        <h3 class="center-title">Imagen Nueva</h3>
+                        <input type="file" name="image" id="image" class="form-input image-info" required>                        
+                    </div>
+
+                    <div class="subitem">
+                        <button type="submit" name="add-item" class="add-item-button form-button">Crear</button>
+                    </div>
+                </form>
+            </section>
+            
+        </div>     
+    </main>
+    <%- include ('../../../partials/commons/footer')%>

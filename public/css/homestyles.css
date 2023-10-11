@@ -79,13 +79,13 @@ main section article p a{
 }
 
 .carruseles-video {
-    width: 500%;
+    width: 1000%;
     height: 100%;
     display: flex;
 }
 
 .slider-section-video {
-    width: calc(100% / 5);
+    width: calc(100% / 10);
     height: 100%;
 }
 
@@ -140,8 +140,8 @@ main section article p a{
 
 .container-carousel {
     position: relative;
-    width: 750px;
-    height: 450px;
+    width: 70vh;
+    height: 70vh;
     background-color: #e0e0e0;
     box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.66);
     border-radius: 15px;
@@ -149,13 +149,13 @@ main section article p a{
 }
 
 .carruseles {
-    width: 500%;
+    width: 1000%;
     height: 100%;
     display: flex;
 }
 
 .slider-section {
-    width: calc(100% / 5);
+    width: calc(100% / 10);
     height: 100%;
 }
 

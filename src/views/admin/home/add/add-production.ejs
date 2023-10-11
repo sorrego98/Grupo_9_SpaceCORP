@@ -1,0 +1,36 @@
+<%- include ('../../../partials/commons/head')%>
+    <link rel="stylesheet" href="/css/addproducts.css">
+    <title>Nueva Producción</title>
+</head>
+<%- include ('../../../partials/commons/header')%>
+    <main>
+        <div class="split-view">            
+            <section class="form-container">
+                <div class ="header-form">                    
+                    <h2 class="form-title"><i class="fa-solid fa-circle-plus form-title fa-lg"></i> Añadir Nuevo Producto </h2>
+                </div>
+                <form class="form" method="POST" action="/admin/home/latestProductions/add-production">
+                    <div class="subitem">
+                        <h3 class="center-title">Nombre de la Producción</h3>
+                        <input type="text" name="songname" id="songname" class="form-input form-dimention" required placeholder="Ingrese un nombre">
+                    </div>
+                    
+                    <div class="subitem">
+                        <h3 class="center-title">Nombre del Artista</h3>
+                        <input type="text" name="artistname" id="artistname" class="form-input form-dimention" required placeholder="Ingrese un nombre">
+                    </div>
+
+                    <div class="subitem">
+                        <h3 class="center-title">Link YouTube de la Producción</h3>
+                        <input type="text" name="youtubeurl" id="youtubeurl" class="form-input form-dimention" required placeholder="Ingrese un link">
+                    </div>
+
+                    <div class="subitem">
+                        <button type="submit" name="add-item" class="add-item-button form-button">Crear</button>
+                    </div>
+                </form>
+            </section>
+            
+        </div>     
+    </main>
+    <%- include ('../../../partials/commons/footer')%>

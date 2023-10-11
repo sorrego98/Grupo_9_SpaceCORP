@@ -86,7 +86,12 @@ INSERT INTO `galeries` (`name`, `image`)  VALUES
 ('Desatormentándonos','desatormentandonos.jpg'),
 ('Batería','drum.jpg'),
 ('Jazzy','jazzy.jpg'),
-('Sirenos','sirenos.jpg');
+('Sirenos','sirenos.jpg'),
+('Trojan Records','trojan.jpg'),
+('Invisible','invisible.jpg'),
+('El Plan de la Mariposa','estadodeenlace.jpg'),
+('La Triple Nelson','sed.jpg'),
+('KJ','thenada.jpg');
 
 INSERT INTO `members` (`name`, `job_name`, `image`, `instagram_name`, `instagram_url`)  VALUES 
 ('Camilo Pabón', 'CEO', 'sirenos.jpg', '@juancamilomusica', 'https://www.instagram.com/juancamilomusica/'),
@@ -98,4 +103,9 @@ INSERT INTO `productions` (`song_title`, `artist_name`, `youtube_url`)  VALUES
 ('Cuento al Viento', 'Malena di Bello', 'https://www.youtube-nocookie.com/embed/lfeRc9tRQzM'),
 ('Quanuqueando', 'Divididos', 'https://www.youtube-nocookie.com/embed/7OlzxfSKjtI'),
 ('Buen Finde', 'La Mono Trio', 'https://www.youtube-nocookie.com/embed/ONvgGORQj8k'),
-('No me Beses en la Boca', 'Kutxi Romero', 'https://www.youtube-nocookie.com/embed/Pcnsgs8G5fo');
+('No me Beses en la Boca', 'Kutxi Romero', 'https://www.youtube-nocookie.com/embed/Pcnsgs8G5fo'),
+('Fin de Fiesta','Kevin Johsansen','https://www.youtube-nocookie.com/embed/VLqa3ekhmgE?si=d19sh92SOwSCriq9'),
+('Canela','Cesar Mora','https://www.youtube-nocookie.com/embed/jlZ8BMqHowk?si=PxfkEAPEtBQrRUtM'),
+('La Sed','La Triple Nelson','https://www.youtube-nocookie.com/embed/hgDKGopT-5o?si=I_LbeSbbjo7lRgTR'),
+('Giros','Liliana Herrero','https://www.youtube-nocookie.com/embed/OzNFkhJ84l4?si=LpTfh_mDkQz7-8yr'),
+('Viernes Otra Vez','Superlitio','https://www.youtube-nocookie.com/embed/ha7nF3h7oGw?si=fNpdOsfzU6tt143Y');
