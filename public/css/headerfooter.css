@@ -1,9 +1,10 @@
 /*---------Header ------*/
 header {
-    background-color: var(--main-blue);
-    /* background-image: url("/img/Background_AirSound.png"); */    
+    /* background-color: var(--main-blue); */
+    background-image: url("/img/Background_AirSound.png");    
     position: sticky;
     top: 0;
+    background-size: contain;
     z-index: 1;
 }
 
