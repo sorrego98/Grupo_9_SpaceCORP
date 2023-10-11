@@ -1,32 +1,33 @@
 <%- include ('../partials/commons/head')%>
-    <link rel="stylesheet" href="/css/homestyles.css">
+    <link rel="stylesheet" href="/css/contactstyles.css">
     <title>Contacto</title>
 </head>
 <body>
     <%- include ('../partials/commons/header')%>
     <main>
-        <h3>Póngase en contacto con nosotros</h3>
-        <form action="/" method="get">
-            <div>
-                <label for="idname">Nombre*</label>
-                <input type="text" name="name" id="iname" required minlength="3">
-            </div>
-            <div>
-                <label for="idsubject">Asunto*</label>
-                <input type="text" name="subject" id="idsubject" required>
-            </div>
-            <div>
-                <label for="idemail">Correo*</label>
-                <input type="email" name="email" id="idemail" required>
-            </div>
-            <div>
-                <label for="idcomment">Mensaje*</label>
-                <textarea name="comment" id="idcomment" required rows="7" ></textarea>
-            </div>
-            <div>
-                <label for="idsend"></label>
-                <input type="submit" name="send" id="idsend">
-            </div>
-        </form>
+        <section class="box-data dimention-box">
+            <h2 class="box-title">¡Contáctanos!</h2>
+            <form action="/" method="get" class="box-form">
+                <div class="box-form-item">
+                    <input class="item-text" type="text" name="name" id="iname" required minlength="3" placeholder="Nombre">
+                </div>
+                <div class="box-form-item">
+                    <input class="item-text" type="email" name="email" id="idemail" required placeholder="Email de contacto">
+                </div>
+                <div class="box-form-item">
+                    <input class="item-text" type="text" name="subject" id="idsubject" required placeholder="Asunto">
+                </div>
+                
+                <div class="box-form-item">
+                    <textarea class="item-text" name="comment" id="idcomment" required rows="7" placeholder="Escribe tu mensaje aquí"></textarea>
+                </div>
+                <br>
+                <div class="box-form-item">
+                    <label for="idsend"></label>
+                    <input class="item-text" type="submit" name="send" id="idsend">
+                </div>
+            </form>
+        </section>
+        <br>
     </main>
 <%- include ('../partials/commons/footer')%>

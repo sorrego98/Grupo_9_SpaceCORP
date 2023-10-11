@@ -1,76 +1,101 @@
 <body>
-    <header>
-        <div class="logo-container">
-            <img
-              class="logo"
-              src="/img/logo.png"
-              alt="Logo AS Studio"
-            />
-          </div>
-          <nav class="navbar">
-            <ul class="nav-ul">
-              <li class="nav-ul-li">
-                <div class="elemento-li">
-                  <i class="fa-solid fa-house-chimney"></i>
-                  <a href="/">HOME</a>
+  <header>
+    <div class="header-content">
+      <div class="burguer-menu">
+        <i class="fas fa-solid fa-bars"></i>
+      </div>
+      <div class="logo-container">
+        <a class="elements" href="/">
+          <img class="logo" src="/img/logo-white.png" alt="AS Studio"/>
+        </a>
+      </div>
+      <nav class="navbar">
+        <ul class="nav-ul">
+          <li class="nav-ul-li">
+            <a class="elements" href="/products">
+              <div>
+                <i class="fa-solid fa-icons icon"></i>
+              </div>
+              <div>
+                <span class="li-element-text" data-text="Products">Productos</span>
+              </div>
+            </a>
+          </li>
+          <li class="nav-ul-li">
+            <a class="elements" href="/cart">
+              <div>
+                <i class="fa-solid fa-basket-shopping icon"></i>
+              </div>
+              <div>
+                <span class="li-element-text" data-text="Cart">Carrito</span>
+              </div>
+            </a>
+          </li>
+          <li class="nav-ul-li dd-li">
+            <button class="dropdown-elements">
+              <div class="elements dd-element">
+                <div>
+                  <% switch(locals.usuario.roleId) { 
+                    case 1: %>
+                      <i class="fa-solid fa-user-gear icon"></i>
+                      <% break
+                      case 2:%>
+                      <i class="fa-solid fa-user-tie icon"></i>
+                      <% break
+                      default:%>
+                      <i class="fa-solid fa-user icon"></i>
+                  <% } %>
                 </div>
-              </li>
-              <li class="nav-ul-li">
-                <div class="elemento-li">
-                  <i class="fa-solid fa-icons"></i>
-                  <a href="/products">PRODUCTS</a>
+                <div>
+                  <span class="li-element-text" data-text="Profile">Perfil</span>
                 </div>
-              </li>
-              <li class="nav-ul-li">
-                <div class="elemento-li">
-                  <i class="fa-solid fa-basket-shopping"></i>
-                  <a href="/cart">CART</a>
-                </div>
-              </li>
-              <li class="nav-ul-li">
-                <div class="elemento-li">
-                  <i class="fa-solid fa-at"></i>
-                  <a href="/contact">CONTACT</a>
-                </div>
-              </li>
-              <% if (locals.isLogged) { %>
-                <% if (locals.usuario.role ===1) { %>
-                  <li class="nav-ul-li">
-                    <div class="elemento-li">
-                      <i class="fa-solid fa-gear"></i>
-                      <a href="/admin">ADMON</a>
-                    </div>
-                  </li>
+              </div>
+              <i class="fa fa-caret-down mini-icon"></i>              
+              <div class="dropdown-content">                
+                <% if (locals.isLogged) { %>
+                  <% if (locals.usuario.roleId === 1 || locals.usuario.roleId === 2 ) { %>
+                    <a href="/admin" class="dd-c-element">   
+                      <i class="fa-solid fa-gear mini-icon"></i>
+                      <span>Administrar</span>
+                    </a>
+                  <% }
+                  else{ %>
+                    <% if (locals.usuario.roleId === 3 ) { %>
+                      <a href="/auth/profile" class="dd-c-element">   
+                        <i class="fa-solid fa-user mini-icon"></i>
+                        <span >Mi Perfil</span>
+                      </a>
+                    <% } %>
+                  <% } %>
+                  <a href="/auth/logout" class="dd-c-element">   
+                    <i class="fa-solid fa-right-from-bracket mini-icon"></i>
+                    <span >Salir</span>
+                  </a>
+                <% } else{%>
+                  <a href="/auth/register" class="dd-c-element">   
+                    <i class="fa-solid fa-id-card mini-icon"></i>
+                    <span >Registro</span>
+                  </a>
+                  <a href="/auth/login" class="dd-c-element">   
+                    <i class="fa-solid fa-right-to-bracket mini-icon"></i>
+                    <span >Ingresar</span>
+                  </a>
                 <% } %>
-              <li class="nav-ul-li">
-                <div class="elemento-li">
-                  <i class="fa-solid fa-user"></i>
-                  <a href="/auth/profile">PROFILE</a>
-                </div>
-              </li>
-              <li class="nav-ul-li">
-                <div class="elemento-li">
-                  <i class="fa-solid fa-right-from-bracket"></i>
-                  <a href="/auth/logout">LOG OUT</a>
-                </div>
-              </li>
-              <% } else { %>
-              <li class="nav-ul-li">
-                <div class="elemento-li">
-                  <i class="fa-solid fa-id-card"></i>
-                  <a href="/auth/register">REGISTER</a>
-                </div>
-              </li>
-              <li class="nav-ul-li">
-                <div class="elemento-li">
-                  <i class="fa-solid fa-right-to-bracket"></i>
-                  <a href="/auth/login">LOGIN</a>
-                </div>
-              </li>
-              <% } %>
-            </ul>
-          </nav> 
-        <div class="burguer-menu">
-            <i class="fas fa-solid fa-bars"></i>    
-          </div>
-    </header>
+              </div>
+            </button>            
+          </li>
+          <li class="nav-ul-li">
+            <a class="elements" href="/contact">
+              <div>
+                <i class="fa-solid fa-at icon"></i>
+              </div>
+              <div>
+                <span class="li-element-text" data-text="Contact">Contacto</span>
+              </div>
+            </a>
+          </li>
+          
+        </ul>
+      </nav> 
+    </div>
+  </header>

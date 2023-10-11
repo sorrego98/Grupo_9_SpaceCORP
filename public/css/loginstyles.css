@@ -1,29 +1,57 @@
 .container {
     position: relative;
-    width: 70%;
+    width: 400px;
     height: 70%;
-    max-width: 100%;
+    max-width: 70%;
     max-height: 100%;
     text-align: center;
     padding: 20px;
-    border: 1px solid #000;
     border-radius: 10px;
     box-sizing: border-box;
     box-shadow: #000;
     margin: 10px auto;
 }
 
+h2 {
+    font-size: 16px;
+}
+
 .input {
-    font-size: 10px;
+    font-size: 12px;
     width: 90%;
     padding: 5px;
     border-radius: 5px;
+    border-color: transparent;
 }
 
 .boton-login {
+    font-size: 14px;
+    font-weight: bold;
+    width: 90%;
     padding: 5px;
     border-radius: 5px;
-    margin: 10px;
+    color: #ffffff;
+    background-color: #36A5D5;
+    border-color: #36A5D5;
+}
+
+.form-group{
+    text-align: center;
+}
+.checkbox-inline{
+    font-size: 12px;
+    padding: 5px;
+}
+
+.boton-crear {
+    font-size: 12px;
+    color:#36A5D5;
+    font-weight: bold;
+    width: 90%;
+    padding: 5px;
+    border-color: transparent;
+    background-color: transparent;
+
 }
 
 /*
@@ -74,10 +102,13 @@ input[type="password"] {
 }
 
 .boton-login:hover {
-    background-color: #3b5998;
     color: #ffffff;
-    box-shadow: 3px 3px 3px #3b5998;
+    box-shadow: 3px 3px 3px #36A5D5;
     border-radius: 5px;
+}
+
+.boton-crear:hover {
+    font-size: 14px;
 }
 
 .burguer-menu:hover {
@@ -91,7 +122,9 @@ input[type="password"] {
 /*------SOCIAL MEDIA------*/
 
 .social-media-log {
-    margin-top: 20px;
+    font-size: 12px;
+    margin-top: 10px;
+    margin-bottom: 10px;
     text-align: center;
 }
 

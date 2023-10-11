@@ -9,28 +9,32 @@ const {uploadProduct} = require('../middlewares/multerMiddleware');
 const {uploadMember} = require('../middlewares/multerMiddleware');
 const {uploadGalery} = require('../middlewares/multerMiddleware');
 
+/*------------------- show admin control tables -------------------*/
 router.get("/", controlAdmin.adminProducts.generalAdmon); // Opciones de ADMON (get)
 
-//Rutas Productos mediante DB*****************************************************************
-//List COMPLETO
-router.get("/products/priceType", controlAdmin.adminProducts.listPrices); // Prices List (get)
-router.get("/products/categories", controlAdmin.adminProducts.listCategories); // Categories List (get)
-router.get("/products/subcategories", controlAdmin.adminProducts.listSubCategories); // SubCategories List (get)
-router.get("/products/products", controlAdmin.adminProducts.listProducts); // Products List (get)
+/*------------------- show admin tables -------------------*/
+router.get("/products/priceType", controlAdmin.adminProducts.lists.Prices); // Prices List (get)
+router.get("/products/categories", controlAdmin.adminProducts.lists.Categories); // Categories List (get)
+router.get("/products/subcategories", controlAdmin.adminProducts.lists.SubCategories); // SubCategories List (get)
+router.get("/products/products", controlAdmin.adminProducts.lists.Products); // Products List (get)
 
 //Detail COMPLETO
+/*------------------- show details from items of a table -------------------*/
 router.get("/products/subcategories/detail-subcategory/:id", controlAdmin.adminProducts.detailSubCategories); // Subcategory detail (get)
 router.get("/products/products/detail-product/:id", controlAdmin.adminProducts.detailProducts); // Product detail (get)
 
-//Create COMPLETO
-router.get("/products/categories/add-category",  controlAdmin.adminProducts.addCategories); // Create Category (get)
-router.post("/products/categories/add-category", controlAdmin.adminProducts.saveCategories); // Create Category (post)
-router.get("/products/priceType/add-price",  controlAdmin.adminProducts.addPrices); // Create Price Type (get)
-router.post("/products/priceType/add-price", controlAdmin.adminProducts.savePrices); // Create Price Type (post)
-router.get("/products/subcategories/add-subcategory",  controlAdmin.adminProducts.addSubcategories); // Create Subcategory (get)
-router.post("/products/subcategories/add-subcategory", uploadSC.single('image'), controlAdmin.adminProducts.saveSubcategories); // Create Subcategory (post)
-router.get("/products/products/add-product",  controlAdmin.adminProducts.addProducts); // Create Product (get)
-router.post("/products/products/add-product", uploadProduct.single('image'), controlAdmin.adminProducts.saveProducts); // Create Product (post)
+// Create COMPLETO
+/*------------------- show interface to add elements to tables -------------------*/
+router.get("/products/categories/add-category",  controlAdmin.adminProducts.adds.Categories); // Create Category (get)
+router.get("/products/priceType/add-price",  controlAdmin.adminProducts.adds.Prices); // Create Price Type (get)
+router.get("/products/subcategories/add-subcategory",  controlAdmin.adminProducts.adds.Subcategories); // Create Subcategory (get)
+router.get("/products/products/add-product",  controlAdmin.adminProducts.adds.Products); // Create Product (get)
+
+/*------------------- save data from interface to tables -------------------*/
+router.post("/products/categories/add-category", controlAdmin.adminProducts.saves.Categories); // Create Category (post)
+router.post("/products/priceType/add-price", controlAdmin.adminProducts.saves.Prices); // Create Price Type (post)
+router.post("/products/subcategories/add-subcategory", uploadSC.single('image'), controlAdmin.adminProducts.saves.Subcategories); // Create Subcategory (post)
+router.post("/products/products/add-product", uploadProduct.single('image'), controlAdmin.adminProducts.saves.Products); // Create Product (post)
 
 //Modify COMPLETO
 router.get("/products/priceType/modify-price/:id", controlAdmin.adminProducts.modPrices); // Modify Price Type(get)
@@ -42,11 +46,11 @@ router.put("/products/subcategories/modify-subcategory/:id", uploadSC.single('im
 router.get("/products/products/modify-product/:id", controlAdmin.adminProducts.modProducts); // Modify Product(get)
 router.put("/products/products/modify-product/:id", uploadProduct.single('image'),controlAdmin.adminProducts.alterProducts); // Modify Product(put)
 
-//Delete COMPLETO
-router.delete("/products/priceType/delete-price/:id",  controlAdmin.adminProducts.destroyPrices); // Delete PriceType (delete)
-router.delete("/products/categories/delete-category/:id",  controlAdmin.adminProducts.destroyCategories); // Delete PriceType (delete)
-router.delete("/products/subcategories/delete-subcategory/:id",  controlAdmin.adminProducts.destroySubcategories); // Delete Subcategory (delete)
-router.delete("/products/products/delete-product/:id",  controlAdmin.adminProducts.destroyProducts); // Delete PriceType (delete)
+/*------------------- destroys -------------------*/
+router.delete("/products/priceType/delete-price/:id",  controlAdmin.adminProducts.destroys.Prices); // Delete PriceType (delete)
+router.delete("/products/categories/delete-category/:id",  controlAdmin.adminProducts.destroys.Categories); // Delete PriceType (delete)
+router.delete("/products/subcategories/delete-subcategory/:id",  controlAdmin.adminProducts.destroys.Subcategories); // Delete Subcategory (delete)
+router.delete("/products/products/delete-product/:id",  controlAdmin.adminProducts.destroys.Products); // Delete PriceType (delete)
 
 //Rutas HOME mediante DB*****************************************************************
 router.get("/home/staff", controlMain.controlDB.staffList); // Staff List (get)
