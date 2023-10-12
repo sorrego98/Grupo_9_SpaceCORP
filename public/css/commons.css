@@ -37,11 +37,11 @@
     
 }
 h1{font-size: 2.4em; /* 24px */ font-weight: bolder;}
-h2{font-size: 2em; /* 20px */ font-weight: bold;}
-h3{font-size: 1.6em; /* 16px */ font-weight: bold;}
-h4{font-size: 1.4em; /* 14px */}
-h5{font-size: 1em; /* 10px */}
-h6{font-size: 0.8em; /* 8px */}
+h2{font-size: 2.2em; /* 20px */ font-weight: bold;}
+h3{font-size: 2em; /* 16px */ font-weight: bold;}
+h4{font-size: 1.8em; /* 14px */}
+h5{font-size: 1.6em; /* 10px */}
+h6{font-size: 1.4em; /* 8px */}
 
 body{
     display: grid;
@@ -50,4 +50,31 @@ body{
     grid-template-rows: auto 1fr auto;    
     color: var(--main-black);
     background: var(--main-blue10);
+}
+
+/*controles para titulos*/
+.box-title{
+    color: var(--main-white);
+    width: 100%;
+    padding: 0.5em;
+    border-radius: 0.5em;    
+    text-align: center;
+    background: var(--main-blue);
+}
+
+/*--------- Main ------*/
+main{
+    width: 100%;
+    height: 100%;
+    padding: 1.5em;
+    color: var(--main-black);
+}
+
+.border-left{
+    border-top-left-radius: 0.25em;
+    border-bottom-left-radius: 0.25em;
+}
+.border-right{
+    border-top-right-radius: 0.25em;
+    border-bottom-right-radius: 0.25em;
 }

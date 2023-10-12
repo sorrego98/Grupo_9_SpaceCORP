@@ -24,10 +24,6 @@ header {
     height: 100%;
 }
 
-/*--------- Main ------*/
-main{
-    color: var(--main-black);
-}
 
 /*--------- Footer ------*/
 footer {
@@ -113,7 +109,7 @@ footer {
     border-radius: 0.5em;
     
 }
-.about-sub-elements p {
+.about-sub-elements h5 {
     padding: 0.8em;
     width: 100%;
     height: 100%;

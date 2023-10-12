@@ -51,7 +51,6 @@ const controlUser = {
     let remindMe = req.body.recordarme;
     let Results = validationResult(req);
     let errors = Results.errors;
-    console.log(errors)
     if(remindMe){
       res.cookie('email',email,{maxAge: 1000 * 60 * 60 * 24})
       
@@ -62,9 +61,6 @@ const controlUser = {
         where:{email}
       })
       .then(user => {
-        /*defino mi propio tipo de error, en caso de que  en la bdd no se consigan datos*/
-        errors = [{msg:"usuario y/o contraseña inválidos."}]
-        console.log(errors)
         if(user){
           if(bcrypt.compareSync(password, user.password) === true){
             req.session.usuario = user; 
@@ -73,6 +69,8 @@ const controlUser = {
           }
 
         }
+        /*defino mi propio tipo de error, en caso de que  en la bdd no se consigan datos*/
+        errors = [{msg:"usuario y/o contraseña inválidos."}]
         return res.render(path.resolve(__dirname, '../views/auth/login'),{ errors});
 
       })  

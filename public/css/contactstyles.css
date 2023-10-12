@@ -1,10 +1,12 @@
 /*---------Home--------*/
 
-main {
-    margin: auto;  
+main{    
+    display: grid;
+    place-items: center;
 }
 
 .box-data{
+    margin: auto;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -13,14 +15,6 @@ main {
     border-radius: 0.5em;
 }
 
-.box-title{
-    color: var(--main-white);
-    width: 100%;
-    padding: 0.3em;
-    border-radius: 0.2em;    
-    text-align: center;
-    background: var(--main-blue);
-}
 
 .box-form{
     display: flex;
@@ -73,11 +67,13 @@ main {
   }
 
 
-  /*--------- Media Queries ------*/
+
+/*--------- Media Queries ------*/
 
 /* pantallas pequeñas*/
 @media (max-width: 599.99px) { 
     
+    /* para cajas de logueo, registro, etc*/
     .dimention-box{
         width: clamp(25em,100vw,45em);
         
@@ -88,6 +84,7 @@ main {
 /* Móviles en horizontal o tablets en vertical */
 @media (min-width: 600px) {
     
+    /* para cajas de logueo, registro, etc*/
     .dimention-box{
         width: clamp(55em,100vw,65em);
     }
