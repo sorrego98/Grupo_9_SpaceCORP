@@ -16,13 +16,14 @@
 .user-data > section{
     height: 100%;
     width: 100%;
-    background: #c02539;
+    background: var(--main-red);
 }
 
 .user-card{
     display: flex;
     flex-direction: column;
     align-items: center;
+    width: clamp(20em,100%,35em);
     height: auto;
     
 }
