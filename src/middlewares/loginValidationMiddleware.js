@@ -2,7 +2,7 @@ const path = require('path');
 //Requiero fs ya que debo leer el archivo json de usuarios y verificar si el usuario que se está reistrando existe o no
 const fs = require('fs');
 //Requiero el paquete expres-validator
-const { body } = require('express-validator');
+const { body, check } = require('express-validator');
 
 const bcrypt = require('bcryptjs');
 //const hash = bcrypt.hashSync('mi contraseña');
@@ -15,8 +15,10 @@ const User = db.Users
 
 //validaciones login
 const validacionesLogin = [
-    body('email').isEmail().withMessage('Agregar un email válido'),
-    body('password').isLength({min: 6 }).withMessage('La contraseña debe tener un mínimo de 6 caractéres')
+    check('email')
+    .isEmail().withMessage('Agregar un email válido'),
+    check('password')
+    .isLength({min: 6 }).withMessage('La contraseña debe tener un mínimo de 6 caractéres')
   //   ,
   //   body('email').custom( (value) =>{
   //     for (let i = 0; i < archivoUsers.length; i++) {

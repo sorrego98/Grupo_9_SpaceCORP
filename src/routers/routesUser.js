@@ -4,6 +4,7 @@ let controlUser = require('../control/controlUser')
 const path = require('path');
 const guestMiddleware = require('../middlewares/guestMiddleware');
 const authMiddleware = require('../middlewares/authMiddleware');
+const validateLogin = require('../middlewares/validateLogin');
 
 //Requiero el paquete expres-validator
 const {check, validationResult, body} = require('express-validator');
@@ -108,10 +109,7 @@ controlUser.create);
 router.get("/login", guestMiddleware, controlUser.login);
 //Solo ejecuto las validaciones básicas y todas las demas las voy a verificar desde el controlador
 
-router.post("/login", [
-body('email').isEmail().withMessage('Ingresa un email válido'),
-body('password').isLength({min: 6 }).withMessage('La contraseña debe tener un mínimo de 6 caractéres'),
-], controlUser.loginProcess); //agrego ruta por post que va al controlador
+router.post("/login", validateLogin, controlUser.loginProcess); //agrego ruta por post que va al controlador
   
 //RUTAS DE PERFIL
 router.get('/profile', authMiddleware, controlUser.profile);
@@ -122,7 +120,6 @@ router.put('/profile/modify-user', upload.single('avatar'), controlUser.modifica
 router.get('/logout', controlUser.logout); //Esta ruta se activa al momento que el usuario desea salir de la página
 
 module.exports = router;
-
 
 
 
