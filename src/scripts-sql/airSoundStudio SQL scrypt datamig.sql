@@ -95,9 +95,9 @@ INSERT INTO `galeries` (`name`, `image`)  VALUES
 ('KJ','thenada.jpg');
 
 INSERT INTO `members` (`name`, `job_name`, `image`, `instagram_name`, `instagram_url`)  VALUES 
-('Camilo Pabón', 'CEO', 'sirenos.jpg', '@juancamilomusica', 'https://www.instagram.com/juancamilomusica/'),
-('Jaison Muriel', 'Ingeniero de Sonido', 'sirenos.jpg', '@jaisonmuriel', 'https://www.instagram.com/jaisonmuriel/'),
-('David Usma', 'Productor Musical', 'sirenos.jpg', '@david_usma', 'https://www.instagram.com/david_usma/');
+('Camilo Pabón', 'CEO', 'chew.jpg', '@juancamilomusica', 'https://www.instagram.com/juancamilomusica/'),
+('Jaison Muriel', 'Ingeniero de Sonido', 'ani.jpg', '@jaisonmuriel', 'https://www.instagram.com/jaisonmuriel/'),
+('David Usma', 'Productor Musical', 'jar.jpg', '@david_usma', 'https://www.instagram.com/david_usma/');
 
 INSERT INTO `productions` (`song_title`, `artist_name`, `youtube_url`)  VALUES 
 ('El Poeta Halley', 'Love of Lesbian', 'https://www.youtube-nocookie.com/embed/H7tbjuHHbsQ'),

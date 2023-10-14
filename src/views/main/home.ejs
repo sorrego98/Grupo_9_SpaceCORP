@@ -16,7 +16,10 @@
             <article class="main-team">
                 <% allStaff.forEach(member => { %>
                     <div class="main-team-div">
-                        <p><i class="fa-solid fa-user lg"></i></p>
+                        <div class="member-image">
+                            <img src="/db-images/home/members/<%= member.image%>" alt="<%= member.image%>">
+                        </div>
+                        <!-- <p><i class="fa-solid fa-user lg"></i></p> -->
                         <p><%= member.jobName%></p>
                         <p><a href="<%= member.instagramUrl %>"><%= member.instagramName %></a></p>               
                     </div>
