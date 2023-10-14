@@ -7,7 +7,7 @@ const db = require('../database/models')
 const User = db.Users
 
 //Aquí requiero a la función que trae los errores desde la ruta, de llegar a existir
-const { validationResult, check, body } = require('express-validator');
+const {validationResult} = require('express-validator');
 const { decrypt } = require("dotenv");
 
 const controlUser = {
@@ -45,7 +45,6 @@ const controlUser = {
   },
 
   loginProcess: (req, res) => {
-    let band = true; //para saber que hay errores
     let email = req.body.email;
     let password = req.body.password;
     let remindMe = req.body.recordarme;
@@ -60,6 +59,7 @@ const controlUser = {
         include: [{association: 'roles'}],
         where:{email}
       })
+
       .then(user => {
         if(user){
           if(bcrypt.compareSync(password, user.password) === true){
@@ -67,17 +67,16 @@ const controlUser = {
             return res.status(200).redirect('/auth/profile');            
           
           }
-
         }
         /*defino mi propio tipo de error, en caso de que  en la bdd no se consigan datos*/
         errors = [{msg:"usuario y/o contraseña inválidos."}]
-        return res.render(path.resolve(__dirname, '../views/auth/login'),{ errors});
+        return res.render(path.resolve(__dirname, '../views/auth/login'),{ errors });
 
       })  
 
     }else{      
       res.clearCookie('email');
-      return res.render(path.resolve(__dirname, '../views/auth/login'),{ errors});
+      return res.render(path.resolve(__dirname, '../views/auth/login'),{ errors });
 
     }
 

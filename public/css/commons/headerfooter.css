@@ -149,18 +149,39 @@ footer {
     /*--------- Header ------*/
     .burguer-menu{
         display:flex;
-        flex-direction: column;
-        align-items: center;
+        flex-direction: column; 
         justify-content: center;
-        border: 0.2em solid var(--main-white);
+        align-items: center;
+        width: 4em;
+        height: 4em;
+        background: transparent;
+        gap: 0.9em;
+        border: 0;
+    }
+
+    .burguer-menu > div{
+        background: var(--main-black);
+        height: 0.5em;
+        width: 4em;
         border-radius: 0.5em;
-        width: 4.5em;
-        height: 4.5em;
+        transition: all 0.5s;
+        transform-origin: left;
     }
-    .fa-bars{
-        font-size: 2.5em;
-        padding: 0.25em;
+
+    .burguer-menu:hover div:first-child{
+        transform: rotate(45deg);
+        background: var(--main-blue);
     }
+    
+    .burguer-menu:hover div:nth-child(2){
+        opacity: 0;
+    }
+    
+    .burguer-menu:hover div:last-child{
+        transform: rotate(-45deg);
+        background: var(--main-blue);
+    }
+
     .navbar{
         display:none;
     }

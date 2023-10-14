@@ -26,6 +26,7 @@
     --main-orange: #F69045;
     --main-green: #20B2AA;
     --main-white: #FFFFFF;
+    font-size: 14px;
 }
 
 * {
@@ -74,7 +75,29 @@ main{
     border-top-left-radius: 0.25em;
     border-bottom-left-radius: 0.25em;
 }
+
 .border-right{
     border-top-right-radius: 0.25em;
     border-bottom-right-radius: 0.25em;
 }
+
+.border-top{
+    border-top-right-radius: 0.25em;
+    border-top-left-radius: 0.25em;
+}
+
+.border-bottom{
+    border-bottom-right-radius: 0.25em;
+    border-bottom-left-radius: 0.25em;
+}
+
+
+/*--------- Modales ------*/
+
+.modal{
+    position: fixed;
+    top: 0; bottom: 0; left:0; right: 0;
+    background-color: var(--main-black90);
+}
+
+
