@@ -35,16 +35,20 @@
             <button class="dropdown-elements">
               <div class="elements dd-element">
                 <div>
-                  <% switch(locals.usuario.roleId) { 
-                    case 1: %>
-                      <i class="fa-solid fa-user-gear icon"></i>
-                      <% break
-                      case 2:%>
-                      <i class="fa-solid fa-user-tie icon"></i>
-                      <% break
-                      default:%>
-                      <i class="fa-solid fa-user icon"></i>
-                  <% } %>
+                  <% if (locals.isLogged) {
+                    switch(locals.usuario.roles.roleName.toUpperCase()) { 
+                      case 'ADMINISTRADOR': %>
+                        <i class="fa-solid fa-user-gear icon"></i>
+                        <% break
+                        case 'EMPLEADO':%>
+                        <i class="fa-solid fa-user-tie icon"></i>
+                        <% break
+                        default:%>
+                        <i class="fa-solid fa-user icon"></i>
+                    <% }
+                  } else{ %>
+                    <i class="fa-solid fa-user icon"></i>
+                  <%} %>
                 </div>
                 <div>
                   <span class="li-element-text" data-text="Profile">Perfil</span>
@@ -52,21 +56,21 @@
               </div>
               <i class="fa fa-caret-down mini-icon"></i>              
               <div class="dropdown-content">                
-                <% if (locals.isLogged) { %>
-                  <% if (locals.usuario.roleId === 1 || locals.usuario.roleId === 2 ) { %>
+                <% if (locals.isLogged) { 
+                  if (locals.usuario.roles.roleName.toUpperCase() == "ADMINISTRADOR"
+                    || locals.usuario.roles.roleName.toUpperCase() == "EMPLEADO") { %>
                     <a href="/admin" class="dd-c-element">   
                       <i class="fa-solid fa-gear mini-icon"></i>
                       <span>Administrar</span>
                     </a>
                   <% }
-                  else{ %>
-                    <% if (locals.usuario.roleId === 3 ) { %>
+                  if (locals.usuario.roles.roleName.toUpperCase() == "EMPLEADO"
+                    || locals.usuario.roles.roleName.toUpperCase() == "USUARIO"){ %>
                       <a href="/auth/profile" class="dd-c-element">   
                         <i class="fa-solid fa-user mini-icon"></i>
                         <span >Mi Perfil</span>
                       </a>
                     <% } %>
-                  <% } %>
                   <a href="/auth/logout" class="dd-c-element">   
                     <i class="fa-solid fa-right-from-bracket mini-icon"></i>
                     <span >Salir</span>
