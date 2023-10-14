@@ -7,13 +7,13 @@
     --main-blue90: #40ADD6;
     --main-blue50: #95D1E8;
     --main-blue10: #EAF5FA;
-    
+
     /*--- grays ---*/
     --main-gray: #7C868C;
     --main-gray90: #899197;
     --main-gray50: #BDC2C5;
     --main-gray10: #F2F3F3;
-    
+
     /*--- blacks ---*/
     --main-black: #222222;
     --main-black90: #2C2F33;
@@ -22,7 +22,7 @@
 
     /*--- others ---*/
     --main-red: #C02539;
-    --main-instagram: linear-gradient(45deg, rgba(64,93,230,1) 0%, rgba(64,93,230,1) 25%, rgba(193,53,132,1) 50%, rgba(225,48,108,1) 75%, rgba(253,29,29,1) 100%);
+    --main-instagram: linear-gradient(45deg, rgba(64, 93, 230, 1) 0%, rgba(64, 93, 230, 1) 25%, rgba(193, 53, 132, 1) 50%, rgba(225, 48, 108, 1) 75%, rgba(253, 29, 29, 1) 100%);
     --main-orange: #F69045;
     --main-green: #20B2AA;
     --main-white: #FFFFFF;
@@ -34,20 +34,46 @@
     box-sizing: border-box;
     font-size: 10px;
     font-family: 'Roboto Slab', serif;
-    
 }
-h1{font-size: 2.4em; /* 24px */ font-weight: bolder;}
-h2{font-size: 2em; /* 20px */ font-weight: bold;}
-h3{font-size: 1.6em; /* 16px */ font-weight: bold;}
-h4{font-size: 1.4em; /* 14px */}
-h5{font-size: 1em; /* 10px */}
-h6{font-size: 0.8em; /* 8px */}
 
-body{
+h1 {
+    font-size: 2.4em;
+    /* 24px */
+    font-weight: bolder;
+}
+
+h2 {
+    font-size: 2em;
+    /* 20px */
+    font-weight: bold;
+}
+
+h3 {
+    font-size: 1.6em;
+    /* 16px */
+    font-weight: bold;
+}
+
+h4 {
+    font-size: 1.4em;
+    /* 14px */
+}
+
+h5 {
+    font-size: 1em;
+    /* 10px */
+}
+
+h6 {
+    font-size: 0.8em;
+    /* 8px */
+}
+
+body {
     display: grid;
     min-height: 100vh;
     min-width: 100vw;
-    grid-template-rows: auto 1fr auto;    
+    grid-template-rows: auto 1fr auto;
     color: var(--main-black);
     background: var(--main-blue10);
 }

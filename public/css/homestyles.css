@@ -1,44 +1,60 @@
 /*---------Home--------*/
 
 main {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  flex-grow: 1;
-  margin: 8px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    flex-grow: 1;
+    margin: 8px;
 }
 
-.main-team{
+.main-team {
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-    width: auto;    
+    width: auto;
 }
 
-.main-team-div{
+.main-team-div {
     padding: 10px;
     margin: 10px;
     background-color: #92d2e9;
     border-radius: 10px;
 }
 
-h2{
+.member-image {
+    display: inline-block;
+    position: relative;
+    width: 200px;
+    height: 200px;
+    overflow: hidden;
+    border-radius: 50%;
+    border: 10px solid var(--main-blue10);
+}
+
+.member-image img {
+    width: auto;
+    height: 100%;
+    margin-left: -25px;
+}
+
+h2 {
     text-align: center;
     font-size: 32px;
     margin: 5px;
     padding: 10px;
 }
 
-h3{
+h3 {
     text-align: center;
     font-size: 25px;
     margin: 5px;
     padding: 10px;
 }
 
-.main-section{
+.main-section {
     display: block;
     box-sizing: border-box;
     margin: 8px;
@@ -46,7 +62,7 @@ h3{
     border-radius: 5px;
 }
 
-main section p{
+main section p {
     text-align: center;
     font-size: 20px;
     box-sizing: border-box;
@@ -54,7 +70,7 @@ main section p{
     margin: 5px;
 }
 
-main section article p a{
+main section article p a {
     color: black;
 }
 
@@ -135,7 +151,7 @@ main section article p a{
     align-items: center;
     justify-content: center;
     background: #e9f6fa;
-    padding: 20px; 
+    padding: 20px;
 }
 
 .container-carousel {
@@ -178,7 +194,7 @@ main section article p a{
     font-weight: 600;
     cursor: pointer;
     color: #ffffff81;
-    transform: translate(0,-50%);
+    transform: translate(0, -50%);
     transition: .5s ease;
     user-select: none;
 }
@@ -199,9 +215,9 @@ main section article p a{
 
 /*------Contact-----*/
 
-main form{
+main form {
     align-content: center;
-   position: relative;
+    position: relative;
     width: 400px;
     height: 70%;
     max-width: 70%;
@@ -213,7 +229,7 @@ main form{
     margin: 10px auto;
 }
 
-main form div{
+main form div {
     box-sizing: border-box;
     text-align: center;
     display: flex;
@@ -222,18 +238,21 @@ main form div{
     padding: 5px;
     margin: 0 10px;
     height: auto;
-    
+
 }
 
 
-#iname, #idsubject, #idemail, #idcomment{
+#iname,
+#idsubject,
+#idemail,
+#idcomment {
     font-size: 12px;
     padding: 5px;
     border-radius: 5px;
     border-color: transparent;
 }
 
-#idsend{
+#idsend {
     font-size: 14px;
     font-weight: bold;
     padding: 5px;
@@ -241,15 +260,15 @@ main form div{
     color: #ffffff;
     background-color: #36A5D5;
     border-color: #36A5D5;
-  }
+}
 
-@media (min-width: 769px){
-    .main-team{
+@media (min-width: 769px) {
+    .main-team {
         display: flex;
         flex-direction: row;
         flex-wrap: wrap;
         justify-content: space-around;
-        width: auto;    
+        width: auto;
     }
 }
 
@@ -258,6 +277,6 @@ main form div{
 
 #idsend:hover {
     color: #ffffff;
-      box-shadow: 3px 3px 3px #36A5D5;
-      border-radius: 5px;
-  }
+    box-shadow: 3px 3px 3px #36A5D5;
+    border-radius: 5px;
+}
