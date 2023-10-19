@@ -3,43 +3,20 @@
     <title>Profile</title>
 </head>
     <%- include ('../partials/commons/header')%>
+    <%- include ('../auth/modalUserEdit')%>
+    <script src="/scripts/auth/modalEditValidations.js"></script>
     <main>
         <section class="canva">
             <div class="box-title">
                 <h2>Administración del Perfil</h2>
             </div>
-            <div class="user-data">
-                <aside class="user-card">
-                    <img class="token-image dimention-box" src="/db-images/users/<%= user.imageProfile %> ">
-                    <div class="token-data dimention-box">
-                        <h5 class="box-title">Datos Personales</h5>
-                        <div class="token-row">
-                            <span class="token-element border-left">Alias</span>
-                            <span class="token-info border-right"><%= user.userName %></span>
-                        </div>
-                        <div class="token-row">
-                            <span class="token-element border-left">Nombre</span>
-                            <span class="token-info border-right"><%= user.firstName %> <%= user.lastName %></span>
-                        </div>
-                        <div class="token-row">
-                            <span class="token-element border-left">Rol</span>
-                            <span class="token-info border-right"><%= user.roles.roleName %></span>
-                        </div>
-                        <div class="token-row">
-                            <span class="token-element border-left">Mail</span>
-                            <span class="token-info border-right"><%= user.email %></span>
-                        </div>
-                        <div class="btn-row">
-                            <a href="/auth/profile/modify-user">
-                                <button type="button" class="edit-btn">Editar Datos</button></a>
-                        </div>
-    
-                    </div>
-                </aside>     
+            <div class="user-data">  
+                <%- include ('../auth/userCard')%>
                 <section class="user-details">
                     Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum inventore magnam veritatis adipisci omnis asperiores exercitationem provident tempore tenetur nemo nulla suscipit recusandae earum veniam iure, voluptatum necessitatibus nam laboriosam.
                 </section>                   
             </div>
         </section>            
     </main>
+    <script src="/scripts/auth/modalEdit.js"></script>
 <%- include ('../partials/commons/footer')%>

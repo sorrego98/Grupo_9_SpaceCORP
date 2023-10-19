@@ -1,0 +1,37 @@
+
+<section class="modal modal-hidden">
+    <div class="modal-container">
+        <button class="modal-close"><i class="fa-regular fa-rectangle-xmark"></i></button>
+        <h4 class="modal-title box-title">Editar Datos de Usuario</h4>
+        <section class="form-container">
+            <form class="form" enctype="multipart/form-data"
+            method="POST" action="/auth/profile?_method=PUT">
+                <div class="subitem">
+                    <span class="center-title">Nombre</span>
+                    <input type="text" name="firstName" id="firstName" class="form-input form-dimention" required placeholder="Ingrese su nombre" value="<%= user.firstName%>">
+                    <span id="firstName-error" class="show-error"></span>
+                </div>
+                <div class="subitem">
+                    <span class="center-title">Apellido</span>
+                    <input type="text" name="lastName" id="lastName" class="form-input form-dimention" required placeholder="Ingrese su apellido" value="<%= user.lastName%>">
+                    <span id="lastName-error" class="show-error"></span>
+                </div>
+                <div class="subitem">
+                    <span class="center-title">Imagen de Perfil</span>
+                    <div class="custom-file">
+                        <figure class="form-group">
+                          <img class="image-dimention" src="/db-images/users/<%=user.imageProfile%>"
+                           alt="Avatar" <%=user.imageProfile%>>
+                        </figure>
+                        <input type="hidden" name="oldImage" value="<%=user.imageProfile%>">
+                        <input type="file" id="imageProfile" name="avatar">
+                    </div>                        
+                    <span id="imageProfile-error" class="show-error"></span>
+                </div>
+                <div class="subitem">
+                    <button type="submit" name="edit-user" class="edit-user-button form-button">Guardar Cambios</button>
+                </div>
+            </form>
+        </section>
+    </div>
+</section>
