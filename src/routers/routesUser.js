@@ -4,8 +4,8 @@ let controlUser = require('../control/controlUser')
 const path = require('path');
 const validateLogin = require('../middlewares/validateLogin');
 const registerData = require('../middlewares/auth/registerData');
-const loggedUser = require("../middlewares/auth/loggedUser");
-const notLoggedUser = require('../middlewares/auth/notLoggedUser');
+const isUser = require("../middlewares/auth/isUser");
+const isGuest = require('../middlewares/auth/isGuest');
 const {uploadUser} = require('../middlewares/multerMiddleware');
 
 //Requiero el paquete expres-validator
@@ -17,19 +17,19 @@ const User = db.Users
 
 //RUTAS DE REGISTRO
 
-router.get("/register", loggedUser, controlUser.register); 
-router.post('/register', uploadUser.single('avatar'), registerData, controlUser.create);
+router.get("/register", isUser, controlUser.register.show); 
+router.post('/register', uploadUser.single('avatar'), registerData, controlUser.register.create);
 
 //RUTAS DE LOGIN
-router.get("/login", loggedUser, controlUser.login.show);
+router.get("/login", isUser, controlUser.login.show);
 router.post("/login", validateLogin, controlUser.login.enterSession);
   
 //RUTAS DE PERFIL
-router.get('/profile', notLoggedUser, controlUser.profile.show);
+router.get('/profile', isGuest, controlUser.profile.show);
 router.put('/profile', uploadUser.single('avatar'), controlUser.profile.edit);
 
 //RUTA DE LOGOUT
-router.get('/logout', controlUser.logout); //Esta ruta se activa al momento que el usuario desea salir de la página
+router.get('/logout', controlUser.login.endSession); //Esta ruta se activa al momento que el usuario desea salir de la página
 
 module.exports = router;
 
