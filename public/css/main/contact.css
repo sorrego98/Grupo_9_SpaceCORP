@@ -1,0 +1,92 @@
+/*---------Home--------*/
+
+main{    
+    display: grid;
+    place-items: center;
+}
+
+.box-data{
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: var(--main-blue50);
+    padding: 1em;
+    border-radius: 0.5em;
+}
+
+
+.box-form{
+    display: flex;
+    flex-direction: column;
+    gap: 0.6em;
+    width: 100%;
+    margin-top: 1em;
+    justify-content: center;
+    align-content: center;    
+}
+
+.box-form-item{
+    min-height: 1.2em;
+}
+
+.item-text{
+    width: 100%;
+    height: 100%;
+}
+
+#idcomment{
+    resize: vertical;
+}
+
+
+#iname, #idsubject, #idemail, #idcomment{
+    font-size: 12px;
+    padding: 5px;
+    border-radius: 5px;
+    border-color: transparent;
+}
+
+#idsend{
+    font-size: 14px;
+    font-weight: bold;
+    padding: 5px;
+    border-radius: 5px;
+    color: #ffffff;
+    background-color: #36A5D5;
+    border-color: #36A5D5;
+  }
+
+
+/*------HOOVER------*/
+
+#idsend:hover {
+    color: #ffffff;
+      box-shadow: 3px 3px 3px #36A5D5;
+      border-radius: 5px;
+  }
+
+
+
+/*--------- Media Queries ------*/
+
+/* pantallas pequeñas*/
+@media (max-width: 599.99px) { 
+    
+    /* para cajas de logueo, registro, etc*/
+    .dimention-box{
+        width: clamp(25em,100vw,45em);
+        
+    }
+    
+}
+
+/* Móviles en horizontal o tablets en vertical */
+@media (min-width: 600px) {
+    
+    /* para cajas de logueo, registro, etc*/
+    .dimention-box{
+        width: clamp(55em,100vw,65em);
+    }
+ 
+}

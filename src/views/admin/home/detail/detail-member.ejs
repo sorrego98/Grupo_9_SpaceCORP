@@ -1,0 +1,42 @@
+<%- include ('../../../partials/commons/head')%>
+  <title>Admon: Detalle de Miembros</title>
+  <link rel="stylesheet" href="/css/productsstyles.css">
+  </head>
+  <%- include ('../../../partials/commons/header')%>
+    <main class="container-fluid">
+      <!--Detalle de Producto-->
+      <br><br>
+      <section class="row">
+        <article class="col-12  card">
+          <div class="card-body">
+            <h2 class="display-4 text-primary  text-center pt-2">Detalle del Miembro</h2>
+          </div>
+        </article>
+        <article class="col-12 col-md-6 mx-auto mt-5 producto">
+
+          <div class="card-body">
+            <p>
+              Nombre: <%= member.name%>
+            </p>
+            <p>
+              Cargo: <%= member.jobName%>
+            </p>
+            <p>
+              Usuario Instagram: <%= member.instagramName%>
+            </p>
+            <p>
+              Link Instagram: 
+              <a href="<%= member.instagramUrl%>"> <%= member.instagramUrl%> </a>
+            </p>
+            <div class="subitem">
+              <figure class="form-group">
+                <img width="25%" class="w-100" src="/db-images/home/members/<%=member.image%>" alt="services-others"
+                  <%=member.image%>>
+              </figure>
+            </div>
+          </div>
+          <a href="/admin/home/staff" class="btn btn-danger">Volver</a>
+        </article>
+      </section>
+    </main>
+    <%- include ('../../../partials/commons/footer')%>

@@ -1,0 +1,33 @@
+<%- include ('../../../partials/commons/head')%>
+  <title>Admon: Detalle de Producciones</title>
+  <link rel="stylesheet" href="/css/productsstyles.css">
+  </head>
+  <%- include ('../../../partials/commons/header')%>
+    <main class="container-fluid">
+      <!--Detalle de Producto-->
+      <br><br>
+      <section class="row">
+        <article class="col-12  card">
+          <div class="card-body">
+            <h2 class="display-4 text-primary  text-center pt-2">Detalle de la Producción</h2>
+          </div>
+        </article>
+        <article class="col-12 col-md-6 mx-auto mt-5 producto">
+
+          <div class="card-body">
+            <p>
+              Nombre Producción: <%= production.songTitle%>
+            </p>
+            <p>
+              Artista: <%= production.artistName%>
+            </p>
+            <p>
+              Link YouTube: 
+              <a href="<%= production.youtubeUrl%>"> <%= production.youtubeUrl%> </a>
+            </p>
+          </div>
+          <a href="/admin/home/latestProductions" class="btn btn-danger">Volver</a>
+        </article>
+      </section>
+    </main>
+    <%- include ('../../../partials/commons/footer')%>

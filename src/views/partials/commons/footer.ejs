@@ -1,29 +1,42 @@
-        <footer>
-            <section class="social-media">
-                <p>Conéctate a nosotros a través de nuestra RR.SS.</p>
-                <div>
-                    <a href="https://www.youtube.com/@recfilmsmedellin"><img
-                        class="mini-logo-container"
-                        src="/img/yt-icon-round.png"
-                        alt="YT Channel"
-                    /></a>
-                    <a href="https://www.instagram.com/airsoundstudio/?hl=es-la"><img
-                        class="mini-logo-container"
-                        src="/img/ig-icon-round.png"
-                        alt="IG Channel"
-                    /></a>
+    <footer>
+        <div class="contain-foo-SM">
+            <div class="foo-SM">
+                <h4>nuestras RR.SS.</h4>
+                <div class="foo-RRSS">
+                    <a href="https://www.instagram.com/airsoundstudio/?hl=es-la" class="brand-icon ig-icon">
+                        <i class="fa-brands fa-instagram"></i>
+                    </a>
+                    <a href="https://www.youtube.com/@recfilmsmedellin" class="brand-icon yt-icon">
+                        <i class="fa-brands fa-youtube"></i>
+                    </a>
                 </div>
-            </section>
-            <div class="about">
-                <section class="about-section">
-                    <h3>Acerca de Nosotros</h3>
-                    <section class="grid-section">
-                        <i class="fa-solid fa-location-dot grid-element"></i><p class="grid-element">Valle del Aburrá, La Estrella, Colombia</p>
-                        <i class="fa-solid fa-phone grid-element"></i><p class="grid-element">(+57) 3193386594</p>
-                        <i class="fa-solid fa-envelope grid-element"></i><p class="grid-element">airsoundmusica@gmail.com</p>
-                    </section>
-                </section>
             </div>
-        </footer>
+        </div>
+        <div class="about">
+            <h3>Acerca de Nosotros</h3>
+            <i id="changeArrow" class="fa-solid fa-angle-down"></i>
+        </div>
+        <div class="show-about inactive">
+            <div class="about-sub-elements">
+                <div>
+                    <i class="fa-solid fa-location-dot"></i>
+                </div>
+                <h5>Valle del Aburrá, La Estrella, Colombia</h5>
+            </div>
+            <div class="about-sub-elements">
+                <div>
+                    <i class="fa-solid fa-phone"></i>
+                </div>
+                <h5>(+57) 3193386594</h5>
+            </div>
+            <div class="about-sub-elements">
+                <div>
+                    <i class="fa-solid fa-envelope"></i>
+                </div>
+                <h5 id="end-html">airsoundmusica@gmail.com</h5>
+            </div>
+        </div>  
+    </footer>
+    <script src="/scripts/showAbout.js"></script>
     </body>
 </html>

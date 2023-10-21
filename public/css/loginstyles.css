@@ -12,10 +12,6 @@
     margin: 10px auto;
 }
 
-h2 {
-    font-size: 16px;
-}
-
 .input {
     font-size: 12px;
     width: 90%;
@@ -111,14 +107,6 @@ input[type="password"] {
     font-size: 14px;
 }
 
-.burguer-menu:hover {
-    background-color: #3b5998;
-    box-shadow: 3px 3px 3px #ffffff;
-    color: #ffffff;
-  }
-
-
-
 /*------SOCIAL MEDIA------*/
 
 .social-media-log {
@@ -137,12 +125,3 @@ input[type="password"] {
 .icons a {
     margin: 0 5px;
 }
-
-/*----------*/
-
-@media (min-width: 769px) {
-    div iframe {
-        width: 48vw;
-        height: 27vw;
-    }
-}        

@@ -1,5 +1,5 @@
 <%- include ('../partials/commons/head')%>
-    <link rel="stylesheet" href="/css/homestyles.css">
+    <link rel="stylesheet" href="/css/main/home.css">
     <!-- <link rel="stylesheet" href="/css/slide.css"> -->
     <title>AirSound Studio</title>
 </head>
@@ -14,21 +14,16 @@
         <section class="main-section">
             <h2>Nuestra familia</h2>
             <article class="main-team">
-                <div class="main-team-div">
-                    <p><i class="fa-solid fa-user lg"></i></p>
-                    <p>CEO</p>
-                    <p><a href="https://www.instagram.com/juancamilomusica/">@juancamilomusica</a></p>               
-                </div>
-                <div class="main-team-div">
-                    <p><i class="fa-solid fa-user lg"></i></p>
-                    <p>Ingeniero de Sonido</p>
-                    <p><a href="https://www.instagram.com/jaisonmuriel/">@jaisonmuriel</a></p>               
-                </div>
-                <div class="main-team-div">
-                    <p><i class="fa-solid fa-user lg"></i></p>
-                    <p>Productor Musical</p>
-                    <p><a href="https://www.instagram.com/david_usma/">@david_usma</a></p>               
-                </div>
+                <% allStaff.forEach(member => { %>
+                    <div class="main-team-div">
+                        <div class="member-image">
+                            <img src="/db-images/home/members/<%= member.image%>" alt="<%= member.image%>">
+                        </div>
+                        <!-- <p><i class="fa-solid fa-user lg"></i></p> -->
+                        <p><%= member.jobName%></p>
+                        <p><a href="<%= member.instagramUrl %>"><%= member.instagramName %></a></p>               
+                    </div>
+                <%  }); %>
             </article>
         </section>
         <section class="main-section">
@@ -38,21 +33,11 @@
                 <section class="general-videos">
                     <div class="container-carousel-videos">
                         <div class="carruseles-video" id="slider-video">
-                            <section class="slider-section-video" id="slider-section-video">
-                                <iframe src="https://www.youtube-nocookie.com/embed/H7tbjuHHbsQ" title="LoL- El Poeta Halley" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-                            </section>
-                            <section class="slider-section-video" id="slider-section">
-                                <iframe src="https://www.youtube-nocookie.com/embed/lfeRc9tRQzM" title="MdB- Cuento al viento" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-                            </section>
-                            <section class="slider-section-video" id="slider-section">
-                                <iframe src="https://www.youtube-nocookie.com/embed/7OlzxfSKjtI" title="DD- Quanuqueando" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-                            </section>    
-                            <section class="slider-section-video" id="slider-section">
-                                <iframe src="https://www.youtube-nocookie.com/embed/ONvgGORQj8k" title="LMT- Buen Finde" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-                            </section>             
-                            <section class="slider-section-video" id="slider-section">
-                                <iframe src="https://www.youtube-nocookie.com/embed/Pcnsgs8G5fo"  title="KR- No me beses en la boca" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-                            </section>             
+                            <% allProduction.forEach(production => { %>
+                                <section class="slider-section-video" id="slider-section-video">
+                                    <iframe src="<%= production.youtubeUrl %>" title="<%= production.artistName%>- <%= production.songTitle %>" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                                </section>
+                            <% }); %>
                         </div>
                         <div class="btn-leftv"><i class="fa-solid fa-circle-arrow-left"></i></div>
                         <div class="btn-rightv"><i class="fa-solid fa-circle-arrow-right"></i></div>
@@ -67,21 +52,11 @@
                 <section class="general">
                     <div class="container-carousel">
                         <div class="carruseles" id="slider">
-                            <section class="slider-section" id="slider-section">
-                                <img class="img" src="/db-images/home/galery/sirenos.jpg" alt="Malé by The Siderens">
-                            </section>
-                            <section class="slider-section" id="slider-section">
-                                <img class="img" src="/db-images/home/galery/jazzy.jpg" alt="Jazzy by La Suite">
-                            </section>
-                            <section class="slider-section" id="slider-section">
-                                <img class="img" src="/db-images/home/galery/drum.jpg" alt="Drumrec">
-                            </section>
-                            <section class="slider-section" id="slider-section">
-                                <img class="img" src="/db-images/home/galery/azogue.jpg" alt="El Azogue by Marea">
-                            </section>
-                            <section class="slider-section" id="slider-section">
-                                <img class="img" src="/db-images/home/galery/desatormentandonos.jpg" alt="desatormentandonos by Pescado Rabioso">
-                            </section>
+                            <% allGalery.forEach(photo => { %>
+                                <section class="slider-section" id="slider-section">
+                                    <img class="img" src="/db-images/home/galery/<%= photo.image %>" alt="<%= photo.name %>">
+                                </section>
+                            <% }); %>
                         </div>
                         <div class="btn-left"><i class="fa-solid fa-circle-arrow-left"></i></div>
                         <div class="btn-right "><i class="fa-solid fa-circle-arrow-right"></i></div>
@@ -89,6 +64,6 @@
                 </section>
             </article>
         </section>
-        <script src="/css/scripts/scripts.js"></script>
+        <script src="/scripts/slideVideos.js"></script>
     </main>
 <%- include ('../partials/commons/footer')%>

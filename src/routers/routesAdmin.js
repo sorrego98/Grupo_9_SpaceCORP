@@ -7,6 +7,7 @@ const adminMiddleware = require('../middlewares/adminMiddleware');
 const {uploadSC} = require('../middlewares/multerMiddleware')
 const {uploadProduct} = require('../middlewares/multerMiddleware');
 const {uploadMember} = require('../middlewares/multerMiddleware');
+const {uploadGalery} = require('../middlewares/multerMiddleware');
 
 /*------------------- show admin control tables -------------------*/
 router.get("/", controlAdmin.adminProducts.generalAdmon); // Opciones de ADMON (get)
@@ -57,6 +58,22 @@ router.get("/home/galery", controlMain.controlDB.galeryList); // Galery List (ge
 router.get("/home/latestProductions", controlMain.controlDB.productionList); // LatestProduction List (get)
 router.get("/home/staff/add-member", controlMain.controlDB.addMembers); // Create Member (get)
 router.post("/home/staff/add-member", uploadMember.single('image'), controlMain.controlDB.saveMembers); // Create Member (post)
+router.get("/home/galery/add-image", controlMain.controlDB.addImage); // Create Image Galery (get)
+router.post("/home/galery/add-image", uploadGalery.single('image'), controlMain.controlDB.saveImage); // Create Image Galery (post)
+router.get("/home/latestProductions/add-production", controlMain.controlDB.addProduction); // Create Production (get)
+router.post("/home/latestProductions/add-production", controlMain.controlDB.saveProduction); // Create Production (post)
+router.get("/home/galery/detail-image/:id", controlMain.controlDB.detailGalery); // Galery detail (get)
+router.get("/home/staff/detail-member/:id", controlMain.controlDB.detailMember); // Member detail (get)
+router.get("/home/latestProductions/detail-production/:id", controlMain.controlDB.detailProduction); // Member detail (get)
+router.get("/home/staff/modify-member/:id", controlMain.controlDB.modMembers); // Modify Member (get)
+router.put("/home/staff/modify-member/:id", uploadMember.single('image'),controlMain.controlDB.alterMembers); // Modify Member (put)
+router.get("/home/galery/modify-image/:id", controlMain.controlDB.modGalery); // Modify Galery (get)
+router.put("/home/galery/modify-image/:id", uploadGalery.single('image'),controlMain.controlDB.alterGalery); // Modify Galery (put)
+router.get("/home/latestProductions/modify-production/:id", controlMain.controlDB.modProduction); // Modify Production (get)
+router.put("/home/latestProductions/modify-production/:id", controlMain.controlDB.alterProduction); // Modify Production (put)
+router.delete("/home/staff/delete-member/:id",  controlMain.controlDB.destroyMember); // Delete Member (delete)
+router.delete("/home/galery/delete-image/:id",  controlMain.controlDB.destroyGalery); // Delete Galery (delete)
+router.delete("/home/latestProductions/delete-production/:id",  controlMain.controlDB.destroyProduction); // Delete Production (delete)
 
 /*
 //Rutas mediante JSON

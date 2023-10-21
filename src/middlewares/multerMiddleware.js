@@ -34,8 +34,20 @@ const storageStaff = multer.diskStorage({
   }
 });
 
+//Almacenamiento Galería
+const storageGalery = multer.diskStorage({
+  destination: function (req, file, cb) {
+    cb(null, path.resolve(__dirname, '../../public/db-images/home/galery'))
+  },
+  /*acá genera el nombre del archivo*/
+  filename: function (req, file, cb) {
+    cb(null, 'galery-' + Date.now() + path.extname(file.originalname))
+  }
+});
+
 const uploadSC = multer({ storage: storageSubcategory });
 const uploadProduct = multer({ storage: storageProduct });
 const uploadMember = multer({ storage: storageStaff });
+const uploadGalery = multer({ storage: storageGalery });
 
-module.exports = { uploadSC, uploadProduct, uploadMember }
+module.exports = { uploadSC, uploadProduct, uploadMember, uploadGalery}

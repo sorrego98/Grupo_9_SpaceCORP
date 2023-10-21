@@ -4,8 +4,9 @@ INSERT INTO `roles` (`role_name`)  VALUES
 
 INSERT INTO `users` (`first_name`,`last_name`,`user_name`,`email`,`password`,`role_id`) VALUES
 ('Sebastián','Orrego','sebaorrego','mg@gmail.com','$2a$10$w7X6Xdkx2yYUpfuX6lvKaO6XqgTCYQsp7iMyNM6dZ54V/mAs6p3sG',1),
-('Florencia','Guede','florguede','florenciaguede@gmail.com','$2a$12$95HkpVn0/n8XIuNy1kSv4OIl1NvSSHZ7SzyEIM7czC4fSf3cZm53u',2),
-('Carlos','Echegaray','carloseche','carlos.charlex@gmail.com','$2a$12$95HkpVn0/n8XIuNy1kSv4OIl1NvSSHZ7SzyEIM7czC4fSf3cZm53u',2),
+('Florencia','Guede','florguede','florenciaguede@gmail.com','$2a$10$ZjTDZd/8B4QakaPS9HNoO.P3cF0QHH/VeSBXUtfAshaX7OPb/WWc2',2),
+('Carlos','Echegaray','carloseche','carlos.charlex@gmail.com','$2a$10$Bi/JviMO/LYmrEwkOaRJBeFXd0kQSVUv1csyO9qn5Me3xKEVQUzEa',2),
+('NomPrueba','','ApePrueba','1@1.com','$2a$10$Bi/JviMO/LYmrEwkOaRJBeFXd0kQSVUv1csyO9qn5Me3xKEVQUzEa',3),
 ('Andrés','Amortegui','andresamor','andres.amortegui@gmail.com','$2a$10$w7X6Xdkx2yYUpfuX6lvKaO6XqgTCYQsp7iMyNM6dZ54V/mAs6p3sG',3),
 ('Julián','Díaz','juliandiaz','andres.amortegui@gmail.com','$2a$10$w7X6Xdkx2yYUpfuX6lvKaO6XqgTCYQsp7iMyNM6dZ54V/mAs6p3sG',3);
 
@@ -86,16 +87,26 @@ INSERT INTO `galeries` (`name`, `image`)  VALUES
 ('Desatormentándonos','desatormentandonos.jpg'),
 ('Batería','drum.jpg'),
 ('Jazzy','jazzy.jpg'),
-('Sirenos','sirenos.jpg');
+('Sirenos','sirenos.jpg'),
+('Trojan Records','trojan.jpg'),
+('Invisible','invisible.jpg'),
+('El Plan de la Mariposa','estadodeenlace.jpg'),
+('La Triple Nelson','sed.jpg'),
+('KJ','thenada.jpg');
 
 INSERT INTO `members` (`name`, `job_name`, `image`, `instagram_name`, `instagram_url`)  VALUES 
-('Camilo Pabón', 'CEO', 'sirenos.jpg', '@juancamilomusica', 'https://www.instagram.com/juancamilomusica/'),
-('Jaison Muriel', 'Ingeniero de Sonido', 'sirenos.jpg', '@jaisonmuriel', 'https://www.instagram.com/jaisonmuriel/'),
-('David Usma', 'Productor Musical', 'sirenos.jpg', '@david_usma', 'https://www.instagram.com/david_usma/');
+('Camilo Pabón', 'CEO', 'chew.jpg', '@juancamilomusica', 'https://www.instagram.com/juancamilomusica/'),
+('Jaison Muriel', 'Ingeniero de Sonido', 'ani.jpg', '@jaisonmuriel', 'https://www.instagram.com/jaisonmuriel/'),
+('David Usma', 'Productor Musical', 'jar.jpg', '@david_usma', 'https://www.instagram.com/david_usma/');
 
 INSERT INTO `productions` (`song_title`, `artist_name`, `youtube_url`)  VALUES 
 ('El Poeta Halley', 'Love of Lesbian', 'https://www.youtube-nocookie.com/embed/H7tbjuHHbsQ'),
 ('Cuento al Viento', 'Malena di Bello', 'https://www.youtube-nocookie.com/embed/lfeRc9tRQzM'),
 ('Quanuqueando', 'Divididos', 'https://www.youtube-nocookie.com/embed/7OlzxfSKjtI'),
 ('Buen Finde', 'La Mono Trio', 'https://www.youtube-nocookie.com/embed/ONvgGORQj8k'),
-('No me Beses en la Boca', 'Kutxi Romero', 'https://www.youtube-nocookie.com/embed/Pcnsgs8G5fo');
+('No me Beses en la Boca', 'Kutxi Romero', 'https://www.youtube-nocookie.com/embed/Pcnsgs8G5fo'),
+('Fin de Fiesta','Kevin Johsansen','https://www.youtube-nocookie.com/embed/VLqa3ekhmgE?si=d19sh92SOwSCriq9'),
+('Canela','Cesar Mora','https://www.youtube-nocookie.com/embed/jlZ8BMqHowk?si=PxfkEAPEtBQrRUtM'),
+('La Sed','La Triple Nelson','https://www.youtube-nocookie.com/embed/hgDKGopT-5o?si=I_LbeSbbjo7lRgTR'),
+('Giros','Liliana Herrero','https://www.youtube-nocookie.com/embed/OzNFkhJ84l4?si=LpTfh_mDkQz7-8yr'),
+('Viernes Otra Vez','Superlitio','https://www.youtube-nocookie.com/embed/ha7nF3h7oGw?si=fNpdOsfzU6tt143Y');
