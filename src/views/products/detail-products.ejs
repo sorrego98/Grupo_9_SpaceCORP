@@ -4,16 +4,38 @@
 </head>
 <%- include ('../partials/commons/header')%>
     <main>
-        <h2><%= subcategory.name%></h2>
-        <p><%= subcategory.description%></p>
-        <label for="productSelect"></label> <br>
-        <select name="productSelect" id="productSelect">
-            <% for(let i= 0; i < subcategory.products.length; i++){ %>
-                <option value="<%= subcategory.products[i].name %>"><%= subcategory.products[i].name %></option>
-                <img class="photo" src="/db-images/products/<%= subcategory.products[i].image%>" alt="<%= subcategory.products[i].image%>">
-        <p><%= subcategory.products[i].name%></p>
+        <% if (allSubcategories.products.length == 0) { %>
+            <h2><%= allSubcategories.name%></h2>
+            <p><%= allSubcategories.description%></p>
+            <div style="text-align: center;">
+                <img style="width: 25%" src="/db-images/products/subcategories/<%= allSubcategories.image%>" alt="<%= allSubcategories.image%>">
+            </div>
+            <p style="color: red;">No se encontraron productos en esta sección</p>
+        <% } else if (allSubcategories.products.length == 1) {%>
+            <% for(let i= 0; i < allSubcategories.products.length; i++){ %>
+                <h2><%= allSubcategories.name%></h2>
+                <p><%= allSubcategories.products[i].name %></p>
+                <p><%= allSubcategories.description%></p>
+                <p><%= allSubcategories.products[i].description%></p>
+                <img style="width: 25%;" src="/db-images/products/products/<%= allSubcategories.products[i].image%>" alt="<%= allSubcategories.products[i].image%>">
+                <p>Precio: <%= allSubcategories.products[i].price%></p>
+                <% for(let j= 0; j < allProductPrices.length; j++){ %>
+                    <% if (allProductPrices[j].id == allSubcategories.products[i].priceId) { %>
+                        <p>Unidad: <%= allProductPrices[j].name %></p>
+                    <% } %>
+                <% } %>
+            <% } %>
+        <% } else if (allSubcategories.products.length > 1) { %>   
+            <h2><%= allSubcategories.name%></h2>
+            <p><%= allSubcategories.description%></p>
+            <label for="productSelect"></label> <br>
+            <select name="productSelect" id="productSelect">
+            <% for(let i= 0; i <allSubcategories.products.length; i++){%>
+                <option value="<%= allSubcategories.products[i].name %>"><%= allSubcategories.products[i].name %></option>
             <% } %>
         </select>
+        <% } %>
+        
         
     </main>
 <%- include ('../partials/commons/footer')%>
