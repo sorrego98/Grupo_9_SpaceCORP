@@ -3,15 +3,14 @@
     <title>Profile</title>
 </head>
     <%- include ('../partials/commons/header')%>
-    <%- include ('../auth/modalUserEdit')%>
-    <script src="/scripts/auth/modalEditValidations.js"></script>
+    <%- include ('../partials/auth/modalUserEdit')%>
     <main>
         <section class="canva">
             <div class="box-title">
                 <h2>Administración del Perfil</h2>
             </div>
             <div class="user-data">  
-                <%- include ('../auth/userCard')%>
+                <%- include ('../partials/auth/userCard')%>
                 <section class="user-details">
                     Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum inventore magnam veritatis adipisci omnis asperiores exercitationem provident tempore tenetur nemo nulla suscipit recusandae earum veniam iure, voluptatum necessitatibus nam laboriosam.
                 </section>                   
@@ -19,4 +18,5 @@
         </section>            
     </main>
     <script src="/scripts/auth/modalEdit.js"></script>
+    <script src="/scripts/auth/modalEditValidations.js"></script>
 <%- include ('../partials/commons/footer')%>

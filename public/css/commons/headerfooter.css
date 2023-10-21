@@ -47,31 +47,6 @@ footer {
     color: var(--main-white);
 }
 
-.foo-RRSS{
-    display: flex;
-    flex-direction: row;
-    gap: 0.5em;
-    justify-content: center;
-}
-
-.brand-icon{ 
-    width: 3em;
-    height: 3em;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    border-radius: 0.5em;
-    border: 0.2em solid var(--main-blue50);
-    text-decoration: none;
-    color: var(--main-white);
-    background: var(--main-blue90);
-}
-
-.brand-icon i{  
-    font-size: 2em;
-}
-
 .ig-icon:hover{    
     background: var(--main-instagram);
     border: none;

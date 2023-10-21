@@ -4,17 +4,23 @@ module.exports = registerData = [
     //Aquí incoporé otras validaciones, para que las tengan de guía para sus proyectos  
     check('first_name')
       .isLength({min: 1}).withMessage('El campo nombre no puede estar vacío'),
-    check('last_name').isLength({min: 1}).withMessage('El campo apellido no puede estar vacío'),
+      
+    check('last_name')
+      .isLength({min: 1}).withMessage('El campo apellido no puede estar vacío'),
+      
+    check('user_name')
+      .notEmpty().withMessage('El campo nombre de usuario no puede estar vacío').bail()
+      .isLength({min: 6}).withMessage('el nombre de usuario no puede tener menos de 6 caracteres'),
     
     check('email')
-      .isEmpty().withMessage("email no puede estar vacío.").bail()
+      .notEmpty().withMessage("email no puede estar vacío.").bail()
       .isEmail().withMessage('Agregar un email válido'),
     
     check('password').
-      isLength({min: 6 }).withMessage('La contraseña debe tener un mínimo de 6 caracteres, al menos una letra y un número'),
+      isLength({min: 8 }).withMessage('La contraseña debe tener un mínimo de 6 caracteres, al menos una letra y un número'),
     
     check('confirm_password')
-      .isLength({min: 6 }).withMessage('La confirmación de la contraseña debe tener un mínimo de 6 caractéres').bail(),
+      .isLength({min: 8 }).withMessage('La confirmación de la contraseña debe tener un mínimo de 6 caractéres').bail(),
     
     body('confirm_password').custom((value, {req}) =>{      
       if (req.body.password !== value){
@@ -35,7 +41,6 @@ module.exports = registerData = [
           throw new Error('Solo debe seleccionar archivos  con extensión JPG, JPEG, PNG o GIF.')
         }
       }else{
-        console.log("no hay imagen")
         return true;
     }})
 ]
