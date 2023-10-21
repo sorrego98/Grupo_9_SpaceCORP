@@ -66,8 +66,8 @@ align-content: center;
   text-align: center;
 }
 
-li{
-  margin: 5px;
+div > ul#errores > li{
+  margin: 5px; 
   color: red;
   text-align: left;
 }

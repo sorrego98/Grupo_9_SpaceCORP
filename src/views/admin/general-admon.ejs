@@ -22,6 +22,8 @@
                     <p>Home</p>
                     <p><a href="/admin/home/latestProductions">Últimas Producciones</a></p>               
                 </div>
+                
+                <% if (locals.usuario.roles.roleName.toUpperCase() == "ADMINISTRADOR" ) { %>
                 <div class="main-admon-div">
                     <p><i class="fa-solid fa-circle-play"></i></p>
                     <p>Servicios</p>
@@ -42,6 +44,12 @@
                     <p>Servicios</p>
                     <p><a href="/admin/products/priceType">Tipo Precio</a></p>               
                 </div>
+                <div class="main-admon-div">
+                    <p><i class="fa-solid fa-users-gear"></i></p>
+                    <p>Usuarios</p>
+                    <p><a href="/admin/users/">Tipo de Usuarios</a></p>               
+                </div>
+                <% } %>
             </article>
         </section>
     </main>

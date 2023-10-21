@@ -4,78 +4,80 @@
 </head>
 <%- include ('../partials/commons/header')%>
     <main>
-        <section id="reg-container" class="container form-container">    
-            <form action="/auth/register" method="post" enctype="multipart/form-data" class="form">
-                <h4 class="form-title">¡Hola! Ingresa tus datos y crea tu cuenta <i class="fa-regular fa-user"></i></h4>
-                <!--Aquí muestro los errores del lado del Js-Front -->
-                <div>
-                    <ul id="errores"> </ul>
-                </div>
-                <!-- Aquí muestro los errores --->
-                <% if(typeof(errors) != 'undefined'){%>
-                <ul class="alert alert-danger">
-                    <% errors.forEach(error => { %>
-                        <li><%= error.msg%></li>
-                    <%});%>
-                    </ul>
-                <%}%>    
-                <!----Fin mostrar errores--------->    
-                <div>
-                <label class="form-label"></label>
-                <input required type="text" class="form-control" name="first_name" placeholder="Ingresa tu nombre" value="<%= typeof old != 'undefined' ? old.firstName : '' %>">
-                </div>
-                <br>
-                <div>
-                <label class="form-label"></label>
-                <input type="text" class="form-control" name="last_name" placeholder="Ingresa tu apellido" value="<%= typeof old != 'undefined' ? old.lastName : '' %>">
-                </div>
-                <br>
-                <div>
-                    <label class="form-label"></label> 
-                    <input type="email" class="form-control" name="email" placeholder="Ingresa tu email" value="<%= typeof old != 'undefined' ? old.email : '' %>">
-                </div>
-                <br>
-                <div>
+        <div>
+            <section id="reg-container" class="container form-container">    
+                <form action="/auth/register" method="post" enctype="multipart/form-data" class="form">
+                    <h4 class="form-title">¡Hola! Ingresa tus datos y crea tu cuenta <i class="fa-regular fa-user"></i></h4>
+                    <!--Aquí muestro los errores del lado del Js-Front -->
+                    <div>
+                        <ul id="errores"> </ul>
+                    </div>
+                    <!-- Aquí muestro los errores --->
+                    <% if(typeof(errors) != 'undefined'){%>
+                    <ul class="alert alert-danger">
+                        <% errors.forEach(error => { %>
+                            <li><%= error.msg%></li>
+                        <%});%>
+                        </ul>
+                    <%}%>    
+                    <!----Fin mostrar errores--------->    
+                    <div>
                     <label class="form-label"></label>
-                    <input type="text" class="form-control" name="user_name" placeholder="Ingresa tu nombre de usuario" value="<%= typeof old != 'undefined' ? old.userName : '' %>">
-                </div>
+                    <input type="text" class="form-control" name="first_name" placeholder="Ingresa tu nombre" value="<%= typeof old != 'undefined' ? old.firstName : '' %>">
+                    </div>
+                    <br>
+                    <div>
+                    <label class="form-label"></label>
+                    <input type="text" class="form-control" name="last_name" placeholder="Ingresa tu apellido" value="<%= typeof old != 'undefined' ? old.lastName : '' %>">
+                    </div>
+                    <br>
+                    <div>
+                        <label class="form-label"></label> 
+                        <input type="" class="form-control" name="email" placeholder="Ingresa tu email" value="<%= typeof old != 'undefined' ? old.email : '' %>">
+                    </div>
+                    <br>
+                    <div>
+                        <label class="form-label"></label>
+                        <input type="text" class="form-control" name="user_name" placeholder="Ingresa tu nombre de usuario" value="<%= typeof old != 'undefined' ? old.userName : '' %>">
+                    </div>
+                    <br>
+                    <div>  
+                        <label class="form-label"></label> 
+                        <input type="password" class="form-control" name="password" placeholder="Ingresa tu contraseña"  >
+                    </div>
+                    <br>
+                    <div>
+                        <label class="form-label"></label> 
+                        <input type="password" class="form-control" name="confirm_password" placeholder="Confirma tu contraseña" >
+                    </div>
+                    <br>
+                    <div>
+                        <label class="form-label">Selecciona tu avatar</label> 
+                        <input type="file"   name="avatar"  placeholder="Elige tu avatar...">
+                    </div>
+                    <br>
+                    <div>
+                    <button type="submit" name="register" class="boton-registro form-button">Registrarse</button>
+                    </div>
+                </form>
+            </section>
+            <section class="container2 form-container2">
+            <div class="social-media-log">
+                <p>Registrarse con:</p>
                 <br>
-                <div>  
-                    <label class="form-label"></label> 
-                    <input type="password" class="form-control" name="password" placeholder="Ingresa tu contraseña"  >
+                <div class="icons">
+                    <p><a href="#" class="nolink nolink-ig"><i class="fa-brands fa-instagram"></i> Instagram</a></p>
+                    <p><a href="#" class="nolink nolink-fb"><i class="fa-brands fa-facebook"></i> Facebook</a></p>
+                    <p><a href="#" class="nolink nolink-ms"><i class="fa-brands fa-microsoft"></i> Microsoft</a></p>
+                    <p><a href="#" class="nolink nolink-gg"><i class="fa-brands fa-google"></i> Google</a></p>
                 </div>
+            </section>  
+            <form action="/auth/login" method="get" class="form-noregister">
                 <br>
                 <div>
-                    <label class="form-label"></label> 
-                    <input type="password" class="form-control" name="confirm_password" placeholder="Confirma tu contraseña" >
+                    <button type="submit" name="noregister" class="boton-iniciar"> ¿Ya tienes cuenta? ¡Inicia sesión aquí!</button>
                 </div>
-                <br>
-                <div>
-                    <label class="form-label">Selecciona tu avatar</label> 
-                    <input type="file"   name="avatar"  placeholder="Elige tu avatar...">
-                </div>
-                <br>
-                <div>
-                <button type="submit" name="register" class="boton-registro form-button">Registrarse</button>
-                </div>
-            </form>
-        </section>
-        <section class="container2 form-container2">
-        <div class="social-media-log">
-            <p>Registrarse con:</p>
-            <br>
-            <div class="icons">
-                <p><a href="#" class="nolink nolink-ig"><i class="fa-brands fa-instagram"></i> Instagram</a></p>
-                <p><a href="#" class="nolink nolink-fb"><i class="fa-brands fa-facebook"></i> Facebook</a></p>
-                <p><a href="#" class="nolink nolink-ms"><i class="fa-brands fa-microsoft"></i> Microsoft</a></p>
-                <p><a href="#" class="nolink nolink-gg"><i class="fa-brands fa-google"></i> Google</a></p>
-            </div>
-        </section>  
-        <form action="/auth/login" method="get" class="form-noregister">
-            <br>
-            <div>
-                <button type="submit" name="noregister" class="boton-iniciar"> ¿Ya tienes cuenta? ¡Inicia sesión aquí!</button>
-            </div>
-        </form>     
+            </form>     
+        </div>
     </main>
     <%- include ('../partials/commons/footer')%>

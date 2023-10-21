@@ -1,181 +1,150 @@
 const path = require("path");
-const fs = require('fs');
-const controlMain = require('./controlMain');
+const { unlink } = require('fs-extra');
 const bcrypt = require('bcryptjs');
+const dbUser = require('../database/scripts/user');
+const db = require('../database/models');
+const { validationResult } = require('express-validator');
+const { where } = require("sequelize");
 
-const db = require('../database/models')
-const User = db.Users
+module.exports = controlUser = {
 
-//Aquí requiero a la función que trae los errores desde la ruta, de llegar a existir
-const {validationResult} = require('express-validator');
-const { decrypt } = require("dotenv");
+  register: {
+    show: (req, res) => res.render('../views/auth/register'),
 
-const controlUser = {
+    create: (req, res) => {
+      let errors = validationResult(req);
+      console.log(errors)
+      if (errors.isEmpty()) {
+        const firstName = req.body.first_name;
+        const lastName = req.body.last_name;
+        const userName = req.body.user_name;
+        const password = bcrypt.hashSync(req.body.password, 10);
+        const email = req.body.email;
+        const imageProfile = req.file ? req.file.filename : ""
 
-  register: (req, res) => {
-    res.render('../views/auth/register');
+        dbUser.findUser.existEmail(email)
+        
+      }else{        
+        res.render(path.resolve(__dirname, '../views/auth/register'),  {errors: errors.errors, old: req.body})
+
+      }
+    }
   },
 
-  create: (req, res) => {
-    let errors = validationResult(req);
+  login: {
+    show: (req, res) => { res.render('../views/auth/login') },
 
-    if(!errors.isEmpty()) {
-      return res.render(path.resolve(__dirname, '../views/auth/register'), {
-        errors: errors.errors,  old: req.body
-      });
-    }
+    enterSession: (req, res) => {
+      let data = req.body.data;
+      let password = req.body.password;
+      let remindMe = req.body.recordarme;
+      let errors = validationResult(req);
 
-      User.create({include: [{association: 'roles'}],
-        firstName: req.body.first_name,
-        lastName: req.body.last_name,
-        userName: req.body.user_name,
-        password: bcrypt.hashSync(req.body.password, 10),
-        email: req.body.email,
-        imageProfile: req.file ? req.file.filename : "",
-        roleId: 2,
-      })
-      .then(() => {
-          return  res.redirect('/auth/login');
-      })
-      .catch(error => console.log(error));
+      if (remindMe) { res.cookie('data', data, { maxAge: 1000 * 60 * 60 * 24 }) }
+
+      if (errors.isEmpty()) {
+        dbUser.findUser.toLogin(data)
+          .then(results => {
+            const user = results.user
+
+            if (bcrypt.compareSync(password, user.password) === true) {
+              req.session.usuario = user;
+              if (user.roles.roleName == "ADMINISTRADOR") {
+                return res.status(200).redirect('/admin');
+              } else {
+                return res.status(200).redirect('/auth/profile');
+              }
+            } else {
+              /*defino mi propio tipo de error, en caso de que  en la bdd no se consigan datos*/
+              res.clearCookie('email');
+              return res.render(path.resolve(__dirname, '../views/auth/login'),
+                { errors: [{ msg: "usuario y/o contraseña inválidos." }] })
+
+            }
+          })
+          .catch((errors) => {
+            return res.render(path.resolve(__dirname, '../views/auth/login'), { errors })
+          })
+
+      }
+      else {
+        res.clearCookie('email');
+        return res.render(path.resolve(__dirname, '../views/auth/login'), { errors: errors.errors });
+
+      }
+
     },
 
-  login: (req, res) => {
-    res.render('../views/auth/login')
-  },
-
-  loginProcess: (req, res) => {
-    let email = req.body.email;
-    let password = req.body.password;
-    let remindMe = req.body.recordarme;
-    let Results = validationResult(req);
-    let errors = Results.errors;
-    if(remindMe){
-      res.cookie('email',email,{maxAge: 1000 * 60 * 60 * 24})
-      
-    }                  
-    if(Results.isEmpty()){
-      User.findOne({
-        include: [{association: 'roles'}],
-        where:{email}
-      })
-
-      .then(user => {
-        if(user){
-          if(bcrypt.compareSync(password, user.password) === true){
-            req.session.usuario = user; 
-            return res.status(200).redirect('/auth/profile');            
-          
-          }
-        }
-        /*defino mi propio tipo de error, en caso de que  en la bdd no se consigan datos*/
-        errors = [{msg:"usuario y/o contraseña inválidos."}]
-        return res.render(path.resolve(__dirname, '../views/auth/login'),{ errors });
-
-      })  
-
-    }else{      
+    endSession: (req, res) => {
+      req.session.destroy();
       res.clearCookie('email');
-      return res.render(path.resolve(__dirname, '../views/auth/login'),{ errors });
-
+      res.redirect('/auth/login')
     }
-
-  }, 
-
-      // User.findAll(
-      //   {include: [{association: 'roles'}]}
-      //   )
-      //   .then((users) => {
-      // //Aquí guardo los errores que vienen desde la ruta, valiendome del validationResult
-      // let errors = validationResult(req);      
-      // let usuarioLogueado = [];
-      // if(req.body.email != '' && req.body.password != ''){
-      //   usuarioLogueado = users.filter(function (user) {
-      //     return user.email === req.body.email  
-      //   });
-      //   //Aquí verifico si la clave que está colocando es la misma que está hasheada en la Base de datos - El compareSync retorna un true ó un false
-      //   if(bcrypt.compareSync(req.body.password, usuarioLogueado[0].password) === false){
-      //     usuarioLogueado = [];
-      //   }
-      // } 
-      //   //Aquí determino si el usuario fue encontrado ó no en la Base de Datos
-      //   if (usuarioLogueado.length === 0) {
-      //     return res.render(path.resolve(__dirname, '../views/auth/login'),{ errors: [{ msg: "Usuario y contraseña no coinciden" }] });
-      //   } else {
-      //     //Aquí guardo en SESSION al usuario logueado
-      //     req.session.usuario = usuarioLogueado[0];
-      //   }
-      //   //Aquí verifico si el usuario le dio click en el check box para recordar al usuario 
-      //   if(req.body.recordarme){
-      //     res.cookie('email',usuarioLogueado[0].email,{maxAge: 1000 * 60 * 60 * 24})
-      //   }
-      //   return res.redirect('/auth/profile'); 
-      // })
-    // },
-
-  logout: (req, res) => {
-    req.session.destroy();
-    res.clearCookie('email');
-    res.redirect('/auth/login')
   },
 
-  profile: (req, res) => {
-    return res.render('./auth/profile', {
-      user: req.session.usuario
-    });
-  },
+  profile: {
+    show: (req, res) => res.render('./auth/profile', { user: req.session.usuario }),
 
-  editarPerfil: function(req, res) {
-    console.log("datos de la sesion:\n",req.session)
-    User.findByPk(req.session.usuario.id, 
-      {include: [{association: 'roles'}]})
-    .then( user =>{
-     /* user.password = decrypt.hashSync(user.password, 10)
-      console.log(decrypt.hashSync(user.password, 10))*/
-      //res.json(user)  
-      res.render('./auth/modify-user', { user }) 
-    })
-},
-
-modificarPerfil: function (req,res) {
-  const id = parseInt(req.session.usuario.id);
-  const firstName = req.body.firstName;
-  const lastName = req.body.lastName;
-  const userName = req.body.userName;
-  const password = req.body.password;
-  const email = req.body.email;
-  const oldImage = req.body.oldImage;
-  let lastImage;
-  req.file ? lastImage=req.file.filename : lastImage=oldImage;
-
-      User.findByPk(id)
-      .then((result) => {
+    edit: function (req, res) {
+      let errors = validationResult(req);
+      if (errors.isEmpty()) {
+        const id = parseInt(req.session.usuario.id);
+        const firstName = req.body.firstName;
+        const lastName = req.body.lastName;
+        const oldImage = req.body.oldImage;
+        let lastImage = req.file ? req.file.filename : oldImage;
         const usuario = {
-            id : id,
-            firstName: firstName,
-            lastName: lastName,
-            userName: userName,
-            password: bcrypt.hashSync(password, 10),
-            email: email,
-            imageProfile: lastImage
+          firstName: firstName,
+          lastName: lastName,
+          imageProfile: lastImage
         }
-          if (result){
-            User.update(                
-              usuario,
-              {
-                  where: { id: id },
-              })
-            .then(() => {
-              req.session.usuario = usuario;
-              res.locals.usuario = usuario;	
-              res.redirect("/auth/profile");
-            })
-            .catch(error =>{
-              res.send(error)
-            })
-          }
-}
-)}
-} 
 
-module.exports = controlUser;
+        /* PROMESA: Encontrar el usuario*/
+        dbUser.findUser.byPk(id)
+          .then(findedUser => {
+            /* PROMESA: Actualizar el usuario*/
+            return dbUser.updateUserData(id, usuario, findedUser.user)
+          })
+          .then(updatingUser => {
+            /* PROMESA: Obtener datos actualizados DB*/
+            return dbUser.findUser.byPk(id);
+          })
+          .then(returnedUser => {
+            /* PROMESA: última respuesta para renderizar resultados */
+            req.session.usuario = returnedUser.user;
+            return res.redirect("/auth/profile");
+          })
+          .catch(error => res.send(error))
+      } else {
+
+      }
+    }
+  },
+
+  roleAdmin: {
+    usersList: (req, res) => {
+      const users = db.Users.findAll({ include: [{ association: 'roles' }] });
+      const roles = db.Roles.findAll();
+      Promise.all([users, roles])
+        .then(([allUsers, allRoles]) => {
+          res.render('./admin/users/list-users', { allUsers, allRoles })
+        })
+        .catch(error => res.send(error))
+    },
+    changeRole: (req, res) => {
+      const id = req.body.idUser;
+      console.log(id)
+      const roleId = req.body.userRole;
+      db.Users.update(
+        {
+          roleId: roleId
+        },
+        { where: { id } }
+      )
+        .then(() => {
+          res.redirect('/admin/')
+        })
+        .catch(error => res.send("Error presente: " + error));
+    }
+  }
+}

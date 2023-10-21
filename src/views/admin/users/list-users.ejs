@@ -1,0 +1,46 @@
+<%- include ('../../partials/commons/head')%>
+    <title>Admon: Users</title>
+    <link rel="stylesheet" href="/css/auth/userRole.css">
+    </head>
+    <%- include ('../../partials/commons/header')%>
+
+        <!--Administrador de productos-->
+        <br>
+        <article class="col-12 ">
+            <h2 class="display-4 text-primary text-center pt-2">Administrador de Usuarios</h2>
+        </article>
+
+        <section class="main-section">
+            <article class="main-team">
+                <% allUsers.forEach(user=> { %>
+                    <% if (user.id > 1) { %>
+                        <div class="main-team-div">
+                            <div class="member-image">
+                                <img src="/db-images/users/<%= user.imageProfile%>" alt="<%= user.image%>">
+                            </div>
+                            <p>
+                                <%= user.userName%>
+                            </p>
+                            <form class="form" method="POST" action="/admin/users/?_method=PUT">
+                                <div class="subitem">
+                                    <label for="idUser"></label>
+                                    <input type="number" name="idUser" id="idUser" value="<%= user.id%>">
+                                    <label for="userRole"></label>
+                                    <select name="userRole" id="userRole">
+                                        <option value="<%= user.roles.id%>" disabled selected>--<%= user.roles.roleName%>--</option>
+                                        <% for(let i= 0; i <allRoles.length; i++){%>
+                                            <option value="<%= allRoles[i].id %>"><%= allRoles[i].roleName %></option>
+                                        <% } %>
+                                    </select>               
+                                </div>
+            
+                                <div class="subitem">
+                                    <button type="submit" name="add-item" class="add-item-button form-button">Guardar Cambios</button>
+                                </div>
+                            </form>
+                        </div>
+                    <% } %>
+                    <% }); %>
+            </article>
+        </section>
+<%- include ('../../partials/commons/footer')%>

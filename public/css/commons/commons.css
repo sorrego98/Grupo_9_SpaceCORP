@@ -15,6 +15,7 @@
     --main-gray10: #F2F3F3;
 
     /*--- blacks ---*/
+    --main-black-tp: #222222E6;
     --main-black: #222222;
     --main-black90: #2C2F33;
     --main-black50: #8A8B8D;
@@ -23,6 +24,7 @@
     /*--- others ---*/
     --main-red: #C02539;
     --main-instagram: linear-gradient(45deg, rgba(64, 93, 230, 1) 0%, rgba(64, 93, 230, 1) 25%, rgba(193, 53, 132, 1) 50%, rgba(225, 48, 108, 1) 75%, rgba(253, 29, 29, 1) 100%);
+    --main-google: linear-gradient(90deg, rgba(246,4,4,0.91) 0%, rgba(59,129,67,0.91) 33%, rgba(29,46,198,0.908000700280112) 66%, rgba(255,252,0,0.91) 100%);
     --main-orange: #F69045;
     --main-green: #20B2AA;
     --main-white: #FFFFFF;
@@ -42,39 +44,6 @@ h3{font-size: 2em; /* 16px */ font-weight: bold;}
 h4{font-size: 1.8em; /* 14px */}
 h5{font-size: 1.6em; /* 10px */}
 h6{font-size: 1.4em; /* 8px */}
-
-h1 {
-    font-size: 2.4em;
-    /* 24px */
-    font-weight: bolder;
-}
-
-h2 {
-    font-size: 2em;
-    /* 20px */
-    font-weight: bold;
-}
-
-h3 {
-    font-size: 1.6em;
-    /* 16px */
-    font-weight: bold;
-}
-
-h4 {
-    font-size: 1.4em;
-    /* 14px */
-}
-
-h5 {
-    font-size: 1em;
-    /* 10px */
-}
-
-h6 {
-    font-size: 0.8em;
-    /* 8px */
-}
 
 body {
     display: grid;
@@ -123,13 +92,30 @@ main{
     border-bottom-left-radius: 0.25em;
 }
 
+/*------------ iconos ------------- */
 
-/*--------- Modales ------*/
 
-.modal{
-    position: fixed;
-    top: 0; bottom: 0; left:0; right: 0;
-    background-color: var(--main-black90);
+.brand-icon{ 
+    width: 3em;
+    height: 3em;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 0.5em;
+    border: 0.2em solid var(--main-blue50);
+    text-decoration: none;
+    color: var(--main-white);
+    background: var(--main-blue90);
 }
 
+.brand-icon i{  
+    font-size: 2em;
+}
 
+.list-RRSS{
+    display: flex;
+    flex-direction: row;
+    gap: 0.5em;
+    justify-content: center;
+}
