@@ -1,0 +1,29 @@
+
+<aside class="user-card">
+    <div class="image-container token-image dimention-box">
+        <img style="width: 100%; height: 100%;" src="/db-images/users/<%= user.imageProfile %> ">
+    </div>
+    <div class="token-data dimention-box">
+        <h5 class="box-title">Datos Personales</h5>
+        <div class="token-row">
+            <span class="token-element border-left">Alias</span>
+            <span class="token-info border-right"><%= user.userName %></span>
+        </div>
+        <div class="token-row">
+            <span class="token-element border-left">Mail</span>
+            <span class="token-info border-right"><%= user.email %></span>
+        </div>
+        <div class="token-row">
+            <span class="token-element border-left">Nombre</span>
+            <span class="token-info border-right"><%= user.firstName %> <%= user.lastName %></span>
+        </div>
+        <div class="token-row">
+            <span class="token-element border-left">Rol</span>
+            <span class="token-info border-right"><%= user.roles.roleName %></span>
+        </div>
+        <div class="btn-row">
+                <button type="button" class="edit-btn">Editar Datos</button>
+        </div>
+
+    </div>
+</aside>   

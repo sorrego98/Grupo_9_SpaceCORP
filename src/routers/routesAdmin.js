@@ -2,7 +2,7 @@ const express = require("express");
 const router = express.Router();
 const controlAdmin = require('../control/controlAdmin');
 const controlMain = require('../control/controlMain');
-const authMiddleware = require('../middlewares/authMiddleware');
+// const authMiddleware = require('../middlewares/auth/SignOn');
 const adminMiddleware = require('../middlewares/adminMiddleware');
 const {uploadSC} = require('../middlewares/multerMiddleware')
 const {uploadProduct} = require('../middlewares/multerMiddleware');
@@ -10,7 +10,7 @@ const {uploadMember} = require('../middlewares/multerMiddleware');
 const {uploadGalery} = require('../middlewares/multerMiddleware');
 
 /*------------------- show admin control tables -------------------*/
-router.get("/", controlAdmin.adminProducts.generalAdmon); // Opciones de ADMON (get)
+router.get("/", adminMiddleware, controlAdmin.adminProducts.generalAdmon); // Opciones de ADMON (get)
 
 /*------------------- show admin tables -------------------*/
 router.get("/products/priceType", controlAdmin.adminProducts.lists.Prices); // Prices List (get)

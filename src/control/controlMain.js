@@ -4,7 +4,6 @@ const db = require('../database/models');
 
 const controlMain = {
     home: (req, res) => {
-        // res.render('./main/home')
         const Staff = db.Member.findAll();
         const Production = db.Production.findAll();
         const Galery = db.Galery.findAll();
@@ -12,8 +11,7 @@ const controlMain = {
             .then(([allStaff, allProduction, allGalery]) => {
                 res.render('./main/home', { allStaff, allProduction, allGalery })
             })
-            .catch(error => res.send(error))
-
+            .catch(error => res.send(error))        
     },
     contact: (req, res) => {
         res.render('./main/contacts')

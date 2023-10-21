@@ -270,6 +270,9 @@ const adminProducts = {
                 .then(() => {
                     return res.redirect('/admin/products/categories')
                 })
+                .catch( error =>{
+                    return res.send({error})
+                })
         },
         Prices: (req, res) => {
             const id = req.params.id;
