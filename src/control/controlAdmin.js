@@ -1,7 +1,7 @@
 const path = require("path");
 const fs = require("fs");
 let controlMain = require('./controlMain');
-const db = require('../database/models'); /*---> esto está tirando el proyecto*/
+const db = require('../database/models');
 
 const adminProducts = {
     generalAdmon: (req, res) => {

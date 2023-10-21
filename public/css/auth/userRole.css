@@ -1,0 +1,23 @@
+/* main {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    flex-grow: 1;
+    margin: 8px;
+} */
+
+.main-team {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    width: auto;
+}
+
+.main-team-div {
+    padding: 10px;
+    margin: 10px;
+    background-color: #92d2e9;
+    border-radius: 10px;
+}

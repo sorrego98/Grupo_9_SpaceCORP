@@ -2,15 +2,17 @@ const express = require("express");
 const router = express.Router();
 const controlAdmin = require('../control/controlAdmin');
 const controlMain = require('../control/controlMain');
+const controlUser = require("../control/controlUser");
 // const authMiddleware = require('../middlewares/auth/SignOn');
 const adminMiddleware = require('../middlewares/adminMiddleware');
+const isGuest = require('../middlewares/auth/isGuest');
 const {uploadSC} = require('../middlewares/multerMiddleware')
 const {uploadProduct} = require('../middlewares/multerMiddleware');
 const {uploadMember} = require('../middlewares/multerMiddleware');
 const {uploadGalery} = require('../middlewares/multerMiddleware');
 
 /*------------------- show admin control tables -------------------*/
-router.get("/", adminMiddleware, controlAdmin.adminProducts.generalAdmon); // Opciones de ADMON (get)
+router.get("/", isGuest,adminMiddleware, controlAdmin.adminProducts.generalAdmon); // Opciones de ADMON (get)
 
 /*------------------- show admin tables -------------------*/
 router.get("/products/priceType", controlAdmin.adminProducts.lists.Prices); // Prices List (get)
@@ -74,6 +76,11 @@ router.put("/home/latestProductions/modify-production/:id", controlMain.controlD
 router.delete("/home/staff/delete-member/:id",  controlMain.controlDB.destroyMember); // Delete Member (delete)
 router.delete("/home/galery/delete-image/:id",  controlMain.controlDB.destroyGalery); // Delete Galery (delete)
 router.delete("/home/latestProductions/delete-production/:id",  controlMain.controlDB.destroyProduction); // Delete Production (delete)
+
+//Rutas USER ROLE ADMIN mediante DB**************************************************************
+router.get("/users/", controlUser.roleAdmin.usersList); // Staff List (get)
+router.put("/users/", controlUser.roleAdmin.changeRole); // Modify Production (put)
+
 
 /*
 //Rutas mediante JSON
