@@ -4,49 +4,64 @@
 </head>
 <%- include ('../partials/commons/header')%>
     <main>
-        <section class="box-data dimention-box">
-            <h1 class="box-title">Inicia tu sesión</h1>
-            <form action="/auth/login" method="POST" class="box-form">
-                <div class="box-form-item">
-                    <input id="input-email" class="input"  name="data" required placeholder="Ingresa tu email o tu username" value="<%= typeof old != 'undefined' ? old.email : '' %>" >
-                    <% if(typeof(errors) != 'undefined'){%>
-                        <span class="text-danger">
-                        <%= errors[0].msg %>
-                        </span>
-                    <%}%>
-                </div>
-                <div class="box-form-item">
-                    <input type="password" id="input-pass" class="input" name="password" required placeholder="Ingresa tu contraseña">
-                    <% if(typeof(errors) != 'undefined' ){%>
-                        <span class="text-danger">
-                        <%= errors[0].msg %>
-                        </span>
-                    <%}%>
-                </div>
-                <div class="box-form-item">                    
-                    <input type="checkbox" name="recordarme"><label class="checkbox-inline">Recordarme</label>
-                </div>
-                <div class="box-form-item">
-                    <button type="submit" name="login" class="item-text">Iniciar Sesión</button>
-                    <!-- <input class="item-text" type="submit" name="send" id="idsend"> -->
-                </div>
-            </form>
-            <form action="/auth/register" method="get">
-                <br>
-                <div>
-                    <button type="submit" name="noregister" class="boton-crear">Crear cuenta</button>
-                </div>
-            </form>
-            <div class="social-media-log">
+        <div class="box-splitter">
+            <section class="box-data dimention-box">
+                <h1 class="box-title">Inicia tu sesión</h1>
+                <form action="/auth/login" method="POST" class="box-form">
+                    <div class="box-form-item">
+                        <input id="input-email" class="input"  name="data" required placeholder="Ingresa tu email o tu username" value="<%= typeof old != 'undefined' ? old.email : '' %>" >
+                        <% if(typeof(errors) != 'undefined'){%>
+                            <span class="text-danger">
+                            <%= errors[0].msg %>
+                            </span>
+                        <%}%>
+                    </div>
+                    <div class="box-form-item">
+                        <input type="password" id="input-pass" class="input" name="password" required placeholder="Ingresa tu contraseña">
+                        <% if(typeof(errors) != 'undefined' ){%>
+                            <span class="text-danger">
+                            <%= errors[0].msg %>
+                            </span>
+                        <%}%>
+                    </div>
+                    <div class="box-form-item">                    
+                        <input type="checkbox" name="recordarme"><label class="checkbox-inline">Recordarme</label>
+                    </div>
+                    <div class="box-form-item">
+                        <button type="submit" name="login" class="item-text">Iniciar Sesión</button>
+                        <!-- <input class="item-text" type="submit" name="send" id="idsend"> -->
+                    </div>
+                </form>
+                <form action="/auth/register" method="get">
+                    <br>
+                    <div>
+                        <button type="submit" name="noregister" class="boton-crear">Crear cuenta</button>
+                    </div>
+                </form>
+            </section>
+            <section class="box-data dimention-box">
                 <p>Iniciar sesión con:</p>
                 <br>
-                <div class="icons">
+                <div class="icons">                    
+                    <div class="foo-RRSS">
+                        <a href="#" class="brand-icon ig-icon">
+                            <i class="fa-brands fa-instagram"></i>
+                        </a>
+                        <a href="#" class="brand-icon fb-icon">
+                            <i class="fa-brands fa-youtube"></i>
+                        </a>
+                        <a href="#" class="brand-icon ggl-icon">
+                            <i class="fa-brands fa-google"></i>
+                        </a>
+                    </div>
                     <p><a href="#" class="nolink nolink-ig"><i class="fa-brands fa-instagram"></i> Instagram</a></p>
                     <p><a href="#" class="nolink nolink-fb"><i class="fa-brands fa-facebook"></i> Facebook</a></p>
                     <p><a href="#" class="nolink nolink-ms"><i class="fa-brands fa-microsoft"></i> Microsoft</a></p>
                     <p><a href="#" class="nolink nolink-gg"><i class="fa-brands fa-google"></i> Google</a></p>
                 </div>
-            </div>
-        </section>
+            </section>
+        </div>
+        
+        
     </main>
     <%- include ('../partials/commons/footer')%>

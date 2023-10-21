@@ -21,7 +21,7 @@ module.exports = controlUser = {
         const imageProfile= req.file ? req.file.filename : ""
 
         dbUser.findUser.existEmail(email)
-
+        
       }else{        
         res.render(path.resolve(__dirname, '../views/auth/register'),  {errors: errors.errors, old: req.body})
 

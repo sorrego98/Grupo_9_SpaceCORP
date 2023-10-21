@@ -5,6 +5,13 @@ main{
     place-items: center;
 }
 
+.box-splitter {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1em;
+}
+
 .box-data{
     margin: auto;
     display: flex;
