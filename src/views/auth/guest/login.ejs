@@ -1,0 +1,76 @@
+<%- include ('../../partials/commons/head')%>
+    <link rel="stylesheet" href="/css/auth/guest/loginAndRegister.css">
+    <title>Login</title>
+</head>
+<%- include ('../../partials/commons/header')%>
+    <main>        
+        <div class="container-box">
+            <section>
+                <h1 class="box-title border-top" id="title-form">Inicia Sesión</h1>
+                <section class="form-box border-bottom">
+                    <section class="select-option">
+                        <div id="selected-btn"></div>
+                        <button class="toggle-btn" id="login-btn">Ingreso</button>
+                        <button class="toggle-btn" id="register-btn">Registro</button>
+                    </section>    
+                    <section class="contain-form">
+                        <form id="logInMe" class="form-input" action="/auth/login" method="POST" >
+                            <div class="input-control">
+                                <input type="text" name="userMailUserName" id="mailOrUN" class="form-input-text" required placeholder="Ingrese Nombre de Usuario o email.">
+                                <small class="error-type" id="errorLoginName"></small>
+                            </div>
+                            <div class="input-control">
+                                <input type="password" name="userPass" id="pass" class="form-input-text" required placeholder="Ingrese su contraseña.">
+                                <small class="error-type" id="errorLoginPass"></small>                                
+                            </div>
+                            <div class="form-input-text check-container">
+                                <input type="checkbox" name="remindMe" id="remindMe" class="form-check">
+                                <small>recordar usuario</small>
+                            </div>
+                            <button type="submit" class="submit-btn">Iniciar Sesión</button>
+                        </form>
+                        <form id="registerMe" class="form-input" action="/auth/register" method="POST" >
+                            <input type="text" name="firstName" id="firstName" class="form-input-text" required placeholder="Ingrese su nombre." autocomplete="nope">
+                            <small class="error-type" id="errorRegisterName"></small>
+                            <input type="text" name="lastName" id="lastName" class="form-input-text" required placeholder="Ingrese su apellido." autocomplete="nope">
+                            <small class="error-type" id="errorRegisterLastName"></small>
+                            <input type="email" name="email" id="email" class="form-input-text" required placeholder="Ingrese su email." autocomplete="nope">
+                            <small class="error-type" id="errorRegisterEmail"></small>
+                            <input type="text" name="userName" id="userName" class="form-input-text" required placeholder="Ingrese su nombre de usuario." autocomplete="nope">
+                            <small class="error-type" id="errorRegisterUserName"></small>
+                            <input type="password" name="userPass" id="passRegister" class="form-input-text" required placeholder="Ingrese una contraseña." autocomplete="nope">
+                            <small class="error-type" id="errorRegisterPass"></small>
+                            <input type="password" name="userPassConfirm" id="passConfirm" class="form-input-text" required placeholder="Confirme su contraseña." autocomplete="nope">
+                            <small class="error-type" id="errorRegisterConfirmPass"></small>  
+                            <label class="form-label">Selecciona tu avatar</label> 
+                            <input type="file" name="avatar" id="avatar" placeholder="Elige tu imagen de perfil" autocomplete="nope">
+                            <small class="error-type" id="errorRegisterAvatar"></small>  
+                            <button type="submit" class="submit-btn">Regístrame</button>
+                        </form>
+                        <script src="/scripts/auth/LoginRegister/toggleOptions.js"></script>
+                    </section>                    
+                </section>
+            </section>
+            <section>
+                <h6 class="box-title border-top"> o usa tus RR.SS.</h6>
+                <section class="form-box border-bottom">
+                    <section class="social-icons">
+                        <a href="#" id="IG"class="icon-container">
+                            <i class="fa-brands fa-instagram"></i>
+                        </a>
+                        <a href="#" id="FB"class="icon-container">
+                            <i class="fa-brands fa-facebook"></i>
+                        </a>
+                        <a href="#" id="MS"class="icon-container">
+                            <i class="fa-brands fa-microsoft"></i>
+                        </a>
+                        <a href="#" id="GG"class="icon-container">
+                            <i class="fa-brands fa-google"></i>
+                        </a>
+                        
+                    </section>
+                </section>
+            </section>
+        </div>
+    </main>
+    <%- include ('../../partials/commons/footer')%>
