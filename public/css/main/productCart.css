@@ -1,7 +1,5 @@
 /*------MAIN------*/
-main {
-  display: flex;
-  flex-direction: column;
+.mainCart {
   gap: 10px;
   flex-grow: 1;
   margin: 8px;
@@ -9,30 +7,47 @@ main {
   box-shadow: 3px 3px 3px #92d2e9;
   border-radius: 5px;
   padding: 5px;
+  height: 90%;
+  position:relative; 
+}
+
+.seguimiento{
+  font-size: 14px;
+  text-align: center;
+  padding: 10px;
+
+}
+
+.carrito{
+  font-weight: bold;
 }
 
 h1{
   padding:10px;
-  font-size: 30px;
-  border-bottom: 1px solid #222222;
+  font-size: 20px;
+ 
 }
 
 .container{
-  padding:10px;
-  width: 100%;
+  padding:5px;
+  width: 400px;
   box-sizing: border-box;
+  background-color: transparent;
+  border-radius: 10px;
+  background-color: white;
 }
 
 main section table{
   width: 100%;
   border-collapse: collapse;
   table-layout:auto;
+  position:relative;
+  overflow-x:auto
 }
 
 main section table thead{
   font-size: 14px;
   font-weight: bold;
-  border-bottom: 1px solid lightgrey;
 }
 
 main section table thead tr{
@@ -41,7 +56,7 @@ main section table thead tr{
 }
 
 main section table thead tr td{
-  padding: 5px;
+  font-size: 14px;
 }
 
 .q{
@@ -51,16 +66,18 @@ main section table thead tr td{
   border: none;
   border-radius: 5px;
   text-align: center;
+  font-size: 10px;
 }
 
 main section table tbody{
-  border-bottom: 1px solid lightgrey;
   border-radius: 1px;
 }
 
 main section table tbody tr{
   border: none;
   text-align: center;
+  padding: 2px;
+  border-bottom: 2px;
 }
 
 main section table tbody tr td{
@@ -72,15 +89,15 @@ main section table tbody tr td a i{
 }
 
 h2{
-  font-size: 14px;
+  font-size: 12px;
   font-weight: lighter;
 }
 
 main section.continuar{
   display: flex;
   justify-content: center;
-  border-bottom: 1px solid black;
-  padding-bottom: 20px;
+  padding: 20px;
+  justify-content: right;
 }
 
 main section a{
@@ -92,52 +109,74 @@ main section a{
   padding: 10px;
   border:none;
   border-radius: 5px;
-  background-color: lightblue;
+  background-color: var(--main-blue50);
   align-items: center;
+  font-size: 12px;
 }
 
 .boton-seguir:hover{
   font-weight: bold;
 }
 
+.resumen{
+width: 400px;
+border-radius: 10px;
+background-color: #36A5D5;
+border-color: #36A5D5;
+color:white;
+}
+
+.sub-section{
+  width: 500px;
+  padding-top: 20px;
+  border-radius: 10px;
+  border-color: grey;
+  background-color: white;
+  }
+  
 h3{
-  padding: 5px;
+  padding: 10px;
+  font-size: 20px;
 }
 
 .totales{
   padding: 5px;
   display: flex;
-  justify-content: left;
+  justify-content: right;
   font-weight: bold;
 }
 
 main section div.total{
   padding: 5px;
-  width: 10%;
-  text-align: left;
+  width: 80%;
+  text-align: right;
+  font-size: 15px;
 }
 
 main section div.suma-total{
   padding: 5px;
-  width: 90%;
-  text-align: left;
+  width: 20%;
+  text-align: right;
+  font-size: 15px;
 }
 
 main div.finalizar{
-  width: 100%;
-  padding-bottom: 20px;
+  padding-top: 10px;
+  padding-bottom: 50px;
   display: flex;
-  justify-content: center;
+  width: 400px;
+  justify-content: right;
 }
 
 div .boton-pagar{
   display:flex;
   border:none;
   border-radius: 5px;
-  background-color: lightblue;
+  background-color:var(--main-blue50);
   align-items: center;
   text-align: center;
   padding:10px;
+  
 }
 
 .boton-pagar:hover{
@@ -145,3 +184,55 @@ div .boton-pagar{
 }
 
 /*----------*/
+
+
+
+.tabla {
+  display: flex;
+  text-decoration: none;
+  list-style-type: none;
+  justify-content: center;
+  font-size: 16px;
+}
+
+.tabla ul li {
+  font-size: 16px;
+}
+
+.detalle {
+  display: flex;
+  text-decoration: none;
+  list-style-type: none;
+  justify-content: center;
+}
+
+li {
+  padding:10px;
+  font-size: 12px;
+}
+
+.continuar{
+  padding-top: 10px;
+  padding-bottom: 20px;
+  display: flex;
+  width: 400px;
+  justify-content: right;
+}
+
+
+.div1{
+  display: flex;
+  place-items: center;
+  position: relative;
+}
+
+
+/*----------*/
+
+@media (max-width: 599.99px) { 
+.div1{
+  display: grid;
+  place-items: center;
+  position: relative;
+}
+}

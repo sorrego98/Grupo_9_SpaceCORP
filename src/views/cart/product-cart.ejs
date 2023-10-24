@@ -3,66 +3,61 @@
     <title>Carrito</title>
 </head>
 <%- include ('../partials/commons/header')%>
-    <main>
-        <h1>Mi Carrito</h1>
-        <section class="container">
-            <table width="100%" class="tabla">
-                <thead>
-                    <tr>
-                        <td>Producto</td>
-                        <td>Precio</td>
-                        <td>Cantidad</td>
-                        <td>Tipo unidad</td>
-                        <td>Total</td>
-                        <td>Eliminar</td>
-                        <td>Guardar</td>
-                    </tr>   
-                </thead>
-                <tbody>
-                    <tr>
-                        <td><h2>Producto1</h2></td>
-                        <td><h2>$00.00</h2></td>
-                        <td><input class="q" value="1" type="number" name="cantidad" min="1"></td>
-                        <td><h2>Tipo unidad1</h2></td>
-                        <td><h2>$00.00</h2></td>
-                        <td><a href="#"><i class="fas fa-solid fa-trash"></i></a></td>
-                        <td><a href="#"><i class="fas fa-solid fa-heart"></i></a></td>
-                    </tr>
-                    <tr>
-                        <td><h2>Producto2</h2></td>
-                        <td><h2>$00.00</h2></td>
-                        <td><input class="q" value="1" type="number" name="cantidad" min="1"></td>
-                        <td><h2>Tipo unidad2</h2></td>
-                        <td><h2>$00.00</h2></td>
-                        <td><a href="#"><i class="fas fa-solid fa-trash"></i></a></td>
-                        <td><a href="#"><i class="fas fa-solid fa-heart"></i></a></td>
-                    </tr>
-                    <tr>
-                        <td><h2>Producto3</h2></td>
-                        <td><h2>$00.00</h2></td>
-                        <td><input class="q" value="1" type="number" name="cantidad" min="1"></td>
-                        <td><h2>Tipo unidad3</h2></td>
-                        <td><h2>$00.00</h2></td>
-                        <td><a href="#"><i class="fas fa-solid fa-trash"></i></a></td>
-                        <td><a href="#"><i class="fas fa-solid fa-heart"></i></a></td>
-                    </tr>
-                </tbody>
-            </table>
+    <main class="mainCart">
+        <section class="seguimiento">
+            <ul class="tabla">
+                <li><a href="/products">Productos</a></li>
+                <li>></li>
+                <li class="carrito">Carrito</li>
+                <li>></li>
+                <li>Información</li>
+                <li>></li>
+                <li>Pago</li>
+            </ul>
         </section>
-        <section class="continuar">
+        <section class="div1">
+            <div class="container">
+                <h1>Mi Orden</h1>
+                    <ul class="detalle">
+                        <li>Producto1</li>
+                        <li><input class="q" value="1" type="number" name="cantidad" min="1"></li>
+                        <li>Unidad1</li>
+                        <li>$00.00</li>
+                        <li><a href="#"><i class="fas fa-solid fa-trash"></i></a></li>
+                        <li><a href="#"><i class="fas fa-solid fa-heart"></i></a></li>
+                    </ul>
+                    <ul class="detalle">
+                        <li>Producto2</li>
+                        <li><input class="q" value="1" type="number" name="cantidad" min="1"></li>
+                        <li>Unidad2</li>
+                        <li>$00.00</li>
+                        <li><a href="#"><i class="fas fa-solid fa-trash"></i></a></li>
+                        <li><a href="#"><i class="fas fa-solid fa-heart"></i></a></li>
+                    </ul>
+                    <ul class="detalle">
+                        <li>Producto3</li>
+                        <li><input class="q" value="1" type="number" name="cantidad" min="1"></li>
+                        <li>Unidad3</li>
+                        <li>$00.00</li>
+                        <li><a href="#"><i class="fas fa-solid fa-trash"></i></a></li>
+                        <li><a href="#"><i class="fas fa-solid fa-heart"></i></a></li>
+                    </ul>
+            </div>
+            <div class="continuar">
             <a href="/products">
                 <button type="submit" name="pagar" class="boton-seguir">Continuar comprando</button>
             </a> 
-        </section>
-        <section class="resumen">
-            <h3>Resumen del pedido</h3>
-            <section class="totales">  
-                <div class="total">Total:</div>
-                <div class="suma-total">$00.00</div>
-            </section>
+            </div>
+            <div class="resumen">
+                <h3>Resumen del pedido</h3>
+                <section class="totales">  
+                    <div class="total">Total:</div>
+                    <div class="suma-total">$00.00</div>
+                </section>
+            </div>    
             <div class="finalizar">
                 <button type="submit" name="pagar" class="boton-pagar">Finalizar compra</button>
-            </div>  
-        </section>             
+            </div>     
+        </section>         
     </main>
 <%- include ('../partials/commons/footer')%>
