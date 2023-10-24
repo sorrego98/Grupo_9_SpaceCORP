@@ -1,0 +1,54 @@
+<%- include ('../partials/commons/head')%>
+    <link rel="stylesheet" href="/css/main/notFound.css">
+    <!-- <link rel="stylesheet" href="/css/slide.css"> -->
+    <title>AirSound Studio</title>
+</head>
+<%- include ('../partials/commons/header')%>
+    <main>
+        <section class="main-section">
+            <H1>OOPS..!</H1>
+            <p>parece que ocurrió algún problema durante tu navegación. Pero no te preocupes, sigue navegando utilizando cualquiera de los siguientes links de interes.</p>
+            <section class="links">
+                    <a class="" href="/">
+                        <div><i class="fa-solid fa-home icon"></i></div>
+                        <div><span class="li-element-text" data-text="Home">Home</span></div>
+                    </a>
+                    <a class="" href="/products">
+                        <div><i class="fa-solid fa-icons icon"></i></div>
+                        <div><span class="li-element-text" data-text="Products">Productos</span></div>
+                    </a>
+                    <a class="" href="/cart">
+                        <div><i class="fa-solid fa-basket-shopping icon"></i></div>
+                        <div><span class="li-element-text" data-text="Cart">Carrito</span></div>
+                    </a>
+                    <% if (locals.usuario){                       
+                        let userRole = locals.usuario.roles.roleName.toUpperCase()
+                        if (userRole == "ADMINISTRADOR" || userRole == "EMPLEADO"){ %>
+                            <a class="" href="/admin">
+                                <div><i class="fa-solid fa-user-gear icon"></i></div>
+                                <div><span class="li-element-text" data-text="Contact">Administrar</span></div>
+                            </a>
+
+                        <% } else if (userRole == "USUARIO" || userRole == "EMPLEADO") { %>
+                            <a class="" href="/auth/profile">
+                                <div><i class="fa-solid fa-user icon"></i></div>
+                                <div><span class="li-element-text" data-text="Contact">Mi Perfil</span></div>
+                            </a>
+                                
+                        <% }
+                    } else{ %>                           
+                        <a class="" href="/auth"> 
+                            <div><i class="fa-solid fa-right-to-bracket icon"></i></div>
+                            <div><span class="li-element-text" data-text="LogInAndRegister">Conectar</span></div>
+                        </a>
+                    <% } %>                                    
+                    <a class="" href="/contact">
+                        <div><i class="fa-solid fa-at icon"></i></div>
+                        <div><span class="li-element-text" data-text="Contact">Contacto</span></div>
+                    </a>
+            </section>
+        </section>
+        <section class="error-image">
+        </section>
+    </main>
+<%- include ('../partials/commons/footer')%>

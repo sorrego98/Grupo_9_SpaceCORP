@@ -14,7 +14,7 @@ module.exports = controlUser = {
   },
   
   auth: {
-    show: (req, res) => { res.render('../views/auth/guest/login') },
+    show: (req, res) => res.render('../views/auth/guest/login'),
     
     enterSession: (req, res) => {
       let data = req.body.userMailUserName;
@@ -32,20 +32,25 @@ module.exports = controlUser = {
             req.session.usuario = user;
             if (remindMe) { res.cookie('data', data, { maxAge: 1000 * 60 * 60 * 24 }) }
             if (user.roles.roleName == "ADMINISTRADOR") {
-              return res.status(200).redirect('/admin');
+              return res.status(200).redirect('/admin'
+                //, { success: [{ msg: "Ingreso Satisfactorio; Bienvenido" + user.firstName + " " + user.lastName}] }
+                );
             } else {
-              return res.status(200).redirect('/auth/profile');
+              return res.status(200).redirect('/auth/profile'
+              // ,{ success: [{ msg: "Ingreso Satisfactorio; Bienvenido" + user.firstName + " " + user.lastName}] }
+              );
               }
             } else {
               /*defino mi propio tipo de error, en caso de que  en la bdd no se consigan datos*/
               res.clearCookie('email');
               return res.render(path.resolve(__dirname, '../views/auth/guest/login'),
-              { errors: [{ msg: "usuario y/o contraseña inválidos." }] })
+                { errors: [{ msg: "usuario y/o contraseña inválidos." }] })
               
             }
           })
           .catch((errors) => {
-            return res.render(path.resolve(__dirname, '../views/auth/guest/login'), { errors })
+            console.log(errors)
+            return res.status(400).render(path.resolve(__dirname, '../views/auth/guest/login'), { errors })
           })
           
         }
@@ -54,29 +59,56 @@ module.exports = controlUser = {
           
         }
         
-      },
+    },
 
-      create: (req, res) => {
-        let errors = validationResult(req);
-        console.log(errors)
-        if (errors.isEmpty()) {
-          const firstName = req.body.first_name;
-          const lastName = req.body.last_name;
-          const userName = req.body.user_name;
-          const password = bcrypt.hashSync(req.body.password, 10);
-          const email = req.body.email;
-          const imageProfile = req.file ? req.file.filename : ""
-    
-          dbUser.findUser.existEmail(email)
-          
-        }else{        
-          res.render(path.resolve(__dirname, '../views/auth/guest/register'),  {errors: errors.errors, old: req.body})
-    
-        }
-      },
+    createUser: (req, res) => {
+      let errors = validationResult(req);
+      console.log(errors)
+      if (errors.isEmpty()) {
+        const firstName = req.body.first_name;
+        const lastName = req.body.last_name;
+        const userName = req.body.user_name;
+        const password = bcrypt.hashSync(req.body.password, 10);
+        const email = req.body.email;
+        const imageProfile = req.file ? req.file.filename : ""
+  
+        /* valido si el mail está registrado */
+        dbUser.findUser.ifEmailRegistered(email)
+          .then( () => {            
+            /* valido si el userName está registrado */
+            return dbUser.findUser.ifUserNameRegistered(userName)
+          })
+          .then( () => {
+            let newUser = {
+              firstName,
+              lastName,
+              userName,
+              password,
+              email
+            }
+
+            if (imageProfile){
+              newUser = newUser.map( key => {return {...key, imageProfile}})
+            }
+
+            return  dbUser.CreateUser(newUser)
+              
+          })
+          .then(() => {
+            return  res.redirect('/auth',{success});
+          })
+          .catch((errors) => {
+            return res.status(400).render(path.resolve(__dirname, '../views/auth/guest/login'), { errors })
+          })
+        
+      }else{        
+        res.render(path.resolve(__dirname, '../views/auth/guest/register'),  {errors: errors.errors, old: req.body})
+  
+      }
+    },
       
-      endSession: (req, res) => {
-        req.session.destroy();
+    endSession: (req, res) => {
+      req.session.destroy();
       res.clearCookie('email');
       res.redirect('/auth')
     }

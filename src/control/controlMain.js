@@ -15,6 +15,9 @@ const controlMain = {
     },
     contact: (req, res) => {
         res.render('./main/contacts')
+    },
+    notFound: (req, res) => {
+        res.render('./main/notFound')
     }
 
 };
