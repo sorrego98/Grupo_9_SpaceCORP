@@ -1,13 +1,17 @@
 <div class="show-alerts">
-    <% console.log(locals)
-    if (typeof(locals.errors) !== 'undefined') { %>
-        <% errors.forEach ( error => {%>
+    <% if (typeof(locals.message) !== 'undefined') { %>
+        <% message.forEach ( msg => {%>
             <div class="alert bg-alert">
                 <div class="contain-icon err-icon">
                     <i class="fa-solid fa-circle-xmark"></i>
                 </div>
-                    <span class="msg-show">Campo: <%= error.field %> </span>
-                    <span class="msg-show">Mensaje: <%= error.msg %></span>
+                <div class="msg-show">
+                    <div>
+                        <span class="highlight err-text">Campo:</span> <p class="err-text"><%= msg.field %></p>
+                    </div>
+                    <div>
+                        <span class="highlight err-text">Mensaje:</span> <p class="err-text"><%= msg.msg %></p>
+                    </div>
                 </div>
             </div>
         <% }) %>

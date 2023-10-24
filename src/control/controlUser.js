@@ -33,29 +33,29 @@ module.exports = controlUser = {
             if (remindMe) { res.cookie('data', data, { maxAge: 1000 * 60 * 60 * 24 }) }
             if (user.roles.roleName == "ADMINISTRADOR") {
               return res.status(200).redirect('/admin'
-                //, { success: [{ msg: "Ingreso Satisfactorio; Bienvenido" + user.firstName + " " + user.lastName}] }
+                , { message: [{ type: "success", msg: "Ingreso Satisfactorio; Bienvenido" + user.firstName + " " + user.lastName}] }
                 );
             } else {
               return res.status(200).redirect('/auth/profile'
-              // ,{ success: [{ msg: "Ingreso Satisfactorio; Bienvenido" + user.firstName + " " + user.lastName}] }
+              ,{ message: [{ type: "success", msg: "Ingreso Satisfactorio; Bienvenido" + user.firstName + " " + user.lastName}] }
               );
               }
             } else {
               /*defino mi propio tipo de error, en caso de que  en la bdd no se consigan datos*/
               res.clearCookie('email');
               return res.render(path.resolve(__dirname, '../views/auth/guest/login'),
-                { errors: [{ msg: "usuario y/o contraseña inválidos." }] })
+                { message: [{type: "error", msg: "usuario y/o contraseña inválidos." }] })
               
             }
           })
           .catch((errors) => {
             console.log(errors)
-            return res.status(400).render(path.resolve(__dirname, '../views/auth/guest/login'), { errors })
+            return res.status(400).render(path.resolve(__dirname, '../views/auth/guest/login'), { message: errors })
           })
           
         }
         else {
-          return res.render(path.resolve(__dirname, '../views/auth/guest/login'), { errors: errors.errors });
+          return res.render(path.resolve(__dirname, '../views/auth/guest/login'), { message: errors.errors });
           
         }
         
@@ -94,15 +94,15 @@ module.exports = controlUser = {
             return  dbUser.CreateUser(newUser)
               
           })
-          .then(() => {
-            return  res.redirect('/auth',{success});
+          .then((message) => {
+            return  res.redirect('/auth',{message});
           })
-          .catch((errors) => {
-            return res.status(400).render(path.resolve(__dirname, '../views/auth/guest/login'), { errors })
+          .catch((message) => {
+            return  res.redirect('/auth',{message});
           })
         
       }else{        
-        res.render(path.resolve(__dirname, '../views/auth/guest/register'),  {errors: errors.errors, old: req.body})
+        res.render(path.resolve(__dirname, '../views/auth/guest/login'),  {message: errors.errors})
   
       }
     },

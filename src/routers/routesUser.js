@@ -16,7 +16,7 @@ const db = require('../database/models')
 const User = db.Users
 
 //RUTAS DE REGISTRO
-router.get("/register", isUser, controlUser.register.show); 
+// router.get("/register", isUser, controlUser.register.show); 
 
 //RUTAS DE LOGIN
 router.get("/", isUser, controlUser.auth.show);

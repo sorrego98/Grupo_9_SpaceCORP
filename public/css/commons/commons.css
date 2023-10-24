@@ -33,9 +33,8 @@
 
     /*--- alerts ---*/
     --alert-error-icon: #C40113;
-    --alert-error-btn: #F49194;
+    --alert-error-text: #B75F62;
     --alert-error-bg: #FFD1D9;
-    --alert-error-text: #FFC6C6;
 }
 
 h1{font-size: 2.6rem; /* 26px */ font-weight: bolder;}
@@ -246,7 +245,7 @@ main{
     right: 0.5rem;
     display: flex;
     flex-direction: column;
-    width: clamp(15rem,90%,35rem);
+    width: clamp(15rem,90%,30rem);
     gap: 0.5rem;
     z-index: 1;
 }
@@ -261,6 +260,7 @@ main{
     height: auto;
     border-radius: 0.5rem;
     border: 0.2rem solid;
+    cursor: pointer;
 }
 
 .alert > .contain-icon{
@@ -275,6 +275,20 @@ main{
     color: var(--main-white);
 }
 
+.alert > .msg-show{
+    padding: 0.2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+div > .highlight{
+    font-weight: 900;
+}
+
+.msg-show > div > .highlight, .msg-show > div > p{
+    font-size: 1.1rem;
+}
+
 /*------------ alertas - colorización según tipo ------------- */
 
 .bg-alert{    
@@ -285,6 +299,10 @@ main{
 .err-icon{
     color: var(--main-white);
     background: var(--alert-error-icon);
+}
+
+.err-text{
+    color: var(--alert-error-text);
 }
 /*
 .err-btn{
