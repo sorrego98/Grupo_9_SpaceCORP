@@ -1,12 +1,12 @@
 /*---------Home--------*/
 
-main {
+/* main {
     display: flex;
     flex-direction: column;
     gap: 10px;
     flex-grow: 1;
     margin: 8px;
-}
+} */
 
 .main-team {
     display: flex;

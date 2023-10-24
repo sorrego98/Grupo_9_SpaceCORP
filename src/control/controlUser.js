@@ -9,76 +9,76 @@ const { where } = require("sequelize");
 module.exports = controlUser = {
 
   register: {
-    show: (req, res) => res.render('../views/auth/register'),
+    show: (req, res) => res.render('../views/auth/guest/register')
 
-    create: (req, res) => {
-      let errors = validationResult(req);
-      console.log(errors)
-      if (errors.isEmpty()) {
-        const firstName = req.body.first_name;
-        const lastName = req.body.last_name;
-        const userName = req.body.user_name;
-        const password = bcrypt.hashSync(req.body.password, 10);
-        const email = req.body.email;
-        const imageProfile = req.file ? req.file.filename : ""
-
-        dbUser.findUser.existEmail(email)
-        
-      }else{        
-        res.render(path.resolve(__dirname, '../views/auth/register'),  {errors: errors.errors, old: req.body})
-
-      }
-    }
   },
-
-  login: {
-    show: (req, res) => { res.render('../views/auth/login') },
-
+  
+  auth: {
+    show: (req, res) => { res.render('../views/auth/guest/login') },
+    
     enterSession: (req, res) => {
-      let data = req.body.data;
-      let password = req.body.password;
-      let remindMe = req.body.recordarme;
+      let data = req.body.userMailUserName;
+      let password = req.body.userPass;
+      let remindMe = req.body.remindMe;
       let errors = validationResult(req);
-
-      if (remindMe) { res.cookie('data', data, { maxAge: 1000 * 60 * 60 * 24 }) }
-
+      
+      
       if (errors.isEmpty()) {
         dbUser.findUser.toLogin(data)
-          .then(results => {
-            const user = results.user
-
-            if (bcrypt.compareSync(password, user.password) === true) {
-              req.session.usuario = user;
-              if (user.roles.roleName == "ADMINISTRADOR") {
-                return res.status(200).redirect('/admin');
-              } else {
-                return res.status(200).redirect('/auth/profile');
+        .then(results => {
+          const user = results.user
+          
+          if (bcrypt.compareSync(password, user.password) === true) {
+            req.session.usuario = user;
+            if (remindMe) { res.cookie('data', data, { maxAge: 1000 * 60 * 60 * 24 }) }
+            if (user.roles.roleName == "ADMINISTRADOR") {
+              return res.status(200).redirect('/admin');
+            } else {
+              return res.status(200).redirect('/auth/profile');
               }
             } else {
               /*defino mi propio tipo de error, en caso de que  en la bdd no se consigan datos*/
               res.clearCookie('email');
-              return res.render(path.resolve(__dirname, '../views/auth/login'),
-                { errors: [{ msg: "usuario y/o contraseña inválidos." }] })
-
+              return res.render(path.resolve(__dirname, '../views/auth/guest/login'),
+              { errors: [{ msg: "usuario y/o contraseña inválidos." }] })
+              
             }
           })
           .catch((errors) => {
-            return res.render(path.resolve(__dirname, '../views/auth/login'), { errors })
+            return res.render(path.resolve(__dirname, '../views/auth/guest/login'), { errors })
           })
+          
+        }
+        else {
+          return res.render(path.resolve(__dirname, '../views/auth/guest/login'), { errors: errors.errors });
+          
+        }
+        
+      },
 
-      }
-      else {
-        res.clearCookie('email');
-        return res.render(path.resolve(__dirname, '../views/auth/login'), { errors: errors.errors });
-
-      }
-
-    },
-
-    endSession: (req, res) => {
-      req.session.destroy();
+      create: (req, res) => {
+        let errors = validationResult(req);
+        console.log(errors)
+        if (errors.isEmpty()) {
+          const firstName = req.body.first_name;
+          const lastName = req.body.last_name;
+          const userName = req.body.user_name;
+          const password = bcrypt.hashSync(req.body.password, 10);
+          const email = req.body.email;
+          const imageProfile = req.file ? req.file.filename : ""
+    
+          dbUser.findUser.existEmail(email)
+          
+        }else{        
+          res.render(path.resolve(__dirname, '../views/auth/guest/register'),  {errors: errors.errors, old: req.body})
+    
+        }
+      },
+      
+      endSession: (req, res) => {
+        req.session.destroy();
       res.clearCookie('email');
-      res.redirect('/auth/login')
+      res.redirect('/auth')
     }
   },
 

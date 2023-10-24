@@ -3,10 +3,23 @@ const btnRightv = document.querySelector(".btn-rightv");
 const sliderv = document.querySelector("#slider-video");
 const sliderSectionv = document.querySelectorAll(".slider-section-video");
 
+const contCarousel = document.querySelector(".container-carousel")
+const slideSection = document.querySelector(".slider-section")
 let position = 0;
 let counter = 0;
 let widthVideo = 100 / sliderSectionv.length;
 
+window.addEventListener("load", e => {
+    getData();
+});
+
+function getData() {
+    const data = document.getElementById("allProduction").dataset.params
+    console.log(JSON.parse((JSON.stringify(data))))
+    // if (dataSet) {
+    //     return dataSet
+    // }
+}
 setInterval(() => {
     moveToRightv()
 }, 6000000);

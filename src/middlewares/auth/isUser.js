@@ -5,10 +5,11 @@ module.exports = isUser = (req, res, next) => {
 		if (usuario.roles.roleName.toUpperCase() == "ADMINISTRADOR"){
 			return res.redirect("/admin");
 		
-		}else{
-			return res.redirect('/auth/profile');
-
 		}
+		// else{
+		// 	return res.redirect('/auth/profile');
+
+		// }
 	}
 	next();
 };
