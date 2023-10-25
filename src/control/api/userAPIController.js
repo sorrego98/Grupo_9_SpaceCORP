@@ -32,7 +32,7 @@ const userAPIController = {
     'detail': (req, res) => {
         //return res.json("hola")
         db.Users
-        .findByPk(req.params.id)
+        .findByPk(req.params.id) 
         .then(user => {
             return res.json({
                 data: {
