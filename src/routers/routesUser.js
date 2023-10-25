@@ -16,13 +16,13 @@ const db = require('../database/models')
 const User = db.Users
 
 //RUTAS DE REGISTRO
-router.get("/register", isUser, controlUser.register.show); 
+// router.get("/register", isUser, controlUser.register.show); 
 
 //RUTAS DE LOGIN
 router.get("/", isUser, controlUser.auth.show);
 router.post("/login", validateLogin, controlUser.auth.enterSession);
 router.get('/logout', controlUser.auth.endSession); //Esta ruta se activa al momento que el usuario desea salir de la página
-router.post('/register', uploadUser.single('avatar'), registerData, controlUser.auth.create);
+router.post('/register', uploadUser.single('avatar'), registerData, controlUser.auth.createUser);
   
 //RUTAS DE PERFIL
 router.get('/profile', isGuest, isUser, controlUser.profile.show);

@@ -40,9 +40,9 @@ const errorLoginMail = document.getElementById("errorLoginName")
 const errorLoginPass = document.getElementById("errorLoginPass")
 
 formLogin.addEventListener("submit", e =>{
-    e.preventDefault();
+    // e.preventDefault();
 
-    validateInputs();
+    // validateInputs();
 })
 
 const setError = (element, message) => {

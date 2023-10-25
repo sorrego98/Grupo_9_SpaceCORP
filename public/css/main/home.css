@@ -95,7 +95,7 @@ main section article p a {
 }
 
 .carruseles-video {
-    width: 1000%;
+    /* width: 1000%; */
     height: 100%;
     display: flex;
 }

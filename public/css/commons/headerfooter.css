@@ -5,6 +5,7 @@ header {
     position: sticky;
     top: 0;
     background-size: contain;
+    z-index: 1000;
 }
 
 .header-content{

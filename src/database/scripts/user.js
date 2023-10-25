@@ -7,7 +7,7 @@ const Roles = db.Roles
 
 module.exports = dbUser = {
     findUser : {
-        byPk: (id) => {
+        byPk: id => {
             return new Promise( (resolve, reject) => {
             User.findByPk(id,{
                 include: [{association: 'roles'}]})
@@ -31,7 +31,7 @@ module.exports = dbUser = {
             })
         },
 
-        toLogin: (data) => {
+        toLogin: data => {
             return new Promise( (resolve, reject) => {
                 User.findOne({
                     include: [{association: 'roles'}],
@@ -43,30 +43,32 @@ module.exports = dbUser = {
                             resolve({user});
     
                         }else{
-                            reject([{msg:"usuario y/o contraseña inválidos."  
+                            reject([{
+                                type: "error",
+                                field:"email o Nombre de Usuario",
+                                msg:"usuario y/o contraseña no válidos."  
                             }])
                             
                         }
                     })
-                    .catch(error =>{
-                        reject({
-                            error
-                        })
-                    })
+                    .catch(error => reject({error}))
             })        
         },
 
-        existEmail: (email) => {
+        ifEmailRegistered: email => {
             return new Promise( (resolve, reject) => {
                 User.findOne({
                     where:{email}
                   })
                     .then( user => {
                         if (user){
-                            reject();
+                            reject([{
+                                type: "warning",
+                                field:"Email",
+                                msg:"el dato ingresado no es válido."}]);
     
                         }else{
-                            resolve()
+                            resolve();
                             
                         }
                     })
@@ -78,7 +80,7 @@ module.exports = dbUser = {
             })        
         },
 
-        existUserName: (userName) => {
+        ifUserNameRegistered: userName => {
             return new Promise( (resolve, reject) => {
                 User.findOne({
                     where:{userName}
@@ -86,7 +88,10 @@ module.exports = dbUser = {
                     .then( user => {
                         console.log(user)
                         if (user){
-                            reject();
+                            reject([{
+                                type: "error",
+                                field:"Nombre de Usuario",
+                                msg:"Nombre de usuario " + userName + "ya se encuentra en uso."}]);
     
                         }else{
                             resolve()
@@ -124,5 +129,19 @@ module.exports = dbUser = {
         })
         
     },
+
+    newUser: newUser => {
+        return new Promise( (resolve, reject) => {
+            User.create(newUser)
+            .then(() => resolve([{
+                type: "success",
+                field:"",
+                msg:"usuario creado satisfactoriamente."}]))
+            .catch( () => reject([{
+                type: "error",
+                field:"Crear usuario",
+                msg:"usuario no pudo ser creado."}]))
+        })
+    }
 
 };

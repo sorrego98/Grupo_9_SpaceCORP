@@ -3,7 +3,8 @@
     <title>Login</title>
 </head>
 <%- include ('../../partials/commons/header')%>
-    <main>        
+    <main>       
+        <%- include ('../../partials/alerts/alertShow')%>
         <div class="container-box">
             <section>
                 <h1 class="box-title border-top" id="title-form">Inicia Sesión</h1>
@@ -16,11 +17,11 @@
                     <section class="contain-form">
                         <form id="logInMe" class="form-input" action="/auth/login" method="POST" >
                             <div class="input-control">
-                                <input type="text" name="userMailUserName" id="mailOrUN" class="form-input-text" required placeholder="Ingrese Nombre de Usuario o email.">
+                                <input type="text" name="userMailUserName" id="mailOrUN" class="form-input-text" placeholder="Ingrese Nombre de Usuario o email.">
                                 <small class="error-type" id="errorLoginName"></small>
                             </div>
                             <div class="input-control">
-                                <input type="password" name="userPass" id="pass" class="form-input-text" required placeholder="Ingrese su contraseña.">
+                                <input type="password" name="userPass" id="pass" class="form-input-text" placeholder="Ingrese su contraseña.">
                                 <small class="error-type" id="errorLoginPass"></small>                                
                             </div>
                             <div class="form-input-text check-container">
@@ -30,17 +31,17 @@
                             <button type="submit" class="submit-btn">Iniciar Sesión</button>
                         </form>
                         <form id="registerMe" class="form-input" action="/auth/register" method="POST" >
-                            <input type="text" name="firstName" id="firstName" class="form-input-text" required placeholder="Ingrese su nombre." autocomplete="nope">
+                            <input type="text" name="firstName" id="firstName" class="form-input-text" placeholder="Ingrese su nombre." autocomplete="nope">
                             <small class="error-type" id="errorRegisterName"></small>
-                            <input type="text" name="lastName" id="lastName" class="form-input-text" required placeholder="Ingrese su apellido." autocomplete="nope">
+                            <input type="text" name="lastName" id="lastName" class="form-input-text" placeholder="Ingrese su apellido." autocomplete="nope">
                             <small class="error-type" id="errorRegisterLastName"></small>
-                            <input type="email" name="email" id="email" class="form-input-text" required placeholder="Ingrese su email." autocomplete="nope">
+                            <input type="email" name="email" id="email" class="form-input-text" placeholder="Ingrese su email." autocomplete="nope">
                             <small class="error-type" id="errorRegisterEmail"></small>
-                            <input type="text" name="userName" id="userName" class="form-input-text" required placeholder="Ingrese su nombre de usuario." autocomplete="nope">
+                            <input type="text" name="userName" id="userName" class="form-input-text" placeholder="Ingrese su nombre de usuario." autocomplete="nope">
                             <small class="error-type" id="errorRegisterUserName"></small>
-                            <input type="password" name="userPass" id="passRegister" class="form-input-text" required placeholder="Ingrese una contraseña." autocomplete="nope">
+                            <input type="password" name="userPass" id="passRegister" class="form-input-text" placeholder="Ingrese una contraseña." autocomplete="nope">
                             <small class="error-type" id="errorRegisterPass"></small>
-                            <input type="password" name="userPassConfirm" id="passConfirm" class="form-input-text" required placeholder="Confirme su contraseña." autocomplete="nope">
+                            <input type="password" name="userPassConfirm" id="passConfirm" class="form-input-text" placeholder="Confirme su contraseña." autocomplete="nope">
                             <small class="error-type" id="errorRegisterConfirmPass"></small>  
                             <label class="form-label">Selecciona tu avatar</label> 
                             <input type="file" name="avatar" id="avatar" placeholder="Elige tu imagen de perfil" autocomplete="nope">

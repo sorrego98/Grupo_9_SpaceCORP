@@ -26,15 +26,16 @@
                 <%  }); %>
             </article>
         </section>
+        <% if(allProduction.length > 0) {%>
         <section class="main-section">
             <h2>Últimas producciones</h2>
             <article>
                 <p>Últimas producciones en las que hemos tenido participación</p>
                 <section class="general-videos">
                     <div class="container-carousel-videos">
-                        <div class="carruseles-video" id="slider-video">
+                        <div class="carruseles-video" style="width:<%= allProduction.length * 100%>%" id="slider-video">
                             <% allProduction.forEach(production => { %>
-                                <section class="slider-section-video" id="slider-section-video">
+                                <section class="slider-section-video" style="width: (100% / <%= allProduction.length%>)" id="slider-section-video">
                                     <iframe src="<%= production.youtubeUrl %>" title="<%= production.artistName%>- <%= production.songTitle %>" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
                                 </section>
                             <% }); %>
@@ -45,6 +46,8 @@
                 </section>
             </article>
         </section>
+        <%  } 
+        if(allGalery.length > 0) {%>
         <section class="main-section">
             <h2>Galería</h2>
             <article>
@@ -52,9 +55,9 @@
                 <section class="general">
                     <div class="container-carousel">
                         <!-- aqui -->
-                        <div class="carruseles" id="slider">
+                        <div class="carruseles" style="width:<%= allGalery.length * 100%>%" id="slider">
                             <% allGalery.forEach(photo => { %>
-                                <section class="slider-section" id="slider-section">
+                                <section class="slider-section" style="width: (100% / <%= allProduction.length%>)" id="slider-section">
                                     <!-- aqui -->
                                     <img class="img" src="/db-images/home/galery/<%= photo.image %>" alt="<%= photo.name %>">
                                 </section>
@@ -66,6 +69,8 @@
                 </section>
             </article>
         </section>
+        
+        <%  } %>
         <script src="/scripts/slideVideos.js"></script>
     </main>
 <%- include ('../partials/commons/footer')%>

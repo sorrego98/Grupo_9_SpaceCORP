@@ -1,0 +1,19 @@
+<div class="show-alerts">
+    <% if (typeof(locals.message) !== 'undefined') { %>
+        <% message.forEach ( msg => {%>
+            <div class="alert bg-alert">
+                <div class="contain-icon err-icon">
+                    <i class="fa-solid fa-circle-xmark"></i>
+                </div>
+                <div class="msg-show">
+                    <div>
+                        <span class="highlight err-text">Campo:</span> <p class="err-text"><%= msg.field %></p>
+                    </div>
+                    <div>
+                        <span class="highlight err-text">Mensaje:</span> <p class="err-text"><%= msg.msg %></p>
+                    </div>
+                </div>
+            </div>
+        <% }) %>
+    <% } %>
+</div>
