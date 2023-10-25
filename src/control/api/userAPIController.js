@@ -4,7 +4,7 @@ const db = require('../../database/models')
 const dbUser = require('../../database/scripts/user');
 
 const userAPIController = {
-
+ 
     'list': (req, res) => {
         //return res.json("hola")
          db.Users

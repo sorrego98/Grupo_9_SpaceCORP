@@ -8,8 +8,8 @@ const routeProducts = require("./routers/routesProducts");
 const routeUser = require("./routers/routesUser");
 const routeCart = require("./routers/routesCart");
 const routeAdmin = require("./routers/routesAdmin");
-const productsAPIRoutes = require("./routers/api/productsAPIRoutes");
-const userAPIRoute = require("./routers/api/userAPIRoutes");
+const APIRoutes = require("./routers/api/APIRoutes");
+// const userAPIRoute = require("./routers/api/userAPIRoutes");
 
 const methodOverride = require('method-override');
 require('dotenv').config();
@@ -55,8 +55,8 @@ app.use('/products',routeProducts);
 app.use('/auth',routeUser);
 app.use('/cart',routeCart);
 app.use('/admin',routeAdmin);
-app.use('/api/users',userAPIRoute);
-app.use('/api',productsAPIRoutes);
+// app.use('/api/users',userAPIRoute);
+app.use('/api',APIRoutes);
 
 //Levantar servidor
 app.listen(PORT, () => console.log("Server Running on " + PORT));

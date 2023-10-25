@@ -1,5 +1,3 @@
-const path = require("path");
-const fs = require("fs");
 const db = require('../../database/models');
 
 const controlAPI = {
@@ -95,20 +93,114 @@ const controlAPI = {
                 ;
                 break;
 
-            // case 'ROLES':
-            //     db.Roles.findAll()
-            //         .then(reqData => res.send(reqData))
-            //         .catch(error => res.send("Error presente: " + error));
-            //     ;
-            //     break;
+            case 'ROLES':
+                db.Roles.findAll()
+                    .then(role => {
+                        let data = [];
+                        for (let i = 0; i < role.length; i++) {
+                            data.push({
+                                id: role[i].id,
+                                name: role[i].roleName
+                            })
+                        }
+                        return res.json({
+                            total: data.length,
+                            data: data,
+                            status: 200
+                        })
+                    })
+                    .catch(error => res.send("Error presente: " + error));
+                ;
+                break;
 
 
-            // case 'USERS':
-            //     db.Users.findAll()
-            //         .then(reqData => res.send(reqData))
-            //         .catch(error => res.send("Error presente: " + error));
-            //     ;
-            //     break;
+            case 'USERS':
+                db.Users.findAll({ include: [{ association: 'roles' }] })
+                    .then(users => {
+                        let data = [];
+                        for (let i = 0; i < users.length; i++) {
+                            data.push({
+                                id: users[i].id,
+                                name: users[i].firstName,
+                                lastName: users[i].lastName,
+                                // email: users[i].email,
+                                detail: 'http://localhost:5050/api/users/' + users[i].id,
+                            });
+                        }
+
+                        return res.json({
+                            total: users.length,
+                            data: data,
+                            status: 200
+
+                        })
+                    })
+                    .catch(error => res.send("Error presente: " + error));
+                ;
+                break;
+
+                case 'PRODUCTIONS':
+                db.Production.findAll()
+                    .then(production => {
+                        let data = [];
+                        for (let i = 0; i < production.length; i++) {
+                            data.push({
+                                id: production[i].id,
+                                name: production[i].songTitle,
+                                detail: 'http://localhost:5050/api/productions/' + production[i].id
+                            })
+                        }
+                        return res.json({
+                            total: data.length,
+                            data: data,
+                            status: 200
+                        })
+                    })
+                    .catch(error => res.send("Error presente: " + error));
+                ;
+                break;
+                
+                case 'MEMBERS':
+                db.Member.findAll()
+                    .then(member => {
+                        let data = [];
+                        for (let i = 0; i < member.length; i++) {
+                            data.push({
+                                id: member[i].id,
+                                name: member[i].name,
+                                detail: 'http://localhost:5050/api/members/' + member[i].id
+                            })
+                        }
+                        return res.json({
+                            total: data.length,
+                            data: data,
+                            status: 200
+                        })
+                    })
+                    .catch(error => res.send("Error presente: " + error));
+                ;
+                break;
+
+                case 'GALERY':
+                db.Galery.findAll()
+                    .then(photo => {
+                        let data = [];
+                        for (let i = 0; i < photo.length; i++) {
+                            data.push({
+                                id: photo[i].id,
+                                name: photo[i].name,
+                                image: 'http://localhost:5050/db-images/home/galery/' + photo[i].image
+                            })
+                        }
+                        return res.json({
+                            total: data.length,
+                            data: data,
+                            status: 200
+                        })
+                    })
+                    .catch(error => res.send("Error presente: " + error));
+                ;
+                break;
 
             // case 'USERCART':
             //     db.UserCart.findAll()
@@ -178,6 +270,62 @@ const controlAPI = {
                                 description: subCat.description,
                                 category: subCat.categories.name,
                                 imageSubcategory: 'http://localhost:5050/db-images/products/subcategories/' + subCat.image,
+                            },
+                            status: 200
+                        })
+                    })
+                    .catch(error => res.send("Error presente: " + error));
+                ;
+                break;
+
+            case 'USERS':
+                db.Users.findByPk(req.params.id, { include: [{ association: 'roles' }] })
+                    .then(user => {
+                        return res.json({
+                            data: {
+                                name: user.firstName,
+                                lastName: user.lastName,
+                                userName: user.userName,
+                                email: user.email,
+                                role: {
+                                    id: user.roles.id,
+                                    name: user.roles.roleName
+                                },
+                                imageProfile: 'http://localhost:5050/db-images/users/' + user.imageProfile,
+                            },
+                            status: 200
+                        })
+                    })
+                    .catch(error => res.send("Error presente: " + error));
+                ;
+                break;
+
+                case 'PRODUCTIONS':
+                db.Production.findByPk(req.params.id)
+                    .then(production => {
+                        return res.json({
+                            data: {
+                                name: production.songTitle,
+                                artist: production.artistName,
+                                url: production.youtubeUrl
+                            },
+                            status: 200
+                        })
+                    })
+                    .catch(error => res.send("Error presente: " + error));
+                ;
+                break;
+
+                case 'MEMBERS':
+                db.Member.findByPk(req.params.id)
+                    .then(member => {
+                        return res.json({
+                            data: {
+                                name: member.name,
+                                jobTitle: member.jobName,
+                                instagramName: member.instagramName,
+                                instagramUrl: member.instagramUrl,
+                                imageProfile: 'http://localhost:5050/db-images/home/members/' + member.image,
                             },
                             status: 200
                         })

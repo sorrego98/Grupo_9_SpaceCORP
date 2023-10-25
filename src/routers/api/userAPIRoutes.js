@@ -5,5 +5,5 @@ const controllerAPI = require('../../control/api/userAPIController');
 
 //Rutas User
 router.get("/", controllerAPI.list);
-router.get("/:id", controllerAPI.detail);
+router.get("/:id", controllerAPI.detail); 
 module.exports = router;
