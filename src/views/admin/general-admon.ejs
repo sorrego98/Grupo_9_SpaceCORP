@@ -1,56 +1,130 @@
 <%- include ('../partials/commons/head')%>
     <title>Administración General</title>
-    <link rel="stylesheet" href="/css/generalAdmonstyles.css">
+    <link rel="stylesheet" href="/css/auth/user/admin.css">
 </head>
 <%- include ('../partials/commons/header')%>
     <main>
-        <h2>Derechos de Administración</h2>
-        <section>
-            <article class="main-admon">
-                <div class="main-admon-div">
-                    <p><i class="fa-solid fa-users xl"></i></p>
-                    <p>Home</p>
-                    <p><a href="/admin/home/staff">Staff</a></p>               
-                </div>
-                <div class="main-admon-div">
-                    <p><i class="fa-solid fa-images"></i></p>
-                    <p>Home</p>
-                    <p><a href="/admin/home/galery">Galería</a></p>               
-                </div>
-                <div class="main-admon-div">
-                    <p><i class="fa-solid fa-photo-film"></i></p>
-                    <p>Home</p>
-                    <p><a href="/admin/home/latestProductions">Últimas Producciones</a></p>               
-                </div>
-                
-                <% if (locals.usuario.roles.roleName.toUpperCase() == "ADMINISTRADOR" ) { %>
-                <div class="main-admon-div">
-                    <p><i class="fa-solid fa-circle-play"></i></p>
-                    <p>Servicios</p>
-                    <p><a href="/admin/products/categories">Categorías</a></p>               
-                </div>
-                <div class="main-admon-div">
-                    <p><i class="fa-solid fa-record-vinyl"></i></p>
-                    <p>Servicios</p>
-                    <p><a href="/admin/products/subcategories">Subcategorías</a></p>               
-                </div>
-                <div class="main-admon-div">
-                    <p><i class="fa-solid fa-file-audio"></i></p>
-                    <p>Servicios</p>
-                    <p><a href="/admin/products/products">Productos</a></p>               
-                </div>
-                <div class="main-admon-div">
-                    <p><i class="fa-solid fa-coins"></i></p>
-                    <p>Servicios</p>
-                    <p><a href="/admin/products/priceType">Tipo Precio</a></p>               
-                </div>
-                <div class="main-admon-div">
-                    <p><i class="fa-solid fa-users-gear"></i></p>
-                    <p>Usuarios</p>
-                    <p><a href="/admin/users/">Tipo de Usuarios</a></p>               
-                </div>
-                <% } %>
-            </article>
-        </section>
+        <div class="container-max-box">
+            <h1 class="box-title border-top" id="title-form">Administración de Tablas</h1>
+            <section class="show-data-box border-bottom">                
+                <aside class="sidedata-box">
+                    <h2 class="box-title" id="subtitle-data">Listado</h1>
+                    <div class="sidedata-content">
+                        <div class="sidedata-list">
+                            <% if (locals.usuario.roles.roleName.toUpperCase() == "EMPLEADO" ) { %>
+                                <div class="sidedata-list-item">
+                                    <i class="fa-solid fa-people-group"></i>
+                                    <a href="/admin/home/staff">Staff</a>             
+                                </div>
+                                <div class="sidedata-list-item">
+                                    <i class="fa-solid fa-panorama"></i>
+                                    <a href="/admin/home/galery">Galería</a>
+                                </div>
+                                <div class="sidedata-list-item">
+                                    <i class="fa-solid fa-photo-film"></i>
+                                    <a href="/admin/home/latestProductions">Últimas Producciones</a>              
+                                </div>
+                                <div class="sidedata-list-item">
+                                    <i class="fa-solid fa-circle-play"></i>
+                                    Servicios
+                                    <a href="/admin/products/categories">Categorías</a>               
+                                </div>
+                                <div class="sidedata-list-item">
+                                    <i class="fa-solid fa-circle-play"></i>
+                                    Servicios
+                                    <a href="/admin/products/categories">Categorías</a>               
+                                </div>
+                                <div class="sidedata-list-item">
+                                    <i class="fa-solid fa-circle-play"></i>
+                                    Servicios
+                                    <a href="/admin/products/categories">Categorías</a>               
+                                </div>
+                                <div class="sidedata-list-item">
+                                    <i class="fa-solid fa-circle-play"></i>
+                                    Servicios
+                                    <a href="/admin/products/categories">Categorías</a>               
+                                </div>
+                                <div class="sidedata-list-item">
+                                    <i class="fa-solid fa-circle-play"></i>
+                                    Servicios
+                                    <a href="/admin/products/categories">Categorías</a>               
+                                </div>
+                                <div class="sidedata-list-item">
+                                    <i class="fa-solid fa-circle-play"></i>
+                                    Servicios
+                                    <a href="/admin/products/categories">Categorías</a>               
+                                </div>
+                                <div class="sidedata-list-item">
+                                    <i class="fa-solid fa-circle-play"></i>
+                                    Servicios
+                                    <a href="/admin/products/categories">Categorías</a>               
+                                </div>
+                                <div class="sidedata-list-item">
+                                    <i class="fa-solid fa-circle-play"></i>
+                                    Servicios
+                                    <a href="/admin/products/categories">Categorías</a>               
+                                </div>
+                                <div class="sidedata-list-item">
+                                    <i class="fa-solid fa-circle-play"></i>
+                                    Servicios
+                                    <a href="/admin/products/categories">Categorías</a>               
+                                </div>
+                                <div class="sidedata-list-item">
+                                    <i class="fa-solid fa-circle-play"></i>
+                                    Servicios
+                                    <a href="/admin/products/categories">Categorías</a>               
+                                </div>
+                                <div class="sidedata-list-item">
+                                    <i class="fa-solid fa-circle-play"></i>
+                                    Servicios
+                                    <a href="/admin/products/categories">Categorías</a>               
+                                </div>
+                                <div class="sidedata-list-item">
+                                    <i class="fa-solid fa-circle-play"></i>
+                                    Servicios
+                                    <a href="/admin/products/categories">Categorías</a>               
+                                </div>
+                                <div class="sidedata-list-item">
+                                    <i class="fa-solid fa-circle-play"></i>
+                                    Servicios
+                                    <a href="/admin/products/categories">Categorías</a>               
+                                </div>
+                                <div class="sidedata-list-item">
+                                    <i class="fa-solid fa-circle-play"></i>
+                                    Servicios
+                                    <a href="/admin/products/categories">Categorías</a>               
+                                </div>
+                                <div class="sidedata-list-item">
+                                    <i class="fa-solid fa-circle-play"></i>
+                                    Servicios
+                                    <a href="/admin/products/categories">Categorías</a>               
+                                </div>
+                                <div class="sidedata-list-item">
+                                    <i class="fa-solid fa-circle-play"></i>
+                                    Servicios
+                                    <a href="/admin/products/categories">Categorías</a>               
+                                </div>
+                                <div class="sidedata-list-item">
+                                    <i class="fa-solid fa-circle-play"></i>
+                                    Servicios
+                                    <a href="/admin/products/categories">Categorías</a>               
+                                </div>
+                                <div class="sidedata-list-item">
+                                    <i class="fa-solid fa-circle-play"></i>
+                                    Servicios
+                                    <a href="/admin/products/categories">Categorías</a>               
+                                </div>
+                            <% } %>
+                        </div>                        
+                    </div>
+                    <span>casdasdsa</span>
+                </aside>
+                <section class="maindata-box">
+                    <span>casdasdsa</span>
+                </section>
+
+            </section>
+
+        </div>
     </main>
 <%- include ('../partials/commons/footer')%>

@@ -20,9 +20,11 @@ const User = db.Users
 
 //RUTAS DE LOGIN
 router.get("/", isUser, controlUser.auth.show);
+router.get("/login", validateLogin, controlUser.auth.redirectLogin);
 router.post("/login", validateLogin, controlUser.auth.enterSession);
-router.get('/logout', controlUser.auth.endSession); //Esta ruta se activa al momento que el usuario desea salir de la página
+router.get("/register", validateLogin, controlUser.auth.redirectLogin);
 router.post('/register', uploadUser.single('avatar'), registerData, controlUser.auth.createUser);
+router.get('/logout', controlUser.auth.endSession); 
   
 //RUTAS DE PERFIL
 router.get('/profile', isGuest, isUser, controlUser.profile.show);

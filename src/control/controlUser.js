@@ -16,6 +16,8 @@ module.exports = controlUser = {
   auth: {
     show: (req, res) => res.render('../views/auth/guest/login'),
     
+    redirectLogin: (req, res) => res.render('../views/auth/guest/login'),
+    
     enterSession: (req, res) => {
       let data = req.body.userMailUserName;
       let password = req.body.userPass;
@@ -33,11 +35,11 @@ module.exports = controlUser = {
             if (remindMe) { res.cookie('data', data, { maxAge: 1000 * 60 * 60 * 24 }) }
             if (user.roles.roleName == "ADMINISTRADOR") {
               return res.status(200).redirect('/admin'
-                , { message: [{ type: "success", msg: "Ingreso Satisfactorio; Bienvenido" + user.firstName + " " + user.lastName}] }
+                // , { message: [{ type: "success", msg: "Ingreso Satisfactorio; Bienvenido" + user.firstName + " " + user.lastName}] }
                 );
             } else {
               return res.status(200).redirect('/auth/profile'
-              ,{ message: [{ type: "success", msg: "Ingreso Satisfactorio; Bienvenido" + user.firstName + " " + user.lastName}] }
+              // ,{ message: [{ type: "success", msg: "Ingreso Satisfactorio; Bienvenido" + user.firstName + " " + user.lastName}] }
               );
               }
             } else {

@@ -41,25 +41,6 @@
     resize: vertical;
 }
 
-
-#iname, #idsubject, #idemail, #idcomment{
-    font-size: 12px;
-    padding: 5px;
-    border-radius: 5px;
-    border-color: transparent;
-}
-
-#idsend{
-    font-size: 14px;
-    font-weight: bold;
-    padding: 5px;
-    border-radius: 5px;
-    color: #ffffff;
-    background-color: #36A5D5;
-    border-color: #36A5D5;
-  }
-
-
 /*------HOOVER------*/
 
 #idsend:hover {

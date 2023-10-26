@@ -1,0 +1,9 @@
+#subtitle-data{
+    border-top-left-radius: 0.5rem;
+}
+
+.sidedata-list-item{
+    padding: 2rem;
+    background: var(--main-orange);
+    width: 100%;
+}
