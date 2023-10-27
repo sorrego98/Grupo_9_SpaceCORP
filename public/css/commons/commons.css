@@ -98,7 +98,6 @@ main{
     width: 100%;
     height: 100%;
     display: flex;
-    flex-direction: row;
     gap: 0.3rem;
 
 }
@@ -107,9 +106,10 @@ main{
     width: clamp(20rem, 90%, 60rem);    
     display: flex;
     flex-direction: column;
+    align-items: flex-start;
     gap: 0.3rem;
-    align-items: center;
-    /* justify-content: flex-start; */
+    height: 100%;
+    /* justify-content: ; */
     /* background: var(--alert-error-text); */
 }
 
@@ -117,21 +117,20 @@ main{
     display: flex;
     justify-content: center;
     flex-grow: 1;
-    overflow: hidden;
     width: 100%;
-    padding: 0.3rem 0.3rem 0rem;
-    gap: 0.3rem;
+    padding-block: 1rem;
+    gap: 1rem;
     background: var(--main-blue50);
+    border-bottom-left-radius: 0.5rem;
 }
 
 .sidedata-list{
     display: flex;
     flex-direction: column;
     width: 100%;
-    gap: 0.3rem;
-    align-items: flex-start;
-    justify-content: center;
-    /* background: var(--main-blue50); */
+    gap: 1rem;
+    align-items: center;
+    justify-content: flex-start;
 }
 
 .maindata-box{
@@ -396,3 +395,19 @@ div > .highlight{
     color: var(--alert-error-text);
 
 } */
+
+
+@media (max-width:599px) {
+    
+    .show-data-box{
+        flex-direction: column;
+
+    }
+}
+@media (min-width:600px) {
+    
+    .show-data-box{
+        flex-direction: row;
+
+    }
+}

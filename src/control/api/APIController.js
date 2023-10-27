@@ -1,4 +1,7 @@
 const db = require('../../database/models');
+require('dotenv').config();
+
+const PORT = parseInt(process.env.PORT);
 
 const controlAPI = {
     listData: function (req, res) {
@@ -7,199 +10,189 @@ const controlAPI = {
         switch (method.toUpperCase()) {
             case 'CATEGORY':
                 db.Category.findAll()
-                    .then(cat => {
-                        let data = [];
-                        for (let i = 0; i < cat.length; i++) {
-                            data.push({
-                                id: cat[i].id,
-                                name: cat[i].name
-                            })
-                        }
-                        return res.json({
-                            total: data.length,
-                            data: data,
-                            status: 200
+                .then(categories => {
+                        let data = categories.map ( category => {
+                            return {
+                                id: category.id,
+                                name: category.name,                                
+                            }
                         })
-                    })
-                    // .then(reqData => res.json({
-                    //     total: reqData.length,
-                    //     data: reqData,
-                    //     status: 200
-                    // }))
-                    .catch(error => res.send("Error presente: " + error));
-                ;
+                        return res.status(200).json({
+                            total: data.length,
+                            data,
+                        })
+                })
+                .catch(error => res.status(400).send("Error presente: " + error));
                 break;
 
             case 'PRODUCTS':
-                db.Products.findAll({ include: [{ association: 'categories' }, { association: 'subcategories' }, { association: 'productprices' }] })
-                    .then(product => {
-                        let data = [];
-                        for (let i = 0; i < product.length; i++) {
-                            data.push({
-                                id: product[i].id,
-                                name: product[i].name,
-                                subcategory: product[i].subcategories.name,
-                                detail: 'http://localhost:5050/api/products/' + product[i].id
+                db.SubCategory.findAll()
+                    .then( subCat => {
+                        db.Products.findAll({ include: [{ association: 'subcategories' }]})
+                            .then(products => {
+                                let data = products.map ( product => {
+                                    return {
+                                        id: product.id,
+                                        name: product.name,
+                                        subcategory: {
+                                            id: product.subcategories.id,
+                                            name: product.subcategories.name
+                                            },
+                                        detail: 'http://localhost:' + PORT + '/api/products/' + product.id
+                                    }
+                                })
+                                let countBySubCat = subCat.map( subCat =>  {
+                                    let prods = data.filter(product => product.subcategory.id == subCat.id)     
+                                    let nameSubCat = subCat.name
+                                    let keyValue = "{ \"" + nameSubCat + "\" : " + prods.length + "}"
+                                    return JSON.parse(keyValue,2)
+                                })
+                                return res.status(200).json({
+                                    total: data.length,
+                                    countBySubCat,
+                                    data,
+                                })
                             })
-                        }
-                        return res.json({
-                            total: data.length,
-                            data: data,
-                            status: 200
-                        })
                     })
-                    .catch(error => res.send("Error presente: " + error));
-                ;
+                    .catch(error => res.status(400).send({error: "no existen subcategorias, por tanto, no existen productos"}));
                 break;
 
             case 'SUBCATEGORY':
-                db.SubCategory.findAll({ include: [{ association: 'categories' }] })
+                db.SubCategory.findAll({ include: [{ association: 'categories' }] })                
                     .then(subCat => {
-                        let data = [];
-                        for (let i = 0; i < subCat.length; i++) {
-                            data.push({
-                                id: subCat[i].id,
-                                name: subCat[i].name,
-                                detail: 'http://localhost:5050/api/subcategory/' + subCat[i].id
-                            })
-                        }
-                        return res.json({
-                            total: data.length,
-                            data: data,
-                            status: 200
+                        let data = subCat.map ( subCat => {
+                            return {
+                                id: subCat.id,
+                                name: subCat.name,
+                                category: {
+                                    id: subCat.categories.id,
+                                    name: subCat.categories.name,
+                                },
+                                detail: 'http://localhost:' + PORT + '/api/subcategory/' + subCat.id
+                            }
                         })
-                    })
-                    .catch(error => res.send("Error presente: " + error));
+                        
+                        return res.status(200).json({
+                            total: data.length,
+                            data,
+                        })
+                    })                    
+                    .catch(error => res.status(400).send("Error presente: " + error));
                 ;
                 break;
 
             case 'PRODUCTPRICE':
                 db.ProductPrice.findAll()
                     .then(productPrice => {
-                        let data = [];
-                        for (let i = 0; i < productPrice.length; i++) {
-                            data.push({
-                                id: productPrice[i].id,
-                                name: productPrice[i].name
-                            })
-                        }
-                        return res.json({
-                            total: data.length,
-                            data: data,
-                            status: 200
+                        let data = productPrice.map ( productPrice => {
+                            return {
+                                id: productPrice.id,
+                                name: productPrice.name
+                            }
                         })
-                    })
-                    .catch(error => res.send("Error presente: " + error));
-                ;
+                        
+                        return res.status(200).json({
+                            total: data.length,
+                            data,
+                        })
+                    })                    
+                    .catch(error => res.status(400).send("Error presente: " + error));
                 break;
 
             case 'ROLES':
                 db.Roles.findAll()
-                    .then(role => {
-                        let data = [];
-                        for (let i = 0; i < role.length; i++) {
-                            data.push({
-                                id: role[i].id,
-                                name: role[i].roleName
-                            })
-                        }
-                        return res.json({
-                            total: data.length,
-                            data: data,
-                            status: 200
+                    .then(roles => {
+                        let data = roles.map ( Rol => {
+                            return {
+                                id: Rol.id,
+                                name: Rol.roleName
+                            }
                         })
-                    })
-                    .catch(error => res.send("Error presente: " + error));
-                ;
+                        
+                        return res.status(200).json({
+                            total: data.length,
+                            data,
+                        })
+                    })      
+                    .catch(error => res.status(400).send("Error presente: " + error));      
                 break;
-
 
             case 'USERS':
                 db.Users.findAll({ include: [{ association: 'roles' }] })
                     .then(users => {
-                        let data = [];
-                        for (let i = 0; i < users.length; i++) {
-                            data.push({
-                                id: users[i].id,
-                                name: users[i].firstName,
-                                lastName: users[i].lastName,
-                                // email: users[i].email,
-                                detail: 'http://localhost:5050/api/users/' + users[i].id,
-                            });
-                        }
-
-                        return res.json({
-                            total: users.length,
-                            data: data,
-                            status: 200
-
+                        let data = users.map ( user => {
+                            return {
+                                id: user.id,
+                                name: user.firstName,
+                                lastName: user.lastName,
+                                email: user.email,
+                                detail: 'http://localhost:' + PORT + '/api/users/' + user.id
+                            }
                         })
-                    })
-                    .catch(error => res.send("Error presente: " + error));
-                ;
+                        
+                        return res.status(200).json({
+                            total: data.length,
+                            data,
+                        })
+                    })     
+                    .catch(error => res.status(400).send("Error presente: " + error));
                 break;
 
-                case 'PRODUCTIONS':
+            case 'PRODUCTIONS':
                 db.Production.findAll()
-                    .then(production => {
-                        let data = [];
-                        for (let i = 0; i < production.length; i++) {
-                            data.push({
-                                id: production[i].id,
-                                name: production[i].songTitle,
-                                detail: 'http://localhost:5050/api/productions/' + production[i].id
-                            })
-                        }
-                        return res.json({
-                            total: data.length,
-                            data: data,
-                            status: 200
+                    .then(prods => {
+                        let data = prods.map ( prod => {
+                            return {
+                                id: prod.id,
+                                name: prod.songTitle,
+                                detail: 'http://localhost:' + PORT + '/api/productions/' + prod.id
+                            }
                         })
-                    })
-                    .catch(error => res.send("Error presente: " + error));
-                ;
+                        
+                        return res.status(200).json({
+                            total: data.length,
+                            data,
+                        })
+                    })     
+                    .catch(error => res.status(400).send("Error presente: " + error));
                 break;
                 
-                case 'MEMBERS':
+            case 'MEMBERS':
                 db.Member.findAll()
-                    .then(member => {
-                        let data = [];
-                        for (let i = 0; i < member.length; i++) {
-                            data.push({
-                                id: member[i].id,
-                                name: member[i].name,
-                                detail: 'http://localhost:5050/api/members/' + member[i].id
-                            })
+                .then(members => {
+                    let data = members.map ( member => {
+                        return {
+                            id: member.id,
+                            name: member.songTitle,
+                            detail: 'http://localhost:' + PORT + '/api/members/' + member.id
                         }
-                        return res.json({
-                            total: data.length,
-                            data: data,
-                            status: 200
-                        })
                     })
-                    .catch(error => res.send("Error presente: " + error));
-                ;
-                break;
+                    
+                    return res.status(200).json({
+                        total: data.length,
+                        data,
+                    })
+                })     
+                .catch(error => res.status(400).send("Error presente: " + error));
+            break;
 
-                case 'GALERY':
+            case 'GALERY':
                 db.Galery.findAll()
-                    .then(photo => {
-                        let data = [];
-                        for (let i = 0; i < photo.length; i++) {
-                            data.push({
-                                id: photo[i].id,
-                                name: photo[i].name,
-                                image: 'http://localhost:5050/db-images/home/galery/' + photo[i].image
-                            })
-                        }
-                        return res.json({
-                            total: data.length,
-                            data: data,
-                            status: 200
+                    .then(photos => {
+                        let data = photos.map ( photo => {
+                            return {
+                                id: photo.id,
+                                name: photo.name,
+                                image: 'http://localhost:' + PORT + '/db-images/home/galery/' + photo.image
+                            }
                         })
-                    })
-                    .catch(error => res.send("Error presente: " + error));
-                ;
+                        
+                        return res.status(200).json({
+                            total: data.length,
+                            data,
+                        })
+                    })     
+                    .catch(error => res.status(400).send("Error presente: " + error));
                 break;
 
             // case 'USERCART':
@@ -228,14 +221,16 @@ const controlAPI = {
 
         }
     },
+
     detailData: (req, res) => {
         let method = req.params.method
+        let idConsult = idConsult
         switch (method.toUpperCase()) {
 
             case 'PRODUCTS':
-                db.Products.findByPk(req.params.id, { include: [{ association: 'categories' }, { association: 'subcategories' }, { association: 'productprices' }] })
+                db.Products.findByPk(idConsult, { include: [{ association: 'categories' }, { association: 'subcategories' }, { association: 'productprices' }] })
                     .then(product => {
-                        return res.json({
+                        return res.status(200).json({
                             data: {
                                 name: product.name,
                                 description: product.description,
@@ -252,85 +247,79 @@ const controlAPI = {
                                     id: product.subcategories.id,
                                     name: product.subcategories.name
                                 },
-                                imageProduct: 'http://localhost:5050/db-images/products/products/' + product.image
-                            },
-                            status: 200
+                                imageProduct: 'http://localhost:' + PORT + '/db-images/products/products/' + product.image
+                            }
                         })
                     })
-                    .catch(error => res.send("Error presente: " + error));
+                    .catch(error => res.status(400).send("Error presente: " + error));
                 ;
                 break;
 
             case 'SUBCATEGORY':
-                db.SubCategory.findByPk(req.params.id, { include: [{ association: 'categories' }] })
+                db.SubCategory.findByPk(idConsult, { include: [{ association: 'categories' }] })
                     .then(subCat => {
-                        return res.json({
+                        return res.status(200).json({
                             data: {
                                 name: subCat.name,
                                 description: subCat.description,
-                                category: subCat.categories.name,
-                                imageSubcategory: 'http://localhost:5050/db-images/products/subcategories/' + subCat.image,
-                            },
-                            status: 200
+                                category: {
+                                    id: subCat.categories.id,
+                                    name: subCat.categories.name,
+                                },
+                                imageSubcategory: 'http://localhost:' + PORT + '/db-images/products/subcategories/' + subCat.image,
+                            }
                         })
                     })
-                    .catch(error => res.send("Error presente: " + error));
+                    .catch(error => res.status(400).send("Error presente: " + error));
                 ;
                 break;
 
             case 'USERS':
-                db.Users.findByPk(req.params.id, { include: [{ association: 'roles' }] })
+                db.Users.findByPk(idConsult)
                     .then(user => {
-                        return res.json({
+                        return res.status(200).json({
                             data: {
                                 name: user.firstName,
                                 lastName: user.lastName,
                                 userName: user.userName,
                                 email: user.email,
-                                role: {
-                                    id: user.roles.id,
-                                    name: user.roles.roleName
-                                },
-                                imageProfile: 'http://localhost:5050/db-images/users/' + user.imageProfile,
-                            },
-                            status: 200
+                                imageProfile: 'http://localhost:' + PORT + '/db-images/users/' + user.imageProfile,
+                            }
                         })
                     })
-                    .catch(error => res.send("Error presente: " + error));
+                    .catch(error => res.status(400).send("Error presente: " + error));
                 ;
                 break;
 
-                case 'PRODUCTIONS':
-                db.Production.findByPk(req.params.id)
+            case 'PRODUCTIONS':
+                db.Production.findByPk(idConsult)
                     .then(production => {
-                        return res.json({
+                        return res.status(200).json({
                             data: {
                                 name: production.songTitle,
                                 artist: production.artistName,
                                 url: production.youtubeUrl
-                            },
-                            status: 200
+                            }
                         })
                     })
-                    .catch(error => res.send("Error presente: " + error));
+                    .catch(error => res.status(400).send("Error presente: " + error));
                 ;
                 break;
 
                 case 'MEMBERS':
-                db.Member.findByPk(req.params.id)
+                db.Member.findByPk(idConsult)
                     .then(member => {
-                        return res.json({
+                        return res.status(200).json({
                             data: {
                                 name: member.name,
                                 jobTitle: member.jobName,
                                 instagramName: member.instagramName,
                                 instagramUrl: member.instagramUrl,
-                                imageProfile: 'http://localhost:5050/db-images/home/members/' + member.image,
-                            },
-                            status: 200
+                                imageProfile: 'http://localhost:' + PORT + '/db-images/home/members/' + member.image,
+                            }
                         })
                     })
-                    .catch(error => res.send("Error presente: " + error));
+                    .catch(error => res.status(400).send("Error presente: " + error));
                 ;
                 break;
 
@@ -340,6 +329,5 @@ const controlAPI = {
         }
     }
 };
-module.exports = {
-    controlAPI
-};
+
+module.exports = {controlAPI}

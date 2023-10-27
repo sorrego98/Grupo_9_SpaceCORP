@@ -6,118 +6,75 @@
     <main>
         <div class="container-max-box">
             <h1 class="box-title border-top" id="title-form">Administración de Tablas</h1>
-            <section class="show-data-box border-bottom">                
+            <section class="show-data-box">                
                 <aside class="sidedata-box">
                     <h2 class="box-title" id="subtitle-data">Listado</h1>
                     <div class="sidedata-content">
                         <div class="sidedata-list">
+                            <div class="sidedata-list-item">
+                                <i class="fa-solid fa-people-group"></i>
+                                <a href="/admin/home/staff">Staff</a>             
+                            </div>
+                            <div class="sidedata-list-item">
+                                <i class="fa-solid fa-panorama"></i>
+                                <a href="/admin/home/galery">Galería</a>
+                            </div>
+                            <div class="sidedata-list-item">
+                                <i class="fa-solid fa-photo-film"></i>
+                                <a href="/admin/home/latestProductions">Últimas Producciones</a>              
+                            </div>
+                            <div class="sidedata-list-item">
+                                <i class="fa-solid fa-people-group"></i>
+                                <a href="/admin/home/staff">Staff</a>             
+                            </div>
+                            <div class="sidedata-list-item">
+                                <i class="fa-solid fa-panorama"></i>
+                                <a href="/admin/home/galery">Galería</a>
+                            </div>
+                            <div class="sidedata-list-item">
+                                <i class="fa-solid fa-photo-film"></i>
+                                <a href="/admin/home/latestProductions">Últimas Producciones</a>              
+                            </div>
+                            <div class="sidedata-list-item">
+                                <i class="fa-solid fa-people-group"></i>
+                                <a href="/admin/home/staff">Staff</a>             
+                            </div>
+                            <div class="sidedata-list-item">
+                                <i class="fa-solid fa-panorama"></i>
+                                <a href="/admin/home/galery">Galería</a>
+                            </div>
+                            <div class="sidedata-list-item">
+                                <i class="fa-solid fa-photo-film"></i>
+                                <a href="/admin/home/latestProductions">Últimas Producciones</a>              
+                            </div>
                             <% if (locals.usuario.roles.roleName.toUpperCase() == "EMPLEADO" ) { %>
                                 <div class="sidedata-list-item">
-                                    <i class="fa-solid fa-people-group"></i>
-                                    <a href="/admin/home/staff">Staff</a>             
-                                </div>
-                                <div class="sidedata-list-item">
-                                    <i class="fa-solid fa-panorama"></i>
-                                    <a href="/admin/home/galery">Galería</a>
-                                </div>
-                                <div class="sidedata-list-item">
-                                    <i class="fa-solid fa-photo-film"></i>
-                                    <a href="/admin/home/latestProductions">Últimas Producciones</a>              
+                                    <i class="fa-solid fa-circle-play"></i>
+                                    <a href="/admin/products/categories">Categorías</a>              
                                 </div>
                                 <div class="sidedata-list-item">
                                     <i class="fa-solid fa-circle-play"></i>
-                                    Servicios
-                                    <a href="/admin/products/categories">Categorías</a>               
+                                    <a href="/admin/products/subcategories">Subcategorías</a>               
                                 </div>
                                 <div class="sidedata-list-item">
                                     <i class="fa-solid fa-circle-play"></i>
-                                    Servicios
-                                    <a href="/admin/products/categories">Categorías</a>               
+                                    <a href="/admin/products/products">Productos</a>              
                                 </div>
                                 <div class="sidedata-list-item">
                                     <i class="fa-solid fa-circle-play"></i>
-                                    Servicios
-                                    <a href="/admin/products/categories">Categorías</a>               
+                                    <a href="/admin/products/priceType">Tipo de Precio</a>              
                                 </div>
                                 <div class="sidedata-list-item">
                                     <i class="fa-solid fa-circle-play"></i>
-                                    Servicios
-                                    <a href="/admin/products/categories">Categorías</a>               
+                                    <a href="/admin/users/">Tipo de Usuarios</a>              
                                 </div>
                                 <div class="sidedata-list-item">
                                     <i class="fa-solid fa-circle-play"></i>
-                                    Servicios
-                                    <a href="/admin/products/categories">Categorías</a>               
+                                    <a href="/admin/users/">Usuarios</a>            
                                 </div>
-                                <div class="sidedata-list-item">
-                                    <i class="fa-solid fa-circle-play"></i>
-                                    Servicios
-                                    <a href="/admin/products/categories">Categorías</a>               
-                                </div>
-                                <div class="sidedata-list-item">
-                                    <i class="fa-solid fa-circle-play"></i>
-                                    Servicios
-                                    <a href="/admin/products/categories">Categorías</a>               
-                                </div>
-                                <div class="sidedata-list-item">
-                                    <i class="fa-solid fa-circle-play"></i>
-                                    Servicios
-                                    <a href="/admin/products/categories">Categorías</a>               
-                                </div>
-                                <div class="sidedata-list-item">
-                                    <i class="fa-solid fa-circle-play"></i>
-                                    Servicios
-                                    <a href="/admin/products/categories">Categorías</a>               
-                                </div>
-                                <div class="sidedata-list-item">
-                                    <i class="fa-solid fa-circle-play"></i>
-                                    Servicios
-                                    <a href="/admin/products/categories">Categorías</a>               
-                                </div>
-                                <div class="sidedata-list-item">
-                                    <i class="fa-solid fa-circle-play"></i>
-                                    Servicios
-                                    <a href="/admin/products/categories">Categorías</a>               
-                                </div>
-                                <div class="sidedata-list-item">
-                                    <i class="fa-solid fa-circle-play"></i>
-                                    Servicios
-                                    <a href="/admin/products/categories">Categorías</a>               
-                                </div>
-                                <div class="sidedata-list-item">
-                                    <i class="fa-solid fa-circle-play"></i>
-                                    Servicios
-                                    <a href="/admin/products/categories">Categorías</a>               
-                                </div>
-                                <div class="sidedata-list-item">
-                                    <i class="fa-solid fa-circle-play"></i>
-                                    Servicios
-                                    <a href="/admin/products/categories">Categorías</a>               
-                                </div>
-                                <div class="sidedata-list-item">
-                                    <i class="fa-solid fa-circle-play"></i>
-                                    Servicios
-                                    <a href="/admin/products/categories">Categorías</a>               
-                                </div>
-                                <div class="sidedata-list-item">
-                                    <i class="fa-solid fa-circle-play"></i>
-                                    Servicios
-                                    <a href="/admin/products/categories">Categorías</a>               
-                                </div>
-                                <div class="sidedata-list-item">
-                                    <i class="fa-solid fa-circle-play"></i>
-                                    Servicios
-                                    <a href="/admin/products/categories">Categorías</a>               
-                                </div>
-                                <div class="sidedata-list-item">
-                                    <i class="fa-solid fa-circle-play"></i>
-                                    Servicios
-                                    <a href="/admin/products/categories">Categorías</a>               
-                                </div>
-                            <% } %>
+                            <% } %>                                
                         </div>                        
                     </div>
-                    <span>casdasdsa</span>
                 </aside>
                 <section class="maindata-box">
                     <span>casdasdsa</span>
