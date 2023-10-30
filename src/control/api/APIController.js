@@ -224,7 +224,7 @@ const controlAPI = {
 
     detailData: (req, res) => {
         let method = req.params.method
-        let idConsult = idConsult
+        let idConsult = req.params.id
         switch (method.toUpperCase()) {
 
             case 'PRODUCTS':
@@ -307,20 +307,27 @@ const controlAPI = {
                 break;
 
                 case 'MEMBERS':
-                db.Member.findByPk(idConsult)
-                    .then(member => {
-                        return res.status(200).json({
-                            data: {
-                                name: member.name,
-                                jobTitle: member.jobName,
-                                instagramName: member.instagramName,
-                                instagramUrl: member.instagramUrl,
-                                imageProfile: 'http://localhost:' + PORT + '/db-images/home/members/' + member.image,
-                            }
+                if (idConsult.toUpperCase() == "ALL"){
+                    db.Member.findAll()
+                        .then(members => {
+                            return res.status(200).json({data: members})
                         })
-                    })
-                    .catch(error => res.status(400).send("Error presente: " + error));
-                ;
+                        .catch(error => res.status(400).send("Error presente: " + error));
+                }else{
+                    db.Member.findByPk(idConsult)
+                        .then(member => {
+                            return res.status(200).json({
+                                data: {
+                                    name: member.name,
+                                    jobTitle: member.jobName,
+                                    instagramName: member.instagramName,
+                                    instagramUrl: member.instagramUrl,
+                                    imageProfile: 'http://localhost:' + PORT + '/db-images/home/members/' + member.image,
+                                }
+                            })
+                        })
+                        .catch(error => res.status(400).send("Error presente: " + error));
+                }
                 break;
 
             default:

@@ -23,8 +23,7 @@ module.exports = controlUser = {
       let password = req.body.userPass;
       let remindMe = req.body.remindMe;
       let errors = validationResult(req);
-      
-      
+            
       if (errors.isEmpty()) {
         dbUser.findUser.toLogin(data)
         .then(results => {
@@ -51,7 +50,7 @@ module.exports = controlUser = {
             }
           })
           .catch((errors) => {
-            console.log(errors)
+            // console.log(errors)
             return res.status(400).render(path.resolve(__dirname, '../views/auth/guest/login'), { message: errors })
           })
           

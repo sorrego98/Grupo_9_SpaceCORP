@@ -9,16 +9,13 @@ let position = 0;
 let counter = 0;
 let widthVideo = 100 / sliderSectionv.length;
 
-window.addEventListener("load", e => {
-    getData();
-});
 
 function getData() {
     const data = document.getElementById("allProduction").dataset.params
     console.log(JSON.parse((JSON.stringify(data))))
-    // if (dataSet) {
-    //     return dataSet
-    // }
+    // // if (dataSet) {
+    // //     return dataSet
+    // // }
 }
 setInterval(() => {
     moveToRightv()

@@ -5,7 +5,7 @@ const db = require('../database/models');
 
 const adminProducts = {
     generalAdmon: (req, res) => {
-        res.render('./admin/general-admon');
+        res.render('./auth/admin/adminView');
     },
     lists:{
         Categories: (req, res) => {

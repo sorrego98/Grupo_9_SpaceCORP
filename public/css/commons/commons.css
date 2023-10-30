@@ -3,7 +3,8 @@
 
 :root {
     /*--- blues ---*/
-    --main-blue: #36A5D5;
+    /* --main-blue: #36A5D5; */
+    --main-blue: #2085b1;
     --main-blue90: #40ADD6;
     --main-blue50: #95D1E8;
     --main-blue10: #EAF5FA;
@@ -70,10 +71,9 @@ main{
     height: 100%;
     padding: 1rem;
     display: flex;
-    align-items: baseline;
+    align-items: flex-start;
     justify-content: center;
     position: relative;
-    gap: 1em;
 }
 
 /*--------- Contenedores ------*/
@@ -88,8 +88,8 @@ main{
 .container-max-box{
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    gap: 0.3rem;
+    justify-content: flex-start;
+    gap: 0.5rem;
     width: 100%;
     height: 100%;
 }
@@ -98,7 +98,8 @@ main{
     width: 100%;
     height: 100%;
     display: flex;
-    gap: 0.3rem;
+    align-items: flex-start;
+    gap: 0.5rem;
 
 }
 
@@ -107,7 +108,7 @@ main{
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    gap: 0.3rem;
+    gap: 0.5rem;
     height: 100%;
     /* justify-content: ; */
     /* background: var(--alert-error-text); */
@@ -115,13 +116,21 @@ main{
 
 .sidedata-content{    
     display: flex;
-    justify-content: center;
-    flex-grow: 1;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    height: 100%;
     width: 100%;
-    padding-block: 1rem;
+    padding: 1rem;
     gap: 1rem;
     background: var(--main-blue50);
     border-bottom-left-radius: 0.5rem;
+}
+
+.text-centered{
+    justify-content: center;
+    text-align: center;
+    text-wrap: balance;
 }
 
 .sidedata-list{
@@ -134,9 +143,32 @@ main{
 }
 
 .maindata-box{
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
     width: 100%;
     height: 100%;
-    background: var(--main-facebook);
+
+    position: relative;
+}
+
+.align-top{
+    display: flex;
+    justify-content: flex-start;
+}
+
+.centered{
+    display: grid;
+    place-items: center;
+
+}
+
+.maindata-content{    
+    width: 100%;
+    height: 100%;
+    display: none;
+    flex-direction: column;
+    gap: 0.5rem;
 }
 
 .error-type{
@@ -168,7 +200,7 @@ main{
     position: absolute;
     display: flex;
     flex-direction: column;
-    gap: 0.3rem;
+    gap: 0.5rem;
     width: 100%;
     height: auto;
     transition: 1.5s;
@@ -401,6 +433,7 @@ div > .highlight{
     
     .show-data-box{
         flex-direction: column;
+        align-items: center;
 
     }
 }
@@ -408,6 +441,7 @@ div > .highlight{
     
     .show-data-box{
         flex-direction: row;
+        align-items: flex-start;
 
     }
 }

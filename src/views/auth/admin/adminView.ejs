@@ -1,0 +1,76 @@
+<%- include ('../../partials/commons/head')%>
+    <title>Administración General</title>
+    <link rel="stylesheet" href="/css/auth/user/admin.css">
+</head>
+<%- include ('../../partials/commons/header')%>
+    <main>
+        <div class="container-max-box">
+            <h1 class="box-title border-top" id="title-form">Administración de Tablas</h1>
+            <section class="show-data-box">                
+                <aside class="sidedata-box">
+                    <h2 class="box-title" id="subtitle-data">Listado</h1>
+                    <div class="sidedata-content">
+                        <div class="sidedata-list">
+                            <button class="sidedata-list-item" id="btn-staff">
+                                <i class="fa-solid fa-people-group"></i>
+                                <span>Staff</span>             
+                            </button>
+                            <button class="sidedata-list-item" id="btn-gallery">
+                                <i class="fa-solid fa-panorama"></i>
+                                <span>Galería</span>             
+                            </button>
+                            <button class="sidedata-list-item" id="btn-prods">
+                                <i class="fa-solid fa-photo-film"></i>
+                                <span>Últimas Producciones</span>             
+                            </button>
+                            <% if (locals.usuario.roles.roleName.toUpperCase() == "ADMINISTRADOR" ) { %>
+                                <button class="sidedata-list-item" id="btn-cats">
+                                    <i class="fa-solid fa-circle-play"></i>
+                                    <span>Categorías</span>                                
+                                </button>
+                                <button class="sidedata-list-item" id="btn-subcats">
+                                    <i class="fa-solid fa-circle-play"></i>
+                                    <span>Subcategorías</span>                                              
+                                </button>
+                                <button class="sidedata-list-item" id="btn-products">
+                                    <i class="fa-solid fa-circle-play"></i>
+                                    <span>Productos</span>              
+                                </button>
+                                <button class="sidedata-list-item" id="btn-price">
+                                    <i class="fa-solid fa-circle-play"></i>
+                                    <span>Tipos de Precio</span>              
+                                </button>
+                                <button class="sidedata-list-item" id="btn-users">
+                                    <i class="fa-solid fa-circle-play"></i>
+                                    <span>Usuarios</span>                           
+                                </button>
+                                <button class="sidedata-list-item" id="btn-type-users">
+                                    <i class="fa-solid fa-circle-play"></i>
+                                    <span>Tipos de Usuarios</span>                            
+                                </button>
+                            <% } %>                                
+                        </div>                        
+                    </div>
+                </aside>
+                <section class="maindata-box">
+                    <!-- <div class="no-maindata">
+                        <img src="/img/missing.jpg" alt="dog with a violin">
+                        <h3>No has seleccionado alguna tabla para editar</h3>
+                    </div> -->
+                    <section class="box-title subtitle-maindata">
+                        <h2 class="" id="subtitle-table">1</h2>
+                        <button class="add-element">
+                            <i class="fa-solid fa-circle-plus"></i><span>Agregar registro</span>
+                        </button>
+                    </section>
+                    <div class="maindata-content">
+                        <%- include ('../../partials/tables/tableRow')%>
+                    </div>
+                </section>
+
+            </section>
+
+        </div>
+    </main>
+    <script src="/scripts/auth/admin/showTable"></script>
+<%- include ('../../partials/commons/footer')%>

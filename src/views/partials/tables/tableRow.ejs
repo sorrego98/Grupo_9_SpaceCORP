@@ -1,0 +1,13 @@
+<table id="table-content" style="border:1">
+    <thead>
+        <tr>
+            <th>#</th>
+            <th>Nombre</th>
+            <th>Ver</th>
+            <th>Editar</th>
+            <%if (locals.usuario.roles.roleName.toUpperCase() == "ADMINISTRADOR" ) { %>
+                <th>Eliminar</th>
+            <% } %>
+        </tr>
+    </thead>
+</table>

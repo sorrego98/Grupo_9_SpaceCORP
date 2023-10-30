@@ -1,0 +1,55 @@
+const btnStaff = document.getElementById("btn-staff")
+const noData = document.querySelector(".no-maindata")
+const tableData = document.querySelector(".maindata-content")
+const subTable = document.getElementById("subtitle-table")
+const tableBody = document.getElementById("table-content")
+btnStaff.addEventListener("click", e =>{
+    // console.log(e)
+    retrieveData("http://localhost:3000/api/members/all", "Staff")    
+})
+
+function retrieveData (url, btn) {
+    fetch(url)
+    .then(response => response.json())
+    .then(data => {
+        data = data.data
+        if (typeof(data) !== 'undefined'){
+            subTable.innerHTML =  "Administrar > " + btn
+            // noData.style.display = "none"
+            tableData.style.display = "flex"
+            let tableList = document.createElement("tbody")
+            // tableList = tableList.removeChild("tbody")
+
+            data.forEach( element => {
+                let tr = document.createElement("tr")
+                
+                let td = document.createElement("td")
+                td.innerText = element.id
+                tr.appendChild(td)
+
+                td = document.createElement("td")
+                td.innerText = element.name
+                tr.appendChild(td)
+                
+                td = document.createElement("td")
+                let icon = document.createElement("i")
+                icon.classList.add("fa-solid")
+                icon.classList.add("fa-eye")
+                console.log("ico 1:",icon)
+                td.appendChild(icon)
+                tr.appendChild(td)
+                
+                td = document.createElement("td")
+                icon = document.createElement("i")
+                icon.classList.add("fa-solid")
+                icon.classList.add("fa-pencil")
+                console.log("ico 2:",icon)
+                td.appendChild(icon)
+                tr.appendChild(td)
+                tableList.appendChild(tr)
+
+            })
+            tableBody.appendChild(tableList)
+        }
+    });
+}
