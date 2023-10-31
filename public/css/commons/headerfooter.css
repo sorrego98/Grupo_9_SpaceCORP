@@ -35,6 +35,7 @@ footer {
 
 .contain-foo-SM{
     background-color: var(--main-blue);
+    color: var(--main-white);
 
 }
 
@@ -45,6 +46,10 @@ footer {
     align-items: center;
     justify-content: space-between;
     margin: 0.5em 2em;
+    color: var(--main-white);
+}
+
+.foo-SM > h4, .about > h3, .about > i, .list-RRSS > a > i {
     color: var(--main-white);
 }
 

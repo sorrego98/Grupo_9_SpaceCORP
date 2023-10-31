@@ -1,12 +1,13 @@
 const db = require('../../database/models');
 require('dotenv').config();
-
+const methods = ["CATEGORY","PRODUCTS","SUBCATEGORY", "PRODUCTPRICE", "ROLES", "USERS", "PRODUCTIONS", "MEMBERS", "GALLERY"]
+const sinonym = ["CATEGORIAS","PRODUCTOS","SUBCATS", "PRECIOS", "ROLES", "USUARIOS", "PRODUCCIONES", "STAFF", "GALERIA"]
 const PORT = parseInt(process.env.PORT);
 
 const controlAPI = {
     listData: function (req, res) {
         let method = req.params.method
-
+        
         switch (method.toUpperCase()) {
             case 'CATEGORY':
                 db.Category.findAll()
@@ -38,7 +39,7 @@ const controlAPI = {
                                             id: product.subcategories.id,
                                             name: product.subcategories.name
                                             },
-                                        detail: 'http://localhost:' + PORT + '/api/products/' + product.id
+                                        detail: 'http://localhost:' + PORT + '/api/'+ method + '/' + product.id
                                     }
                                 })
                                 let countBySubCat = subCat.map( subCat =>  {
@@ -68,7 +69,7 @@ const controlAPI = {
                                     id: subCat.categories.id,
                                     name: subCat.categories.name,
                                 },
-                                detail: 'http://localhost:' + PORT + '/api/subcategory/' + subCat.id
+                                detail: 'http://localhost:' + PORT + '/api/'+ method + '/' + subCat.id
                             }
                         })
                         
@@ -126,7 +127,7 @@ const controlAPI = {
                                 name: user.firstName,
                                 lastName: user.lastName,
                                 email: user.email,
-                                detail: 'http://localhost:' + PORT + '/api/users/' + user.id
+                                detail: 'http://localhost:' + PORT + '/api/'+ method + '/' + user.id
                             }
                         })
                         
@@ -164,7 +165,7 @@ const controlAPI = {
                         return {
                             id: member.id,
                             name: member.songTitle,
-                            detail: 'http://localhost:' + PORT + '/api/members/' + member.id
+                            detail: 'http://localhost:' + PORT + '/api/'+ method + '/' + member.id
                         }
                     })
                     
@@ -176,14 +177,14 @@ const controlAPI = {
                 .catch(error => res.status(400).send("Error presente: " + error));
             break;
 
-            case 'GALERY':
+            case 'GALLERY':
                 db.Galery.findAll()
                     .then(photos => {
                         let data = photos.map ( photo => {
                             return {
                                 id: photo.id,
                                 name: photo.name,
-                                image: 'http://localhost:' + PORT + '/db-images/home/galery/' + photo.image
+                                image: 'http://localhost:' + PORT + '/db-images/home/'+ method + '/' + photo.image
                             }
                         })
                         
@@ -223,90 +224,159 @@ const controlAPI = {
     },
 
     detailData: (req, res) => {
-        let method = req.params.method
         let idConsult = req.params.id
+        let index = sinonym.indexOf(req.params.method.toUpperCase())
+        let method = methods[index]
         switch (method.toUpperCase()) {
 
-            case 'PRODUCTS':
-                db.Products.findByPk(idConsult, { include: [{ association: 'categories' }, { association: 'subcategories' }, { association: 'productprices' }] })
-                    .then(product => {
-                        return res.status(200).json({
-                            data: {
-                                name: product.name,
-                                description: product.description,
-                                category: {
-                                    id: product.categories.id,
-                                    name: product.categories.name
-                                },
-                                price: product.price,
-                                PriceType: {
-                                    id: product.productprices.id,
-                                    name: product.productprices.name
-                                },
-                                subcategory: {
-                                    id: product.subcategories.id,
-                                    name: product.subcategories.name
-                                },
-                                imageProduct: 'http://localhost:' + PORT + '/db-images/products/products/' + product.image
-                            }
+            case 'GALLERY':
+                if (idConsult.toUpperCase() == "ALL"){
+                    db.Galery.findAll()
+                        .then(Galery => {
+                            return res.status(200).json({data: Galery})
                         })
-                    })
-                    .catch(error => res.status(400).send("Error presente: " + error));
-                ;
+                        .catch(error => res.status(400).send("Error presente: " + error));
+                }
+                break;
+                
+            case 'PRODUCTPRICE':
+                if (idConsult.toUpperCase() == "ALL"){
+                    db.ProductPrice.findAll()
+                        .then(PriceType => {
+                            return res.status(200).json({data: PriceType})
+                        })
+                        .catch(error => res.status(400).send("Error presente: " + error));
+                }
+                break;
+
+            case 'ROLES':
+                if (idConsult.toUpperCase() == "ALL"){
+                    db.Roles.findAll()
+                        .then(roles => {
+                            return res.status(200).json({data: roles})
+                        })
+                        .catch(error => res.status(400).send("Error presente: " + error));
+                }
+                break;
+                    
+            case 'CATEGORY':
+                if (idConsult.toUpperCase() == "ALL"){
+                    db.Category.findAll()
+                        .then(Categories => {
+                            return res.status(200).json({data: Categories})
+                        })
+                        .catch(error => res.status(400).send("Error presente: " + error));
+                }
+                break;
+
+            case 'PRODUCTS':
+                if (idConsult.toUpperCase() == "ALL"){
+                    db.Products.findAll({ include: [{ association: 'categories' }, { association: 'subcategories' }, { association: 'productprices' }] })
+                        .then(Products => {
+                            return res.status(200).json({data: Products})
+                        })
+                        .catch(error => res.status(400).send("Error presente: " + error));
+                }else{
+                    db.Products.findByPk(idConsult, { include: [{ association: 'categories' }, { association: 'subcategories' }, { association: 'productprices' }] })
+                        .then(product => {
+                            return res.status(200).json({
+                                data: {
+                                    name: product.name,
+                                    description: product.description,
+                                    category: {
+                                        id: product.categories.id,
+                                        name: product.categories.name
+                                    },
+                                    price: product.price,
+                                    PriceType: {
+                                        id: product.productprices.id,
+                                        name: product.productprices.name
+                                    },
+                                    subcategory: {
+                                        id: product.subcategories.id,
+                                        name: product.subcategories.name
+                                    },
+                                    imageProduct: 'http://localhost:' + PORT + '/db-images/'+ method + '/'+ method + '/' + product.image
+                                }
+                            })
+                        })
+                        .catch(error => res.status(400).send("Error presente: " + error));
+                }
                 break;
 
             case 'SUBCATEGORY':
-                db.SubCategory.findByPk(idConsult, { include: [{ association: 'categories' }] })
-                    .then(subCat => {
-                        return res.status(200).json({
-                            data: {
-                                name: subCat.name,
-                                description: subCat.description,
-                                category: {
-                                    id: subCat.categories.id,
-                                    name: subCat.categories.name,
-                                },
-                                imageSubcategory: 'http://localhost:' + PORT + '/db-images/products/subcategories/' + subCat.image,
-                            }
+                if (idConsult.toUpperCase() == "ALL"){
+                    db.SubCategory.findAll({ include: [{ association: 'categories' }] })
+                        .then(subCat => {
+                            return res.status(200).json({data: subCat})
                         })
-                    })
-                    .catch(error => res.status(400).send("Error presente: " + error));
-                ;
+                        .catch(error => res.status(400).send("Error presente: " + error));
+                }else{
+                    db.SubCategory.findByPk(idConsult, { include: [{ association: 'categories' }] })
+                        .then(subCat => {
+                            return res.status(200).json({
+                                data: {
+                                    name: subCat.name,
+                                    description: subCat.description,
+                                    category: {
+                                        id: subCat.categories.id,
+                                        name: subCat.categories.name,
+                                    },
+                                    imageSubcategory: 'http://localhost:' + PORT + '/db-images/products/subcategories/' + subCat.image,
+                                }
+                            })
+                        })
+                        .catch(error => res.status(400).send("Error presente: " + error));
+                }
                 break;
 
             case 'USERS':
-                db.Users.findByPk(idConsult)
-                    .then(user => {
-                        return res.status(200).json({
-                            data: {
-                                name: user.firstName,
-                                lastName: user.lastName,
-                                userName: user.userName,
-                                email: user.email,
-                                imageProfile: 'http://localhost:' + PORT + '/db-images/users/' + user.imageProfile,
-                            }
+                if (idConsult.toUpperCase() == "ALL"){
+                    db.Users.findAll({ include: [{ association: 'roles' }] })
+                        .then(Users => {
+                            return res.status(200).json({data: Users})
                         })
-                    })
-                    .catch(error => res.status(400).send("Error presente: " + error));
-                ;
+                        .catch(error => res.status(400).send("Error presente: " + error));
+                }else{
+                    db.Users.findByPk(idConsult)
+                        .then(user => {
+                            return res.status(200).json({
+                                data: {
+                                    name: user.firstName,
+                                    lastName: user.lastName,
+                                    userName: user.userName,
+                                    email: user.email,
+                                    imageProfile: 'http://localhost:' + PORT + '/db-images/'+ method + '/' + user.imageProfile,
+                                }
+                            })
+                        })
+                        .catch(error => res.status(400).send("Error presente: " + error));
+                }
                 break;
 
             case 'PRODUCTIONS':
-                db.Production.findByPk(idConsult)
-                    .then(production => {
-                        return res.status(200).json({
-                            data: {
-                                name: production.songTitle,
-                                artist: production.artistName,
-                                url: production.youtubeUrl
-                            }
+                if (idConsult.toUpperCase() == "ALL"){
+                    db.Production.findAll()
+                        .then(Productions => {
+                            return res.status(200).json({data: Productions})
                         })
-                    })
-                    .catch(error => res.status(400).send("Error presente: " + error));
-                ;
+                        .catch(error => res.status(400).send("Error presente: " + error));
+                }else{
+                    db.Production.findByPk(idConsult)
+                        .then(production => {
+                            return res.status(200).json({
+                                data: {
+                                    name: production.songTitle,
+                                    artist: production.artistName,
+                                    url: production.youtubeUrl
+                                }
+                            })
+                        })
+                        .catch(error => res.status(400).send("Error presente: " + error));
+                }
                 break;
 
-                case 'MEMBERS':
+            case 'MEMBERS':
                 if (idConsult.toUpperCase() == "ALL"){
                     db.Member.findAll()
                         .then(members => {
@@ -322,7 +392,7 @@ const controlAPI = {
                                     jobTitle: member.jobName,
                                     instagramName: member.instagramName,
                                     instagramUrl: member.instagramUrl,
-                                    imageProfile: 'http://localhost:' + PORT + '/db-images/home/members/' + member.image,
+                                    imageProfile: 'http://localhost:' + PORT + '/db-images/home/'+ method + '/' + member.image,
                                 }
                             })
                         })

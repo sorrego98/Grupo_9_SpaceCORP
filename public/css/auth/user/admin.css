@@ -24,7 +24,7 @@
 }
 
 .subtitle-maindata{
-    display: flex;
+    display: none;
     flex-direction: row;
     flex-wrap: nowrap;
     justify-content: space-between;
@@ -33,23 +33,21 @@
 }
 
 #subtitle-table{
-    color: var(--main-white);
+    color: var(--main-white);   
 }
 
 .no-maindata{
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
+    margin-top: 3rem;
     width: 100%;
+    height: 98%;
     display: grid;
     place-items: center;
     gap: 0.5rem;
 }
 
 .no-maindata > img{    
-    width: 25rem;
-    height: 25rem;
-    border: 1rem solid var(--main-blue);
+    width: 28rem;
+    height: 28rem;
     border-radius: 50%;
 }
 
@@ -57,10 +55,12 @@
     text-align: center;
     text-wrap: balance;
 }
-
+.maindata{
+    display: none;
+}
 .maindata-content{
-    display: flex;
     flex-direction: column;
+    padding: 1rem;
     gap: 0.5rem;
     width: 100%;
     height: 100%;
@@ -85,14 +85,48 @@
 .add-element > i, span{
     color: inherit;
 }
-
-.table-content{
-    width: 100%;
-    display: grid;
-
-    /* flex-direction: column; */
-    /* align-items: center; */
+#table-content {
+    border-collapse: collapse;
+    border-bottom: 0.2rem solid black;
+    text-align: center;
 }
+
+thead{
+    border-block: 0.2rem solid black;
+    background: var(--main-blue);
+}
+
+thead > tr > th {
+    color: white;
+    width: 4rem;
+} 
+
+tbody{
+    border-block: 0.2rem solid black;
+    background: var(--main-white);
+}
+
+tbody > tr:nth-child(odd){
+    background: var(--main-gray50);
+}
+
+tbody > tr:hover{
+    background: var(--main-blue90);
+}
+
+tbody > tr:hover > td ,tbody > tr:hover > td > i{
+    color: var(--main-blue10);
+}
+
+th, td {
+    padding: 0.4rem;
+    width: fit-content;
+}
+
+td > i{
+    cursor: pointer
+}
+
 .content-title-row{
     padding: 1rem 0rem;
     color: var(--main-white);
@@ -106,14 +140,26 @@
     .box-title{
         border-top-right-radius: 0.5rem;
     }
+
+    .add-element{
+        justify-content: center;
+    }
     
     .sidedata-content{
         border-bottom-right-radius: 0.5rem;
+    }
+
+    .subtitle-maindata{
+        flex-direction: column;
     }
 }
 @media (min-width:600px) {
     
     .box-title{
         border-top-right-radius: 0.5rem;
+    }
+    
+    .add-element{
+        justify-content: none;
     }
 }

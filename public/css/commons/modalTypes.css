@@ -17,19 +17,19 @@
     position: relative;    
     display: flex;
     flex-direction: column;
-    gap: 1em;
-    padding:1em;
-    box-shadow: 0.3em 0.3em 0.3em -0.2em rgba(0,0,0,0.75);
-    width: clamp(32em, 70%, 45em);
+    gap: 1rem;
+    padding:1rem;
+    box-shadow: 0.3rem 0.3rem 0.3rem -0.2rem rgba(0,0,0,0.75);
+    width: clamp(32rem, 70%, 45rem);
     background: var(--main-blue10);
-    border-radius: 1em;
+    border-radius: 1rem;
     height: fit-content;
 }
 
 .modal-close{
     position: absolute;
-    right:1.2em;
-    top: 0.8em;
+    right:1.2rem;
+    top: 0.8rem;
     text-decoration: none;
     border: none;
     background: transparent;
@@ -41,15 +41,15 @@
 }
 
 .modal-close > i {
-    font-size: 2em;
+    font-size: 2rem;
     color: var(--main-blue);
 }
 
 .modal-close:hover > i {
-    font-size: 2em;
+    font-size: 2rem;
     color: var(--main-red);
 }
 
 .modal-title{
-    margin-top: 1.4em;
+    margin-top: 1.4rem;
 }

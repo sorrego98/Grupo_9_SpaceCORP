@@ -1,8 +1,10 @@
 <%- include ('../../partials/commons/head')%>
     <title>Administración General</title>
     <link rel="stylesheet" href="/css/auth/user/admin.css">
+    <link rel="stylesheet" href="/css/commons/modalTypes.css">
 </head>
 <%- include ('../../partials/commons/header')%>
+<%- include ('../../partials/auth/modalAdmin')%>
     <main>
         <div class="container-max-box">
             <h1 class="box-title border-top" id="title-form">Administración de Tablas</h1>
@@ -52,18 +54,18 @@
                         </div>                        
                     </div>
                 </aside>
-                <section class="maindata-box">
-                    <!-- <div class="no-maindata">
+                <section class="main-container">
+                    <div class="no-maindata">
                         <img src="/img/missing.jpg" alt="dog with a violin">
                         <h3>No has seleccionado alguna tabla para editar</h3>
-                    </div> -->
+                    </div>
                     <section class="box-title subtitle-maindata">
                         <h2 class="" id="subtitle-table">1</h2>
                         <button class="add-element">
                             <i class="fa-solid fa-circle-plus"></i><span>Agregar registro</span>
                         </button>
                     </section>
-                    <div class="maindata-content">
+                    <div class="maindata-content search">
                         <%- include ('../../partials/tables/tableRow')%>
                     </div>
                 </section>
@@ -73,4 +75,5 @@
         </div>
     </main>
     <script src="/scripts/auth/admin/showTable"></script>
+    <script src="/scripts/auth/admin/showModals"></script>
 <%- include ('../../partials/commons/footer')%>
