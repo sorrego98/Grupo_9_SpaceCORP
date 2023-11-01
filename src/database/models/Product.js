@@ -47,7 +47,7 @@ module.exports = (sequelize, dataTypes) => {
 
     Products.associate = function(models){
         Products.belongsTo(models.Category,{
-            as:"categories", /*revisa */
+            as:"categories", 
             foreignKey:"cat_id"
         })
 
@@ -55,37 +55,10 @@ module.exports = (sequelize, dataTypes) => {
             as:"productprices",
             foreignKey:"price_id"
         })
-
-        // Products.hasMany(models.ProductPrice,{
-        //     as:"productprices", /*revisa */
-        //     foreignKey:"price_id"
-        // }) 
-
         Products.belongsTo(models.SubCategory,{
-            as:"subcategories", /*revisa */
+            as:"subcategories", 
             foreignKey:"subcat_id"
         })
-
-        // Products.belongsToMany(models.Users,{
-        //     as:"productscarts",
-        //     through:"user_cart_products",
-        //     foreignKey:"id_product",
-        //     otherKey:"id_user",
-        //     timestamps:true})
-
-        // Products.belongsToMany(models.Users,{
-        //     as:"productsfavs",
-        //     through:"user_fav_products",
-        //     foreignKey:"id_product",
-        //     otherKey:"id_user",
-        //     timestamps:true})
-
-        // Products.belongsToMany(models.Users,{
-        //     as:"productssales",
-        //     through:"user_sales",
-        //     foreignKey:"id_product",
-        //     otherKey:"id_user",
-        //     timestamps:true})
     }
 
     return Products;

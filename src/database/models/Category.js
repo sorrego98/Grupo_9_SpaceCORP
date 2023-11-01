@@ -22,12 +22,12 @@ module.exports = (sequelize, dataTypes) => {
         Category.hasMany(models.SubCategory,{
             as:"subcategories",
             foreignKey:"cat_id"
-        }),
+        });
 
         Category.hasMany(models.Products,{
-            as:"products", /*revisa */
+            as:"products",
             foreignKey:"cat_id"
-        })
+        });
     }
 
     return Category;

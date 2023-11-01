@@ -9,14 +9,33 @@ const controlProducts = {
     //         /*res.render('./products/products', { products })*/
     //     .catch(error => res.send("Error presente: " + error));
     // },
-    products: function (req, res) {
-        db.Category.findAll({ include: [{ association: 'subcategories' }] })
-            .then(category => {
-                res.render('./products/products', { category })
+    products: async (req, res) => {
+        db.Category.findAll({
+            include: [
+            {
+                model: db.SubCategory,
+                as: 'subcategories',
+                include: [
+                {
+                    model: db.Products,
+                    as: 'products',
+                    include: [
+                    {
+                        model: db.ProductPrice,
+                        as: 'productprices',
+                    },
+                    ],
+                },
+                ],
+            },
+            ],
+        })
+            .then(products =>{                
+                res.render('./products/products', { products })
             })
-            .catch(error => res.send("Error presente: " + error));
+            .catch (error => res.status(500).json({ error: 'Error al obtener las categorías.' }))
     },
-    detailProductsDBJSON: function (req, res) {
+    detailProductsDBJSON: (req, res) => {
         db.SubCategory.findByPk(req.params.id, { include: [{ association: 'products' }] })//{include: [{association: 'subcategories'}]})
             .then(subcategory => res.json(subcategory))
             /*res.render('./products/products', { products })*/
