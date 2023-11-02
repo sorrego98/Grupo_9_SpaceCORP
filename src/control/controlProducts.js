@@ -3,12 +3,6 @@ const controlMain = require('./controlMain');
 const db = require('../database/models'); /*---> esto está tirando el proyecto*/
 
 const controlProducts = {
-    // productsDBJSON: function (req, res) {
-    //     db.Category.findAll({include: [{association: 'subcategories'}]})
-    //     .then( category => res.json(category))    
-    //         /*res.render('./products/products', { products })*/
-    //     .catch(error => res.send("Error presente: " + error));
-    // },
     products: async (req, res) => {
         db.Category.findAll({
             include: [

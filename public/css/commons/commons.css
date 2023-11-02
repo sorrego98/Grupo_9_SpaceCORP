@@ -368,6 +368,7 @@ main{
     width: clamp(15rem,90%,30rem);
     gap: 0.5rem;
     z-index: 1;
+    cursor: pointer;
 }
 
 .alert{

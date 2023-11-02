@@ -1,7 +1,7 @@
 const db = require('../../database/models');
 require('dotenv').config();
-const methods = ["CATEGORY","PRODUCTS","SUBCATEGORY", "PRODUCTPRICE", "ROLES", "USERS", "PRODUCTIONS", "MEMBERS", "GALLERY"]
-const sinonym = ["CATEGORIAS","PRODUCTOS","SUBCATS", "PRECIOS", "ROLES", "USUARIOS", "PRODUCCIONES", "STAFF", "GALERIA"]
+// const methods = ["CATEGORY","PRODUCTS","SUBCATEGORY", "PRODUCTPRICE", "ROLES", "USERS", "PRODUCTIONS", "MEMBERS", "GALLERY"]
+// const sinonym = ["CATEGORIAS","PRODUCTOS","SUBCATS", "PRECIOS", "ROLES", "USUARIOS", "PRODUCCIONES", "STAFF", "GALERIA"]
 const PORT = parseInt(process.env.PORT);
 
 const controlAPI = {
@@ -225,27 +225,32 @@ const controlAPI = {
 
     detailData: (req, res) => {
         let idConsult = req.params.id
-        let index = sinonym.indexOf(req.params.method.toUpperCase())
-        let method = methods[index]
+        let method = req.params.method
         switch (method.toUpperCase()) {
 
             case 'GALLERY':
+            case 'GALERIA':
                 if (idConsult.toUpperCase() == "ALL"){
                     db.Galery.findAll()
                         .then(Galery => {
                             return res.status(200).json({data: Galery})
                         })
                         .catch(error => res.status(400).send("Error presente: " + error));
+                }else{
+                    res.send("La API que intenta consulta, no existe");
                 }
                 break;
                 
             case 'PRODUCTPRICE':
+            case 'PRECIOS':
                 if (idConsult.toUpperCase() == "ALL"){
                     db.ProductPrice.findAll()
                         .then(PriceType => {
                             return res.status(200).json({data: PriceType})
                         })
                         .catch(error => res.status(400).send("Error presente: " + error));
+                }else{
+                    res.send("La API que intenta consulta, no existe");
                 }
                 break;
 
@@ -256,20 +261,26 @@ const controlAPI = {
                             return res.status(200).json({data: roles})
                         })
                         .catch(error => res.status(400).send("Error presente: " + error));
+                }else{
+                    res.send("La API que intenta consulta, no existe");
                 }
                 break;
                     
             case 'CATEGORY':
+            case 'CATEGORIAS':
                 if (idConsult.toUpperCase() == "ALL"){
                     db.Category.findAll()
                         .then(Categories => {
                             return res.status(200).json({data: Categories})
                         })
                         .catch(error => res.status(400).send("Error presente: " + error));
+                }else{
+                    res.send("La API que intenta consulta, no existe");
                 }
                 break;
 
             case 'PRODUCTS':
+            case 'PRODUCTOS':
                 if (idConsult.toUpperCase() == "ALL"){
                     db.Products.findAll({ include: [{ association: 'categories' }, { association: 'subcategories' }, { association: 'productprices' }] })
                         .then(Products => {
@@ -305,6 +316,7 @@ const controlAPI = {
                 break;
 
             case 'SUBCATEGORY':
+            case 'SUBCATS':
                 if (idConsult.toUpperCase() == "ALL"){
                     db.SubCategory.findAll({ include: [{ association: 'categories' }] })
                         .then(subCat => {
@@ -331,6 +343,7 @@ const controlAPI = {
                 break;
 
             case 'USERS':
+            case 'USUARIOS':
                 if (idConsult.toUpperCase() == "ALL"){
                     db.Users.findAll({ include: [{ association: 'roles' }] })
                         .then(Users => {
@@ -355,6 +368,7 @@ const controlAPI = {
                 break;
 
             case 'PRODUCTIONS':
+            case 'PRODUCCIONES':
                 if (idConsult.toUpperCase() == "ALL"){
                     db.Production.findAll()
                         .then(Productions => {
@@ -377,6 +391,7 @@ const controlAPI = {
                 break;
 
             case 'MEMBERS':
+            case 'STAFF':
                 if (idConsult.toUpperCase() == "ALL"){
                     db.Member.findAll()
                         .then(members => {
