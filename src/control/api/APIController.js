@@ -29,17 +29,28 @@ const controlAPI = {
             case 'PRODUCTS':
                 db.SubCategory.findAll()
                     .then( subCat => {
-                        db.Products.findAll({ include: [{ association: 'subcategories' }]})
+                        db.Products.findAll({ include: [{ association: 'subcategories' }, { association: 'categories' }, { association: 'productprices' }] })                        
                             .then(products => {
                                 let data = products.map ( product => {
                                     return {
                                         id: product.id,
                                         name: product.name,
+                                        description: product.description,
+                                        price: product.price,
+                                        category: {
+                                            id: product.categories.id,
+                                            name: product.categories.name
+                                            },
                                         subcategory: {
                                             id: product.subcategories.id,
                                             name: product.subcategories.name
                                             },
-                                        detail: 'http://localhost:' + PORT + '/api/'+ method + '/' + product.id
+                                        PriceType: {
+                                            id: product.productprices.id,
+                                            name: product.productprices.name
+                                        },
+                                        imageProduct: 'http://localhost:' + PORT + '/db-images/'+ method + '/'+ method + '/' + product.image
+                                        // detail: 'http://localhost:' + PORT + '/api/'+ method + '/' + product.id,
                                     }
                                 })
                                 let countBySubCat = subCat.map( subCat =>  {
@@ -65,11 +76,13 @@ const controlAPI = {
                             return {
                                 id: subCat.id,
                                 name: subCat.name,
+                                description: subCat.description,
+                                imageSubcategory: 'http://localhost:' + PORT + '/db-images/products/subcategories/' + subCat.image,
                                 category: {
                                     id: subCat.categories.id,
                                     name: subCat.categories.name,
                                 },
-                                detail: 'http://localhost:' + PORT + '/api/'+ method + '/' + subCat.id
+                                // detail: 'http://localhost:' + PORT + '/api/'+ method + '/' + subCat.id,                    
                             }
                         })
                         
@@ -126,8 +139,10 @@ const controlAPI = {
                                 id: user.id,
                                 name: user.firstName,
                                 lastName: user.lastName,
+                                userName: user.userName,
                                 email: user.email,
-                                detail: 'http://localhost:' + PORT + '/api/'+ method + '/' + user.id
+                                imageProfile: 'http://localhost:' + PORT + '/db-images/'+ method + '/' + user.imageProfile
+                                // detail: 'http://localhost:' + PORT + '/api/'+ method + '/' + user.id
                             }
                         })
                         
@@ -146,6 +161,7 @@ const controlAPI = {
                             return {
                                 id: prod.id,
                                 name: prod.songTitle,
+                                url: prod.youtubeUrl,
                                 detail: 'http://localhost:' + PORT + '/api/productions/' + prod.id
                             }
                         })
@@ -164,8 +180,12 @@ const controlAPI = {
                     let data = members.map ( member => {
                         return {
                             id: member.id,
-                            name: member.songTitle,
-                            detail: 'http://localhost:' + PORT + '/api/'+ method + '/' + member.id
+                            name: member.name,
+                            jobTitle: member.jobName,
+                            instagramName: member.instagramName,
+                            instagramUrl: member.instagramUrl,
+                            imageProfile: 'http://localhost:' + PORT + '/db-images/home/'+ method + '/' + member.image
+                            // detail: 'http://localhost:' + PORT + '/api/'+ method + '/' + member.id,
                         }
                     })
                     
@@ -184,7 +204,7 @@ const controlAPI = {
                             return {
                                 id: photo.id,
                                 name: photo.name,
-                                image: 'http://localhost:' + PORT + '/db-images/home/'+ method + '/' + photo.image
+                                image: 'http://localhost:' + PORT + '/db-images/home/galery/' + photo.image
                             }
                         })
                         

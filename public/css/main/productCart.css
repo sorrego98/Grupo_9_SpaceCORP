@@ -9,6 +9,9 @@
   padding: 5px;
   height: 90%;
   position:relative; 
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .seguimiento{
@@ -120,6 +123,7 @@ main section a{
 
 .resumen{
 width: 400px;
+height: 70%;
 border-radius: 10px;
 background-color: #36A5D5;
 border-color: #36A5D5;
@@ -137,6 +141,7 @@ color:white;
 h3{
   padding: 10px;
   font-size: 20px;
+  color:white;
 }
 
 .totales{
@@ -144,6 +149,9 @@ h3{
   display: flex;
   justify-content: right;
   font-weight: bold;
+  position: absolute;
+  bottom: 35%;
+  right: 10%
 }
 
 main section div.total{
@@ -151,6 +159,7 @@ main section div.total{
   width: 80%;
   text-align: right;
   font-size: 15px;
+  color:white;
 }
 
 main section div.suma-total{
@@ -158,11 +167,11 @@ main section div.suma-total{
   width: 20%;
   text-align: right;
   font-size: 15px;
+  color:white;
 }
 
 main div.finalizar{
   padding-top: 10px;
-  padding-bottom: 50px;
   display: flex;
   width: 400px;
   justify-content: right;
@@ -224,8 +233,18 @@ li {
   display: flex;
   place-items: center;
   position: relative;
+  flex-direction: row;
+  align-items: center;
 }
 
+
+.div3{
+  height: 100%;
+  place-items: center;
+  position: relative;
+  flex-direction: column;
+  padding-left: 20px;
+}
 
 /*----------*/
 
@@ -235,4 +254,25 @@ li {
   place-items: center;
   position: relative;
 }
+
+.div3{
+  height: 100%;
+  place-items: center;
+  position: relative;
+  padding: 0px;
+}
+
+.resumen{
+  height: 60%;
+  }
+  
+  
+  main div.finalizar{
+    height: 40%;
+    padding-bottom: 20px;
+  }
+
+  .continuar{
+    height: 40%;
+  }
 }
