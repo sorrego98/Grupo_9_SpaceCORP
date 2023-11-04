@@ -1,6 +1,6 @@
 const path = require("path");
 const controlMain = require('./controlMain');
-const db = require('../database/models'); /*---> esto está tirando el proyecto*/
+const db = require('../database/models'); 
 
 const controlProducts = {
     products: async (req, res) => {
@@ -27,7 +27,9 @@ const controlProducts = {
             .then(products =>{                
                 res.render('./products/products', { products })
             })
-            .catch (error => res.status(500).json({ error: 'Error al obtener las categorías.' }))
+            .catch (error => 
+                {console.log(error)
+                res.status(500).json({ error: 'Error al obtener las categorías.' })})
     },
     detailProductsDBJSON: (req, res) => {
         db.SubCategory.findByPk(req.params.id, { include: [{ association: 'products' }] })//{include: [{association: 'subcategories'}]})

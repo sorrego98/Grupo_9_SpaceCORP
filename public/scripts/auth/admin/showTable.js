@@ -175,3 +175,39 @@ function showData(){
         mainContain.style.background = "transparent"
     }    
 }
+
+const btnAddElement = document.querySelector(".add-element");
+btnAddElement.addEventListener("click", () => {
+    
+    const selectedTable = subTable.innerHTML;
+    const modalName = selectedTable.toLowerCase();
+    
+    fetch("/mostrarModal/" + modalName)
+        .then((response) => response.text())
+        .then((modalContent) => {
+            const mainElement = document.querySelector('main');
+            
+            const modalContainer = document.createElement("div");
+            modalContainer.classList.add('modal');
+            modalContainer.innerHTML = modalContent;
+
+            document.body.insertBefore(modalContainer, mainElement);
+
+            const titleTable = document.getElementById("title-table");
+            titleTable.innerHTML = "Agregar " + selectedTable;
+        })
+        .catch(error => {
+            console.error("Error en la solicitud fetch:", error);
+        });
+});
+
+
+
+document.addEventListener('click', (event) => {
+    if (event.target.classList.contains('close')) {
+        const modal = document.querySelector('.modal');
+        if (modal) {
+            document.body.removeChild(modal);
+        }
+    }
+});

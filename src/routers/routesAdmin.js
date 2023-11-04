@@ -6,6 +6,7 @@ const controlUser = require("../control/controlUser");
 // const authMiddleware = require('../middlewares/auth/SignOn');
 const adminMiddleware = require('../middlewares/adminMiddleware');
 const isGuest = require('../middlewares/auth/isGuest');
+const validateCreations = require('../middlewares/crud/validateCreations');
 const {uploadSC} = require('../middlewares/multerMiddleware')
 const {uploadProduct} = require('../middlewares/multerMiddleware');
 const {uploadMember} = require('../middlewares/multerMiddleware');
@@ -27,6 +28,7 @@ router.get("/products/products/detail-product/:id", controlAdmin.adminProducts.d
 
 // Create COMPLETO
 /*------------------- show interface to add elements to tables -------------------*/
+router.post("/create/staff", uploadMember.single('imageMember'), validateCreations, controlAdmin.adminProducts.creates.staff); // Create Category (get)
 router.get("/products/categories/add-category",  controlAdmin.adminProducts.adds.Categories); // Create Category (get)
 router.get("/products/priceType/add-price",  controlAdmin.adminProducts.adds.Prices); // Create Price Type (get)
 router.get("/products/subcategories/add-subcategory",  controlAdmin.adminProducts.adds.Subcategories); // Create Subcategory (get)

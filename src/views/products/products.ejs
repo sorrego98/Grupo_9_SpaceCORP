@@ -12,16 +12,16 @@
         <div class="main-container">
             <% for (let i = 0; i < products.length; i++) { %>
                 <% if (products[i].subcategories.length > 0) { %>
-                    <div class="accordion">
+                    <div class="accordion" data-category-index="<%= i %>">
                         <h2><%= products[i].name %></h2>
                         <div class="panel">
                             <% for (let j = 0; j < products[i].subcategories.length; j++) { %>
                                 <% if (products[i].subcategories[j].products.length > 0) { %>
-                                    <div class="sub-accordion">
+                                    <div class="sub-accordion" data-subcategory-index="<%= j %>">
                                         <h3><%= products[i].subcategories[j].name %></h3>
                                         <div class="sub-panel">
                                             <% for (let k = 0; k < products[i].subcategories[j].products.length; k++) { %>
-                                                <p class="products"><%= products[i].subcategories[j].products[k].name %></p>
+                                                <p class="products" data-product-index="<%= k %>"><%= products[i].subcategories[j].products[k].name %></p>
                                             <% } %>
                                         </div>
                                     </div>

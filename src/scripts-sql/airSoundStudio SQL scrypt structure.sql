@@ -38,7 +38,6 @@ CREATE TABLE `sub_categories` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `name` varchar(100) COLLATE utf8_unicode_ci NOT null,
   `description` varchar(500) COLLATE utf8_unicode_ci,
-  `image` varchar(1000) COLLATE utf8_unicode_ci,
   `cat_id` int(10) unsigned NOT NULL,
   PRIMARY KEY (`id`),
   KEY `sub_categories_cat_id_foreign` (`cat_id`),
@@ -61,14 +60,11 @@ CREATE TABLE `products` (
   `price_id` int(10) unsigned NOT null,  
   `price` decimal(30,2) COLLATE utf8_unicode_ci, 
   `status` boolean COLLATE utf8_unicode_ci NOT null,
-  `cat_id` int(10) unsigned NOT NULL,
   `subcat_id` int(10) unsigned NOT NULL,
   PRIMARY KEY (`id`),
   KEY `products_price_id_foreign` (`price_id`),
-  KEY `products_cat_id_foreign` (`cat_id`),
   key `products_subcat_id_foreign` (`subcat_id`),
   CONSTRAINT `products_price_id_foreign` FOREIGN KEY (`price_id`) REFERENCES `product_prices` (`id`),
-  CONSTRAINT `products_cat_id_foreign` FOREIGN KEY (`cat_id`) REFERENCES `categories` (`id`),
   constraint `products_subcat_id_foreign` FOREIGN KEY (`subcat_id`) REFERENCES `sub_categories` (`id`)   
 ) ENGINE=InnoDB AUTO_INCREMENT=0 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 

@@ -28,7 +28,7 @@
     height: 88%;
     width: 50%;
     border-radius: 3rem;
-    background: var(--main-blue90);
+    background: var(--main-blue);
     transition: 2s all;
 }
 

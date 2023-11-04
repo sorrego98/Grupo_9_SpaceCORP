@@ -11,35 +11,39 @@ let categoryIndex = -1;
 let subcategoryIndex = -1;
 let productIndex = -1;
 
-accordions.forEach((accordion, i) => {
+accordions.forEach((accordion) => {
     accordion.addEventListener("click", () => {
-        categoryIndex = i;
-        accordion.classList.toggle("show");
+        categoryIndex = accordion.getAttribute("data-category-index");
         const panel = accordion.querySelector(".panel");
-        panel.classList.toggle("show");
-        const subPanels = panel.querySelectorAll(".sub-panel.show");
-        subPanels.forEach((subPanel) => {
-            subPanel.classList.remove("show");
-            subPanel.previousElementSibling.classList.remove("show");
-        });
+        
+        accordion.classList.toggle("show");
+        if (!accordion.classList.contains("show")) {
+            // Si el accordion no tiene la clase "show", quito la clase "show" de todos los subAccordions
+            panel.classList.remove("show");
+            subAccordions.forEach((subAccordion) => {
+                subAccordion.classList.remove("show");
+                subAccordion.querySelector(".sub-panel").classList.remove("show");
+            });
+        }else{
+            panel.classList.add("show");
+        }
     });
 });
 
-subAccordions.forEach((subAccordion, j) => {
-    subAccordion.addEventListener("click", (event) => {
-        event.stopPropagation();
-        subcategoryIndex = j;
+subAccordions.forEach((subAccordion) => {
+    subAccordion.addEventListener("click", e => {
+        e.stopPropagation();
+        subcategoryIndex = subAccordion.getAttribute("data-subcategory-index");
         subAccordion.classList.toggle("show");
         const subPanel = subAccordion.querySelector(".sub-panel");
-        // Alternar la clase "show" en el sub-panel para mostrarlo u ocultarlo
         subPanel.classList.toggle("show");
     });
 });
 
-pElements.forEach((p, k) => {
-    p.addEventListener("click", (event) => {
-        event.stopPropagation();
-        productIndex = k;
+pElements.forEach((p) => {
+    p.addEventListener("click", e => {
+        e.stopPropagation();
+        productIndex = p.getAttribute("data-product-index");
     });
 });
 
@@ -50,22 +54,23 @@ products.forEach((product, index) => {
             console.error("Debes hacer clic en un elemento antes de mostrar el modal.");
             return;
         }
-
         const productData = JSON.parse(productAll.getAttribute("data-products"));
-        const clickedProduct = productData[categoryIndex].subcategories[subcategoryIndex].products[productIndex];
-        console.log(clickedProduct)
+        const category = productData[categoryIndex];
+        const subcategory = category.subcategories[subcategoryIndex];
+        const clickedProduct = subcategory.products[productIndex];
 
         const productTitle = document.getElementById("productTitle");
         const productImage = document.getElementById("productImage");
         const productDescription = document.getElementById("productDescription");
         const productPrice = document.getElementById("productPrice");
-        const productPriceType = document.getElementById("productPriceType");
 
         productTitle.textContent = clickedProduct.name;
         productImage.src = "/db-images/products/products/" + clickedProduct.image;
         productDescription.textContent = clickedProduct.description;
-        productPrice.textContent = (clickedProduct.price == null ? "a convenir" : clickedProduct.price);
-        productPriceType.textContent =  clickedProduct.productprices.name;
+        productPrice.textContent = (
+            clickedProduct.price == null 
+                ? clickedProduct.productprices.name
+                : clickedProduct.price + "USD " + clickedProduct.productprices.name);
 
         modal.style.display = "grid";
         document.body.classList.add('modal-open');

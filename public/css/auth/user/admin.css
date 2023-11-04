@@ -79,6 +79,7 @@
     background: var(--main-blue90);
     border-radius: 0.5rem;
     border: 0.1rem solid var(--main-blue10);
+    cursor: pointer;
 
 }
 
@@ -135,6 +136,51 @@ td > i{
     border-block: 0.2rem solid var(--main-black90);
 }
 
+.modal-content {
+    width: clamp(30rem,80%,50rem);
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.title-modal {
+    position: relative;
+}
+
+.modal-content .box-title * {
+    color: var(--main-white);
+}
+
+.close {
+    position: absolute;
+    right: 1rem;
+    top: 25%;
+    font-size: 3rem;
+    cursor: pointer;
+}
+
+.form-container {
+    width: 100%;
+    background: var(--main-blue50);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem;
+}
+
+.subitem{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+    align-items: flex-start;
+}
+
+.form-input{
+    position: inherit;
+}
+
 @media (max-width:599px) {
     
     .box-title{
@@ -159,7 +205,4 @@ td > i{
         border-top-right-radius: 0.5rem;
     }
     
-    .add-element{
-        justify-content: none;
-    }
 }

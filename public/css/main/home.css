@@ -64,8 +64,7 @@
 .input-w-icon > div{
     background-color: var(--main-black90);
     border-right: none;
-    width: 4rem;
-    
+    width: 4rem;    
 }
 
 .input-w-icon > div > i{
@@ -75,6 +74,10 @@
 .input-w-icon > span{
     padding: 0.5rem;
     width: 100%;
+}
+
+.input-w-icon > span > a{
+    text-decoration: none;
 }
 
 .text-colored{

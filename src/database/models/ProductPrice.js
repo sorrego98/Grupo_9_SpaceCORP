@@ -20,7 +20,7 @@ module.exports = (sequelize, dataTypes) => {
     ProductPrice.associate = function(models){
         ProductPrice.hasMany(models.Products,{
             as:"products",
-            foreignKey:"cat_id"
+            foreignKey:"price_id"
         })
     }
     

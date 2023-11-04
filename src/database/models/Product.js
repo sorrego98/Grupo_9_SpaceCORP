@@ -30,10 +30,6 @@ module.exports = (sequelize, dataTypes) => {
             type: dataTypes.BOOLEAN,
             allowNull: false
         },
-        catId: {
-            type: dataTypes.INTEGER(10).UNSIGNED,
-            allowNull: false
-        },
         subcatId: {
             type: dataTypes.INTEGER(10).UNSIGNED,
             allowNull: false
@@ -46,19 +42,15 @@ module.exports = (sequelize, dataTypes) => {
     const Products = sequelize.define(alias, cols, config); 
 
     Products.associate = function(models){
-        Products.belongsTo(models.Category,{
-            as:"categories", 
-            foreignKey:"cat_id"
-        })
-
-        Products.belongsTo(models.ProductPrice,{
-            as:"productprices",
-            foreignKey:"price_id"
-        })
-        Products.belongsTo(models.SubCategory,{
-            as:"subcategories", 
-            foreignKey:"subcat_id"
-        })
+        Products.belongsTo(models.ProductPrice, {
+            as: 'productprices',
+            foreignKey: 'price_id'
+        });
+    
+        Products.belongsTo(models.SubCategory, {
+            as: 'subcategories',
+            foreignKey: 'subcat_id'
+        });
     }
 
     return Products;

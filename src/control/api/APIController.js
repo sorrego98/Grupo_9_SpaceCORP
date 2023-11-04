@@ -226,6 +226,7 @@ const controlAPI = {
     detailData: (req, res) => {
         let idConsult = req.params.id
         let method = req.params.method
+        console.log(idConsult, method)
         switch (method.toUpperCase()) {
 
             case 'GALLERY':
@@ -282,22 +283,18 @@ const controlAPI = {
             case 'PRODUCTS':
             case 'PRODUCTOS':
                 if (idConsult.toUpperCase() == "ALL"){
-                    db.Products.findAll({ include: [{ association: 'categories' }, { association: 'subcategories' }, { association: 'productprices' }] })
+                    db.Products.findAll({ include: [{ association: 'subcategories' }, { association: 'productprices' }] })
                         .then(Products => {
                             return res.status(200).json({data: Products})
                         })
                         .catch(error => res.status(400).send("Error presente: " + error));
                 }else{
-                    db.Products.findByPk(idConsult, { include: [{ association: 'categories' }, { association: 'subcategories' }, { association: 'productprices' }] })
+                    db.Products.findByPk(idConsult, { include: [{ association: 'subcategories' }, { association: 'productprices' }] })
                         .then(product => {
                             return res.status(200).json({
                                 data: {
                                     name: product.name,
                                     description: product.description,
-                                    category: {
-                                        id: product.categories.id,
-                                        name: product.categories.name
-                                    },
                                     price: product.price,
                                     PriceType: {
                                         id: product.productprices.id,
@@ -318,23 +315,24 @@ const controlAPI = {
             case 'SUBCATEGORY':
             case 'SUBCATS':
                 if (idConsult.toUpperCase() == "ALL"){
-                    db.SubCategory.findAll({ include: [{ association: 'categories' }] })
+                    db.SubCategory.findAll({ include: [{ association: 'category' }] })
                         .then(subCat => {
                             return res.status(200).json({data: subCat})
                         })
                         .catch(error => res.status(400).send("Error presente: " + error));
                 }else{
-                    db.SubCategory.findByPk(idConsult, { include: [{ association: 'categories' }] })
+                    console.log(idConsult)
+                    db.SubCategory.findByPk(idConsult, { include: [{ association: 'category' }] })                    
                         .then(subCat => {
+                            console.log(subCat)
                             return res.status(200).json({
                                 data: {
                                     name: subCat.name,
                                     description: subCat.description,
                                     category: {
-                                        id: subCat.categories.id,
-                                        name: subCat.categories.name,
-                                    },
-                                    imageSubcategory: 'http://localhost:' + PORT + '/db-images/products/subcategories/' + subCat.image,
+                                        id: subCat.category.id,
+                                        name: subCat.category.name,
+                                    }
                                 }
                             })
                         })

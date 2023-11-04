@@ -3,9 +3,9 @@
     <link rel="stylesheet" href="/css/auth/user/admin.css">
     <link rel="stylesheet" href="/css/commons/modalTypes.css">
 </head>
-<%- include ('../../partials/commons/header')%>
-<%- include ('../../partials/auth/modalAdmin')%>
+<%- include ('../../partials/commons/header')%>    
     <main>
+        <%- include ('../../partials/alerts/alertAdmin')%>    
         <div class="container-max-box">
             <h1 class="box-title border-top" id="title-form">Administración de Tablas</h1>
             <section class="show-data-box">                
@@ -74,6 +74,6 @@
 
         </div>
     </main>
-    <script src="/scripts/auth/admin/showTable"></script>
-    <script src="/scripts/auth/admin/showModals"></script>
+    <script src="/scripts/auth/admin/showTable.js"></script>
+    <script src="/scripts/auth/admin/showMessages.js"></script>
 <%- include ('../../partials/commons/footer')%>

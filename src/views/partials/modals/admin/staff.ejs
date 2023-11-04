@@ -1,0 +1,38 @@
+<div class="modal-content">
+    <div class="box-title border-top title-modal">
+        <h2 id="title-table">texto titulo</h2>
+        <i class="fa-regular fa-rectangle-xmark close"></i>
+    </div>
+    <form class="form-container border-bottom" id="create-form" enctype="multipart/form-data" method="POST" action="/admin/create/staff">
+        <div class="subitem">
+            <strong class="center-title">Nombre</strong>
+            <input type="text" name="memberName" id="memberName" class="form-input form-dimention" required placeholder="Ingrese el nombre de su miembro de equipo">
+        </div>
+        
+        <div class="subitem">
+            <strong class="center-title">Cargo</strong>
+            <input type="text" name="memberPosition" id="memberPosition" class="form-input form-dimention" required placeholder="¿Cuál es su cargo?">
+        </div>
+        
+        <div class="subitem">
+            <strong class="center-title">Instagram</strong>
+            <input type="text" name="memberIG" id="memberIG" class="form-input form-dimention" required placeholder="Ingresa tu username">
+        </div>
+        
+        <div class="subitem">
+            <strong class="center-title">URL Instagram</strong>
+            <input type="text" name="memberIGURL" id="memberIGURL" class="form-input form-dimention" required placeholder="URL para redireccionar a tu cuenta IG.">
+        </div>
+        
+        <div class="subitem">
+            <strong class="center-title">Ingrese un avatar</strong>
+            <input type="file" name="imageMember" id="imageMember" class="form-input image-info" required placeholder="Ingrese imagen">
+        </div>
+        
+        <div class="subitem">
+            <button type="submit" name="add-item" class="submit-btn">Crear</button>
+        </div>
+        
+    </form>
+    <script src="/scripts/auth/admin/createStaff.js"></script>
+</div>

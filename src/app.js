@@ -9,6 +9,7 @@ const routeUser = require("./routers/routesUser");
 const routeCart = require("./routers/routesCart");
 const routeAdmin = require("./routers/routesAdmin");
 const APIRoutes = require("./routers/api/APIRoutes");
+const routeModals = require("./routers/modals");
 // const userAPIRoute = require("./routers/api/userAPIRoutes");
 
 const methodOverride = require('method-override');
@@ -57,6 +58,7 @@ app.use('/cart',routeCart);
 app.use('/admin',routeAdmin);
 // app.use('/api/users',userAPIRoute);
 app.use('/api',APIRoutes);
+app.use('/mostrarModal', routeModals);
 
 //Levantar servidor
 app.listen(PORT, () => console.log("Server Running on " + PORT));

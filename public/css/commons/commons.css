@@ -36,6 +36,9 @@
     --alert-error-icon: #C40113;
     --alert-error-text: #B75F62;
     --alert-error-bg: #FFD1D9;
+    --alert-success-icon: #63C266;
+    --alert-success-text: #87B088;
+    --alert-success-bg: #ADE8AF;
 }
 
 h1{font-size: 2.6rem; /* 26px */ font-weight: bolder;}
@@ -424,6 +427,20 @@ div > .highlight{
 
 .err-text{
     color: var(--alert-error-text);
+}
+
+.bg-success{    
+    background: var(--alert-success-bg );
+    border-color: var(--alert-success-icon);
+}
+
+.success-icon{
+    color: var(--main-white);
+    background: var(--alert-success-icon);
+}
+
+.success-text{
+    color: var(--alert-success-text);
 }
 /*
 .err-btn{
