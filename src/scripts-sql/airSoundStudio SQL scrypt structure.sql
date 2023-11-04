@@ -19,7 +19,7 @@ CREATE TABLE `users` (
   `user_name` varchar(100) COLLATE utf8_unicode_ci NOT null,
   `email` varchar(100) COLLATE utf8_unicode_ci NOT null,
   `password` varchar(1000) COLLATE utf8_unicode_ci NOT null,
-  `image_profile` varchar(1000) COLLATE utf8_unicode_ci default 'avatar-1692148831564.jpg',
+  `image_profile` varchar(1000) COLLATE utf8_unicode_ci,
   `role_id` int(10) unsigned NOT NULL,
   PRIMARY KEY (`id`),
   KEY `users_role_id_foreign` (`role_id`),
@@ -55,8 +55,8 @@ DROP TABLE IF EXISTS `products`;
 CREATE TABLE `products` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `name` varchar(100) COLLATE utf8_unicode_ci NOT null,
+  `image` varchar(1000) COLLATE utf8_unicode_ci,  
   `description` varchar(900) COLLATE utf8_unicode_ci,
-  `image` varchar(1000) COLLATE utf8_unicode_ci default 'product-1691548445770.jpg' ,  
   `price_id` int(10) unsigned NOT null,  
   `price` decimal(30,2) COLLATE utf8_unicode_ci, 
   `status` boolean COLLATE utf8_unicode_ci NOT null,
