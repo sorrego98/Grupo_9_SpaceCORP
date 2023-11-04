@@ -1,10 +1,27 @@
+Retro Sprint 7
+
+1. Comenzar a hacer: Actualizar con mayor frecuencia el weekly.md
+2. Hacer más: Tener las sesiones de retro con mayor frecuencia.
+3. Continuar haciendo: Enfocarnos en los objetivos del sprint y una vez resueltos todos los puntos avanzar con otros pendientes.
+4. Hacer menos: no identificamos nada que debamos hacer menos.
+5. Dejar de hacer: no identificamos nada que debamos dejar de hacer.
+
+
+Retro Sprint 6
+
+1. Comenzar a hacer: Testear el código completo.
+2. Hacer más: Utilizar trello para organizar las tareas y dar seguimiento.
+3. Continuar haciendo: Enfocarnos en los objetivos del sprint y una vez resueltos todos los puntos avanzar con otros pendientes.
+4. Hacer menos: No ser claros a la hora de definir responsabilidades
+5. Dejar de hacer: no identificamos nada que debamos dejar de hacer.
+
 Retro Sprint 5
 
 1. Comenzar a hacer: Darle más relevancia a los detalles que a los requerimientos del sprint. Testear el código completo.
 2. Hacer más: Utilizar trello para organizar las tareas y dar seguimiento.
 3. Continuar haciendo: Enfocarnos en los objetivos del sprint y una vez resueltos todos los puntos avanzar con otros pendientes.
-4. Hacer menos: 
-5. Dejar de hacer: 
+4. Hacer menos: trabajar individualmente y participar mas de las sesiones de trabajo (días martes) y weekly (sábados).
+5. Dejar de hacer: no identificamos nada que debamos dejar de hacer.
 
 Retro Sprint 4
 
