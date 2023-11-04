@@ -1,6 +1,7 @@
 window.addEventListener('DOMContentLoaded', e => {
     if (checkCookieExistence()) {
         alert('La cookie responseData existe en la web');
+        
       }
 });
 function checkCookieExistence() {
@@ -9,6 +10,7 @@ function checkCookieExistence() {
       const cookie = cookies[i].trim();
       if (cookie.startsWith('responseData=')) {
         // La cookie 'responseData' existe
+        console.log(cookie)
         return true;
       }
     }

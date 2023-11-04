@@ -29,7 +29,7 @@ const controlAPI = {
             case 'PRODUCTS':
                 db.SubCategory.findAll()
                     .then( subCat => {
-                        db.Products.findAll({ include: [{ association: 'subcategories' }, { association: 'categories' }, { association: 'productprices' }] })                        
+                        db.Products.findAll({ include: [{ association: 'subcategories' }, { association: 'productprices' }] })                        
                             .then(products => {
                                 let data = products.map ( product => {
                                     return {
@@ -37,10 +37,6 @@ const controlAPI = {
                                         name: product.name,
                                         description: product.description,
                                         price: product.price,
-                                        category: {
-                                            id: product.categories.id,
-                                            name: product.categories.name
-                                            },
                                         subcategory: {
                                             id: product.subcategories.id,
                                             name: product.subcategories.name
@@ -56,7 +52,8 @@ const controlAPI = {
                                 let countBySubCat = subCat.map( subCat =>  {
                                     let prods = data.filter(product => product.subcategory.id == subCat.id)     
                                     let nameSubCat = subCat.name
-                                    let keyValue = "{ \"" + nameSubCat + "\" : " + prods.length + "}"
+                                    let keyValue = "{ \"subCatName\" : \"" + nameSubCat + "\"," +
+                                                    " \"countbySubCat\" : " + prods.length + "}"
                                     return JSON.parse(keyValue,2)
                                 })
                                 return res.status(200).json({
