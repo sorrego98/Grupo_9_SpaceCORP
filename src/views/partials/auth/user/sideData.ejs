@@ -1,0 +1,30 @@
+
+<aside class="sidedata-box">
+    <h5 class="box-title border-top">Datos Personales</h5>
+    <div class="image-container">
+        <img class="show-image" src="/db-images/users/<%= user.imageProfile %> ">
+    </div>
+    <div class="sidedata-content">
+        <div class="token-row">
+            <strong class="token-element border-left">Alias</strong>
+            <span class="token-info border-right"><%= user.userName %></span>
+        </div>
+        <div class="token-row">
+            <strong class="token-element border-left">Mail</strong>
+            <span class="token-info border-right"><%= user.email %></span>
+        </div>
+        <div class="token-row">
+            <strong class="token-element border-left">Nombre</strong>
+            <span class="token-info border-right"><%= user.firstName + " " + user.lastName %></span>
+        </div>
+        <div class="token-row">
+            <strong class="token-element border-left">Rol</strong>
+            <span class="token-info border-right"><%= user.roles.roleName %></span>
+        </div>
+    </div>
+    <div class="btn-contain">
+        <button type="button" id="edit-profile" class="submit-btn">Editar Datos</button>
+        <button type="button" id="edit-password" class="submit-btn">Cambiar Contraseña</button>
+    </div>
+
+</aside>   

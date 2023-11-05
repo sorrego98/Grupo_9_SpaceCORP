@@ -117,14 +117,12 @@ main{
 }
 
 .sidedata-box{    
-    width: clamp(20rem, 90%, 60rem);    
+    width: clamp(20rem, 90%, 50rem);    
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     gap: 0.5rem;
     height: 100%;
-    /* justify-content: ; */
-    /* background: var(--alert-error-text); */
 }
 
 .sidedata-content{    
@@ -298,6 +296,9 @@ main{
     border: none;
     border-radius: 0.5rem;
 
+}
+.submit-btn:hover, .sidedata-list-item:hover, .add-element:hover{
+    box-shadow: 0.3em 0.3em 0.3em -0.2em rgba(0,0,0,0.75);
 }
 /*------------ iconos ------------- */
 

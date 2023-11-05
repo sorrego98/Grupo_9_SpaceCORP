@@ -1,11 +1,54 @@
 /*--------- Modales ------*/
-
-.image-dimention{
-    width: 100%;
-    height: auto;
+.modal-content {
+    width: clamp(30rem,80%,50rem);
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
 }
 
-.form{    
+.title-modal {
+    position: relative;
+}
+
+.modal-content .box-title * {
+    color: var(--main-white);
+}
+
+.close {
+    position: absolute;
+    right: 1rem;
+    top: 25%;
+    font-size: 3rem;
+    cursor: pointer;
+}
+
+.image-container{
+    width: 100%;
+    height: fit-content;
+    max-height: 26rem;
+    
+}
+
+.show-image{
+    width: 100%;
+    height: 100%;
+}
+
+.box-title *{
+    color: var(--main-white);
+}
+
+.form-container {
+    width: 100%;
+    background: var(--main-blue50);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem;
+}
+
+/* .form{    
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -13,117 +56,66 @@
     justify-content: center;
     gap: 0.5em;
 }
-
+*/
 .subitem{
     display: flex;
     flex-direction: column;
     gap: 0.2em;
     width: 100%;
+} 
+
+#userPass, #userPassConfirm{
+    border-top-right-radius: 0rem;
+    border-bottom-right-radius: 0rem;
+
 }
 
-.center-title{    
-    font-weight: bold;
+.viewPass, .viewPassConfirm{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
 }
 
-.form-input{
-    border: 0;
-    border-radius: 0.4em;
+.icon-click{
+    background: var(--main-blue);
+    border: none;
+    padding-inline: 1rem;
+    border-top-right-radius: 0.5rem;
+    border-bottom-right-radius: 0.5rem;
+    display: grid;
+    place-items: center;
 }
 
-.form-input:focus{
-    outline: none;
-    border: 0.2em solid var(--main-blue90);
+.icon-click:hover{
+    background: var(--main-blue90);
 }
 
-.form-input:active{
-    outline: none;
-    border: 0.2em solid var(--main-orange);
-}
-
-.form-input, .form-button{
-    height: 3em;
+.icon-click i{
+    color: var(--main-white);
+    font-size: 1.6rem;
 }
 
 /*--------- Cuerpo ------*/
-
-.canva{
-    display: flex;
-    flex-direction: column;
-    gap: 1em;
-    width: 100%;
-    height: 100%;
-
-}
-.user-data{
-    display: flex;
-    gap:2em;
-    height: 100%;
-
-}
-
-.user-data > section{
-    height: 100%;
-    width: 100%;
-    background: var(--main-red);
-}
-
-.user-card{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: clamp(20em,100%,35em);
-    height: auto;
-    
-}
-main > section > aside{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-
-}
-
-.token-data{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap:1em;
-    padding: 1em;
-    height: 100%;
-    background: var(--main-blue50);
-    border-radius: 0.5em;
-}
-
-.token-image{
-    border-radius: 50%;
-    border: 2em solid var(--main-blue50);
-    margin-bottom:-1em;
-}
-
-.token-image > img{
-    width: 100%;
-    display: block;
-}
-
 .token-row{
     display: flex;
     flex-direction: row;
     border-radius: 0.25em;
     width: 100%;
-    height: clamp(2em, 3em, 4em);
+    height: 4rem;
     text-transform: uppercase;
     justify-content: flex-start;
     background: var(--main-white);
 }
 
 .token-row:hover{
-    height: 3.5em;
     box-shadow: 0.3em 0.3em 0.3em -0.2em rgba(0,0,0,0.75);
 }
 
 .token-element{
     display: grid;
     place-items: center;
-    border: 0.10em solid var(--main-gray90);
+    border: 0.1rem solid var(--main-gray90);
     background: var(--main-gray50);
     color: var(--main-black);
     height: 100%;
@@ -131,7 +123,11 @@ main > section > aside{
     padding: 0.2em;
 }
 
-
+.token-row:hover .token-element{
+    color: var(--main-white);
+    background: var(--main-blue90);
+    border: 0.1rem solid var(--main-blue);
+}
 
 .token-info{
     display: grid;
@@ -146,18 +142,32 @@ main > section > aside{
     padding: 0.2em;
 }
 
-.btn-row{
-    width: clamp(45%,50%,70%);
-    height: 2em;
-    font-size: large;
+.btn-contain{
+    width: 100%;
+    height: fit-content;
+    display: flex;
+    flex-direction: row;
+    gap: 0.5rem;
+    flex-wrap: nowrap;
 }
 
-.edit-btn{
-    text-transform: uppercase;
+.submit-btn{
+    margin: 0rem;
     width: 100%;
     height: 100%;
-    
+    border-radius: 0rem;
+}
 
+#edit-profile{
+    border-bottom-left-radius: 0.5rem;
+}
+
+#edit-password{
+    border-bottom-right-radius: 0.5rem;
+}
+
+.sidedata-content{
+    height: fit-content;
 }
 
 .btn-row:hover{

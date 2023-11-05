@@ -5,6 +5,15 @@ const products = document.querySelectorAll(".products");
 const modal = document.getElementById("productModal");
 const productAll = document.getElementById("product-data");
 const modalContent = document.querySelector(".modal-content");
+let productData;
+
+document.addEventListener("DOMContentLoaded", () => {
+  const productAll = document.getElementById("product-data");
+    productData = JSON.parse(productAll.getAttribute("data-products"));
+    const parentElement = productAll.parentElement;
+    parentElement.removeChild(productAll);
+  console.log("Valor de productData:", productData);
+});
 
 // Variables para almacenar los índices
 let categoryIndex = -1;
@@ -54,7 +63,7 @@ products.forEach((product, index) => {
             console.error("Debes hacer clic en un elemento antes de mostrar el modal.");
             return;
         }
-        const productData = JSON.parse(productAll.getAttribute("data-products"));
+        
         const category = productData[categoryIndex];
         const subcategory = category.subcategories[subcategoryIndex];
         const clickedProduct = subcategory.products[productIndex];
