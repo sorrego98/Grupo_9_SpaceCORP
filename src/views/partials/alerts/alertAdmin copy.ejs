@@ -1,0 +1,41 @@
+<% if (typeof(locals.responseData) !== "undefined") { console.log("entre")%>
+    <div class="show-alerts">
+      <% locals.responseData.forEach(msg => { console.log("estoy en el foreach")%>
+        <div class="alert <%= msg.success ? 'bg-success' : 'bg-alert' %>">
+          <div class="contain-icon <%= msg.success ? 'success-icon' : 'err-icon' %>">
+            <i class="fa-solid <%= msg.success ? 'fa-circle-check' : 'fa-circle-xmark' %>"></i>
+          </div>
+          <div class="msg-show">
+            <div>
+              <span class="highlight <%= msg.success ? 'success-text' : 'err-text' %>">Mensaje:</span>
+              <p class="<%= msg.success ? 'success-text' : 'err-text' %>"><%= msg.message %></p>
+            </div>
+          </div>
+        </div>
+      <% }) %>
+    </div>
+  <% } %>
+
+  <div>
+    <% if (typeof(locals.responseData) !== "undefined") { console.log("entre")%>
+        <div class="show-alerts">
+          <% locals.responseData.forEach(msg => { console.log("estoy en el foreach")%>
+            <div class="alert <%= msg.success ? 'bg-success' : 'bg-alert' %>">
+              <div class="contain-icon <%= msg.success ? 'success-icon' : 'err-icon' %>">
+                <i class="fa-solid <%= msg.success ? 'fa-circle-check' : 'fa-circle-xmark' %>"></i>
+              </div>
+              <div class="msg-show">
+                <div>
+                  <span class="highlight <%= msg.success ? 'success-text' : 'err-text' %>">Mensaje:</span>
+                  <p class="<%= msg.success ? 'success-text' : 'err-text' %>"><%= msg.message %></p>
+                </div>
+              </div>
+            </div>
+          <% }) %>
+        </div>
+      <% }else{
+        console.log("no entre", typeof(locals.responseData),"\n-----------------------------\n")  
+        console.log(locals)  
+      } %>
+
+</div>

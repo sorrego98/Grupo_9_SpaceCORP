@@ -1,16 +1,22 @@
-<div class="show-alerts">
-    <% if (locals.cookie && locals.cookie.responseData) { %>
-      <% locals.cookie.responseData.forEach(msg => { %>
+<div>
+<% console.log(JSON.stringify(locals))
+if (typeof(responseData) !== "undefined") { %>
+    <div class="show-alerts">
+        <% responseData.forEach(msg => { %>
         <div class="alert <%= msg.success ? 'bg-success' : 'bg-alert' %>">
-          <div class="contain-icon <%= msg.success ? 'success-icon' : 'err-icon' %>">
+            <div class="contain-icon <%= msg.success ? 'success-icon' : 'err-icon' %>">
             <i class="fa-solid <%= msg.success ? 'fa-circle-check' : 'fa-circle-xmark' %>"></i>
-          </div>
-          <div class="msg-show">
-            <div>
-              <span class="highlight <%= msg.success ? 'success-text' : 'err-text' %>">Mensaje:</span> <p class="<%= msg.success ? 'success-text' : 'err-text' %>"><%= msg.message %></p>
             </div>
-          </div>
+            <div class="msg-show">
+                <div>
+                    <span class="highlight <%= msg.success ? 'success-text' : 'err-text' %>">Mensaje:</span>
+                    <p class="<%= msg.success ? 'success-text' : 'err-text' %>"><%= msg.message %></p>
+                </div>
+            </div>
         </div>
-      <% }) %>
-    <% } %>
-  </div>
+        <% }) %>
+    </div>
+<% } else{
+    console.log("no entre")
+}%>
+</div>

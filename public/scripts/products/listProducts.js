@@ -65,7 +65,7 @@ products.forEach((product, index) => {
         const productPrice = document.getElementById("productPrice");
 
         productTitle.textContent = clickedProduct.name;
-        productImage.src = "/db-images/products/products/" + clickedProduct.image;
+        productImage.src = "/db-images/products/" + clickedProduct.image;
         productDescription.textContent = clickedProduct.description;
         productPrice.textContent = (
             clickedProduct.price == null 

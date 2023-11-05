@@ -67,7 +67,7 @@ const controlAPI = {
                 break;
 
             case 'SUBCATEGORY':
-                db.SubCategory.findAll({ include: [{ association: 'categories' }] })                
+                db.SubCategory.findAll({ include: [{ association: 'category' }] })                
                     .then(subCat => {
                         let data = subCat.map ( subCat => {
                             return {
@@ -76,8 +76,8 @@ const controlAPI = {
                                 description: subCat.description,
                                 imageSubcategory: 'http://localhost:' + PORT + '/db-images/products/subcategories/' + subCat.image,
                                 category: {
-                                    id: subCat.categories.id,
-                                    name: subCat.categories.name,
+                                    id: subCat.category.id,
+                                    name: subCat.category.name,
                                 },
                                 // detail: 'http://localhost:' + PORT + '/api/'+ method + '/' + subCat.id,                    
                             }
@@ -243,7 +243,6 @@ const controlAPI = {
     detailData: (req, res) => {
         let idConsult = req.params.id
         let method = req.params.method
-        console.log(idConsult, method)
         switch (method.toUpperCase()) {
 
             case 'GALLERY':

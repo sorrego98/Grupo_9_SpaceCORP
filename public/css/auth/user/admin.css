@@ -93,7 +93,7 @@
 }
 
 thead{
-    border-block: 0.2rem solid black;
+    border: 0.2rem solid black;
     background: var(--main-blue);
 }
 
@@ -103,7 +103,7 @@ thead > tr > th {
 } 
 
 tbody{
-    border-block: 0.2rem solid black;
+    border: 0.2rem solid black;
     background: var(--main-white);
 }
 
@@ -181,6 +181,69 @@ td > i{
     position: inherit;
 }
 
+.list-element{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+
+}
+
+.delete-element{
+    background: var(--alert-error-icon)!important;
+}
+
+.delete-form-container{
+    background: var(--alert-error-bg)!important;
+}
+
+/* .delete-form-container *{
+    color: var(--main-white);
+} */
+ 
+#list-keyvalues *{
+    font-size: 1.6rem;
+    /* color: var(--main-white)!important; */
+} 
+#list-keyvalues{
+    background: var(--alert-error-text);
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    text-align: left;
+    text-wrap: balance;
+}
+
+.show-btns{
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+    justify-content: space-evenly;
+}
+.submit-btn{
+    padding: 1rem 5rem!important;
+    margin: 0rem!important;
+    margin-inline: 0rem!important;
+    display: inline;
+}
+
+.accept{
+    background: var(--alert-error-icon)!important;
+    border: 0.2rem solid var(--alert-error-bg);
+}
+
+.reject{
+    background: var(--alert-success-icon)!important;
+    border: 0.2rem solid var(--alert-success-bg);
+}
+
+#memberImage, #galleryImage, #productImage{
+    width: 100%;
+    max-height: 30rem;
+}
 @media (max-width:599px) {
     
     .box-title{

@@ -36,7 +36,7 @@
     --alert-error-icon: #C40113;
     --alert-error-text: #B75F62;
     --alert-error-bg: #FFD1D9;
-    --alert-success-icon: #63C266;
+    --alert-success-icon: #3FB456;
     --alert-success-text: #87B088;
     --alert-success-bg: #ADE8AF;
 }
@@ -442,20 +442,10 @@ div > .highlight{
 .success-text{
     color: var(--alert-success-text);
 }
-/*
-.err-btn{
-    background: var(--alert-error-btn);
+
+.fa-rectangle-xmark:hover{
+    color: var(--main-orange)!important;
 }
-
-.err-btn:hover{
-    background: var(--alert-error-icon);
-    color: var(--main-white);    
-}
-.err-text-icon{
-    color: var(--alert-error-text);
-
-} */
-
 
 @media (max-width:599px) {
     

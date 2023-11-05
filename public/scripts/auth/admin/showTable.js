@@ -1,94 +1,87 @@
-const mainContain = document.querySelector(".main-container")
-const tableData = document.querySelector(".maindata-content")
-const noMainData = document.querySelector(".no-maindata")
-const subtContain = document.querySelector(".subtitle-maindata")
-const subTable = document.getElementById("subtitle-table")
-const tableBody = document.getElementById("table-content")
-var dataTable
-
+const mainContain = document.querySelector(".main-container");
+const tableData = document.querySelector(".maindata-content");
+const noMainData = document.querySelector(".no-maindata");
+const subtContain = document.querySelector(".subtitle-maindata");
+const subTable = document.getElementById("subtitle-table");
+const tableBody = document.getElementById("table-content");
+const sideDataItems = document.querySelectorAll(".sidedata-list-item");
 const URLBase = window.location.origin;
+var dataTable;
 
-const btnStaff = document.getElementById("btn-staff")
-btnStaff.addEventListener("click", e =>{
-    let table = "Staff"
-    showData()
-    formatTable(btnStaff)
-    retrieveData(e, table, table)    
-})
+sideDataItems.forEach(item => {
+  item.addEventListener("click", e => {
+      let table;
+      let method;
 
-const btnGallery = document.getElementById("btn-gallery")
-btnGallery.addEventListener("click", e =>{
-    let table = "Galería"
-    showData()
-    formatTable(btnGallery)
-    retrieveData(e, table, "galeria")    
-})
+      switch (item.id) {
+        case "btn-staff":
+          table = "Staff";
+          method = "staff";
+          break;
 
-const btnProds = document.getElementById("btn-prods")
-btnProds.addEventListener("click", e =>{
-    let table = "Producciones"
-    showData()
-    formatTable(btnProds)
-    retrieveData(e, table, table)    
-})
+        case "btn-gallery":
+          table = "Galería";
+          method = "galeria";
+          break;
+          
+        case "btn-prods":
+          table = "Producciones";
+          method = "Producciones";
+          break;
+          
+        case "btn-cats":
+          table = "Categorías";
+          method = "categorias";
+          break;
+          
+        case "btn-subcats":
+          table = "Subcategorías";
+          method = "subcats";
+          break;
+          
+        case "btn-products":
+          table = "Productos";
+          method = "Productos";
+          break;
+          
+        case "btn-price":
+          table = "Tipos de Precio";
+          method = "precios";
+          break;
+          
+        case "btn-users":
+          table = "Usuarios";
+          method = "Usuarios";
+          break;
+          
+        case "btn-type-users":
+          table = "Roles de Usuarios";
+          method = "roles";
+          break;
 
-const btnCats = document.getElementById("btn-cats")
-btnCats.addEventListener("click", e =>{
-    let table = "Categorías"
-    showData()
-    formatTable(btnCats)
-    retrieveData(e, table, "categorias")
-})
+        default:
+            table = null
+            method = null
+          break;
+      }
 
-const btnSubCats = document.getElementById("btn-subcats")
-btnSubCats.addEventListener("click", e =>{
-    let table = "Subcategorías"
-    showData()
-    formatTable(btnSubCats)
-    retrieveData(e, table, "subcats")    
-})
+      if (table && method) {
+        showData();
+        formatTable(item);
+        retrieveData(e, table, method);
+      }
+  });
+});
 
-const btnProducts = document.getElementById("btn-products")
-btnProducts.addEventListener("click", e =>{
-    let table = "Productos"
-    showData()
-    formatTable(btnProducts)
-    retrieveData(e, table, table)    
-})
-
-const btnPrice = document.getElementById("btn-price")
-btnPrice.addEventListener("click", e =>{
-    let table = "Tipos de Precio"
-    showData()
-    formatTable(btnPrice)
-    retrieveData(e, table, "precios")    
-})
-
-const btnUsers = document.getElementById("btn-users")
-btnUsers.addEventListener("click", e =>{
-    let table = "Usuarios"
-    showData()
-    formatTable(btnUsers)
-    retrieveData(e, table, table)    
-})
-
-const btnTypeUsers = document.getElementById("btn-type-users")
-btnTypeUsers.addEventListener("click", e =>{
-    let table = "Roles de Usuarios"
-    showData()
-    formatTable(btnTypeUsers)
-    retrieveData(e, table, "roles")    
-})
-
-function formatTable (obj){
-    const allBtns = document.querySelectorAll(".sidedata-list-item")
-    allBtns.forEach ( obj => {obj.style.background = "var(--main-blue)"})
-    obj.style.background = "var(--main-orange)"
-    let countElements = tableBody.childElementCount
-    if (countElements > 1){
-        tableBody.removeChild(tableBody.lastElementChild)
-    }
-
+function formatTable(obj) {
+  sideDataItems.forEach((item) => {
+    item.style.background = "var(--main-blue)";
+  });
+  obj.style.background = "var(--main-orange)";
+  let countElements = tableBody.childElementCount;
+  if (countElements > 1) {
+    tableBody.removeChild(tableBody.lastElementChild);
+  }
 }
 
 function retrieveData (e, table, method) {
@@ -130,23 +123,20 @@ function retrieveData (e, table, method) {
                 
                 td = document.createElement("td")
                 let icon = document.createElement("i")
-                icon.classList.add("fa-solid")
-                icon.classList.add("fa-eye")
+                icon.classList.add("fa-solid" , "fa-eye")
                 td.appendChild(icon)
                 tr.appendChild(td)
                 
                 td = document.createElement("td")
                 icon = document.createElement("i")
-                icon.classList.add("fa-solid")
-                icon.classList.add("fa-pencil")
+                icon.classList.add("fa-solid" , "fa-pencil")
                 td.appendChild(icon)
                 tr.appendChild(td)
                 tableList.appendChild(tr)
                 if(countElements == 5){
                     td = document.createElement("td")
                     icon = document.createElement("i")
-                    icon.classList.add("fa-solid")
-                    icon.classList.add("fa-trash")
+                    icon.classList.add("fa-solid" , "fa-trash")
                     td.appendChild(icon)
                     tr.appendChild(td)
                     tableList.appendChild(tr)
@@ -176,35 +166,8 @@ function showData(){
     }    
 }
 
-const btnAddElement = document.querySelector(".add-element");
-btnAddElement.addEventListener("click", () => {
-    
-    const selectedTable = subTable.innerHTML;
-    const modalName = selectedTable.toLowerCase();
-    
-    fetch("/mostrarModal/" + modalName)
-        .then((response) => response.text())
-        .then((modalContent) => {
-            const mainElement = document.querySelector('main');
-            
-            const modalContainer = document.createElement("div");
-            modalContainer.classList.add('modal');
-            modalContainer.innerHTML = modalContent;
-
-            document.body.insertBefore(modalContainer, mainElement);
-
-            const titleTable = document.getElementById("title-table");
-            titleTable.innerHTML = "Agregar " + selectedTable;
-        })
-        .catch(error => {
-            console.error("Error en la solicitud fetch:", error);
-        });
-});
-
-
-
-document.addEventListener('click', (event) => {
-    if (event.target.classList.contains('close')) {
+document.addEventListener('click', e => {
+    if (e.target.classList.contains('close')) {
         const modal = document.querySelector('.modal');
         if (modal) {
             document.body.removeChild(modal);

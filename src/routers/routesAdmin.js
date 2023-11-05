@@ -2,6 +2,7 @@ const express = require("express");
 const router = express.Router();
 const controlAdmin = require('../control/controlAdmin');
 const controlMain = require('../control/controlMain');
+const controlUpdate = require('../control/controlUpdates');
 const controlUser = require("../control/controlUser");
 // const authMiddleware = require('../middlewares/auth/SignOn');
 const adminMiddleware = require('../middlewares/adminMiddleware');
@@ -28,7 +29,8 @@ router.get("/products/products/detail-product/:id", controlAdmin.adminProducts.d
 
 // Create COMPLETO
 /*------------------- show interface to add elements to tables -------------------*/
-router.post("/create/staff", uploadMember.single('imageMember'), validateCreations, controlAdmin.adminProducts.creates.staff); // Create Category (get)
+router.post("/create/staff", uploadMember.single('imageMember'), validateCreations, controlUpdate.creates.staff); // Create Category (get)
+router.post("/destroy", controlUpdate.destroy); // Create Category (get)
 router.get("/products/categories/add-category",  controlAdmin.adminProducts.adds.Categories); // Create Category (get)
 router.get("/products/priceType/add-price",  controlAdmin.adminProducts.adds.Prices); // Create Price Type (get)
 router.get("/products/subcategories/add-subcategory",  controlAdmin.adminProducts.adds.Subcategories); // Create Subcategory (get)

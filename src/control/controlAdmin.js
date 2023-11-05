@@ -1,52 +1,12 @@
 const path = require("path");
 const fs = require("fs");
-let controlMain = require('./controlMain');
 const db = require('../database/models');
 const { validationResult } = require('express-validator');
 
 const adminProducts = {
     generalAdmon: (req, res) => {
+        req.session.responseData = {responseData:{ status : 'error', message : 'Error al crear un miembro'}};
         res.render('./auth/admin/adminView');
-    },
-    creates: {
-        staff: (req, res) => {
-            const errors = validationResult(req);
-        
-            if (!errors.isEmpty()) { 
-                const responseData = {
-                    success: false,
-                    message: 'Elemento no pudo ser creado',
-                    errors: errors.array() 
-                };
-                res.cookie('responseData', JSON.stringify(responseData));
-                return res.redirect("/admin");
-            }
-        
-            db.Member.create({
-                name: req.body.memberName,
-                jobName: req.body.memberPosition,
-                image: req.file.filename,
-                instagramName: req.body.memberIG,
-                instagramUrl: req.body.memberIGURL
-            })
-            .then(() => {
-                const responseData = {
-                    success: true,
-                    message: 'Elemento creado con éxito'
-                };
-                res.cookie('responseData', JSON.stringify(responseData));
-                return res.redirect("/admin");
-            })
-            .catch(error => {
-                const responseData = {
-                    success: false,
-                    message: 'Error desconocido',
-                    error: error
-                };
-                res.cookie('responseData', JSON.stringify(responseData));
-                return res.redirect("/admin");
-            });
-        }  
     },
     lists:{
         Categories: (req, res) => {
