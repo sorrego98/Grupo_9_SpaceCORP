@@ -172,6 +172,7 @@ main section div.suma-total{
 
 main div.finalizar{
   padding-top: 10px;
+  padding-bottom:10px;
   display: flex;
   width: 400px;
   justify-content: right;
@@ -261,18 +262,4 @@ li {
   position: relative;
   padding: 0px;
 }
-
-.resumen{
-  height: 60%;
-  }
-  
-  
-  main div.finalizar{
-    height: 40%;
-    padding-bottom: 20px;
-  }
-
-  .continuar{
-    height: 40%;
-  }
 }
