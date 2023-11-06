@@ -168,9 +168,6 @@ function showData(){
 
 document.addEventListener('click', e => {
     if (e.target.classList.contains('close')) {
-        const modal = document.querySelector('.modal');
-        if (modal) {
-            document.body.removeChild(modal);
-        }
+        closeModal()
     }
 });

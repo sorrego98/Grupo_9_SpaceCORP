@@ -161,12 +161,15 @@ td > i{
 
 .form-container {
     width: 100%;
+    max-height: 50vh;
     background: var(--main-blue50);
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 1rem;
     padding: 1rem;
+    overflow: hidden;
+    overflow-y: scroll;
 }
 
 .subitem{
@@ -175,10 +178,6 @@ td > i{
     flex-direction: column;
     gap: 0.3rem;
     align-items: flex-start;
-}
-
-.form-input{
-    position: inherit;
 }
 
 .list-element{
@@ -240,11 +239,15 @@ td > i{
     border: 0.2rem solid var(--alert-success-bg);
 }
 
-#memberImage, #galleryImage, #productImage{
+#memberImage, #galleryImage, #productImage, #userImage{
     width: 100%;
     max-height: 30rem;
 }
 
+.alert-container{
+    position: absolute;
+    top: 1rem; right: 1rem;
+}
 @media (max-width:599px) {
     
     .box-title{

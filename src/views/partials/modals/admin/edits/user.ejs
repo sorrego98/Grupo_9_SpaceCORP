@@ -1,0 +1,44 @@
+<div class="modal-content">
+    <div class="box-title border-top title-modal">
+        <h2 id="title-table">texto titulo</h2>
+        <i class="fa-regular fa-rectangle-xmark close"></i>
+    </div>    
+    <form class="form-container border-bottom" id="edit-form" enctype="multipart/form-data" method="POST" action="/admin/edit/user">
+        <div class="subitem">
+            <strong class="center-title">Avatar actual</strong>
+            <img id="userImage" src="#" alt="">
+            <strong class="center-title">Cambiar avatar</strong>
+            <input type="file" name="userImage" id="userImage">
+        </div>
+        <div class="subitem">
+            <strong class="center-title">Nombre</strong>
+            <input type="text" name="userFirstName" id="userFirstName" class="form-input-text" required placeholder="Ingrese el primer nombre">
+        </div>
+        
+        <div class="subitem">
+            <strong class="center-title">Apellido</strong>
+            <input type="text" name="userLastName" id="userLastName" class="form-input-text" required placeholder="Ingrese el primer apellido">
+        </div>
+        
+        <div class="subitem">
+            <strong class="center-title">Nombre de Usuario</strong>
+            <input type="text" name="userName" id="userName" class="form-input-text" required placeholder="Ingresa el username">
+        </div>
+        
+        <div class="subitem">
+            <strong class="center-title">Email</strong>
+            <input type="text" name="userEmail" id="userEmail" class="form-input form-dimention" required placeholder="Ingresa el email">
+        </div>
+
+        <div class="subitem">
+            <strong class="center-title">Rol</strong>
+            <select id ="select-row">
+                
+            </select>
+        </div>
+        
+        <div class="subitem">
+            <button type="submit" name="add-item" class="submit-btn">Actualizar</button>
+        </div>        
+    </form>
+</div>

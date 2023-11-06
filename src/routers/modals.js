@@ -9,6 +9,10 @@ router.get('/show/:modalName', (req, res) => {
     const modalName = req.params.modalName;
     res.render('partials/modals/admin/shows/' + modalName);
 });
+router.get('/edit/:modalName', (req, res) => {
+    const modalName = req.params.modalName;
+    res.render('partials/modals/admin/edits/' + modalName);
+});
 router.get('/destroy', (req, res) => {
     res.render('partials/modals/admin/destroy');
 });
