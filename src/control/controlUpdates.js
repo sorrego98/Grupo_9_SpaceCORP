@@ -519,6 +519,48 @@ module.exports = {
             console.log(JSONResponse)
             res.json(JSONResponse);
         },  
+        subcats: async (req, res) => {
+            const errors = validationResult(req);
+            const JSONResponse = {};
+            const { id, subCategoryName, subCategoryDescription, selectCategory } = req.body;
+            
+            const subCat = { name: subCategoryName, description: subCategoryDescription, catId: selectCategory};
+            console.log(subCat)
+            if (errors.isEmpty()) {
+                try {
+                    const exist = await db.SubCategory.findByPk(id);
+
+                    if (exist){
+                        try{
+                            const staffResult = await db.SubCategory.update(subCat, { where: { id } });
+                            if (staffResult[0] === 0) {
+                                JSONResponse.success = true;
+                                JSONResponse.data =[{ status: "warning", message: "No realizaste cambios." }];
+                            } else {                                
+                                JSONResponse.data = [{ status: "success", message: "Registro actualizado con éxito." }];
+                            }
+                        } catch (error) {
+                            JSONResponse.success = false;
+                            JSONResponse.errors = ["Error al actualizar el registro: " + error.message];
+                        }
+                    }else{
+                        JSONResponse.success = false;
+                        JSONResponse.data =[{ status: "error", message: "El ID " + id + " parece no existir." }];
+                    }
+                
+                    
+                } catch (error) {
+                    JSONResponse.success = false;
+                    JSONResponse.errors = ["Error al actualizar el registro: " + error.message];
+                }
+
+            } else {
+                JSONResponse.success = false;
+                JSONResponse.errors = errors.array();
+            }
+            console.log(JSONResponse)
+            res.json(JSONResponse);
+        },  
         
     }
 };

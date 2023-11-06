@@ -13,14 +13,14 @@ const tables = {
 };
 const methods = {
     "staff": {button: "btn-staff", method: "staff"},
+    "categorías": {button: "btn-cats", method: "categorias"},
+    "tipos de precio": {button: "btn-price", method: "precios"},
     "galería": {button: "btn-gallery", method: "galeria"},
     "producciones": {button: "btn-prods", method: "producciones"},
-    "categorías": {button: "btn-cats", method: "categorias"},
+    "roles de usuarios": {button: "btn-type-users", method: "roles"},
     "subcategorías": {button: "btn-subcats", method: "subcats"},
     "productos": {button: "btn-products", method: "productos"},
-    "tipos de precio": {button: "btn-price", method: "precios"},
     "usuarios": {button: "btn-users", method: "users"},
-    "roles de usuarios": {button: "btn-type-users", method: "roles"}
 };
 const fieldMappings = {
     staff: {
@@ -78,16 +78,14 @@ document.body.addEventListener("click", e => {
     tableBody.addEventListener("click", e => {
         rowIndex = e.target.closest("tr").rowIndex - 1;
     })
+    
     if (e.target.classList.contains("fa-eye")) {
         showViewElement()
-    }else if (e.target.classList.contains("fa-pencil")){
+    }
+    else if (e.target.classList.contains("fa-pencil")){
         showEditableElement()    
         
     }
-    // else if (e.target.classList.contains("add-element")){
-    //     showEditableElement()    
-        
-    // }
     else if (e.target.classList.contains("fa-trash")){
         showDeletableElement()    
         
@@ -100,9 +98,12 @@ document.body.addEventListener("click", e => {
         e.preventDefault() 
         updateSingleElement();
         // closeModal();
-    }else if (e.target.classList.contains("create")) {
-        // closeModal();
     }
+    // else if (e.target.classList.contains("create")) {
+    //     console.log("entre")
+    //     e.preventDefault() 
+    //     createSingleElement()    
+    // }
 });
 
 async function showEditableElement () {
@@ -130,16 +131,16 @@ async function showEditableElement () {
     
     switch(modalName){
         case "subcategory":        
-            assignSelectors("select-category", "category", rowData)
+            assignSelectors("selectCategory", "category", rowData.catId)
             
         break;
         case "user":
-            assignSelectors("select-role", "roles", rowData)
+            assignSelectors("selectRole", "roles", rowData.roles.id)
 
         break;
         case "product":
-            assignSelectors("select-subcategory", "subcategory", rowData)
-            assignSelectors("select-typeprice", "precios", rowData)
+            assignSelectors("selectSubcategory", "subcategory", rowData.subCatId)
+            assignSelectors("selectTypeprice", "precios", rowData.priceId)
         break;
     }
     assignModal(rowData, modalName);
@@ -162,6 +163,99 @@ async function showDeletableElement () {
     
     }
 }
+// async function createSingleElement() {
+//     const forms = document.querySelectorAll('.pass-element');
+//     const modalName = selectedTable.innerHTML.toLowerCase();
+//     let method = methods[modalName].method;
+//     let btn = methods[modalName].button;
+//     let listButton = document.getElementById(btn)
+//     let contentType;
+//     const bodyData = {id: dataTable[rowIndex].id};
+
+//     forms.forEach((form) => {
+//         const fieldId = form.id;
+//         if (form.type === "file") {
+//             // Si es un campo de archivo, agrega el archivo al FormData
+//             contentType = "multipart/form-data";
+//             const fileInput = document.getElementById(fieldId);
+//             if (fileInput.files.length > 0) {
+//                 bodyData[fieldId] = fileInput.files[0];
+//             }
+//         } else {
+//             // Si no es un campo de archivo, agrega el valor al cuerpo de la solicitud
+//             bodyData[fieldId] = form.value;
+//         }
+//     });
+//     if (contentType === "multipart/form-data") {
+//         // Crear un objeto FormData y agregar los campos al FormData
+//         const formData = new FormData();
+//         for (const field in bodyData) {
+//             formData.append(field, bodyData[field]);
+//         }
+
+//         // Realizar la solicitud con FormData
+//         try {
+//             const response = await fetch("/mostrarModal/create/" + method, {
+//                 method: "POST",
+//                 body: formData,
+//             });
+//             if (response.ok) {
+//                 const jsonResponse = await response.json();
+                
+//                 if (jsonResponse.length> 0) {
+//                   closeModal();
+//                   jsonResponse.data.map( message => alert(message.message));  
+//                   formatTable(listButton)          
+//                   retrieveData(modalName, method);      
+//                 } else {
+//                     closeModal();
+//                     jsonResponse.errors.map( message => alert(message.message));
+//                     formatTable(listButton)
+//                     retrieveData(modalName, method);
+//                 }
+//             } else {
+//               closeModal();
+//               alert ("Error de red: \n\n" + response.statusText + "\n\nPor favor, reintente.");
+//             }
+//           } catch (error) {
+//               closeModal();
+//               alert ('Error de red:', error);
+//           }
+//     } else {
+//         // Realizar la solicitud con JSON
+//         contentType = "application/json";
+//         try {
+//             const response = await fetch("/mostrarModal/create/" + method, {
+//                 method: "POST",
+//                 headers: {
+//                     "Content-Type": contentType,
+//                 },
+//                 body: JSON.stringify(bodyData),
+//             });
+
+//             if (response.ok) {     
+//                 const jsonResponse = await response.json();
+//                 if (jsonResponse.data.length > 0) {
+//                     closeModal();
+//                     jsonResponse.data.map( message => alert(message.message));  
+//                     formatTable(listButton)          
+//                     retrieveData(modalName, method);      
+//                 } else {
+//                     closeModal();
+//                     jsonResponse.errors.map( message => alert(message.message));
+//                     formatTable(listButton)
+//                     retrieveData(modalName, method);
+//                 }
+//             } else {
+//             //   closeModal();
+//             //   alert ("Error de red: \n\n" + response.statusText + "\n\nPor favor, reintente.");
+//             }
+//           } catch (error) {
+//               closeModal();
+//               alert ('Error de red:', error);
+//           }
+//     }
+// }
 async function updateSingleElement() {
     const forms = document.querySelectorAll('.pass-element');
     const modalName = selectedTable.innerHTML.toLowerCase();
@@ -223,7 +317,6 @@ async function updateSingleElement() {
     } else {
         // Realizar la solicitud con JSON
         contentType = "application/json";
-        console.log(bodyData)
         try {
             const response = await fetch("/mostrarModal/edition/" + method, {
                 method: "PUT",
@@ -419,7 +512,7 @@ function internalValue(obj, path) {
   
     return value;
 }
-async function assignSelectors (selector, method,rowData) {
+async function assignSelectors (selector, method ,rowData) {
     const parentToAppend = document.getElementById(selector);
     let URL_API = URLBase + "/api/" + method + "/all";
     try{
@@ -428,16 +521,16 @@ async function assignSelectors (selector, method,rowData) {
             handleFetchError(fetchResult.status);
             return;
         }
-
         if (fetchResult.ok){
             let response = await fetchResult.json();
             const dataList = response.data
             dataList.forEach((listData) => {
                 const optionElement = document.createElement("option");
                 optionElement.value = listData.id;
-                optionElement.textContent = listData.name;
-                if (listData.id === rowData.roleId) {
-                optionElement.selected = true;
+                
+                optionElement.textContent = method == "roles" ? listData.roleName :listData.name;
+                if (listData.id === rowData) {
+                    optionElement.selected = true;
                 }
                 parentToAppend.appendChild(optionElement);
             });

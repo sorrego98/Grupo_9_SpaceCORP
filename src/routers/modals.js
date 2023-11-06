@@ -41,7 +41,7 @@ router.put("/edition/precios", controlUpdate.updates.pricetype);
 router.put("/edition/producciones", controlUpdate.updates.productions); 
 router.put("/edition/roles", controlUpdate.updates.roles); 
 router.put("/edition/staff", uploadMember.single('memberNewImage'), controlUpdate.updates.staff); 
-// router.put("/edition/subcats", controlUpdate.updates.subcategory); 
+router.put("/edition/subcats", controlUpdate.updates.subcats); 
 // router.put("/edition/users", uploadUser.single('userNewImage'), controlUpdate.updates.user); 
 
 module.exports = router;
