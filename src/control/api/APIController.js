@@ -43,7 +43,7 @@ const controlAPI = {
                                             id: product.productprices.id,
                                             name: product.productprices.name
                                         },
-                                        imageProduct: 'http://localhost:' + PORT + '/db-images/'+ method + '/'+ method + '/' + product.image
+                                        imageProduct: 'http://localhost:' + PORT + '/db-images/'+ method +  '/' + product.image
                                         // detail: 'http://localhost:' + PORT + '/api/'+ method + '/' + product.id,
                                     }
                                 })
