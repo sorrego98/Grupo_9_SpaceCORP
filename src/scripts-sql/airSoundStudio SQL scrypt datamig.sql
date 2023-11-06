@@ -2,7 +2,7 @@
 INSERT INTO `roles` (`role_name`)  VALUES 
 ('ADMINISTRADOR'),('EMPLEADO'),('USUARIO');
 
-INSERT INTO `users` (`first_name`,`last_name`,`user_name`,`email`,`password`,`image_profile`,`role_id`) VALUES
+INSERT INTO `users` (`first_name`,`last_name`,`user_name`,`email`,`password`,`image`,`role_id`) VALUES
 ('Sebastián','Orrego','M.García','mg@gmail.com','$2a$10$w7X6Xdkx2yYUpfuX6lvKaO6XqgTCYQsp7iMyNM6dZ54V/mAs6p3sG','Marciano.png',1),
 ('Florencia','Guede','florguede','florenciaguede@gmail.com','$2a$10$ZjTDZd/8B4QakaPS9HNoO.P3cF0QHH/VeSBXUtfAshaX7OPb/WWc2','flor.jpg',2),
 ('Carlos','Echegaray','carloseche','carlos.charlex@gmail.com','$2a$10$Bi/JviMO/LYmrEwkOaRJBeFXd0kQSVUv1csyO9qn5Me3xKEVQUzEa','missing.jpg',2),
@@ -35,7 +35,7 @@ INSERT INTO `sub_categories`  (`name`,`description`, `cat_id`)  values
 'Haz realidad tu proyecto musical sin necesidad de tener musicos propios. Obtén grabaciones profesionales sin complicaciones. ¡Deja que nuestro equipo haga realidad tu musica!'
 ,3), -- 5
 ('Captura de Instrumentos',
-'Contamos con un equipo experto y equipos de grabacion de última generación. Confíaa en nosotros para capturar tu sonido de manera excepcional.'
+'Contamos con un equipo experto y equipos de grabacion de última generación. Confía en nosotros para capturar tu sonido de manera excepcional.'
 ,4), -- 6 
 ('Captura de Voces',
 'Nuestro servicio de grabación de audio te ofrece resultados profesionales y de alta calidad. '

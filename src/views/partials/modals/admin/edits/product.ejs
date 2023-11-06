@@ -1,0 +1,39 @@
+<div class="modal-content">
+    <div class="box-title border-top title-modal">
+        <h2 id="title-table">texto titulo</h2>
+        <i class="fa-regular fa-rectangle-xmark close"></i>
+    </div>    
+    <form class="form-container border-bottom" id="edit-form" enctype="multipart/form-data" method="PUT" action="/mostrarModal/edit/user">
+        <div class="subitem">
+            <strong class="center-title">Imagen actual</strong>
+            <img id="productImage" src="#" alt="">
+            <strong class="center-title">Cambiar imagen</strong>
+            <input type="file" name="productImage" id="productNewImage" class="pass-element">
+        </div>
+        <div class="subitem">
+            <strong class="center-title">Nombre</strong>
+            <input type="text" name="productName" id="productName" class="form-input-text pass-element" required placeholder="Ingrese nuevo nombre de producto">
+        </div>
+        <div class="subitem">
+            <strong class="center-title">Descripción</strong>
+            <input type="text" name="productDescription" id="productDescription" class="form-input-text pass-element" required placeholder="Ingrese nueva descripción de producto">
+        </div>
+        <div class="subitem">
+            <strong class="center-title">Sub Categoría</strong>
+            <select id ="select-subcategory" class="pass-element">                
+            </select>
+        </div>        
+        <div class="subitem">
+            <strong class="center-title">Precio (USD)</strong>
+            <input type="text" name="productPrice" id="productPrice" class="form-input-text pass-element">
+        </div>        
+        <div class="subitem">
+            <strong class="center-title">Tipo de Costo</strong>
+            <select id ="select-typeprice" class="pass-element">                
+            </select>
+        </div>
+        <div class="subitem">
+            <button type="submit" name="add-item" class="submit-btn update">Actualizar</button>
+        </div>        
+    </form>
+</div>

@@ -7,7 +7,6 @@ const PORT = parseInt(process.env.PORT);
 const controlAPI = {
     listData: function (req, res) {
         let method = req.params.method
-        
         switch (method.toUpperCase()) {
             case 'CATEGORY':
                 db.Category.findAll()
@@ -25,7 +24,6 @@ const controlAPI = {
                 })
                 .catch(error => res.status(400).send("Error presente: " + error));
                 break;
-
             case 'PRODUCTS':
                 db.SubCategory.findAll()
                     .then( subCat => {
@@ -65,7 +63,6 @@ const controlAPI = {
                     })
                     .catch(error => res.status(400).send({error: "no existen subcategorias, por tanto, no existen productos"}));
                 break;
-
             case 'SUBCATEGORY':
                 db.SubCategory.findAll({ include: [{ association: 'category' }] })                
                     .then(subCat => {
@@ -91,7 +88,6 @@ const controlAPI = {
                     .catch(error => res.status(400).send("Error presente: " + error));
                 ;
                 break;
-
             case 'PRODUCTPRICE':
                 db.ProductPrice.findAll()
                     .then(productPrice => {
@@ -109,7 +105,6 @@ const controlAPI = {
                     })                    
                     .catch(error => res.status(400).send("Error presente: " + error));
                 break;
-
             case 'ROLES':
                 db.Roles.findAll()
                     .then(roles => {
@@ -127,7 +122,6 @@ const controlAPI = {
                     })      
                     .catch(error => res.status(400).send("Error presente: " + error));      
                 break;
-
             case 'USERS':
                 db.Users.findAll({ include: [{ association: 'roles' }] })
                     .then(users => {
@@ -138,8 +132,8 @@ const controlAPI = {
                                 lastName: user.lastName,
                                 userName: user.userName,
                                 email: user.email,
-                                imageProfile: 'http://localhost:' + PORT + '/db-images/'+ method + '/' + user.imageProfile
-                                // detail: 'http://localhost:' + PORT + '/api/'+ method + '/' + user.id
+                                image: 'http://localhost:' + PORT + '/db-images/'+ method + '/' + user.image,
+                                detail: 'http://localhost:' + PORT + '/api/'+ method + '/' + user.id
                             }
                         })
                         
@@ -150,7 +144,6 @@ const controlAPI = {
                     })     
                     .catch(error => res.status(400).send("Error presente: " + error));
                 break;
-
             case 'PRODUCTIONS':
                 db.Production.findAll()
                     .then(prods => {
@@ -170,7 +163,6 @@ const controlAPI = {
                     })     
                     .catch(error => res.status(400).send("Error presente: " + error));
                 break;
-                
             case 'MEMBERS':
                 db.Member.findAll()
                 .then(members => {
@@ -181,8 +173,8 @@ const controlAPI = {
                             jobTitle: member.jobName,
                             instagramName: member.instagramName,
                             instagramUrl: member.instagramUrl,
-                            imageProfile: 'http://localhost:' + PORT + '/db-images/home/'+ method + '/' + member.image
-                            // detail: 'http://localhost:' + PORT + '/api/'+ method + '/' + member.id,
+                            image: 'http://localhost:' + PORT + '/db-images/home/'+ method + '/' + member.image,
+                            detail: 'http://localhost:' + PORT + '/api/'+ method + '/' + member.id
                         }
                     })
                     
@@ -193,7 +185,6 @@ const controlAPI = {
                 })     
                 .catch(error => res.status(400).send("Error presente: " + error));
             break;
-
             case 'GALLERY':
                 db.Galery.findAll()
                     .then(photos => {
@@ -212,7 +203,6 @@ const controlAPI = {
                     })     
                     .catch(error => res.status(400).send("Error presente: " + error));
                 break;
-
             // case 'USERCART':
             //     db.UserCart.findAll()
             //         .then(reqData => res.send(reqData))
@@ -244,7 +234,6 @@ const controlAPI = {
         let idConsult = req.params.id
         let method = req.params.method
         switch (method.toUpperCase()) {
-
             case 'GALLERY':
             case 'GALERIA':
                 if (idConsult.toUpperCase() == "ALL"){
@@ -256,8 +245,7 @@ const controlAPI = {
                 }else{
                     res.send("La API que intenta consulta, no existe");
                 }
-                break;
-                
+                break;               
             case 'PRODUCTPRICE':
             case 'PRECIOS':
                 if (idConsult.toUpperCase() == "ALL"){
@@ -270,7 +258,6 @@ const controlAPI = {
                     res.send("La API que intenta consulta, no existe");
                 }
                 break;
-
             case 'ROLES':
                 if (idConsult.toUpperCase() == "ALL"){
                     db.Roles.findAll()
@@ -282,7 +269,6 @@ const controlAPI = {
                     res.send("La API que intenta consulta, no existe");
                 }
                 break;
-                    
             case 'CATEGORY':
             case 'CATEGORIAS':
                 if (idConsult.toUpperCase() == "ALL"){
@@ -295,7 +281,6 @@ const controlAPI = {
                     res.send("La API que intenta consulta, no existe");
                 }
                 break;
-
             case 'PRODUCTS':
             case 'PRODUCTOS':
                 if (idConsult.toUpperCase() == "ALL"){
@@ -307,27 +292,30 @@ const controlAPI = {
                 }else{
                     db.Products.findByPk(idConsult, { include: [{ association: 'subcategories' }, { association: 'productprices' }] })
                         .then(product => {
-                            return res.status(200).json({
-                                data: {
-                                    name: product.name,
-                                    description: product.description,
-                                    price: product.price,
-                                    PriceType: {
-                                        id: product.productprices.id,
-                                        name: product.productprices.name
-                                    },
-                                    subcategory: {
-                                        id: product.subcategories.id,
-                                        name: product.subcategories.name
-                                    },
-                                    imageProduct: 'http://localhost:' + PORT + '/db-images/'+ method + '/'+ method + '/' + product.image
-                                }
-                            })
+                            if(product){
+                                return res.status(200).json({
+                                    data: {
+                                        name: product.name,
+                                        description: product.description,
+                                        price: product.price,
+                                        PriceType: {
+                                            id: product.productprices.id,
+                                            name: product.productprices.name
+                                        },
+                                        subcategory: {
+                                            id: product.subcategories.id,
+                                            name: product.subcategories.name
+                                        },
+                                        imageProduct: 'http://localhost:' + PORT + '/db-images/'+ method + '/'+ method + '/' + product.image
+                                    }
+                                })
+                            }else{
+                                return res.status(400).json({message: "el objeto solicitado no existe"})
+                            }
                         })
-                        .catch(error => res.status(400).send("Error presente: " + error));
+                        .catch(error => res.status(500).json({message: "error de BDD\n" + error }));
                 }
                 break;
-
             case 'SUBCATEGORY':
             case 'SUBCATS':
                 if (idConsult.toUpperCase() == "ALL"){
@@ -340,22 +328,25 @@ const controlAPI = {
                     console.log(idConsult)
                     db.SubCategory.findByPk(idConsult, { include: [{ association: 'category' }] })                    
                         .then(subCat => {
-                            console.log(subCat)
-                            return res.status(200).json({
-                                data: {
-                                    name: subCat.name,
-                                    description: subCat.description,
-                                    category: {
-                                        id: subCat.category.id,
-                                        name: subCat.category.name,
+                            if (subCat){
+                                console.log(subCat)
+                                return res.status(200).json({
+                                    data: {
+                                        name: subCat.name,
+                                        description: subCat.description,
+                                        category: {
+                                            id: subCat.category.id,
+                                            name: subCat.category.name,
+                                        }
                                     }
-                                }
-                            })
+                                })
+                            }else{
+                                return res.status(400).json({message: "el objeto solicitado no existe"})
+                            }
                         })
-                        .catch(error => res.status(400).send("Error presente: " + error));
+                        .catch(error => res.status(500).json({message: "error de BDD\n" + error }));
                 }
                 break;
-
             case 'USERS':
             case 'USUARIOS':
                 if (idConsult.toUpperCase() == "ALL"){
@@ -367,20 +358,23 @@ const controlAPI = {
                 }else{
                     db.Users.findByPk(idConsult)
                         .then(user => {
-                            return res.status(200).json({
-                                data: {
-                                    name: user.firstName,
-                                    lastName: user.lastName,
-                                    userName: user.userName,
-                                    email: user.email,
-                                    imageProfile: 'http://localhost:' + PORT + '/db-images/'+ method + '/' + user.imageProfile,
-                                }
-                            })
+                            if (user){
+                                return res.status(200).json({
+                                    data: {
+                                        name: user.firstName,
+                                        lastName: user.lastName,
+                                        userName: user.userName,
+                                        email: user.email,
+                                        image: 'http://localhost:' + PORT + '/db-images/'+ method + '/' + user.image,
+                                    }
+                                })
+                            }else{
+                                return res.status(400).json({message: "el objeto solicitado no existe"})
+                            }
                         })
-                        .catch(error => res.status(400).send("Error presente: " + error));
+                        .catch(error => res.status(500).json({message: "error de BDD\n" + error }));
                 }
                 break;
-
             case 'PRODUCTIONS':
             case 'PRODUCCIONES':
                 if (idConsult.toUpperCase() == "ALL"){
@@ -392,18 +386,22 @@ const controlAPI = {
                 }else{
                     db.Production.findByPk(idConsult)
                         .then(production => {
-                            return res.status(200).json({
-                                data: {
-                                    name: production.songTitle,
-                                    artist: production.artistName,
-                                    url: production.youtubeUrl
-                                }
-                            })
+                            
+                            if (user){
+                                return res.status(200).json({
+                                    data: {
+                                        name: production.songTitle,
+                                        artist: production.artistName,
+                                        url: production.youtubeUrl
+                                    }
+                                })
+                            }else{
+                                return res.status(400).json({message: "el objeto solicitado no existe"})
+                            }
                         })
-                        .catch(error => res.status(400).send("Error presente: " + error));
+                        .catch(error => res.status(500).json({message: "error de BDD\n" + error }));
                 }
                 break;
-
             case 'MEMBERS':
             case 'STAFF':
                 if (idConsult.toUpperCase() == "ALL"){
@@ -415,23 +413,25 @@ const controlAPI = {
                 }else{
                     db.Member.findByPk(idConsult)
                         .then(member => {
-                            return res.status(200).json({
-                                data: {
-                                    name: member.name,
-                                    jobTitle: member.jobName,
-                                    instagramName: member.instagramName,
-                                    instagramUrl: member.instagramUrl,
-                                    imageProfile: 'http://localhost:' + PORT + '/db-images/home/'+ method + '/' + member.image,
-                                }
-                            })
+                            if (member){
+                                return res.status(200).json({
+                                    data: {
+                                        name: member.name,
+                                        jobTitle: member.jobName,
+                                        instagramName: member.instagramName,
+                                        instagramUrl: member.instagramUrl,
+                                        image: 'http://localhost:' + PORT + '/db-images/home/'+ method + '/' + member.image,
+                                    }
+                                })
+                            }else{
+                                return res.status(400).json({message: "el objeto solicitado no existe"})
+                            }
                         })
-                        .catch(error => res.status(400).send("Error presente: " + error));
+                        .catch(error => res.status(500).json({message: "error de BDD\n" + error }));
                 }
                 break;
-
             default:
                 res.send("La API que intenta consulta, no existe");
-
         }
     }
 };

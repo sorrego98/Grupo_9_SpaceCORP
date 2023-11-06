@@ -39,7 +39,7 @@ mainElement.addEventListener('submit', async e => {
         formData.append('image', fileInput.files[0]);
 
         try {
-            const response = await fetch('/admin/create/staff', {
+            const response = await fetch('/mostrarModal/create/staff', {
                 method: 'POST',
                 body: formData
             });

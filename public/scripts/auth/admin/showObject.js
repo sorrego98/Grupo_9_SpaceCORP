@@ -11,13 +11,24 @@ const tables = {
     "usuarios": "user",
     "roles de usuarios": "role",
 };
-
+const methods = {
+    "staff": {button: "btn-staff", method: "staff"},
+    "galería": {button: "btn-gallery", method: "galeria"},
+    "producciones": {button: "btn-prods", method: "producciones"},
+    "categorías": {button: "btn-cats", method: "categorias"},
+    "subcategorías": {button: "btn-subcats", method: "subcats"},
+    "productos": {button: "btn-products", method: "productos"},
+    "tipos de precio": {button: "btn-price", method: "precios"},
+    "usuarios": {button: "btn-users", method: "users"},
+    "roles de usuarios": {button: "btn-type-users", method: "roles"}
+};
 const fieldMappings = {
     staff: {
       memberName: "name",
       memberPosition: "jobName",
       memberIG: "instagramName",
       memberIGURL: "instagramUrl",
+      memberImage: "image",
       memberImage: "image",
     },
     gallery: {
@@ -50,12 +61,13 @@ const fieldMappings = {
       priceTypeName: "name",
     },
     user: {
-      userImage: "imageProfile",
+      userImage: "image",
       userFirstName: "firstName",
       userLastName: "lastName",
       userEmail: "email",
       userRole: "roles.roleName",
       userName: "userName",
+      userPassword: "[ENCRYPTED]"
     },
     role: {
       roleName: "roleName",
@@ -71,19 +83,31 @@ document.body.addEventListener("click", e => {
     }else if (e.target.classList.contains("fa-pencil")){
         showEditableElement()    
         
-    }else if (e.target.classList.contains("fa-trash")){
+    }
+    // else if (e.target.classList.contains("add-element")){
+    //     showEditableElement()    
+        
+    // }
+    else if (e.target.classList.contains("fa-trash")){
         showDeletableElement()    
         
-    }else if (e.target.classList.contains("accept")) {        
+    }else if (e.target.classList.contains("delete")) {     
+        e.preventDefault() 
         destroySingleElement();
     }else if (e.target.classList.contains("reject")) {
         closeModal();
+    }else if (e.target.classList.contains("update")) {
+        e.preventDefault() 
+        updateSingleElement();
+        // closeModal();
+    }else if (e.target.classList.contains("create")) {
+        // closeModal();
     }
 });
 
 async function showEditableElement () {
-    
-    let modalName = tables[selectedTable.innerHTML.toLowerCase()];
+    let title = selectedTable.innerHTML.toLowerCase()
+    let modalName = tables[title];
     if (!modalName) {
         console.error("Tabla no reconocida.");
         return;
@@ -100,10 +124,25 @@ async function showEditableElement () {
         createModal(viewModal);
         const titleElement = document.getElementById("title-table");
         titleElement.textContent = "Editando el ID " + rowData.id;
-        assignModal(rowData, modalName);
     } catch (error) {
         handleFetchError(error);
     }
+    
+    switch(modalName){
+        case "subcategory":        
+            assignSelectors("select-category", "category", rowData)
+            
+        break;
+        case "user":
+            assignSelectors("select-role", "roles", rowData)
+
+        break;
+        case "product":
+            assignSelectors("select-subcategory", "subcategory", rowData)
+            assignSelectors("select-typeprice", "precios", rowData)
+        break;
+    }
+    assignModal(rowData, modalName);
 }
 async function showDeletableElement () {
     const rowData = dataTable[rowIndex];
@@ -123,33 +162,134 @@ async function showDeletableElement () {
     
     }
 }
+async function updateSingleElement() {
+    const forms = document.querySelectorAll('.pass-element');
+    const modalName = selectedTable.innerHTML.toLowerCase();
+    let method = methods[modalName].method;
+    let btn = methods[modalName].button;
+    let listButton = document.getElementById(btn)
+    let contentType;
+    const bodyData = {id: dataTable[rowIndex].id};
+
+    forms.forEach((form) => {
+        const fieldId = form.id;
+        if (form.type === "file") {
+            // Si es un campo de archivo, agrega el archivo al FormData
+            contentType = "multipart/form-data";
+            const fileInput = document.getElementById(fieldId);
+            if (fileInput.files.length > 0) {
+                bodyData[fieldId] = fileInput.files[0];
+            }
+        } else {
+            // Si no es un campo de archivo, agrega el valor al cuerpo de la solicitud
+            bodyData[fieldId] = form.value;
+        }
+    });
+    if (contentType === "multipart/form-data") {
+        // Crear un objeto FormData y agregar los campos al FormData
+        const formData = new FormData();
+        for (const field in bodyData) {
+            formData.append(field, bodyData[field]);
+        }
+
+        // Realizar la solicitud con FormData
+        try {
+            const response = await fetch("/mostrarModal/edition/" + method, {
+                method: "PUT",
+                body: formData,
+            });
+            if (response.ok) {
+                const jsonResponse = await response.json();
+                
+                if (jsonResponse.length> 0) {
+                  closeModal();
+                  jsonResponse.data.map( message => alert(message.message));  
+                  formatTable(listButton)          
+                  retrieveData(modalName, method);      
+                } else {
+                    closeModal();
+                    jsonResponse.errors.map( message => alert(message.message));
+                    formatTable(listButton)
+                    retrieveData(modalName, method);
+                }
+            } else {
+              closeModal();
+              alert ("Error de red: \n\n" + response.statusText + "\n\nPor favor, reintente.");
+            }
+          } catch (error) {
+              closeModal();
+              alert ('Error de red:', error);
+          }
+    } else {
+        // Realizar la solicitud con JSON
+        contentType = "application/json";
+        console.log(bodyData)
+        try {
+            const response = await fetch("/mostrarModal/edition/" + method, {
+                method: "PUT",
+                headers: {
+                    "Content-Type": contentType,
+                },
+                body: JSON.stringify(bodyData),
+            });
+
+            if (response.ok) {     
+                const jsonResponse = await response.json();
+                if (jsonResponse.data.length > 0) {
+                    closeModal();
+                    jsonResponse.data.map( message => alert(message.message));  
+                    formatTable(listButton)          
+                    retrieveData(modalName, method);      
+                } else {
+                    closeModal();
+                    jsonResponse.errors.map( message => alert(message.message));
+                    formatTable(listButton)
+                    retrieveData(modalName, method);
+                }
+            } else {
+            //   closeModal();
+            //   alert ("Error de red: \n\n" + response.statusText + "\n\nPor favor, reintente.");
+            }
+          } catch (error) {
+              closeModal();
+              alert ('Error de red:', error);
+          }
+    }
+}
 async function destroySingleElement () {
     const rowData = dataTable[rowIndex];
     let modalName = selectedTable.innerHTML.toLowerCase();
+    let method = methods[modalName].method;
+    let btn = methods[modalName].button;
+    let listButton = document.getElementById(btn)
     let objectData = { id: rowData.id, table: modalName };
   
     try {
-      const response = await fetch('/admin/destroy', {
+      const response = await fetch('/mostrarModal/destroy', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify(objectData),
       });
-  
       if (response.ok) {
-        const jsonResponse = await response.json();
-  
-        if (jsonResponse.success) {
+          const jsonResponse = await response.json();
+          
+          if (jsonResponse.success) {
             closeModal();
-            jsonResponse.data.map( message => alert(message.message));
+            jsonResponse.data.map( message => alert(message.message));  
+            formatTable(listButton)          
+            retrieveData(modalName, method);
+
         } else {
             closeModal();
             jsonResponse.errors.map( message => alert(message.message));
+            formatTable(listButton)
+            retrieveData(modalName, method);
         }
       } else {
         closeModal();
-        alert ('Error de red: ' + response.statusText);
+        alert ("Error de red: \n\n" + response.statusText + "\n\nPor favor, reintente.");
       }
     } catch (error) {
         closeModal();
@@ -174,6 +314,16 @@ async function showViewElement () {
         const titleElement = document.getElementById("title-table");
         titleElement.textContent = "Mostrando el ID " + rowData.id;
         assignModal(rowData, modalName);
+        if(modalName == "product"){
+                const cost = document.getElementById("productCost");
+                const price = document.getElementById("productPrice");
+                const type = document.getElementById("productPriceType");
+                const newContent = price.textContent !== "" ? price.textContent + " / " + type.textContent : type.textContent;
+                cost.value = newContent
+                const parentAll = price.parentNode
+                parentAll.removeChild(price)
+                parentAll.removeChild(type)
+        }
 
     } catch (error) {
         handleFetchError(error);
@@ -191,78 +341,43 @@ function assignModal(selectedItem, type) {
         console.error("Tipo no reconocido.");
         return;
     }
+    
     for (const field in fieldMapping) {
         const element = document.getElementById(field);
         if (element) {
-          const value = deepValue(selectedItem, fieldMapping[field]);
-          element.textContent = value;
-          if (field === "userPassword") {
-            element.textContent = "[DECRYPTED]"; // Cambia la contraseña en caso de que no esté encriptada
-          } else if (field === "userImage") {
-            element.src = `/db-images/users/${value}`;
-          }
+            const value = internalValue(selectedItem, fieldMapping[field]);
+            element.textContent = value;
+            switch (field) {
+                case "userImage":
+                    element.src = "/db-images/users/" + value;
+                    element.value = value;
+                break;
+                case "productImage":
+                    element.src = "/db-images/products/" + value;
+                    element.value = value;
+                break;
+                case "memberImage":
+                    element.src = "/db-images/home/members/" + value;
+                    element.value = value;
+                break;
+                case "galleryImage":
+                    element.src = "/db-images/home/galery/" + value;
+                    element.value = value;
+                break;
+                case "userPassword":
+                    element.value = "[ENCRYPTED]";
+                    element.style.border = "none";
+                break;
+                case "productStatus":
+                    element.value = value ? "activo" : "inactivo";
+                    element.style.border = "none";
+                break;
+                default:
+                    element.value = value;
+                    element.style.border = "none";
+            }
         }
     }
-    switch(type){
-        case "staff":
-            document.getElementById("memberName").textContent = selectedItem.name;
-            document.getElementById("memberPosition").textContent = selectedItem.jobName;
-            document.getElementById("memberIG").textContent = selectedItem.instagramName;
-            document.getElementById("memberIGURL").textContent = selectedItem.instagramUrl;
-            document.getElementById("memberImage").src = "/db-images/home/members/" + selectedItem.image;
-        break;
-
-        case "gallery":
-            document.getElementById("galleryName").textContent = selectedItem.name;
-            document.getElementById("galleryImage").src = "/db-images/home/galery/" + selectedItem.image;
-        break;
-        
-        case "productions":
-            document.getElementById("productionTitle").textContent = selectedItem.songTitle;
-            document.getElementById("productionArtist").textContent = selectedItem.artistName;
-            document.getElementById("productionYTUrl").textContent = selectedItem.youtubeUrl;
-            document.getElementById("refYT").href = selectedItem.youtubeUrl;
-            break;
-
-        case "category":
-            document.getElementById("categoryName").textContent = selectedItem.name;
-        break;
-
-        case "subcategory":
-            document.getElementById("subCategoryName").textContent = selectedItem.name;
-            document.getElementById("subCategoryDescription").textContent = selectedItem.description;
-            document.getElementById("subCategoryCategory").textContent = selectedItem.category.name;
-        break;
-        
-        case "product":
-            document.getElementById("productName").textContent = selectedItem.name;
-            document.getElementById("productDescription").textContent = selectedItem.description;
-            document.getElementById("productPrice").textContent = selectedItem.price == null ? "" : selectedItem.price + " USD / ";
-            document.getElementById("productSubCategory").textContent = selectedItem.subcategories.name;
-            document.getElementById("productImage").src = "/db-images/products/" + selectedItem.image;
-            document.getElementById("productStatus").textContent = selectedItem.status ? "activo" : "inactivo";
-            document.getElementById("productPriceType").textContent = selectedItem.productprices.name;
-        break;
-        
-        case "pricetype":
-            document.getElementById("priceTypeName").textContent = selectedItem.name;
-        break;
-        
-        case "user":
-            document.getElementById("userImage").src = "/db-images/users/" + selectedItem.imageProfile;
-            document.getElementById("userFirstName").textContent = selectedItem.firstName;
-            document.getElementById("userLastName").textContent = selectedItem.lastName;
-            document.getElementById("userEmail").textContent = selectedItem.email;
-            document.getElementById("userRole").textContent = selectedItem.roles.roleName;
-            document.getElementById("userName").textContent = selectedItem.userName;
-            document.getElementById("userPassword").textContent = "[ENCRYPTED]";
-        break;
-        
-        case "role":
-            document.getElementById("roleName").textContent = selectedItem.roleName;
-        break;
-        
-        }
 }
 function closeModal () {
     const modal = document.querySelector('.modal');
@@ -271,7 +386,7 @@ function closeModal () {
     }
 }
 function handleFetchError (error) {
-    console.error("Error al cargar el contenido EJS: " + {error});
+    console.error("Error al cargar el contenido EJS: " + error);
 } 
 function createKeyValue (data) {
     const keyvalues = document.getElementById("list-keyvalues");
@@ -288,5 +403,51 @@ function createKeyValue (data) {
             itemKeyValue.appendChild(itemData);
             keyvalues.appendChild(itemKeyValue);
         }
+    }
+}
+function internalValue(obj, path) {
+    const keys = path.split('.');
+    let value = obj;
+  
+    for (const key of keys) {
+      if (value && typeof value === 'object' && key in value) {
+        value = value[key];
+      } else {
+        return undefined;
+      }
+    }
+  
+    return value;
+}
+async function assignSelectors (selector, method,rowData) {
+    const parentToAppend = document.getElementById(selector);
+    let URL_API = URLBase + "/api/" + method + "/all";
+    try{
+        const fetchResult = await fetch(URL_API)
+        if (!fetchResult.ok) {
+            handleFetchError(fetchResult.status);
+            return;
+        }
+
+        if (fetchResult.ok){
+            let response = await fetchResult.json();
+            const dataList = response.data
+            dataList.forEach((listData) => {
+                const optionElement = document.createElement("option");
+                optionElement.value = listData.id;
+                optionElement.textContent = listData.name;
+                if (listData.id === rowData.roleId) {
+                optionElement.selected = true;
+                }
+                parentToAppend.appendChild(optionElement);
+            });
+        }
+        else{                    
+            closeModal();
+            alert("no pudo mostrarse la información solicitada. Reintente más tarde.");
+        }
+    }
+    catch (error) {
+        handleFetchError(error);            
     }
 }

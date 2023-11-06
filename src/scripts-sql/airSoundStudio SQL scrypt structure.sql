@@ -19,7 +19,7 @@ CREATE TABLE `users` (
   `user_name` varchar(100) COLLATE utf8_unicode_ci NOT null,
   `email` varchar(100) COLLATE utf8_unicode_ci NOT null,
   `password` varchar(1000) COLLATE utf8_unicode_ci NOT null,
-  `image_profile` varchar(1000) COLLATE utf8_unicode_ci,
+  `image` varchar(1000) COLLATE utf8_unicode_ci,
   `role_id` int(10) unsigned NOT NULL,
   PRIMARY KEY (`id`),
   KEY `users_role_id_foreign` (`role_id`),

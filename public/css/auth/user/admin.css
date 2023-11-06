@@ -196,14 +196,17 @@ td > i{
     background: var(--alert-error-bg)!important;
 }
 
-/* .delete-form-container *{
-    color: var(--main-white);
-} */
- 
 #list-keyvalues *{
     font-size: 1.6rem;
-    /* color: var(--main-white)!important; */
 } 
+
+select {
+    width: 100%;
+    border: 0rem;
+    border-radius: 0.5rem;
+    height: 3.5rem;
+}
+
 #list-keyvalues{
     background: var(--alert-error-text);
     display: flex;
@@ -229,7 +232,7 @@ td > i{
     display: inline;
 }
 
-.accept{
+.delete{
     background: var(--alert-error-icon)!important;
     border: 0.2rem solid var(--alert-error-bg);
 }

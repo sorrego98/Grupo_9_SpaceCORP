@@ -26,7 +26,7 @@ module.exports = (sequelize, dataTypes) => {
             type: dataTypes.STRING(1000),
             allowNull: false
         },
-        imageProfile: {
+        image: {
             type: dataTypes.STRING(1000),
             allowNull: true
         },

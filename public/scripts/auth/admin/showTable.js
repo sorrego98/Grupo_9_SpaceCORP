@@ -6,70 +6,29 @@ const subTable = document.getElementById("subtitle-table");
 const tableBody = document.getElementById("table-content");
 const sideDataItems = document.querySelectorAll(".sidedata-list-item");
 const URLBase = window.location.origin;
-var dataTable;
+let dataTable = [];
 
-sideDataItems.forEach(item => {
-  item.addEventListener("click", e => {
-      let table;
-      let method;
+const tableInfo = {
+  "btn-staff": { table: "Staff", method: "staff" },
+  "btn-gallery": { table: "Galería", method: "galeria" },
+  "btn-prods": { table: "Producciones", method: "Producciones" },
+  "btn-cats": { table: "Categorías", method: "categorias" },
+  "btn-subcats": { table: "Subcategorías", method: "subcats" },
+  "btn-products": { table: "Productos", method: "Productos" },
+  "btn-price": { table: "Tipos de Precio", method: "precios" },
+  "btn-users": { table: "Usuarios", method: "Usuarios" },
+  "btn-type-users": { table: "Roles de Usuarios", method: "roles" },
+};
 
-      switch (item.id) {
-        case "btn-staff":
-          table = "Staff";
-          method = "staff";
-          break;
-
-        case "btn-gallery":
-          table = "Galería";
-          method = "galeria";
-          break;
-          
-        case "btn-prods":
-          table = "Producciones";
-          method = "Producciones";
-          break;
-          
-        case "btn-cats":
-          table = "Categorías";
-          method = "categorias";
-          break;
-          
-        case "btn-subcats":
-          table = "Subcategorías";
-          method = "subcats";
-          break;
-          
-        case "btn-products":
-          table = "Productos";
-          method = "Productos";
-          break;
-          
-        case "btn-price":
-          table = "Tipos de Precio";
-          method = "precios";
-          break;
-          
-        case "btn-users":
-          table = "Usuarios";
-          method = "Usuarios";
-          break;
-          
-        case "btn-type-users":
-          table = "Roles de Usuarios";
-          method = "roles";
-          break;
-
-        default:
-            table = null
-            method = null
-          break;
-      }
-
-      if (table && method) {
-        showData();
-        formatTable(item);
-        retrieveData(e, table, method);
-      }
+sideDataItems.forEach((item) => {
+  item.addEventListener("click", () => {
+    const tableInfoKey = item.id;
+    const { table, method } = tableInfo[tableInfoKey] || {};
+    if (table && method) {
+      showData();
+      formatTable(item);
+      retrieveData(table, method);
+    }
   });
 });
 
@@ -78,96 +37,93 @@ function formatTable(obj) {
     item.style.background = "var(--main-blue)";
   });
   obj.style.background = "var(--main-orange)";
-  let countElements = tableBody.childElementCount;
+  const countElements = tableBody.childElementCount;
   if (countElements > 1) {
     tableBody.removeChild(tableBody.lastElementChild);
   }
 }
 
-function retrieveData (e, table, method) {
-    let url = URLBase + "/api/" + method + "/all"
-    fetch(url)
-    .then(response => response.json())
-    .then(data => {
-        dataTable = data.data
-        if (typeof(data) !== 'undefined'){
-            subTable.innerHTML = table
-            noMainData.style.display = "none"
-            subtContain.style.display = "flex"
-            tableData.style.display = "flex"
-            let tableList = document.createElement("tbody")
-            let headColumns = document.getElementById("show-columns")
-            let countElements = headColumns.childElementCount
-            dataTable.forEach( element => {
-                let tr = document.createElement("tr")
-                
-                let td = document.createElement("td")
-                td.innerText = element.id
-                tr.appendChild(td)
-                
-                td = document.createElement("td")
-                switch(table.toUpperCase()){
-                    case "USUARIOS":
-                        td.innerText = element.firstName + " " + element.lastName
-                    break;
-                    case "ROLES DE USUARIOS":
-                        td.innerText = element.roleName
-                    break;
-                    case "PRODUCCIONES":
-                        td.innerText = element.songTitle
-                    break;
-                    default:
-                        td.innerText = element.name
-                }
-                tr.appendChild(td)
-                
-                td = document.createElement("td")
-                let icon = document.createElement("i")
-                icon.classList.add("fa-solid" , "fa-eye")
-                td.appendChild(icon)
-                tr.appendChild(td)
-                
-                td = document.createElement("td")
-                icon = document.createElement("i")
-                icon.classList.add("fa-solid" , "fa-pencil")
-                td.appendChild(icon)
-                tr.appendChild(td)
-                tableList.appendChild(tr)
-                if(countElements == 5){
-                    td = document.createElement("td")
-                    icon = document.createElement("i")
-                    icon.classList.add("fa-solid" , "fa-trash")
-                    td.appendChild(icon)
-                    tr.appendChild(td)
-                    tableList.appendChild(tr)
-                }
-                
-            })
-            tableBody.appendChild(tableList)
-        }
-    });
-}
+async function retrieveData(table, method) {
+  const url = URLBase + "/api/" + method + "/all";
 
-function showData(){
-    let band = false
- 
-    const allDivs = document.querySelectorAll(".search")
-    const noData = document.querySelector(".no-maindata")
-    allDivs.forEach ( div => {
-        if (div.classList.contains('maindata'))
-        {            
-            div.classList.remove('maindata')
-            band = true
-        }
-    })
-    if (band){            
-        noData.style.display = "none"
-        mainContain.style.background = "transparent"
-    }    
-}
-
-document.addEventListener('click', e => {
-    if (e.target.classList.contains('close')) {
-        closeModal()
+  try {
+    const response = await fetch(url);
+    if (!response.ok) {
+      throw new Error("Error de red (código " + response.status);
     }
+    const data = await response.json();
+
+    dataTable = data.data || [];
+    if (dataTable.length) {
+      subTable.textContent = table;
+      noMainData.style.display = "none";
+      subtContain.style.display = "flex";
+      tableData.style.display = "flex";
+      const tableList = document.createElement("tbody");
+      const headColumns = document.getElementById("show-columns");
+      const countElements = headColumns.childElementCount;
+
+      const createTd = (text) => {
+        const td = document.createElement("td");
+        td.innerText = text;
+        return td;
+      };
+
+      const createIconTd = (iconClass) => {
+        const td = document.createElement("td");
+        const icon = document.createElement("i");
+        icon.classList.add("fa-solid", iconClass);
+        td.appendChild(icon);
+        return td;
+      };
+
+      dataTable.forEach((element) => {
+        const tr = document.createElement("tr");
+        tr.appendChild(createTd(element.id));
+
+        let text = element.name;
+
+        if (table.toUpperCase() === "USUARIOS") {
+          text =  element.firstName + " " + element.lastName;
+        } else if (table.toUpperCase() === "ROLES DE USUARIOS") {
+          text = element.roleName;
+        } else if (table.toUpperCase() === "PRODUCCIONES") {
+          text = element.songTitle;
+        }
+
+        tr.appendChild(createTd(text));
+        tr.appendChild(createIconTd("fa-eye"));
+        tr.appendChild(createIconTd("fa-pencil"));
+
+        if (countElements === 5) {
+          tr.appendChild(createIconTd("fa-trash"));
+        }
+
+        tableList.appendChild(tr);
+      });
+
+      tableBody.appendChild(tableList);
+    }
+  } catch (error) {
+    console.error("Error al obtener datos:", error);
+  }
+}
+
+
+
+function showData() {
+  const allDivs = document.querySelectorAll(".search");
+  allDivs.forEach((div) => {
+    if (div.classList.contains("maindata")) {
+      div.classList.remove("maindata");
+      noData.style.display = "none";
+      mainContain.style.background = "transparent";
+    }
+  });
+}
+
+document.addEventListener("click", (e) => {
+  if (e.target.classList.contains("close")) {
+    closeModal();
+  }
 });

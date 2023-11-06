@@ -231,6 +231,12 @@ main{
     padding-inline: 1rem;
 }
 
+.form-input-text:disabled{
+    background: var(--main-blue);
+    color: var(--main-white);
+}
+
+
 /*------------ bordes ------------- */
 .border-left{
     border-top-left-radius: 0.5rem;
