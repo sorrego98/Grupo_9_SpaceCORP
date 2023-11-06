@@ -12,7 +12,7 @@ INSERT INTO `users` (`first_name`,`last_name`,`user_name`,`email`,`password`,`im
 
 INSERT INTO `categories` (`name`) VALUES 
 ('Clases'), -- 1
-('Espacios físicos'), -- 2
+('Espacios Físicos'), -- 2
 ('Grabación a Distancia'), -- 3
 ('Grabación de Audio'), -- 4
 ('Transcripciones'), -- 5
@@ -75,7 +75,7 @@ INSERT INTO `products` (`name`, `image` ,`description`, `price_id`, `price`, `st
 ('Captura de Instrumentos','c1.jpg','Si necesitas grabar instrumentos te brindamos asistencia tecnica y un entorno óptimo para lograr el mejor sonido posible',1,15.00,1,6),
 ('Captura de Voces','c2.jpg','Si necesitas grabar voces te brindamos asistencia tecnica y un entorno óptimo para lograr el mejor sonido posible',1,15.00,1,7),
 ('Foley','fx.jpg','Si necesitas grabar foley te brindamos asistencia tecnica y un entorno óptimo para lograr el mejor sonido posible',4,NULL,1,8),
-('Trancripción de Guiones Melódicos','trascripcion.jpg','Protege tus derechos de autor con nuestra transcripción de guiones melódicos. Convertimos tus melodías en partituras precisas y legibles para respaldar legalmente tu música. Confía en nosotros para obtener la documentación necesaria y proteger tu propiedad intelectual',5,15.00,1,9),
+('Transcripción de Guiones Melódicos','transcripcion.jpg','Protege tus derechos de autor con nuestra transcripción de guiones melódicos. Convertimos tus melodías en partituras precisas y legibles para respaldar legalmente tu música. Confía en nosotros para obtener la documentación necesaria y proteger tu propiedad intelectual',5,15.00,1,9),
 ('Producción Musical','pm.jpg','Confía en nosotros para llevar tu música al siguiente nivel y crear una producción que destaque!',4,NULL,1,10),
 ('Beatmaker','beatmaker.jpg','Crea ritmos profesionales con nuestro servicio de Beatmaker. Nuestro equipo de talentosos productores te brindará ritmos originales y de alta calidad que se ajusten a tu estilo musical. Personalizamos los beats según tus preferencias y los entregamos en formato de alta calidad. Eleva tu música con nuestros ritmos creativos y profesionales.',4,NULL,1,11),
 ('Masterización','masterizacion.jpg','Destaca con confianza en cada reproducción y deja que tu música brille con nuestro servicio de masterización',3,120.00,1,12),
