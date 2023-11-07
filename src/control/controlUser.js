@@ -63,15 +63,17 @@ module.exports = controlUser = {
     },
 
     createUser: (req, res) => {
+      console.log(req.body)
       let errors = validationResult(req);
       console.log(errors)
       if (errors.isEmpty()) {
-        const firstName = req.body.first_name;
-        const lastName = req.body.last_name;
-        const userName = req.body.user_name;
-        const password = bcrypt.hashSync(req.body.password, 10);
+        
+        const firstName = req.body.firstName;
+        const lastName = req.body.lastName;
+        const userName = req.body.userName;
+        const password = bcrypt.hashSync(req.body.userPass, 10);
         const email = req.body.email;
-        const imageProfile = req.file ? req.file.filename : ""
+        const image = req.file ? req.file.filename : ""
   
         /* valido si el mail está registrado */
         dbUser.findUser.ifEmailRegistered(email)
@@ -85,24 +87,29 @@ module.exports = controlUser = {
               lastName,
               userName,
               password,
-              email
+              email,
+              roleId : 3
             }
-
-            if (imageProfile){
-              newUser = newUser.map( key => {return {...key, imageProfile}})
+            console.log(newUser)
+            if (image){
+              newUser = newUser.map( key => {return {...key, image}})
             }
-
-            return  dbUser.CreateUser(newUser)
+            console.log(newUser)
+            return  dbUser.newUser(newUser)
               
           })
           .then((message) => {
-            return  res.redirect('/auth',{message});
+            
+            console.log(message)
+            return  res.redirect('/auth');
           })
           .catch((message) => {
-            return  res.redirect('/auth',{message});
+            console.log(message)
+            return  res.redirect('/auth');
           })
         
       }else{        
+        console.log("aqui está el problema")
         res.render(path.resolve(__dirname, '../views/auth/guest/login'),  {message: errors.errors})
   
       }
